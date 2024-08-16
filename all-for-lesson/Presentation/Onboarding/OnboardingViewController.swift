@@ -12,6 +12,9 @@ import RxSwift
 final class OnboardingViewController: BaseViewController {
     
     private let onboardingView = OnboardingView()
+    private let viewModel = OnboardingViewModel()
+    
+    private let disposeBag = DisposeBag()
     
     override func loadView() {
         view = onboardingView
@@ -19,8 +22,32 @@ final class OnboardingViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("온보딩 화면 진입")
+        bind()
     }
     
+    private func bind() {
+        let input = OnboardingViewModel.Input(studentTap: onboardingView.studentButton.rx.tap,
+                                              teacherTap: onboardingView.teacherButton.rx.tap,
+                                              loginTap: onboardingView.loginButton.rx.tap)
+        let output = viewModel.transform(input: input)
+        
+        output.studentTap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(StudentSignUpViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        output.teacherTap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(TeacherSignUpViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        output.loginTap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(LoginViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+    }
     
 }

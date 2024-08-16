@@ -7,9 +7,7 @@
 
 import Foundation
 
-protocol Base {
-    
+protocol BaseViewControllerProtocol {
     func setViewController()
     func setHierarchyLayout()
-    
 }

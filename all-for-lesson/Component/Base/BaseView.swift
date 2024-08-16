@@ -7,19 +7,16 @@
 
 import UIKit
 
-class BaseView: UIView, Base {
+class BaseView: UIView, BaseViewProtocol {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setViewController()
         setHierarchyLayout()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    func setViewController() { }
     
     func setHierarchyLayout() { }
     

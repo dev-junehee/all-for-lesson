@@ -25,7 +25,7 @@ final class OnboardingView: BaseView {
                                                      subTitle: Constant.Onboarding.teacherDescription,
                                                      color: Resource.Color.skyblue)
     
-    private let haveAccountLabel = BasicLabel().then {
+    private let haveAccountLabel = CommonLabel().then {
         $0.text = Constant.Onboarding.account
         $0.font = Resource.Font.regular14
     }
@@ -45,7 +45,7 @@ final class OnboardingView: BaseView {
         let safeArea = self.safeAreaLayoutGuide
         
         welcomeMessageLabel.snp.makeConstraints {
-            $0.top.equalTo(100)
+            $0.top.equalTo(safeArea)
             $0.horizontalEdges.equalTo(safeArea).inset(16)
             $0.height.equalTo(100)
         }
