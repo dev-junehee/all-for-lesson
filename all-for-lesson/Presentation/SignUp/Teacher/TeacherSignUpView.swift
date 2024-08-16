@@ -75,7 +75,7 @@ final class TeacherSignUpView: BaseView {
         nextButton.snp.makeConstraints {
             $0.top.equalTo(nickField.snp.bottom).offset(32)
             $0.horizontalEdges.equalTo(safeArea).inset(16)
-            $0.height.equalTo(44)
+            $0.height.equalTo(50)
         }
         
     }

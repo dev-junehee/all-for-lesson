@@ -60,6 +60,7 @@
 		C48063392C6F7954003FF7EE /* EmailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063382C6F7954003FF7EE /* EmailResponse.swift */; };
 		C48063402C6F8E11003FF7EE /* TeacherSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480633F2C6F8E11003FF7EE /* TeacherSignUpViewController.swift */; };
 		C48063422C6F8EE2003FF7EE /* TeacherSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063412C6F8EE2003FF7EE /* TeacherSignUpViewModel.swift */; };
+		C48063442C6F9078003FF7EE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063432C6F9078003FF7EE /* LoginView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		C48063382C6F7954003FF7EE /* EmailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailResponse.swift; sourceTree = "<group>"; };
 		C480633F2C6F8E11003FF7EE /* TeacherSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSignUpViewController.swift; sourceTree = "<group>"; };
 		C48063412C6F8EE2003FF7EE /* TeacherSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSignUpViewModel.swift; sourceTree = "<group>"; };
+		C48063432C6F9078003FF7EE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,6 +288,7 @@
 		C480630D2C6F2B0E003FF7EE /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				C48063432C6F9078003FF7EE /* LoginView.swift */,
 				C480630E2C6F2B23003FF7EE /* LoginViewController.swift */,
 			);
 			path = Login;
@@ -487,6 +490,7 @@
 				C48063242C6F55ED003FF7EE /* SignUpCase.swift in Sources */,
 				C480631E2C6F3013003FF7EE /* SignUpTextField.swift in Sources */,
 				C48063422C6F8EE2003FF7EE /* TeacherSignUpViewModel.swift in Sources */,
+				C48063442C6F9078003FF7EE /* LoginView.swift in Sources */,
 				C480631C2C6F2F1C003FF7EE /* BaseViewProtocol.swift in Sources */,
 				C48063032C6F23DD003FF7EE /* CommonLabel.swift in Sources */,
 				C48063012C6F1FCF003FF7EE /* OnboardingTypeButton.swift in Sources */,

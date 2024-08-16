@@ -9,9 +9,14 @@ import UIKit
 
 final class LoginViewController: BaseViewController {
     
+    private let loginView = LoginView()
+    
+    override func loadView() {
+        view = loginView
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("로그인 화면 진입")
     }
     
 }
