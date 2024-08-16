@@ -6,8 +6,16 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
-final class OnboardingViewController: UIViewController {
+final class OnboardingViewController: BaseViewController {
+    
+    private let onboardingView = OnboardingView()
+    
+    override func loadView() {
+        view = onboardingView
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

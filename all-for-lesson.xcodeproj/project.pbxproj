@@ -19,6 +19,26 @@
 		C48062D42C6F10E0003FF7EE /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062D32C6F10E0003FF7EE /* Base.swift */; };
 		C48062D72C6F10FE003FF7EE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062D62C6F10FE003FF7EE /* UIView+.swift */; };
 		C48062D92C6F11AD003FF7EE /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062D82C6F11AD003FF7EE /* Reusable.swift */; };
+		C48062DC2C6F1282003FF7EE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C48062DB2C6F1282003FF7EE /* SnapKit */; };
+		C48062DE2C6F12D0003FF7EE /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062DD2C6F12D0003FF7EE /* BaseView.swift */; };
+		C48062E12C6F1376003FF7EE /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = C48062E02C6F1376003FF7EE /* Then */; };
+		C48062E42C6F13C0003FF7EE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062E32C6F13C0003FF7EE /* Constant.swift */; };
+		C48062E72C6F13CB003FF7EE /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062E62C6F13CB003FF7EE /* Resource.swift */; };
+		C48062E92C6F14F4003FF7EE /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062E82C6F14F4003FF7EE /* UIColor+.swift */; };
+		C48062F42C6F178B003FF7EE /* Pretendard-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = C48062EB2C6F178B003FF7EE /* Pretendard-Light.otf */; };
+		C48062F52C6F178B003FF7EE /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C48062EC2C6F178B003FF7EE /* Pretendard-SemiBold.otf */; };
+		C48062F62C6F178B003FF7EE /* Pretendard-Thin.otf in Resources */ = {isa = PBXBuildFile; fileRef = C48062ED2C6F178B003FF7EE /* Pretendard-Thin.otf */; };
+		C48062F72C6F178B003FF7EE /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C48062EE2C6F178B003FF7EE /* Pretendard-Bold.otf */; };
+		C48062F82C6F178B003FF7EE /* Pretendard-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = C48062EF2C6F178B003FF7EE /* Pretendard-Black.otf */; };
+		C48062F92C6F178B003FF7EE /* Pretendard-ExtraLight.otf in Resources */ = {isa = PBXBuildFile; fileRef = C48062F02C6F178B003FF7EE /* Pretendard-ExtraLight.otf */; };
+		C48062FA2C6F178B003FF7EE /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = C48062F12C6F178B003FF7EE /* Pretendard-Regular.otf */; };
+		C48062FB2C6F178B003FF7EE /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = C48062F22C6F178B003FF7EE /* Pretendard-Medium.otf */; };
+		C48062FC2C6F178B003FF7EE /* Pretendard-ExtraBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C48062F32C6F178B003FF7EE /* Pretendard-ExtraBold.otf */; };
+		C48062FE2C6F1D25003FF7EE /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062FD2C6F1D25003FF7EE /* UIImage+.swift */; };
+		C48063012C6F1FCF003FF7EE /* OnboardingTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063002C6F1FCE003FF7EE /* OnboardingTypeButton.swift */; };
+		C48063032C6F23DD003FF7EE /* BasicLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063022C6F23DD003FF7EE /* BasicLabel.swift */; };
+		C48063062C6F286E003FF7EE /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C48063052C6F286E003FF7EE /* RxCocoa */; };
+		C48063082C6F286E003FF7EE /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C48063072C6F286E003FF7EE /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +56,22 @@
 		C48062D32C6F10E0003FF7EE /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		C48062D62C6F10FE003FF7EE /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		C48062D82C6F11AD003FF7EE /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		C48062DD2C6F12D0003FF7EE /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		C48062E32C6F13C0003FF7EE /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		C48062E62C6F13CB003FF7EE /* Resource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resource.swift; sourceTree = "<group>"; };
+		C48062E82C6F14F4003FF7EE /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		C48062EB2C6F178B003FF7EE /* Pretendard-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Light.otf"; sourceTree = "<group>"; };
+		C48062EC2C6F178B003FF7EE /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		C48062ED2C6F178B003FF7EE /* Pretendard-Thin.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Thin.otf"; sourceTree = "<group>"; };
+		C48062EE2C6F178B003FF7EE /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		C48062EF2C6F178B003FF7EE /* Pretendard-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Black.otf"; sourceTree = "<group>"; };
+		C48062F02C6F178B003FF7EE /* Pretendard-ExtraLight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraLight.otf"; sourceTree = "<group>"; };
+		C48062F12C6F178B003FF7EE /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		C48062F22C6F178B003FF7EE /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		C48062F32C6F178B003FF7EE /* Pretendard-ExtraBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-ExtraBold.otf"; sourceTree = "<group>"; };
+		C48062FD2C6F1D25003FF7EE /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		C48063002C6F1FCE003FF7EE /* OnboardingTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTypeButton.swift; sourceTree = "<group>"; };
+		C48063022C6F23DD003FF7EE /* BasicLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +79,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48063062C6F286E003FF7EE /* RxCocoa in Frameworks */,
+				C48062DC2C6F1282003FF7EE /* SnapKit in Frameworks */,
+				C48063082C6F286E003FF7EE /* RxSwift in Frameworks */,
+				C48062E12C6F1376003FF7EE /* Then in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +111,7 @@
 			children = (
 				C48062C22C6DD5AA003FF7EE /* Application */,
 				C48062C32C6DD5BA003FF7EE /* API */,
+				C48062E22C6F13AC003FF7EE /* Common */,
 				C48062CE2C6F107A003FF7EE /* Component */,
 				C48062D52C6F10EB003FF7EE /* Extenstion */,
 				C48062D22C6F10C9003FF7EE /* Protocol */,
@@ -128,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				C48062CF2C6F108B003FF7EE /* Base */,
+				C48062FF2C6F1FAA003FF7EE /* CustomView */,
 			);
 			path = Component;
 			sourceTree = "<group>";
@@ -135,6 +177,7 @@
 		C48062CF2C6F108B003FF7EE /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				C48062DD2C6F12D0003FF7EE /* BaseView.swift */,
 				C48062D02C6F10C5003FF7EE /* BaseViewController.swift */,
 			);
 			path = Base;
@@ -152,9 +195,46 @@
 		C48062D52C6F10EB003FF7EE /* Extenstion */ = {
 			isa = PBXGroup;
 			children = (
+				C48062E82C6F14F4003FF7EE /* UIColor+.swift */,
+				C48062FD2C6F1D25003FF7EE /* UIImage+.swift */,
 				C48062D62C6F10FE003FF7EE /* UIView+.swift */,
 			);
 			path = Extenstion;
+			sourceTree = "<group>";
+		};
+		C48062E22C6F13AC003FF7EE /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				C48062EA2C6F176C003FF7EE /* Resource */,
+				C48062E32C6F13C0003FF7EE /* Constant.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		C48062EA2C6F176C003FF7EE /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				C48062EF2C6F178B003FF7EE /* Pretendard-Black.otf */,
+				C48062EE2C6F178B003FF7EE /* Pretendard-Bold.otf */,
+				C48062F32C6F178B003FF7EE /* Pretendard-ExtraBold.otf */,
+				C48062F02C6F178B003FF7EE /* Pretendard-ExtraLight.otf */,
+				C48062EB2C6F178B003FF7EE /* Pretendard-Light.otf */,
+				C48062F22C6F178B003FF7EE /* Pretendard-Medium.otf */,
+				C48062F12C6F178B003FF7EE /* Pretendard-Regular.otf */,
+				C48062EC2C6F178B003FF7EE /* Pretendard-SemiBold.otf */,
+				C48062ED2C6F178B003FF7EE /* Pretendard-Thin.otf */,
+				C48062E62C6F13CB003FF7EE /* Resource.swift */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		C48062FF2C6F1FAA003FF7EE /* CustomView */ = {
+			isa = PBXGroup;
+			children = (
+				C48063022C6F23DD003FF7EE /* BasicLabel.swift */,
+				C48063002C6F1FCE003FF7EE /* OnboardingTypeButton.swift */,
+			);
+			path = CustomView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -173,6 +253,12 @@
 			dependencies = (
 			);
 			name = "all-for-lesson";
+			packageProductDependencies = (
+				C48062DB2C6F1282003FF7EE /* SnapKit */,
+				C48062E02C6F1376003FF7EE /* Then */,
+				C48063052C6F286E003FF7EE /* RxCocoa */,
+				C48063072C6F286E003FF7EE /* RxSwift */,
+			);
 			productName = "all-for-lesson";
 			productReference = C48062A72C6DD4BE003FF7EE /* all-for-lesson.app */;
 			productType = "com.apple.product-type.application";
@@ -201,6 +287,11 @@
 				Base,
 			);
 			mainGroup = C480629E2C6DD4BE003FF7EE;
+			packageReferences = (
+				C48062DA2C6F1282003FF7EE /* XCRemoteSwiftPackageReference "SnapKit" */,
+				C48062DF2C6F1376003FF7EE /* XCRemoteSwiftPackageReference "Then" */,
+				C48063042C6F286E003FF7EE /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = C48062A82C6DD4BE003FF7EE /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -215,9 +306,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C48062F92C6F178B003FF7EE /* Pretendard-ExtraLight.otf in Resources */,
 				C48062BF2C6DD4FA003FF7EE /* .gitignore in Resources */,
+				C48062FC2C6F178B003FF7EE /* Pretendard-ExtraBold.otf in Resources */,
+				C48062F42C6F178B003FF7EE /* Pretendard-Light.otf in Resources */,
+				C48062F72C6F178B003FF7EE /* Pretendard-Bold.otf in Resources */,
+				C48062F52C6F178B003FF7EE /* Pretendard-SemiBold.otf in Resources */,
+				C48062F62C6F178B003FF7EE /* Pretendard-Thin.otf in Resources */,
 				C48062B42C6DD4BF003FF7EE /* Assets.xcassets in Resources */,
+				C48062FA2C6F178B003FF7EE /* Pretendard-Regular.otf in Resources */,
+				C48062F82C6F178B003FF7EE /* Pretendard-Black.otf in Resources */,
 				C48062B72C6DD4BF003FF7EE /* Base in Resources */,
+				C48062FB2C6F178B003FF7EE /* Pretendard-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,13 +329,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */,
+				C48062FE2C6F1D25003FF7EE /* UIImage+.swift in Sources */,
 				C48062CB2C6F0FFC003FF7EE /* OnboardingView.swift in Sources */,
 				C48062CD2C6F1029003FF7EE /* OnboardingViewController.swift in Sources */,
 				C48062D92C6F11AD003FF7EE /* Reusable.swift in Sources */,
 				C48062C12C6DD521003FF7EE /* API.swift in Sources */,
 				C48062D72C6F10FE003FF7EE /* UIView+.swift in Sources */,
 				C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */,
+				C48062DE2C6F12D0003FF7EE /* BaseView.swift in Sources */,
+				C48062E42C6F13C0003FF7EE /* Constant.swift in Sources */,
+				C48062E72C6F13CB003FF7EE /* Resource.swift in Sources */,
+				C48062E92C6F14F4003FF7EE /* UIColor+.swift in Sources */,
 				C48062D42C6F10E0003FF7EE /* Base.swift in Sources */,
+				C48063032C6F23DD003FF7EE /* BasicLabel.swift in Sources */,
+				C48063012C6F1FCF003FF7EE /* OnboardingTypeButton.swift in Sources */,
 				C48062D12C6F10C5003FF7EE /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -461,6 +568,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C48062DA2C6F1282003FF7EE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		C48062DF2C6F1376003FF7EE /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		C48063042C6F286E003FF7EE /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C48062DB2C6F1282003FF7EE /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C48062DA2C6F1282003FF7EE /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		C48062E02C6F1376003FF7EE /* Then */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C48062DF2C6F1376003FF7EE /* XCRemoteSwiftPackageReference "Then" */;
+			productName = Then;
+		};
+		C48063052C6F286E003FF7EE /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C48063042C6F286E003FF7EE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		C48063072C6F286E003FF7EE /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C48063042C6F286E003FF7EE /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C480629F2C6DD4BE003FF7EE /* Project object */;
 }
