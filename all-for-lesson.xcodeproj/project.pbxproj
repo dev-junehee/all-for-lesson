@@ -13,6 +13,12 @@
 		C48062B72C6DD4BF003FF7EE /* Base in Resources */ = {isa = PBXBuildFile; fileRef = C48062B62C6DD4BF003FF7EE /* Base */; };
 		C48062BF2C6DD4FA003FF7EE /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = C48062BE2C6DD4FA003FF7EE /* .gitignore */; };
 		C48062C12C6DD521003FF7EE /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062C02C6DD521003FF7EE /* API.swift */; };
+		C48062CB2C6F0FFC003FF7EE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062CA2C6F0FFC003FF7EE /* OnboardingView.swift */; };
+		C48062CD2C6F1029003FF7EE /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062CC2C6F1029003FF7EE /* OnboardingViewController.swift */; };
+		C48062D12C6F10C5003FF7EE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062D02C6F10C5003FF7EE /* BaseViewController.swift */; };
+		C48062D42C6F10E0003FF7EE /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062D32C6F10E0003FF7EE /* Base.swift */; };
+		C48062D72C6F10FE003FF7EE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062D62C6F10FE003FF7EE /* UIView+.swift */; };
+		C48062D92C6F11AD003FF7EE /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062D82C6F11AD003FF7EE /* Reusable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +30,12 @@
 		C48062B82C6DD4BF003FF7EE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C48062BE2C6DD4FA003FF7EE /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		C48062C02C6DD521003FF7EE /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		C48062CA2C6F0FFC003FF7EE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		C48062CC2C6F1029003FF7EE /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		C48062D02C6F10C5003FF7EE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		C48062D32C6F10E0003FF7EE /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		C48062D62C6F10FE003FF7EE /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
+		C48062D82C6F11AD003FF7EE /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,8 +69,12 @@
 		C48062A92C6DD4BE003FF7EE /* all-for-lesson */ = {
 			isa = PBXGroup;
 			children = (
-				C48062C32C6DD5BA003FF7EE /* API */,
 				C48062C22C6DD5AA003FF7EE /* Application */,
+				C48062C32C6DD5BA003FF7EE /* API */,
+				C48062CE2C6F107A003FF7EE /* Component */,
+				C48062D52C6F10EB003FF7EE /* Extenstion */,
+				C48062D22C6F10C9003FF7EE /* Protocol */,
+				C48062C72C6F0FC3003FF7EE /* Presentation */,
 				C48062B32C6DD4BF003FF7EE /* Assets.xcassets */,
 				C48062B52C6DD4BF003FF7EE /* LaunchScreen.storyboard */,
 				C48062B82C6DD4BF003FF7EE /* Info.plist */,
@@ -81,6 +97,64 @@
 				C48062C02C6DD521003FF7EE /* API.swift */,
 			);
 			path = API;
+			sourceTree = "<group>";
+		};
+		C48062C72C6F0FC3003FF7EE /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				C48062C82C6F0FD6003FF7EE /* Onboarding */,
+				C48062C92C6F0FE6003FF7EE /* SignUp */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		C48062C82C6F0FD6003FF7EE /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				C48062CA2C6F0FFC003FF7EE /* OnboardingView.swift */,
+				C48062CC2C6F1029003FF7EE /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		C48062C92C6F0FE6003FF7EE /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
+			sourceTree = "<group>";
+		};
+		C48062CE2C6F107A003FF7EE /* Component */ = {
+			isa = PBXGroup;
+			children = (
+				C48062CF2C6F108B003FF7EE /* Base */,
+			);
+			path = Component;
+			sourceTree = "<group>";
+		};
+		C48062CF2C6F108B003FF7EE /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				C48062D02C6F10C5003FF7EE /* BaseViewController.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		C48062D22C6F10C9003FF7EE /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				C48062D32C6F10E0003FF7EE /* Base.swift */,
+				C48062D82C6F11AD003FF7EE /* Reusable.swift */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		C48062D52C6F10EB003FF7EE /* Extenstion */ = {
+			isa = PBXGroup;
+			children = (
+				C48062D62C6F10FE003FF7EE /* UIView+.swift */,
+			);
+			path = Extenstion;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,8 +229,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */,
+				C48062CB2C6F0FFC003FF7EE /* OnboardingView.swift in Sources */,
+				C48062CD2C6F1029003FF7EE /* OnboardingViewController.swift in Sources */,
+				C48062D92C6F11AD003FF7EE /* Reusable.swift in Sources */,
 				C48062C12C6DD521003FF7EE /* API.swift in Sources */,
+				C48062D72C6F10FE003FF7EE /* UIView+.swift in Sources */,
 				C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */,
+				C48062D42C6F10E0003FF7EE /* Base.swift in Sources */,
+				C48062D12C6F10C5003FF7EE /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
