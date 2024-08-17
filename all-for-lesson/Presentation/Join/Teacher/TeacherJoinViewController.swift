@@ -1,5 +1,5 @@
 //
-//  TeacherSignUpViewController.swift
+//  TeacherJoinViewController.swift
 //  all-for-lesson
 //
 //  Created by junehee on 8/16/24.
@@ -10,10 +10,10 @@ import RxCocoa
 import RxSwift
 import SnapKit
 
-final class TeacherSignUpViewController: BaseViewController {
+final class TeacherJoinViewController: BaseViewController {
     
-    private var signUpView = TeacherSignUpView()
-    private var viewModel = TeacherSignUpViewModel()
+    private var signUpView = TeacherJoinView()
+    private var viewModel = TeacherJoinViewModel()
     
     private let disposeBag = DisposeBag()
     

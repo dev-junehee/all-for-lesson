@@ -50,7 +50,7 @@
 		C480631E2C6F3013003FF7EE /* JoinTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480631D2C6F3013003FF7EE /* JoinTextField.swift */; };
 		C48063212C6F5597003FF7EE /* JoinLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063202C6F5597003FF7EE /* JoinLabel.swift */; };
 		C48063242C6F55ED003FF7EE /* SignUpCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063232C6F55ED003FF7EE /* SignUpCase.swift */; };
-		C48063262C6F596F003FF7EE /* TeacherSignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063252C6F596F003FF7EE /* TeacherSignUpView.swift */; };
+		C48063262C6F596F003FF7EE /* TeacherJoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063252C6F596F003FF7EE /* TeacherJoinView.swift */; };
 		C48063292C6F5B35003FF7EE /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063282C6F5B35003FF7EE /* ValidationManager.swift */; };
 		C480632B2C6F5BA4003FF7EE /* StudentJoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480632A2C6F5BA4003FF7EE /* StudentJoinViewModel.swift */; };
 		C480632D2C6F657C003FF7EE /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480632C2C6F657C003FF7EE /* NetworkManager.swift */; };
@@ -58,9 +58,12 @@
 		C48063322C6F6AE7003FF7EE /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063312C6F6AE7003FF7EE /* TargetType.swift */; };
 		C48063352C6F6B79003FF7EE /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = C48063342C6F6B79003FF7EE /* Alamofire */; };
 		C48063392C6F7954003FF7EE /* EmailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063382C6F7954003FF7EE /* EmailResponse.swift */; };
-		C48063402C6F8E11003FF7EE /* TeacherSignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480633F2C6F8E11003FF7EE /* TeacherSignUpViewController.swift */; };
-		C48063422C6F8EE2003FF7EE /* TeacherSignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063412C6F8EE2003FF7EE /* TeacherSignUpViewModel.swift */; };
+		C48063402C6F8E11003FF7EE /* TeacherJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480633F2C6F8E11003FF7EE /* TeacherJoinViewController.swift */; };
+		C48063422C6F8EE2003FF7EE /* TeacherJoinViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063412C6F8EE2003FF7EE /* TeacherJoinViewModel.swift */; };
 		C48063442C6F9078003FF7EE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063432C6F9078003FF7EE /* LoginView.swift */; };
+		C494478E2C70B4EF005AADF7 /* JoinResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C494478D2C70B4EF005AADF7 /* JoinResponse.swift */; };
+		C49447902C70B5EF005AADF7 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C494478F2C70B5EF005AADF7 /* UserDefaultsManager.swift */; };
+		C49447922C70BB02005AADF7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447912C70BB02005AADF7 /* HomeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,16 +107,19 @@
 		C480631D2C6F3013003FF7EE /* JoinTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTextField.swift; sourceTree = "<group>"; };
 		C48063202C6F5597003FF7EE /* JoinLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinLabel.swift; sourceTree = "<group>"; };
 		C48063232C6F55ED003FF7EE /* SignUpCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCase.swift; sourceTree = "<group>"; };
-		C48063252C6F596F003FF7EE /* TeacherSignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSignUpView.swift; sourceTree = "<group>"; };
+		C48063252C6F596F003FF7EE /* TeacherJoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherJoinView.swift; sourceTree = "<group>"; };
 		C48063282C6F5B35003FF7EE /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
 		C480632A2C6F5BA4003FF7EE /* StudentJoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentJoinViewModel.swift; sourceTree = "<group>"; };
 		C480632C2C6F657C003FF7EE /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		C480632F2C6F668A003FF7EE /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		C48063312C6F6AE7003FF7EE /* TargetType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetType.swift; sourceTree = "<group>"; };
 		C48063382C6F7954003FF7EE /* EmailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailResponse.swift; sourceTree = "<group>"; };
-		C480633F2C6F8E11003FF7EE /* TeacherSignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSignUpViewController.swift; sourceTree = "<group>"; };
-		C48063412C6F8EE2003FF7EE /* TeacherSignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherSignUpViewModel.swift; sourceTree = "<group>"; };
+		C480633F2C6F8E11003FF7EE /* TeacherJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherJoinViewController.swift; sourceTree = "<group>"; };
+		C48063412C6F8EE2003FF7EE /* TeacherJoinViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherJoinViewModel.swift; sourceTree = "<group>"; };
 		C48063432C6F9078003FF7EE /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		C494478D2C70B4EF005AADF7 /* JoinResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinResponse.swift; sourceTree = "<group>"; };
+		C494478F2C70B5EF005AADF7 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		C49447912C70BB02005AADF7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +323,7 @@
 			children = (
 				C48063282C6F5B35003FF7EE /* ValidationManager.swift */,
 				C480632C2C6F657C003FF7EE /* NetworkManager.swift */,
+				C494478F2C70B5EF005AADF7 /* UserDefaultsManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -342,6 +349,7 @@
 			isa = PBXGroup;
 			children = (
 				C48063382C6F7954003FF7EE /* EmailResponse.swift */,
+				C494478D2C70B4EF005AADF7 /* JoinResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -359,9 +367,9 @@
 		C480633E2C6F8DE9003FF7EE /* Teacher */ = {
 			isa = PBXGroup;
 			children = (
-				C48063252C6F596F003FF7EE /* TeacherSignUpView.swift */,
-				C480633F2C6F8E11003FF7EE /* TeacherSignUpViewController.swift */,
-				C48063412C6F8EE2003FF7EE /* TeacherSignUpViewModel.swift */,
+				C48063252C6F596F003FF7EE /* TeacherJoinView.swift */,
+				C480633F2C6F8E11003FF7EE /* TeacherJoinViewController.swift */,
+				C48063412C6F8EE2003FF7EE /* TeacherJoinViewModel.swift */,
 			);
 			path = Teacher;
 			sourceTree = "<group>";
@@ -369,6 +377,7 @@
 		C494478C2C70B1DE005AADF7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C49447912C70BB02005AADF7 /* HomeViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -479,27 +488,30 @@
 				C48062D92C6F11AD003FF7EE /* Reusable.swift in Sources */,
 				C48063112C6F2B7E003FF7EE /* CommonButton.swift in Sources */,
 				C48062C12C6DD521003FF7EE /* API.swift in Sources */,
+				C49447922C70BB02005AADF7 /* HomeViewController.swift in Sources */,
 				C48062D72C6F10FE003FF7EE /* UIView+.swift in Sources */,
 				C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */,
-				C48063402C6F8E11003FF7EE /* TeacherSignUpViewController.swift in Sources */,
+				C48063402C6F8E11003FF7EE /* TeacherJoinViewController.swift in Sources */,
 				C480632D2C6F657C003FF7EE /* NetworkManager.swift in Sources */,
 				C48063212C6F5597003FF7EE /* JoinLabel.swift in Sources */,
 				C48062DE2C6F12D0003FF7EE /* BaseView.swift in Sources */,
 				C48062E42C6F13C0003FF7EE /* Constant.swift in Sources */,
 				C480630A2C6F2976003FF7EE /* BaseViewModel.swift in Sources */,
 				C48063392C6F7954003FF7EE /* EmailResponse.swift in Sources */,
-				C48063262C6F596F003FF7EE /* TeacherSignUpView.swift in Sources */,
+				C48063262C6F596F003FF7EE /* TeacherJoinView.swift in Sources */,
 				C48062E72C6F13CB003FF7EE /* Resource.swift in Sources */,
 				C48063322C6F6AE7003FF7EE /* TargetType.swift in Sources */,
 				C48062E92C6F14F4003FF7EE /* UIColor+.swift in Sources */,
+				C49447902C70B5EF005AADF7 /* UserDefaultsManager.swift in Sources */,
 				C480630C2C6F29BA003FF7EE /* OnboardingViewModel.swift in Sources */,
 				C48062D42C6F10E0003FF7EE /* BaseViewControllerProtocol.swift in Sources */,
 				C48063292C6F5B35003FF7EE /* ValidationManager.swift in Sources */,
 				C48063242C6F55ED003FF7EE /* SignUpCase.swift in Sources */,
 				C480631E2C6F3013003FF7EE /* JoinTextField.swift in Sources */,
-				C48063422C6F8EE2003FF7EE /* TeacherSignUpViewModel.swift in Sources */,
+				C48063422C6F8EE2003FF7EE /* TeacherJoinViewModel.swift in Sources */,
 				C48063442C6F9078003FF7EE /* LoginView.swift in Sources */,
 				C480631C2C6F2F1C003FF7EE /* BaseViewProtocol.swift in Sources */,
+				C494478E2C70B4EF005AADF7 /* JoinResponse.swift in Sources */,
 				C48063032C6F23DD003FF7EE /* CommonLabel.swift in Sources */,
 				C48063012C6F1FCF003FF7EE /* OnboardingTypeButton.swift in Sources */,
 				C48063152C6F2C3F003FF7EE /* StudentJoinViewController.swift in Sources */,

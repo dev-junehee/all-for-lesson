@@ -1,5 +1,5 @@
 //
-//  TeacherSignUpView.swift
+//  TeacherJoinView.swift
 //  all-for-lesson
 //
 //  Created by junehee on 8/16/24.
@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class TeacherSignUpView: BaseView {
+final class TeacherJoinView: BaseView {
     
     private let typeLabel = JoinLabel(type: .teacher)
     

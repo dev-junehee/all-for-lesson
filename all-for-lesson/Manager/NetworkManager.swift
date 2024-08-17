@@ -11,8 +11,9 @@ import RxSwift
 
 final class NetworkManager {
     
-    private init() { }
     static let shared = NetworkManager()
+    private init() { }
+    // static let shared = NetworkManager()
     
     // Single 객체로 Alamofire 통신
     func checkEmail(_ email: String) -> Single<Result<EmailResponse, Error>> {

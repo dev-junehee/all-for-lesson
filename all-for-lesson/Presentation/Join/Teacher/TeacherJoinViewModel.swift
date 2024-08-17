@@ -1,5 +1,5 @@
 //
-//  TeacherSignUpViewModel.swift
+//  TeacherJoinViewModel.swift
 //  all-for-lesson
 //
 //  Created by junehee on 8/16/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class TeacherSignUpViewModel: BaseViewModel {
+final class TeacherJoinViewModel: BaseViewModel {
     
     struct Input {
         

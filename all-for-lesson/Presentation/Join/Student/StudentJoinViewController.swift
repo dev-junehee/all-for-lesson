@@ -46,9 +46,11 @@ final class StudentJoinViewController: BaseViewController {
         
         /// 이메일 중복 확인 - 중복 확인 완료 레이블로 변경
         output.emailDuplication
-            .bind(with: self) { owner, message in
+            .bind(with: self) { owner, value in
+                let code = value.0
+                let message = value.1
                 owner.joinView.validationResultLabel.text = message
-                owner.joinView.validationResultLabel.textColor = Resource.Color.skyblue
+                owner.joinView.validationResultLabel.textColor = code == 200 ? Resource.Color.skyblue : Resource.Color.red
             }
             .disposed(by: disposeBag)
         
@@ -58,6 +60,15 @@ final class StudentJoinViewController: BaseViewController {
                 owner.joinView.joinButton.isEnabled = result
             }
             .disposed(by: disposeBag)
+        
+        /// 회원가입 성공 - 화면 전환
+        output.joinSucceed
+            .bind(with: self) { owner, result in
+                if result {
+                    owner.navigationController?.pushViewController(HomeViewController(), animated: true)
+                }
+            }
+            .disposed(by: disposeBag) 
         
     }
     
