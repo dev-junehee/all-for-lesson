@@ -15,8 +15,8 @@ final class LoginView: BaseView {
         $0.font = Resource.Font.viewTitle
     }
     
-    let emailField = SignUpTextField(type: .student, placeholder: "이메일을 입력해 주세요")
-    let passwordField = SignUpTextField(type: .student, placeholder: "비밀번호를 입력해 주세요")
+    let emailField = JoinTextField(type: .student, placeholder: "이메일을 입력해 주세요")
+    let passwordField = JoinTextField(type: .student, placeholder: "비밀번호를 입력해 주세요")
     let loginButton = CommonButton(title: "로그인", color: Resource.Color.yellow, isEnabled: true)
     
     override func setHierarchyLayout() {

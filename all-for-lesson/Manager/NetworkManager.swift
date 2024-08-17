@@ -18,9 +18,7 @@ final class NetworkManager {
     func checkEmail(_ email: String) -> Single<Result<EmailResponse, Error>> {
         return Single.create { observer -> Disposable in
             
-            let url = Router.email(email: email).endPoint
-            print("url", url)
-            print("email", email)
+            let URL = API.URL.base + API.URL.email
             
             let body: Parameters = [
                 "email": email
@@ -31,11 +29,12 @@ final class NetworkManager {
                 API.Header.sesacKey: API.KEY.key
             ]
             
-            AF.request(url,
+            AF.request(URL,
                        method: .post,
                        parameters: body,
+                       encoding: JSONEncoding.default,
                        headers: headers)
-                // .validate(statusCode: 200...299)
+                .validate(statusCode: 200...299)
                 .responseDecodable(of: EmailResponse.self) { response in
                     switch response.result {
                     case .success(let value):
@@ -46,6 +45,27 @@ final class NetworkManager {
                 }
             return Disposables.create()
         }.debug("checkEmail")
+    }
+    
+    
+    func callRequest<T: Decodable>(api: Router, of type: T.Type) -> Single<Result<T, Error>> {
+        return Single.create { observer -> Disposable in
+            AF.request(api.endPoint,
+                       method: api.method,
+                       parameters: api.params,
+                       encoding: JSONEncoding.default,
+                       headers: api.headers)
+                .validate(statusCode: 200..<300)
+                .responseDecodable(of: T.self) { response in
+                    switch response.result {
+                    case .success(let value):
+                        observer(.success(.success(value)))
+                    case .failure(let error):
+                        observer(.success(.failure(error)))
+                    }
+                }
+            return Disposables.create()
+        }.debug("API 네트워크 통신 >>>")
     }
     
 }

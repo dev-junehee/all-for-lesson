@@ -1,5 +1,5 @@
 //
-//  StudentSignUpView.swift
+//  StudentJoinView.swift
 //  all-for-lesson
 //
 //  Created by junehee on 8/16/24.
@@ -9,11 +9,11 @@ import UIKit
 import SnapKit
 import Then
 
-final class StudentSignUpView: BaseView {
+final class StudentJoinView: BaseView {
     
-    private let typeLabel = SignUpLabel(type: .student)
+    private let typeLabel = JoinLabel(type: .student)
     
-    let emailField = SignUpTextField(type: .student, placeholder: "이메일을 입력해 주세요")
+    let emailField = JoinTextField(type: .student, placeholder: "이메일을 입력해 주세요")
     let validationResultLabel = CommonLabel().then {
         $0.font = Resource.Font.regular14
     }
@@ -24,12 +24,12 @@ final class StudentSignUpView: BaseView {
         $0.isEnabled = false
         $0.layer.cornerRadius = 12
     }
-    let passwordField = SignUpTextField(type: .student, placeholder: "비밀번호를 입력해 주세요")
-    let nickField = SignUpTextField(type: .student, placeholder: "닉네임을 입력해 주세요")
-    let nextButton = CommonButton(title: "가입하기", color: Resource.Color.yellow, isEnabled: true)
+    let passwordField = JoinTextField(type: .student, placeholder: "비밀번호를 입력해 주세요")
+    let nickField = JoinTextField(type: .student, placeholder: "닉네임을 입력해 주세요")
+    let joinButton = CommonButton(title: "가입하기", color: Resource.Color.yellow, isEnabled: false)
 
     override func setHierarchyLayout() {
-        [typeLabel, emailField, validationResultLabel, duplicationButton, passwordField, nickField, nextButton].forEach { self.addSubview($0) }
+        [typeLabel, emailField, validationResultLabel, duplicationButton, passwordField, nickField, joinButton].forEach { self.addSubview($0) }
         
         let safeArea = self.safeAreaLayoutGuide
         
@@ -72,7 +72,7 @@ final class StudentSignUpView: BaseView {
             $0.height.equalTo(60)
         }
         
-        nextButton.snp.makeConstraints {
+        joinButton.snp.makeConstraints {
             $0.top.equalTo(nickField.snp.bottom).offset(32)
             $0.horizontalEdges.equalTo(safeArea).inset(16)
             $0.height.equalTo(50)

@@ -11,9 +11,9 @@ import Then
 
 final class TeacherSignUpView: BaseView {
     
-    private let typeLabel = SignUpLabel(type: .teacher)
+    private let typeLabel = JoinLabel(type: .teacher)
     
-    let emailField = SignUpTextField(type: .teacher, placeholder: "이메일을 입력해 주세요")
+    let emailField = JoinTextField(type: .teacher, placeholder: "이메일을 입력해 주세요")
     let validationResultLabel = CommonLabel().then {
         $0.font = Resource.Font.regular14
     }
@@ -24,8 +24,8 @@ final class TeacherSignUpView: BaseView {
         $0.isEnabled = false
         $0.layer.cornerRadius = 12
     }
-    let passwordField = SignUpTextField(type: .teacher, placeholder: "비밀번호를 입력해 주세요")
-    let nickField = SignUpTextField(type: .teacher, placeholder: "닉네임을 입력해 주세요")
+    let passwordField = JoinTextField(type: .teacher, placeholder: "비밀번호를 입력해 주세요")
+    let nickField = JoinTextField(type: .teacher, placeholder: "닉네임을 입력해 주세요")
     let nextButton = CommonButton(title: "가입하기", color: Resource.Color.skyblue, isEnabled: true)
 
     override func setHierarchyLayout() {

@@ -1,5 +1,5 @@
 //
-//  CommonTextField.swift
+//  JoinTextField.swift
 //  all-for-lesson
 //
 //  Created by junehee on 8/16/24.
@@ -8,7 +8,7 @@
 import UIKit
 import TextFieldEffects
 
-final class SignUpTextField: HoshiTextField {
+final class JoinTextField: HoshiTextField {
     
     init(type: SignUpCase, placeholder: String) {
         super.init(frame: .zero)

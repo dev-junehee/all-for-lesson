@@ -20,6 +20,15 @@ final class ValidationManager {
         return false
     }
     
+    /// 비밀번호 유효성 검사
+    func passwordValidation(_ password: String) {
+       
+    }
+    
+    /// 닉네임 유효성 검사
+    func nickValidation(_ nick: String) {
+        
+    }
     
     
 }
