@@ -12,6 +12,7 @@ enum UserDefaultsKey: String {
     case userId
     case email
     case nick
+    case profileImage
     case accessToken
     case refreshToken
 }
@@ -28,6 +29,9 @@ struct UserDefaultsManager {
     
     @UserDefaultsWrapper (key: .nick, defaultValue: "Guest")
     static var nick: String
+    
+    @UserDefaultsWrapper (key: .profileImage, defaultValue: "")
+    static var profileImage: String
     
     @UserDefaultsWrapper (key: .accessToken, defaultValue: "No Access Token")
     static var accessToken: String

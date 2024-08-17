@@ -22,8 +22,9 @@ enum Resource {
         static let darkGray: UIColor = .init(0x636363)
         static let ivory: UIColor = .init(0xfffff5)
         static let yellow: UIColor = .init(0xffda8e)
-        static let red: UIColor = .red
         static let skyblue: UIColor = .init(0x80d4f6)
+        static let purple: UIColor = .init(0x5c196b)
+        static let red: UIColor = .init(0xe53a40)
         static let fontBlack: UIColor = .init(0x333333)
         static let black: UIColor = .init(0x000000)
     }

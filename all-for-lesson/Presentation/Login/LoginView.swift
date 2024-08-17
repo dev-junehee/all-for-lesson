@@ -7,6 +7,7 @@
 
 import UIKit
 import SnapKit
+import Then
 
 final class LoginView: BaseView {
     
@@ -15,12 +16,27 @@ final class LoginView: BaseView {
         $0.font = Resource.Font.viewTitle
     }
     
-    let emailField = JoinTextField(type: .student, placeholder: "이메일을 입력해 주세요")
-    let passwordField = JoinTextField(type: .student, placeholder: "비밀번호를 입력해 주세요")
-    let loginButton = CommonButton(title: "로그인", color: Resource.Color.yellow, isEnabled: true)
+    let emailField = JoinTextField(type: .common, placeholder: "이메일을 입력해 주세요")
+    let passwordField = JoinTextField(type: .common, placeholder: "비밀번호를 입력해 주세요")
+    let loginButton = CommonButton(title: "로그인", color: Resource.Color.purple, isEnabled: false)
+    
+    private let joinLabel = CommonLabel().then {
+        $0.text = "계정이 없으신가요?"
+        $0.font = Resource.Font.regular14
+    }
+    
+    let joinButton = UIButton().then {
+        var config = UIButton.Configuration.plain()
+        config.baseForegroundColor = Resource.Color.fontBlack
+        var title = AttributedString("회원가입")
+        title.font = Resource.Font.bold14
+        config.attributedTitle = title
+        $0.configuration = config
+    }
+    
     
     override func setHierarchyLayout() {
-        [loginLabel, emailField, passwordField, loginButton].forEach {
+        [loginLabel, emailField, passwordField, loginButton, joinLabel, joinButton].forEach {
             self.addSubview($0)
         }
         
@@ -49,9 +65,18 @@ final class LoginView: BaseView {
             $0.horizontalEdges.equalTo(safeArea).inset(16)
             $0.height.equalTo(50)
         }
+        
+        joinLabel.snp.makeConstraints {
+            $0.top.equalTo(loginButton.snp.bottom).offset(40)
+            $0.centerX.equalTo(safeArea)
+            $0.height.equalTo(30)
+        }
+        
+        joinButton.snp.makeConstraints {
+            $0.top.equalTo(joinLabel.snp.bottom)
+            $0.centerX.equalTo(safeArea)
+            $0.height.equalTo(20)
+        }
     }
-    
-    
-    
     
 }

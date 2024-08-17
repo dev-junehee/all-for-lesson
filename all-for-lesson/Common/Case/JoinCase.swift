@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum SignUpCase {
+enum JoinCase {
     case student
     case teacher
+    case common
 }

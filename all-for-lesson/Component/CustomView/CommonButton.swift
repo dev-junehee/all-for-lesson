@@ -9,7 +9,7 @@ import UIKit
 
 final class CommonButton: UIButton {
     
-    init(title: String, color: UIColor, isEnabled: Bool = true) {
+    init(title: String, color: UIColor, fontColor: Bool = true, isEnabled: Bool = true) {
         super.init(frame: .zero)
         var config = UIButton.Configuration.filled()
         
@@ -18,7 +18,7 @@ final class CommonButton: UIButton {
         config.attributedTitle = title
         
         config.baseBackgroundColor = color
-        config.baseForegroundColor = Resource.Color.fontBlack
+        config.baseForegroundColor = fontColor ? Resource.Color.white : Resource.Color.fontBlack
         
         self.configuration = config
         self.isEnabled = isEnabled

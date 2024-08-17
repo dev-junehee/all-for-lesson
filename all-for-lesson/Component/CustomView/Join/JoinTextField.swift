@@ -10,7 +10,7 @@ import TextFieldEffects
 
 final class JoinTextField: HoshiTextField {
     
-    init(type: SignUpCase, placeholder: String) {
+    init(type: JoinCase, placeholder: String) {
         super.init(frame: .zero)
         
         switch type {
@@ -20,6 +20,9 @@ final class JoinTextField: HoshiTextField {
         case .teacher:
             self.borderActiveColor = Resource.Color.skyblue
             self.tintColor = Resource.Color.skyblue
+        case .common:
+            self.borderActiveColor = Resource.Color.purple
+            self.tintColor = Resource.Color.purple
         }
         
         self.placeholder = placeholder

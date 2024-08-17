@@ -9,7 +9,7 @@ import UIKit
 
 final class JoinLabel: UILabel {
     
-    init(type: SignUpCase) {
+    init(type: JoinCase) {
         super.init(frame: .zero)
         self.font = Resource.Font.viewTitle
         switch type {
@@ -17,6 +17,8 @@ final class JoinLabel: UILabel {
             self.text = "수강생으로 가입해요"
         case .teacher:
             self.text = "선생님으로 가입해요"
+        case .common:
+            return
         }
     }
     
