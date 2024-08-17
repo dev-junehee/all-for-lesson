@@ -39,5 +39,8 @@ enum Resource {
         static let regular12 = UIFont(name: "Pretendard-Regular", size: 12)
     }
     
+    enum SystemImage {
+        static let leftArrow = UIImage(systemName: "arrow.left")!
+    }
     
 }

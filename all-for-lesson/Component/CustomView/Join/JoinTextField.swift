@@ -10,7 +10,7 @@ import TextFieldEffects
 
 final class JoinTextField: HoshiTextField {
     
-    init(type: JoinCase, placeholder: String) {
+    init(type: JoinCase, placeholder: String, isSecure: Bool = false) {
         super.init(frame: .zero)
         
         switch type {
@@ -29,6 +29,7 @@ final class JoinTextField: HoshiTextField {
         self.placeholderColor = Resource.Color.darkGray
         self.borderInactiveColor = Resource.Color.darkGray
         self.returnKeyType = .done
+        self.isSecureTextEntry = isSecure
     }
     
     required init?(coder: NSCoder) {

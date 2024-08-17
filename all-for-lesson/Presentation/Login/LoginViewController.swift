@@ -25,6 +25,10 @@ final class LoginViewController: BaseViewController {
         bind()
     }
     
+    override func setViewController() {
+        setBackBarButton()
+    }
+    
     private func bind() {
         let input = LoginViewModel.Input(emailText: loginView.emailField.rx.text,
                                          passwordText: loginView.passwordField.rx.text,

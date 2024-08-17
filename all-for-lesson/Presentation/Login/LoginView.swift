@@ -17,11 +17,11 @@ final class LoginView: BaseView {
     }
     
     let emailField = JoinTextField(type: .common, placeholder: "이메일을 입력해 주세요")
-    let passwordField = JoinTextField(type: .common, placeholder: "비밀번호를 입력해 주세요")
+    let passwordField = JoinTextField(type: .common, placeholder: "비밀번호를 입력해 주세요", isSecure: true)
     let loginButton = CommonButton(title: "로그인", color: Resource.Color.purple, isEnabled: false)
     
     private let joinLabel = CommonLabel().then {
-        $0.text = "계정이 없으신가요?"
+        $0.text = "아직 계정이 없으신가요?"
         $0.font = Resource.Font.regular14
     }
     

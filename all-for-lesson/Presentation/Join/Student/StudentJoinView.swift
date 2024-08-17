@@ -24,7 +24,7 @@ final class StudentJoinView: BaseView {
         $0.isEnabled = false
         $0.layer.cornerRadius = 12
     }
-    let passwordField = JoinTextField(type: .student, placeholder: "비밀번호를 입력해 주세요")
+    let passwordField = JoinTextField(type: .student, placeholder: "비밀번호를 입력해 주세요", isSecure: true)
     let nickField = JoinTextField(type: .student, placeholder: "닉네임을 입력해 주세요")
     let joinButton = CommonButton(title: "가입하기", color: Resource.Color.yellow, isEnabled: false)
 

@@ -66,6 +66,8 @@
 		C49447922C70BB02005AADF7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447912C70BB02005AADF7 /* HomeViewController.swift */; };
 		C49447942C70CE62005AADF7 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447932C70CE62005AADF7 /* LoginViewModel.swift */; };
 		C49447962C70D6C4005AADF7 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447952C70D6C4005AADF7 /* LoginResponse.swift */; };
+		C494479B2C70E846005AADF7 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C494479A2C70E846005AADF7 /* UIViewController+.swift */; };
+		C494479D2C70E8BE005AADF7 /* BarButtonCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C494479C2C70E8BE005AADF7 /* BarButtonCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +126,8 @@
 		C49447912C70BB02005AADF7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		C49447932C70CE62005AADF7 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		C49447952C70D6C4005AADF7 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		C494479A2C70E846005AADF7 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		C494479C2C70E8BE005AADF7 /* BarButtonCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -254,6 +258,7 @@
 				C48062E82C6F14F4003FF7EE /* UIColor+.swift */,
 				C48062FD2C6F1D25003FF7EE /* UIImage+.swift */,
 				C48062D62C6F10FE003FF7EE /* UIView+.swift */,
+				C494479A2C70E846005AADF7 /* UIViewController+.swift */,
 			);
 			path = Extenstion;
 			sourceTree = "<group>";
@@ -319,6 +324,7 @@
 			isa = PBXGroup;
 			children = (
 				C48063232C6F55ED003FF7EE /* JoinCase.swift */,
+				C494479C2C70E8BE005AADF7 /* BarButtonCase.swift */,
 			);
 			path = Case;
 			sourceTree = "<group>";
@@ -505,6 +511,7 @@
 				C48062C12C6DD521003FF7EE /* API.swift in Sources */,
 				C49447922C70BB02005AADF7 /* HomeViewController.swift in Sources */,
 				C48062D72C6F10FE003FF7EE /* UIView+.swift in Sources */,
+				C494479B2C70E846005AADF7 /* UIViewController+.swift in Sources */,
 				C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */,
 				C48063402C6F8E11003FF7EE /* TeacherJoinViewController.swift in Sources */,
 				C480632D2C6F657C003FF7EE /* NetworkManager.swift in Sources */,
@@ -525,6 +532,7 @@
 				C48063242C6F55ED003FF7EE /* JoinCase.swift in Sources */,
 				C480631E2C6F3013003FF7EE /* JoinTextField.swift in Sources */,
 				C48063422C6F8EE2003FF7EE /* TeacherJoinViewModel.swift in Sources */,
+				C494479D2C70E8BE005AADF7 /* BarButtonCase.swift in Sources */,
 				C48063442C6F9078003FF7EE /* LoginView.swift in Sources */,
 				C480631C2C6F2F1C003FF7EE /* BaseViewProtocol.swift in Sources */,
 				C494478E2C70B4EF005AADF7 /* JoinResponse.swift in Sources */,
