@@ -68,6 +68,11 @@
 		C49447962C70D6C4005AADF7 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447952C70D6C4005AADF7 /* LoginResponse.swift */; };
 		C494479B2C70E846005AADF7 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C494479A2C70E846005AADF7 /* UIViewController+.swift */; };
 		C494479D2C70E8BE005AADF7 /* BarButtonCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C494479C2C70E8BE005AADF7 /* BarButtonCase.swift */; };
+		C49447A02C70EDC9005AADF7 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C494479F2C70EDC9005AADF7 /* CustomTabBarController.swift */; };
+		C49447A32C70F2FE005AADF7 /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447A22C70F2FE005AADF7 /* LessonViewController.swift */; };
+		C49447A62C70F3B3005AADF7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447A52C70F3B3005AADF7 /* SearchViewController.swift */; };
+		C49447A92C70F4C7005AADF7 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447A82C70F4C7005AADF7 /* CommunityViewController.swift */; };
+		C49447AC2C70F593005AADF7 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447AB2C70F593005AADF7 /* MyPageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +133,11 @@
 		C49447952C70D6C4005AADF7 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
 		C494479A2C70E846005AADF7 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		C494479C2C70E8BE005AADF7 /* BarButtonCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonCase.swift; sourceTree = "<group>"; };
+		C494479F2C70EDC9005AADF7 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		C49447A22C70F2FE005AADF7 /* LessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
+		C49447A52C70F3B3005AADF7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C49447A82C70F4C7005AADF7 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
+		C49447AB2C70F593005AADF7 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,10 +205,15 @@
 		C48062C72C6F0FC3003FF7EE /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				C494479E2C70EDA0005AADF7 /* TabBar */,
 				C48062C82C6F0FD6003FF7EE /* Onboarding */,
 				C48062C92C6F0FE6003FF7EE /* Join */,
 				C480630D2C6F2B0E003FF7EE /* Login */,
 				C494478C2C70B1DE005AADF7 /* Home */,
+				C49447A12C70F2E9005AADF7 /* Lesson */,
+				C49447A42C70F3A1005AADF7 /* Search */,
+				C49447A72C70F4B5005AADF7 /* Community */,
+				C49447AA2C70F585005AADF7 /* MyPage */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -402,6 +417,46 @@
 			path = Request;
 			sourceTree = "<group>";
 		};
+		C494479E2C70EDA0005AADF7 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				C494479F2C70EDC9005AADF7 /* CustomTabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		C49447A12C70F2E9005AADF7 /* Lesson */ = {
+			isa = PBXGroup;
+			children = (
+				C49447A22C70F2FE005AADF7 /* LessonViewController.swift */,
+			);
+			path = Lesson;
+			sourceTree = "<group>";
+		};
+		C49447A42C70F3A1005AADF7 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				C49447A52C70F3B3005AADF7 /* SearchViewController.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		C49447A72C70F4B5005AADF7 /* Community */ = {
+			isa = PBXGroup;
+			children = (
+				C49447A82C70F4C7005AADF7 /* CommunityViewController.swift */,
+			);
+			path = Community;
+			sourceTree = "<group>";
+		};
+		C49447AA2C70F585005AADF7 /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				C49447AB2C70F593005AADF7 /* MyPageViewController.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -504,6 +559,7 @@
 				C48062CB2C6F0FFC003FF7EE /* OnboardingView.swift in Sources */,
 				C48063172C6F2C4E003FF7EE /* StudentJoinView.swift in Sources */,
 				C48063302C6F668A003FF7EE /* Router.swift in Sources */,
+				C49447AC2C70F593005AADF7 /* MyPageViewController.swift in Sources */,
 				C48062CD2C6F1029003FF7EE /* OnboardingViewController.swift in Sources */,
 				C480630F2C6F2B23003FF7EE /* LoginViewController.swift in Sources */,
 				C48062D92C6F11AD003FF7EE /* Reusable.swift in Sources */,
@@ -533,12 +589,16 @@
 				C480631E2C6F3013003FF7EE /* JoinTextField.swift in Sources */,
 				C48063422C6F8EE2003FF7EE /* TeacherJoinViewModel.swift in Sources */,
 				C494479D2C70E8BE005AADF7 /* BarButtonCase.swift in Sources */,
+				C49447A62C70F3B3005AADF7 /* SearchViewController.swift in Sources */,
 				C48063442C6F9078003FF7EE /* LoginView.swift in Sources */,
 				C480631C2C6F2F1C003FF7EE /* BaseViewProtocol.swift in Sources */,
+				C49447A02C70EDC9005AADF7 /* CustomTabBarController.swift in Sources */,
 				C494478E2C70B4EF005AADF7 /* JoinResponse.swift in Sources */,
 				C48063032C6F23DD003FF7EE /* CommonLabel.swift in Sources */,
 				C48063012C6F1FCF003FF7EE /* OnboardingTypeButton.swift in Sources */,
 				C48063152C6F2C3F003FF7EE /* StudentJoinViewController.swift in Sources */,
+				C49447A92C70F4C7005AADF7 /* CommunityViewController.swift in Sources */,
+				C49447A32C70F2FE005AADF7 /* LessonViewController.swift in Sources */,
 				C48062D12C6F10C5003FF7EE /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

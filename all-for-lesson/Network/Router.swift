@@ -17,7 +17,7 @@ enum Router {
     case postFiles(accessToken: String)
 }
 
-extension Router {
+extension Router: TargetType {
     
     var base: String {
         return API.URL.base

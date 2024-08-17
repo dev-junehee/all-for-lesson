@@ -41,6 +41,14 @@ enum Resource {
     
     enum SystemImage {
         static let leftArrow = UIImage(systemName: "arrow.left")!
+        static let home = UIImage(systemName: "house")!
+        static let piano = UIImage(systemName: "pianokeys")!
+        static let search = UIImage(systemName: "magnifyingglass")!
+        static let board = UIImage(systemName: "square.and.pencil")!
+        static let person = UIImage(systemName: "person")!
+        
+        
+        
     }
     
 }

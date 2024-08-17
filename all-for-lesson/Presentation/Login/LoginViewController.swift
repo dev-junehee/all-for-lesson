@@ -56,7 +56,7 @@ final class LoginViewController: BaseViewController {
         /// 회원가입 버튼 탭 - 온보딩 화면으로 전환
         output.joinButtonTap
             .bind(with: self) { owner, _ in
-                owner.navigationController?.pushViewController(OnboardingViewController(), animated: true)
+                owner.changeRootViewControllerToOnboarding()
             }
             .disposed(by: disposeBag)
     }

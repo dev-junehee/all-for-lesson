@@ -11,14 +11,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        window?.rootViewController = UINavigationController(rootViewController: OnboardingViewController())
-        window?.makeKeyAndVisible()
         
+        let tabBarController = CustomTabBarController()
+        
+        let home = tabBarController.createTabBarItem(title: "홈", image: Resource.SystemImage.home, viewController: HomeViewController())
+        let lesson = tabBarController.createTabBarItem(title: "레슨찾기", image: Resource.SystemImage.piano, viewController: LessonViewController())
+        let search = tabBarController.createTabBarItem(title: "검색", image: Resource.SystemImage.search, viewController: SearchViewController())
+        let community = tabBarController.createTabBarItem(title: "커뮤니티", image: Resource.SystemImage.board, viewController: CommunityViewController())
+        let mypage = tabBarController.createTabBarItem(title: "마이페이지", image: Resource.SystemImage.person, viewController: MyPageViewController())
+        
+        tabBarController.setTabBar(with: [home, lesson, search, community, mypage])
+        
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
