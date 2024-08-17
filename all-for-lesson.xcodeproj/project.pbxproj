@@ -16,7 +16,6 @@
 		C48062CB2C6F0FFC003FF7EE /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062CA2C6F0FFC003FF7EE /* OnboardingView.swift */; };
 		C48062CD2C6F1029003FF7EE /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062CC2C6F1029003FF7EE /* OnboardingViewController.swift */; };
 		C48062D12C6F10C5003FF7EE /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062D02C6F10C5003FF7EE /* BaseViewController.swift */; };
-		C48062D42C6F10E0003FF7EE /* BaseViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062D32C6F10E0003FF7EE /* BaseViewControllerProtocol.swift */; };
 		C48062D72C6F10FE003FF7EE /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062D62C6F10FE003FF7EE /* UIView+.swift */; };
 		C48062D92C6F11AD003FF7EE /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062D82C6F11AD003FF7EE /* Reusable.swift */; };
 		C48062DC2C6F1282003FF7EE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C48062DB2C6F1282003FF7EE /* SnapKit */; };
@@ -46,7 +45,6 @@
 		C48063152C6F2C3F003FF7EE /* StudentJoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063142C6F2C3F003FF7EE /* StudentJoinViewController.swift */; };
 		C48063172C6F2C4E003FF7EE /* StudentJoinView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063162C6F2C4E003FF7EE /* StudentJoinView.swift */; };
 		C480631A2C6F2CDF003FF7EE /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = C48063192C6F2CDF003FF7EE /* TextFieldEffects */; };
-		C480631C2C6F2F1C003FF7EE /* BaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480631B2C6F2F1C003FF7EE /* BaseViewProtocol.swift */; };
 		C480631E2C6F3013003FF7EE /* JoinTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480631D2C6F3013003FF7EE /* JoinTextField.swift */; };
 		C48063212C6F5597003FF7EE /* JoinLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063202C6F5597003FF7EE /* JoinLabel.swift */; };
 		C48063242C6F55ED003FF7EE /* JoinCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063232C6F55ED003FF7EE /* JoinCase.swift */; };
@@ -87,7 +85,6 @@
 		C48062CA2C6F0FFC003FF7EE /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C48062CC2C6F1029003FF7EE /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		C48062D02C6F10C5003FF7EE /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		C48062D32C6F10E0003FF7EE /* BaseViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerProtocol.swift; sourceTree = "<group>"; };
 		C48062D62C6F10FE003FF7EE /* UIView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+.swift"; sourceTree = "<group>"; };
 		C48062D82C6F11AD003FF7EE /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		C48062DD2C6F12D0003FF7EE /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -112,7 +109,6 @@
 		C48063102C6F2B7E003FF7EE /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
 		C48063142C6F2C3F003FF7EE /* StudentJoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentJoinViewController.swift; sourceTree = "<group>"; };
 		C48063162C6F2C4E003FF7EE /* StudentJoinView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentJoinView.swift; sourceTree = "<group>"; };
-		C480631B2C6F2F1C003FF7EE /* BaseViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewProtocol.swift; sourceTree = "<group>"; };
 		C480631D2C6F3013003FF7EE /* JoinTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinTextField.swift; sourceTree = "<group>"; };
 		C48063202C6F5597003FF7EE /* JoinLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinLabel.swift; sourceTree = "<group>"; };
 		C48063232C6F55ED003FF7EE /* JoinCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinCase.swift; sourceTree = "<group>"; };
@@ -258,8 +254,6 @@
 		C48062D22C6F10C9003FF7EE /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				C480631B2C6F2F1C003FF7EE /* BaseViewProtocol.swift */,
-				C48062D32C6F10E0003FF7EE /* BaseViewControllerProtocol.swift */,
 				C48062D82C6F11AD003FF7EE /* Reusable.swift */,
 				C48063092C6F2976003FF7EE /* BaseViewModel.swift */,
 				C48063312C6F6AE7003FF7EE /* TargetType.swift */,
@@ -291,15 +285,7 @@
 		C48062EA2C6F176C003FF7EE /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				C48062EF2C6F178B003FF7EE /* Pretendard-Black.otf */,
-				C48062EE2C6F178B003FF7EE /* Pretendard-Bold.otf */,
-				C48062F32C6F178B003FF7EE /* Pretendard-ExtraBold.otf */,
-				C48062F02C6F178B003FF7EE /* Pretendard-ExtraLight.otf */,
-				C48062EB2C6F178B003FF7EE /* Pretendard-Light.otf */,
-				C48062F22C6F178B003FF7EE /* Pretendard-Medium.otf */,
-				C48062F12C6F178B003FF7EE /* Pretendard-Regular.otf */,
-				C48062EC2C6F178B003FF7EE /* Pretendard-SemiBold.otf */,
-				C48062ED2C6F178B003FF7EE /* Pretendard-Thin.otf */,
+				C49447AD2C70FBD2005AADF7 /* Font */,
 				C48062E62C6F13CB003FF7EE /* Resource.swift */,
 			);
 			path = Resource;
@@ -457,6 +443,22 @@
 			path = MyPage;
 			sourceTree = "<group>";
 		};
+		C49447AD2C70FBD2005AADF7 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				C48062EF2C6F178B003FF7EE /* Pretendard-Black.otf */,
+				C48062EE2C6F178B003FF7EE /* Pretendard-Bold.otf */,
+				C48062F32C6F178B003FF7EE /* Pretendard-ExtraBold.otf */,
+				C48062F02C6F178B003FF7EE /* Pretendard-ExtraLight.otf */,
+				C48062EB2C6F178B003FF7EE /* Pretendard-Light.otf */,
+				C48062F22C6F178B003FF7EE /* Pretendard-Medium.otf */,
+				C48062F12C6F178B003FF7EE /* Pretendard-Regular.otf */,
+				C48062EC2C6F178B003FF7EE /* Pretendard-SemiBold.otf */,
+				C48062ED2C6F178B003FF7EE /* Pretendard-Thin.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -582,7 +584,6 @@
 				C48062E92C6F14F4003FF7EE /* UIColor+.swift in Sources */,
 				C49447902C70B5EF005AADF7 /* UserDefaultsManager.swift in Sources */,
 				C480630C2C6F29BA003FF7EE /* OnboardingViewModel.swift in Sources */,
-				C48062D42C6F10E0003FF7EE /* BaseViewControllerProtocol.swift in Sources */,
 				C49447942C70CE62005AADF7 /* LoginViewModel.swift in Sources */,
 				C48063292C6F5B35003FF7EE /* ValidationManager.swift in Sources */,
 				C48063242C6F55ED003FF7EE /* JoinCase.swift in Sources */,
@@ -591,7 +592,6 @@
 				C494479D2C70E8BE005AADF7 /* BarButtonCase.swift in Sources */,
 				C49447A62C70F3B3005AADF7 /* SearchViewController.swift in Sources */,
 				C48063442C6F9078003FF7EE /* LoginView.swift in Sources */,
-				C480631C2C6F2F1C003FF7EE /* BaseViewProtocol.swift in Sources */,
 				C49447A02C70EDC9005AADF7 /* CustomTabBarController.swift in Sources */,
 				C494478E2C70B4EF005AADF7 /* JoinResponse.swift in Sources */,
 				C48063032C6F23DD003FF7EE /* CommonLabel.swift in Sources */,

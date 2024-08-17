@@ -7,17 +7,14 @@
 
 import UIKit
 
-class BaseViewController: UIViewController, BaseViewControllerProtocol {
+class BaseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         setViewController()
-        setHierarchyLayout()
     }
     
     func setViewController() { }
-    
-    func setHierarchyLayout() { }
     
 }
