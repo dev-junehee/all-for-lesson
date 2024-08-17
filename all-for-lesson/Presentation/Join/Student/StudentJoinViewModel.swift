@@ -73,7 +73,7 @@ final class StudentJoinViewModel: BaseViewModel {
         /// 비밀번호 유효성 검사
         let passwordValidation = input.passwordText
             .orEmpty
-            .map { $0.count >= 8}
+            .map { $0.count >= 5 }
         
         let nickValidation = input.nickText
             .orEmpty

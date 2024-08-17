@@ -25,11 +25,11 @@ final class TeacherJoinView: BaseView {
         $0.layer.cornerRadius = 12
     }
     let passwordField = JoinTextField(type: .teacher, placeholder: "비밀번호를 입력해 주세요")
-    let nickField = JoinTextField(type: .teacher, placeholder: "닉네임을 입력해 주세요")
-    let nextButton = CommonButton(title: "가입하기", color: Resource.Color.skyblue, isEnabled: true)
+    let nickField = JoinTextField(type: .teacher, placeholder: "이름을 입력해 주세요")
+    let joinButton = CommonButton(title: "가입하기", color: Resource.Color.skyblue, isEnabled: false)
 
     override func setHierarchyLayout() {
-        [typeLabel, emailField, validationResultLabel, duplicationButton, passwordField, nickField, nextButton].forEach { self.addSubview($0) }
+        [typeLabel, emailField, validationResultLabel, duplicationButton, passwordField, nickField, joinButton].forEach { self.addSubview($0) }
         
         let safeArea = self.safeAreaLayoutGuide
         
@@ -72,7 +72,7 @@ final class TeacherJoinView: BaseView {
             $0.height.equalTo(60)
         }
         
-        nextButton.snp.makeConstraints {
+        joinButton.snp.makeConstraints {
             $0.top.equalTo(nickField.snp.bottom).offset(32)
             $0.horizontalEdges.equalTo(safeArea).inset(16)
             $0.height.equalTo(50)
