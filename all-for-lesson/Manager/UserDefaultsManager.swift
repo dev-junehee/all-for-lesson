@@ -8,7 +8,7 @@
 import Foundation
 
 enum UserDefaultsKey: String {
-    case userType   /// `0` - 수강생 `1` - 선생님
+    // case userType   /// `0` - 수강생 `1` - 선생님
     case userId
     case email
     case nick
@@ -18,8 +18,8 @@ enum UserDefaultsKey: String {
 }
 
 struct UserDefaultsManager {
-    @UserDefaultsWrapper (key: .userType, defaultValue: "Not User")
-    static var userType: String
+    // @UserDefaultsWrapper (key: .userType, defaultValue: "Not User")
+    // static var userType: String
     
     @UserDefaultsWrapper (key: .userId, defaultValue: "No User Id")
     static var userId: String
@@ -33,14 +33,14 @@ struct UserDefaultsManager {
     @UserDefaultsWrapper (key: .profileImage, defaultValue: "")
     static var profileImage: String
     
-    @UserDefaultsWrapper (key: .accessToken, defaultValue: "No Access Token")
+    @UserDefaultsWrapper (key: .accessToken, defaultValue: "")
     static var accessToken: String
     
-    @UserDefaultsWrapper (key: .refreshToken, defaultValue: "No Refresh Token")
+    @UserDefaultsWrapper (key: .refreshToken, defaultValue: "")
     static var refreshToken: String
     
     static func deleteAllUserDefaults() {
-        _userType.delete()
+        // _userType.delete()
         _userId.delete()
         _email.delete()
         _nick.delete()

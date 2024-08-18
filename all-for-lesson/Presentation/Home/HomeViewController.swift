@@ -18,7 +18,7 @@ final class HomeViewController: BaseViewController {
         print(UserDefaultsManager.email)
         print(UserDefaultsManager.nick)
         print(UserDefaultsManager.userId)
-        print(UserDefaultsManager.userType)
+        // print(UserDefaultsManager.userType)
         print(UserDefaultsManager.accessToken)
         print(UserDefaultsManager.refreshToken)
     }

@@ -71,6 +71,9 @@
 		C49447A62C70F3B3005AADF7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447A52C70F3B3005AADF7 /* SearchViewController.swift */; };
 		C49447A92C70F4C7005AADF7 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447A82C70F4C7005AADF7 /* CommunityViewController.swift */; };
 		C49447AC2C70F593005AADF7 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447AB2C70F593005AADF7 /* MyPageViewController.swift */; };
+		C49447AF2C7206B5005AADF7 /* RefreshTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447AE2C7206B5005AADF7 /* RefreshTokenResponse.swift */; };
+		C49447B12C720972005AADF7 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447B02C720972005AADF7 /* NavigationManager.swift */; };
+		C49447B32C720F77005AADF7 /* LoginViewCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447B22C720F77005AADF7 /* LoginViewCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -134,6 +137,9 @@
 		C49447A52C70F3B3005AADF7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		C49447A82C70F4C7005AADF7 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		C49447AB2C70F593005AADF7 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		C49447AE2C7206B5005AADF7 /* RefreshTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenResponse.swift; sourceTree = "<group>"; };
+		C49447B02C720972005AADF7 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
+		C49447B22C720F77005AADF7 /* LoginViewCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -326,6 +332,7 @@
 			children = (
 				C48063232C6F55ED003FF7EE /* JoinCase.swift */,
 				C494479C2C70E8BE005AADF7 /* BarButtonCase.swift */,
+				C49447B22C720F77005AADF7 /* LoginViewCase.swift */,
 			);
 			path = Case;
 			sourceTree = "<group>";
@@ -336,6 +343,7 @@
 				C48063282C6F5B35003FF7EE /* ValidationManager.swift */,
 				C480632C2C6F657C003FF7EE /* NetworkManager.swift */,
 				C494478F2C70B5EF005AADF7 /* UserDefaultsManager.swift */,
+				C49447B02C720972005AADF7 /* NavigationManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -364,6 +372,7 @@
 				C48063382C6F7954003FF7EE /* EmailResponse.swift */,
 				C494478D2C70B4EF005AADF7 /* JoinResponse.swift */,
 				C49447952C70D6C4005AADF7 /* LoginResponse.swift */,
+				C49447AE2C7206B5005AADF7 /* RefreshTokenResponse.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -563,6 +572,7 @@
 				C48063302C6F668A003FF7EE /* Router.swift in Sources */,
 				C49447AC2C70F593005AADF7 /* MyPageViewController.swift in Sources */,
 				C48062CD2C6F1029003FF7EE /* OnboardingViewController.swift in Sources */,
+				C49447B32C720F77005AADF7 /* LoginViewCase.swift in Sources */,
 				C480630F2C6F2B23003FF7EE /* LoginViewController.swift in Sources */,
 				C48062D92C6F11AD003FF7EE /* Reusable.swift in Sources */,
 				C48063112C6F2B7E003FF7EE /* CommonButton.swift in Sources */,
@@ -583,6 +593,7 @@
 				C48063322C6F6AE7003FF7EE /* TargetType.swift in Sources */,
 				C48062E92C6F14F4003FF7EE /* UIColor+.swift in Sources */,
 				C49447902C70B5EF005AADF7 /* UserDefaultsManager.swift in Sources */,
+				C49447B12C720972005AADF7 /* NavigationManager.swift in Sources */,
 				C480630C2C6F29BA003FF7EE /* OnboardingViewModel.swift in Sources */,
 				C49447942C70CE62005AADF7 /* LoginViewModel.swift in Sources */,
 				C48063292C6F5B35003FF7EE /* ValidationManager.swift in Sources */,
@@ -597,6 +608,7 @@
 				C48063032C6F23DD003FF7EE /* CommonLabel.swift in Sources */,
 				C48063012C6F1FCF003FF7EE /* OnboardingTypeButton.swift in Sources */,
 				C48063152C6F2C3F003FF7EE /* StudentJoinViewController.swift in Sources */,
+				C49447AF2C7206B5005AADF7 /* RefreshTokenResponse.swift in Sources */,
 				C49447A92C70F4C7005AADF7 /* CommunityViewController.swift in Sources */,
 				C49447A32C70F2FE005AADF7 /* LessonViewController.swift in Sources */,
 				C48062D12C6F10C5003FF7EE /* BaseViewController.swift in Sources */,

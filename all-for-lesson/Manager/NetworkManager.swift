@@ -13,7 +13,6 @@ final class NetworkManager {
     
     static let shared = NetworkManager()
     private init() { }
-    // static let shared = NetworkManager()
     
     // Single 객체로 Alamofire 통신
     func checkEmail(_ email: String) -> Single<Result<EmailResponse, Error>> {
@@ -67,6 +66,32 @@ final class NetworkManager {
                 }
             return Disposables.create()
         }.debug("API 네트워크 통신 >>>")
+    }
+    
+    /// 액세스 토큰 갱신
+    func refreshToken() {
+        let api = Router.accessToken(accessToken: UserDefaultsManager.accessToken, 
+                                     refreshToken:  UserDefaultsManager.refreshToken)
+       
+        AF.request(api.endPoint,
+                   encoding: JSONEncoding.default,
+                   headers: api.headers)
+            .responseDecodable(of: RefreshTokenResponse.self) { response in
+                if response.response?.statusCode == 418 {
+                    // RootViewController를 로그인 화면으로 변경
+                    NavigationManager.shared.changeRootViewControllerToLogin()
+                    // 필요시 UserDefaults 제거
+                    UserDefaultsManager.deleteAllUserDefaults()
+                } else {
+                    switch response.result {
+                    case .success(let value):
+                        UserDefaultsManager.accessToken = value.accessToken // 성공했을 때 AccessToken 교체
+                    case .failure(let error):
+                        print("리프레시 토큰 갱신 오류", error)
+                        return
+                    }
+                }
+            }
     }
     
 }

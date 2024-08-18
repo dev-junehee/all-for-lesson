@@ -11,6 +11,8 @@ import RxSwift
 
 final class LoginViewController: BaseViewController {
     
+    var loginViewCase: LoginViewCase = .no
+    
     private let loginView = LoginView()
     private let viewModel = LoginViewModel()
     
@@ -26,7 +28,13 @@ final class LoginViewController: BaseViewController {
     }
     
     override func setViewController() {
-        setBackBarButton()
+        switch loginViewCase {
+        case .first:
+            return
+        case .no:
+            setBackBarButton()
+        }
+        
     }
     
     private func bind() {
@@ -46,9 +54,8 @@ final class LoginViewController: BaseViewController {
         /// 로그인 성공 - 홈 화면 전환
         output.loginSucceed
             .bind(with: self) { owner, result in
-                // 추후 root 바꿔주기
                 if result {
-                    owner.navigationController?.pushViewController(HomeViewController(), animated: true)
+                    NavigationManager.shared.changeRootViewController()
                 }
             }
             .disposed(by: disposeBag)

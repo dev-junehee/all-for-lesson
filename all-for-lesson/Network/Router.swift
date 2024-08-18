@@ -35,7 +35,7 @@ extension Router: TargetType {
             return URL(string: base + API.URL.login)!
             
         case .accessToken:
-            return URL(string: base + API.URL.accessToken)!
+            return URL(string: base + API.URL.refresh)!
             
         case .withdraw:
             return URL(string: base + API.URL.withdraw)!

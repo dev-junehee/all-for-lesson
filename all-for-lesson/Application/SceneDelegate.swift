@@ -16,17 +16,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
         
-        let tabBarController = CustomTabBarController()
+        let refresh = UserDefaultsManager.refreshToken
         
-        let home = tabBarController.createTabBarItem(title: "홈", image: Resource.SystemImage.home, viewController: HomeViewController())
-        let lesson = tabBarController.createTabBarItem(title: "레슨찾기", image: Resource.SystemImage.piano, viewController: LessonViewController())
-        let search = tabBarController.createTabBarItem(title: "검색", image: Resource.SystemImage.search, viewController: SearchViewController())
-        let community = tabBarController.createTabBarItem(title: "커뮤니티", image: Resource.SystemImage.board, viewController: CommunityViewController())
-        let mypage = tabBarController.createTabBarItem(title: "마이페이지", image: Resource.SystemImage.person, viewController: MyPageViewController())
+        if refresh != "" {
+            let tabBarController = CustomTabBarController()
+            tabBarController.setDefaultTabBar()
+            window?.rootViewController = tabBarController
+        } else {
+            window?.rootViewController = UINavigationController(rootViewController: OnboardingViewController())
+        }
         
-        tabBarController.setTabBar(with: [home, lesson, search, community, mypage])
-        
-        window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
     }
 
