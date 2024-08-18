@@ -74,6 +74,11 @@
 		C49447AF2C7206B5005AADF7 /* RefreshTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447AE2C7206B5005AADF7 /* RefreshTokenResponse.swift */; };
 		C49447B12C720972005AADF7 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447B02C720972005AADF7 /* NavigationManager.swift */; };
 		C49447B32C720F77005AADF7 /* LoginViewCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447B22C720F77005AADF7 /* LoginViewCase.swift */; };
+		C49447B52C722BD0005AADF7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447B42C722BD0005AADF7 /* HomeView.swift */; };
+		C49447B82C723778005AADF7 /* HomeLessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447B72C723778005AADF7 /* HomeLessonTableViewCell.swift */; };
+		C49447BA2C72378E005AADF7 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447B92C72378E005AADF7 /* BaseTableViewCell.swift */; };
+		C49447BC2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447BB2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift */; };
+		C49447BE2C723A7E005AADF7 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447BD2C723A7E005AADF7 /* BaseCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +145,11 @@
 		C49447AE2C7206B5005AADF7 /* RefreshTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenResponse.swift; sourceTree = "<group>"; };
 		C49447B02C720972005AADF7 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		C49447B22C720F77005AADF7 /* LoginViewCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewCase.swift; sourceTree = "<group>"; };
+		C49447B42C722BD0005AADF7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		C49447B72C723778005AADF7 /* HomeLessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLessonTableViewCell.swift; sourceTree = "<group>"; };
+		C49447B92C72378E005AADF7 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		C49447BB2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLessonCollectionViewCell.swift; sourceTree = "<group>"; };
+		C49447BD2C723A7E005AADF7 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -253,6 +263,8 @@
 			children = (
 				C48062DD2C6F12D0003FF7EE /* BaseView.swift */,
 				C48062D02C6F10C5003FF7EE /* BaseViewController.swift */,
+				C49447B92C72378E005AADF7 /* BaseTableViewCell.swift */,
+				C49447BD2C723A7E005AADF7 /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -300,6 +312,7 @@
 		C48062FF2C6F1FAA003FF7EE /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				C49447B62C7235A9005AADF7 /* Cell */,
 				C480631F2C6F5586003FF7EE /* Join */,
 				C48063102C6F2B7E003FF7EE /* CommonButton.swift */,
 				C48063022C6F23DD003FF7EE /* CommonLabel.swift */,
@@ -400,6 +413,7 @@
 		C494478C2C70B1DE005AADF7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				C49447B42C722BD0005AADF7 /* HomeView.swift */,
 				C49447912C70BB02005AADF7 /* HomeViewController.swift */,
 			);
 			path = Home;
@@ -466,6 +480,15 @@
 				C48062ED2C6F178B003FF7EE /* Pretendard-Thin.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		C49447B62C7235A9005AADF7 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				C49447B72C723778005AADF7 /* HomeLessonTableViewCell.swift */,
+				C49447BB2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -566,6 +589,7 @@
 				C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */,
 				C48062FE2C6F1D25003FF7EE /* UIImage+.swift in Sources */,
 				C49447962C70D6C4005AADF7 /* LoginResponse.swift in Sources */,
+				C49447B52C722BD0005AADF7 /* HomeView.swift in Sources */,
 				C480632B2C6F5BA4003FF7EE /* StudentJoinViewModel.swift in Sources */,
 				C48062CB2C6F0FFC003FF7EE /* OnboardingView.swift in Sources */,
 				C48063172C6F2C4E003FF7EE /* StudentJoinView.swift in Sources */,
@@ -573,18 +597,22 @@
 				C49447AC2C70F593005AADF7 /* MyPageViewController.swift in Sources */,
 				C48062CD2C6F1029003FF7EE /* OnboardingViewController.swift in Sources */,
 				C49447B32C720F77005AADF7 /* LoginViewCase.swift in Sources */,
+				C49447BE2C723A7E005AADF7 /* BaseCollectionViewCell.swift in Sources */,
 				C480630F2C6F2B23003FF7EE /* LoginViewController.swift in Sources */,
 				C48062D92C6F11AD003FF7EE /* Reusable.swift in Sources */,
 				C48063112C6F2B7E003FF7EE /* CommonButton.swift in Sources */,
 				C48062C12C6DD521003FF7EE /* API.swift in Sources */,
+				C49447B82C723778005AADF7 /* HomeLessonTableViewCell.swift in Sources */,
 				C49447922C70BB02005AADF7 /* HomeViewController.swift in Sources */,
 				C48062D72C6F10FE003FF7EE /* UIView+.swift in Sources */,
 				C494479B2C70E846005AADF7 /* UIViewController+.swift in Sources */,
 				C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */,
 				C48063402C6F8E11003FF7EE /* TeacherJoinViewController.swift in Sources */,
 				C480632D2C6F657C003FF7EE /* NetworkManager.swift in Sources */,
+				C49447BC2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift in Sources */,
 				C48063212C6F5597003FF7EE /* JoinLabel.swift in Sources */,
 				C48062DE2C6F12D0003FF7EE /* BaseView.swift in Sources */,
+				C49447BA2C72378E005AADF7 /* BaseTableViewCell.swift in Sources */,
 				C48062E42C6F13C0003FF7EE /* Constant.swift in Sources */,
 				C480630A2C6F2976003FF7EE /* InputOutput.swift in Sources */,
 				C48063392C6F7954003FF7EE /* EmailResponse.swift in Sources */,

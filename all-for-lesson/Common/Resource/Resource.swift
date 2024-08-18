@@ -16,7 +16,8 @@ import UIKit
 enum Resource {
     
     enum Color {
-        static let white: UIColor = .init(0xfcfcfc)
+        static let white: UIColor = .init(0xffffff)
+        static let whiteSmoke: UIColor = .init(0xfcfcfc)
         static let paleGray: UIColor = .init(0xf6f6f6)
         static let lightGray: UIColor = .init(0xd9d9d9)
         static let darkGray: UIColor = .init(0x636363)
