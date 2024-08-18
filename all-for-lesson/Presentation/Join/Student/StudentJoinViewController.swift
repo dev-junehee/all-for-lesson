@@ -25,6 +25,10 @@ final class StudentJoinViewController: BaseViewController {
         bind()
     }
     
+    override func setViewController() {
+        setBackBarButton()
+    }
+    
     private func bind() {
         let input = StudentJoinViewModel.Input(emailText: joinView.emailField.rx.text,
                                                duplicationButtonTap: joinView.duplicationButton.rx.tap,
