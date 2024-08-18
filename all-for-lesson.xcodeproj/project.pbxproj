@@ -79,6 +79,8 @@
 		C49447BA2C72378E005AADF7 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447B92C72378E005AADF7 /* BaseTableViewCell.swift */; };
 		C49447BC2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447BB2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift */; };
 		C49447BE2C723A7E005AADF7 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447BD2C723A7E005AADF7 /* BaseCollectionViewCell.swift */; };
+		C49447C02C7248B8005AADF7 /* HomeMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447BF2C7248B8005AADF7 /* HomeMenuTableViewCell.swift */; };
+		C49447C32C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447C22C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -150,6 +152,8 @@
 		C49447B92C72378E005AADF7 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		C49447BB2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLessonCollectionViewCell.swift; sourceTree = "<group>"; };
 		C49447BD2C723A7E005AADF7 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		C49447BF2C7248B8005AADF7 /* HomeMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuTableViewCell.swift; sourceTree = "<group>"; };
+		C49447C22C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -487,6 +491,8 @@
 			children = (
 				C49447B72C723778005AADF7 /* HomeLessonTableViewCell.swift */,
 				C49447BB2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift */,
+				C49447BF2C7248B8005AADF7 /* HomeMenuTableViewCell.swift */,
+				C49447C22C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -608,7 +614,9 @@
 				C494479B2C70E846005AADF7 /* UIViewController+.swift in Sources */,
 				C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */,
 				C48063402C6F8E11003FF7EE /* TeacherJoinViewController.swift in Sources */,
+				C49447C02C7248B8005AADF7 /* HomeMenuTableViewCell.swift in Sources */,
 				C480632D2C6F657C003FF7EE /* NetworkManager.swift in Sources */,
+				C49447C32C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift in Sources */,
 				C49447BC2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift in Sources */,
 				C48063212C6F5597003FF7EE /* JoinLabel.swift in Sources */,
 				C48062DE2C6F12D0003FF7EE /* BaseView.swift in Sources */,

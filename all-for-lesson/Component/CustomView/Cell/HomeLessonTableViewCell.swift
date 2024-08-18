@@ -28,6 +28,11 @@ final class HomeLessonTableViewCell: BaseTableViewCell {
         return layout
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 16, left: 0, bottom: 0, right: 0))
+    }
+    
     override func setHierarchyLayout() {
         [titleLabel, collectionView].forEach { contentView.addSubview($0) }
         

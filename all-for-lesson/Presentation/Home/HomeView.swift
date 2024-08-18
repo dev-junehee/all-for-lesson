@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SnapKit
 import Then
 
 final class HomeView: BaseView {
@@ -54,9 +55,6 @@ final class HomeView: BaseView {
             $0.top.equalTo(logoView.snp.bottom)
             $0.horizontalEdges.bottom.equalTo(safeArea)
         }
-        
-        /// 임시
-        tableView.backgroundColor = .gray
     }
     
 }
