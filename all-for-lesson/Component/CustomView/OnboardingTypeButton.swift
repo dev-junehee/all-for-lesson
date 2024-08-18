@@ -30,11 +30,9 @@ final class OnboardingTypeButton: UIButton {
         config.titlePadding = 6
         
         /// 버튼 이미지
-        // config.image = image
-        // config.imagePlacement = .leading
-        
-        let imageConfig = UIImage.SymbolConfiguration(pointSize: 12)
-        config.preferredSymbolConfigurationForImage = imageConfig
+        config.image = image
+        config.imagePlacement = .leading
+        config.imagePadding = 20
         
         self.configuration = config
     }
