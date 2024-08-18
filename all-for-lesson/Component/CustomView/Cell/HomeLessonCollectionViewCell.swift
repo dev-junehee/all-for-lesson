@@ -59,13 +59,12 @@ final class HomeLessonCollectionViewCell: BaseCollectionViewCell {
         starImage.snp.makeConstraints {
             $0.top.equalTo(lessonLocationPrice.snp.bottom).offset(4)
             $0.leading.equalTo(contentView)
-            $0.trailing.equalTo(starLate.snp.leading)
             $0.size.equalTo(16)
         }
         
         starLate.snp.makeConstraints {
             $0.top.equalTo(lessonLocationPrice.snp.bottom).offset(4)
-            $0.leading.equalTo(starLate.snp.trailing)
+            $0.leading.equalTo(starImage.snp.trailing)
             $0.trailing.equalTo(contentView)
             $0.height.equalTo(16)
         }
