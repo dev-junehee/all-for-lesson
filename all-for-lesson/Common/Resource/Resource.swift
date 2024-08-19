@@ -48,8 +48,8 @@ enum Resource {
         static let board = UIImage(systemName: "square.and.pencil")!
         static let person = UIImage(systemName: "person")!
         static let star = UIImage(systemName: "star.fill")!
-        
-        
+        static let bookmark = UIImage(systemName: "bookmark")!
+        static let bookmarkFill = UIImage(systemName: "bookmark.fill")!
     }
     
 }

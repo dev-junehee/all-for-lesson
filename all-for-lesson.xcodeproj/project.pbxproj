@@ -81,6 +81,9 @@
 		C49447BE2C723A7E005AADF7 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447BD2C723A7E005AADF7 /* BaseCollectionViewCell.swift */; };
 		C49447C02C7248B8005AADF7 /* HomeMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447BF2C7248B8005AADF7 /* HomeMenuTableViewCell.swift */; };
 		C49447C32C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447C22C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift */; };
+		C49447CF2C732A19005AADF7 /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447CE2C732A19005AADF7 /* LessonView.swift */; };
+		C49447D12C732EC0005AADF7 /* LessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447D02C732EC0005AADF7 /* LessonCollectionViewCell.swift */; };
+		C49447D32C7334A0005AADF7 /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447D22C7334A0005AADF7 /* PostRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -154,6 +157,9 @@
 		C49447BD2C723A7E005AADF7 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		C49447BF2C7248B8005AADF7 /* HomeMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuTableViewCell.swift; sourceTree = "<group>"; };
 		C49447C22C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionViewCell.swift; sourceTree = "<group>"; };
+		C49447CE2C732A19005AADF7 /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
+		C49447D02C732EC0005AADF7 /* LessonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCollectionViewCell.swift; sourceTree = "<group>"; };
+		C49447D22C7334A0005AADF7 /* PostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,6 +396,7 @@
 				C494478D2C70B4EF005AADF7 /* JoinResponse.swift */,
 				C49447952C70D6C4005AADF7 /* LoginResponse.swift */,
 				C49447AE2C7206B5005AADF7 /* RefreshTokenResponse.swift */,
+				C49447D22C7334A0005AADF7 /* PostRequest.swift */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -441,6 +448,7 @@
 		C49447A12C70F2E9005AADF7 /* Lesson */ = {
 			isa = PBXGroup;
 			children = (
+				C49447CE2C732A19005AADF7 /* LessonView.swift */,
 				C49447A22C70F2FE005AADF7 /* LessonViewController.swift */,
 			);
 			path = Lesson;
@@ -493,6 +501,7 @@
 				C49447BB2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift */,
 				C49447BF2C7248B8005AADF7 /* HomeMenuTableViewCell.swift */,
 				C49447C22C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift */,
+				C49447D02C732EC0005AADF7 /* LessonCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -608,6 +617,7 @@
 				C48062D92C6F11AD003FF7EE /* Reusable.swift in Sources */,
 				C48063112C6F2B7E003FF7EE /* CommonButton.swift in Sources */,
 				C48062C12C6DD521003FF7EE /* API.swift in Sources */,
+				C49447D12C732EC0005AADF7 /* LessonCollectionViewCell.swift in Sources */,
 				C49447B82C723778005AADF7 /* HomeLessonTableViewCell.swift in Sources */,
 				C49447922C70BB02005AADF7 /* HomeViewController.swift in Sources */,
 				C48062D72C6F10FE003FF7EE /* UIView+.swift in Sources */,
@@ -632,6 +642,7 @@
 				C49447B12C720972005AADF7 /* NavigationManager.swift in Sources */,
 				C480630C2C6F29BA003FF7EE /* OnboardingViewModel.swift in Sources */,
 				C49447942C70CE62005AADF7 /* LoginViewModel.swift in Sources */,
+				C49447CF2C732A19005AADF7 /* LessonView.swift in Sources */,
 				C48063292C6F5B35003FF7EE /* ValidationManager.swift in Sources */,
 				C48063242C6F55ED003FF7EE /* JoinCase.swift in Sources */,
 				C480631E2C6F3013003FF7EE /* JoinTextField.swift in Sources */,
@@ -640,6 +651,7 @@
 				C49447A62C70F3B3005AADF7 /* SearchViewController.swift in Sources */,
 				C48063442C6F9078003FF7EE /* LoginView.swift in Sources */,
 				C49447A02C70EDC9005AADF7 /* CustomTabBarController.swift in Sources */,
+				C49447D32C7334A0005AADF7 /* PostRequest.swift in Sources */,
 				C494478E2C70B4EF005AADF7 /* JoinResponse.swift in Sources */,
 				C48063032C6F23DD003FF7EE /* CommonLabel.swift in Sources */,
 				C48063012C6F1FCF003FF7EE /* OnboardingTypeButton.swift in Sources */,
