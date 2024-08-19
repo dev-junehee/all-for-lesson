@@ -50,6 +50,11 @@ enum Resource {
         static let star = UIImage(systemName: "star.fill")!
         static let bookmark = UIImage(systemName: "bookmark")!
         static let bookmarkFill = UIImage(systemName: "bookmark.fill")!
+        static let gear = UIImage(systemName: "gearshape")!
+        static let list = UIImage(systemName: "list.bullet.clipboard.fill")!
+        static let friends = UIImage(systemName: "person.2.fill")!
+        
+        static let mypageButtons = [list, bookmarkFill, friends]
     }
     
 }

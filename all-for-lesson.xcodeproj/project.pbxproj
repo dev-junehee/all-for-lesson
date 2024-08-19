@@ -84,6 +84,10 @@
 		C49447CF2C732A19005AADF7 /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447CE2C732A19005AADF7 /* LessonView.swift */; };
 		C49447D12C732EC0005AADF7 /* LessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447D02C732EC0005AADF7 /* LessonCollectionViewCell.swift */; };
 		C49447D32C7334A0005AADF7 /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447D22C7334A0005AADF7 /* PostRequest.swift */; };
+		C49447D52C7366EB005AADF7 /* MyPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447D42C7366EB005AADF7 /* MyPageView.swift */; };
+		C49447D72C7367FB005AADF7 /* UserTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447D62C7367FB005AADF7 /* UserTypeButton.swift */; };
+		C49447DA2C736BC3005AADF7 /* MyPageMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447D92C736BC3005AADF7 /* MyPageMenuButton.swift */; };
+		C49447DC2C737632005AADF7 /* MyPageMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447DB2C737632005AADF7 /* MyPageMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,6 +164,10 @@
 		C49447CE2C732A19005AADF7 /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
 		C49447D02C732EC0005AADF7 /* LessonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCollectionViewCell.swift; sourceTree = "<group>"; };
 		C49447D22C7334A0005AADF7 /* PostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequest.swift; sourceTree = "<group>"; };
+		C49447D42C7366EB005AADF7 /* MyPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageView.swift; sourceTree = "<group>"; };
+		C49447D62C7367FB005AADF7 /* UserTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTypeButton.swift; sourceTree = "<group>"; };
+		C49447D92C736BC3005AADF7 /* MyPageMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenuButton.swift; sourceTree = "<group>"; };
+		C49447DB2C737632005AADF7 /* MyPageMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -327,6 +335,8 @@
 				C48063102C6F2B7E003FF7EE /* CommonButton.swift */,
 				C48063022C6F23DD003FF7EE /* CommonLabel.swift */,
 				C48063002C6F1FCE003FF7EE /* OnboardingTypeButton.swift */,
+				C49447D62C7367FB005AADF7 /* UserTypeButton.swift */,
+				C49447D92C736BC3005AADF7 /* MyPageMenuButton.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -385,6 +395,7 @@
 			children = (
 				C49447972C70E5CA005AADF7 /* Request */,
 				C48063372C6F7939003FF7EE /* Response */,
+				C49447DB2C737632005AADF7 /* MyPageMenu.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -474,6 +485,7 @@
 			isa = PBXGroup;
 			children = (
 				C49447AB2C70F593005AADF7 /* MyPageViewController.swift */,
+				C49447D42C7366EB005AADF7 /* MyPageView.swift */,
 			);
 			path = MyPage;
 			sourceTree = "<group>";
@@ -611,6 +623,7 @@
 				C48063302C6F668A003FF7EE /* Router.swift in Sources */,
 				C49447AC2C70F593005AADF7 /* MyPageViewController.swift in Sources */,
 				C48062CD2C6F1029003FF7EE /* OnboardingViewController.swift in Sources */,
+				C49447D72C7367FB005AADF7 /* UserTypeButton.swift in Sources */,
 				C49447B32C720F77005AADF7 /* LoginViewCase.swift in Sources */,
 				C49447BE2C723A7E005AADF7 /* BaseCollectionViewCell.swift in Sources */,
 				C480630F2C6F2B23003FF7EE /* LoginViewController.swift in Sources */,
@@ -618,6 +631,7 @@
 				C48063112C6F2B7E003FF7EE /* CommonButton.swift in Sources */,
 				C48062C12C6DD521003FF7EE /* API.swift in Sources */,
 				C49447D12C732EC0005AADF7 /* LessonCollectionViewCell.swift in Sources */,
+				C49447D52C7366EB005AADF7 /* MyPageView.swift in Sources */,
 				C49447B82C723778005AADF7 /* HomeLessonTableViewCell.swift in Sources */,
 				C49447922C70BB02005AADF7 /* HomeViewController.swift in Sources */,
 				C48062D72C6F10FE003FF7EE /* UIView+.swift in Sources */,
@@ -628,6 +642,7 @@
 				C480632D2C6F657C003FF7EE /* NetworkManager.swift in Sources */,
 				C49447C32C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift in Sources */,
 				C49447BC2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift in Sources */,
+				C49447DC2C737632005AADF7 /* MyPageMenu.swift in Sources */,
 				C48063212C6F5597003FF7EE /* JoinLabel.swift in Sources */,
 				C48062DE2C6F12D0003FF7EE /* BaseView.swift in Sources */,
 				C49447BA2C72378E005AADF7 /* BaseTableViewCell.swift in Sources */,
@@ -640,6 +655,7 @@
 				C48062E92C6F14F4003FF7EE /* UIColor+.swift in Sources */,
 				C49447902C70B5EF005AADF7 /* UserDefaultsManager.swift in Sources */,
 				C49447B12C720972005AADF7 /* NavigationManager.swift in Sources */,
+				C49447DA2C736BC3005AADF7 /* MyPageMenuButton.swift in Sources */,
 				C480630C2C6F29BA003FF7EE /* OnboardingViewModel.swift in Sources */,
 				C49447942C70CE62005AADF7 /* LoginViewModel.swift in Sources */,
 				C49447CF2C732A19005AADF7 /* LessonView.swift in Sources */,
