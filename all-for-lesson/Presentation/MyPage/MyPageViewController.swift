@@ -10,43 +10,29 @@ import SnapKit
 
 final class MyPageViewController: BaseViewController {
     
-    enum MyPageSection: CaseIterable {
-        case general
-        case personal
+    private enum MyPageSection: CaseIterable {
+        case all
     }
     
-    let menuList: [[MyPageMenu]] = [
-        [MyPageMenu(title: "레슨 개설하기")],
-        [MyPageMenu(title: "로그아웃"), MyPageMenu(title: "회원탈퇴")]
+    /// 임시 메뉴
+    let menuList: [MyPageMenu] = [
+        MyPageMenu(title: "레슨 개설하기"), 
+        MyPageMenu(title: "로그아웃"),
+        MyPageMenu(title: "회원탈퇴")
     ]
+    
     private var dataSource: UICollectionViewDiffableDataSource<MyPageSection, MyPageMenu>!
         
-    
     private let mypageView = MyPageView()
     
     override func loadView() {
         view = mypageView
     }
     
-    // private let logoutButton = UIButton().then {
-    //     $0.setTitle("(임시) 로그아웃", for: .normal)
-    //     $0.backgroundColor = Resource.Color.purple
-    // }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureDataSource()
         updateSnapShot()
-        
-        // view.addSubview(logoutButton)
-        // 
-        // logoutButton.snp.makeConstraints {
-        //     $0.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
-        //     $0.height.equalTo(60)
-        //     $0.center.equalToSuperview()
-        // }
-        // 
-        // logoutButton.addTarget(self, action: #selector(userTokenCheckTest), for: .touchUpInside)
     }
     
     override func setViewController() {
@@ -55,19 +41,15 @@ final class MyPageViewController: BaseViewController {
         let barButton = UIBarButtonItem(image: Resource.SystemImage.gear, style: .plain, target: self, action: #selector(settingButtonClicked))
         barButton.tintColor = Resource.Color.darkGray
         navigationItem.rightBarButtonItem = barButton
+        
+        mypageView.tableView.delegate = self
     }
-    
-    /// 로그아웃 + 화면 전환 확인용 임시
-    // @objc func userTokenCheckTest() {
-    //     UserDefaultsManager.deleteAllUserDefaults() 
-    //     NavigationManager.shared.changeRootViewControllerToLogin()
-    // }
     
     /// 설정 바버튼 클릭 (임시)
     @objc func settingButtonClicked() {
         
     }
-                                        
+    
 }
 
 
@@ -95,9 +77,26 @@ extension MyPageViewController {
    private func updateSnapShot() {
        var snapshot = NSDiffableDataSourceSnapshot<MyPageSection, MyPageMenu>()
        snapshot.appendSections(MyPageSection.allCases)
-       snapshot.appendItems(menuList[0], toSection: .general)
-       snapshot.appendItems(menuList[1], toSection: .personal)
+       snapshot.appendItems(menuList, toSection: .all)
        dataSource.apply(snapshot)
    }
-    
+}
+
+extension MyPageViewController: UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let row = indexPath.row
+        
+        switch row {
+        case 0:
+            return
+        case 1: // 로그아웃
+            UserDefaultsManager.deleteAllUserDefaults()
+            NavigationManager.shared.changeRootViewControllerToLogin()
+        case 2:
+            return
+        default:
+            return
+        }
+        
+    }
 }

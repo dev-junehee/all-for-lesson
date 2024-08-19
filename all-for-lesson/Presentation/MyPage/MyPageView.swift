@@ -11,6 +11,12 @@ import Then
 
 final class MyPageView: BaseView {
     
+    var viewType: JoinCase = .student {
+        didSet {
+            studentTeacherButtonToggle()
+        }
+    }
+    
     let profileImage = UIImageView().then {
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 35
@@ -34,7 +40,8 @@ final class MyPageView: BaseView {
         $0.text = "abcdefghijk@test.com"
     }
     
-    private let userTypeButton = UserTypeButton(type: .teacher)
+    private let studentButton = UserTypeButton(type: .student)
+    private let teacherButton = UserTypeButton(type: .teacher)
     
     private lazy var buttonStack = UIStackView().then {
         $0.addArrangedSubview(reservationButton)
@@ -59,7 +66,7 @@ final class MyPageView: BaseView {
     }
     
     override func setHierarchyLayout() {
-        [profileImage, profileNameEmailStack, userTypeButton, buttonStack, tableView].forEach { self.addSubview($0) }
+        [profileImage, profileNameEmailStack, studentButton, teacherButton, buttonStack, tableView].forEach { self.addSubview($0) }
         
         let safeArea = self.safeAreaLayoutGuide
         
@@ -71,7 +78,7 @@ final class MyPageView: BaseView {
         profileNameEmailStack.snp.makeConstraints {
             $0.centerY.equalTo(profileImage)
             $0.leading.equalTo(profileImage.snp.trailing).offset(16)
-            $0.trailing.equalTo(userTypeButton.snp.leading)
+            $0.trailing.equalTo(studentButton.snp.leading)
             $0.height.equalTo(30)
         }
         
@@ -85,7 +92,12 @@ final class MyPageView: BaseView {
             $0.horizontalEdges.bottom.equalTo(profileNameEmailStack)
         }
         
-        userTypeButton.snp.makeConstraints {
+        studentButton.snp.makeConstraints {
+            $0.centerY.equalTo(profileImage)
+            $0.trailing.equalTo(safeArea).inset(32)
+        }
+        
+        teacherButton.snp.makeConstraints {
             $0.centerY.equalTo(profileImage)
             $0.trailing.equalTo(safeArea).inset(32)
         }
@@ -100,6 +112,11 @@ final class MyPageView: BaseView {
             $0.top.equalTo(buttonStack.snp.bottom).offset(16)
             $0.horizontalEdges.bottom.equalTo(safeArea)
         }
+    }
+    
+    func studentTeacherButtonToggle() {
+        studentButton.isHidden = !teacherButton.isHidden
+        teacherButton.isHidden = !studentButton.isHidden
     }
     
 }
