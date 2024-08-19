@@ -48,9 +48,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if indexPath.row == 0 {
-            return 160
+            return 180
         } else {
-            return 260
+            return 270
         }
     }
     

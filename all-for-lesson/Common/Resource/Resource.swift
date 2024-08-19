@@ -47,7 +47,7 @@ enum Resource {
         static let search = UIImage(systemName: "magnifyingglass")!
         static let board = UIImage(systemName: "square.and.pencil")!
         static let person = UIImage(systemName: "person")!
-        
+        static let star = UIImage(systemName: "star.fill")!
         
         
     }

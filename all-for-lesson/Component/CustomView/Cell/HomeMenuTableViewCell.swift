@@ -14,11 +14,18 @@ final class HomeMenuTableViewCell: BaseTableViewCell {
     
     private func layout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 80, height: 80)
-        layout.minimumLineSpacing = 10
-        layout.minimumInteritemSpacing = 0
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
-        layout.scrollDirection = .horizontal
+        
+        let sectionSpaciing: CGFloat = 16
+        let cellSpacing: CGFloat = 16
+        
+        let width = UIScreen.main.bounds.width - (sectionSpaciing) - (cellSpacing)
+        layout.itemSize = CGSize(width: width / 5, height: width / 5)
+        layout.scrollDirection = .vertical
+        
+        layout.minimumInteritemSpacing = cellSpacing
+        layout.minimumLineSpacing = cellSpacing
+        layout.sectionInset = UIEdgeInsets(top: sectionSpaciing, left: sectionSpaciing, bottom: sectionSpaciing, right: sectionSpaciing)
+        
         return layout
     }
     

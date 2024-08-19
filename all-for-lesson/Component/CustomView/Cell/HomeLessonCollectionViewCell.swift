@@ -19,23 +19,20 @@ final class HomeLessonCollectionViewCell: BaseCollectionViewCell {
     }
     
     let lessonTitle = UILabel().then {
-        $0.font = Resource.Font.bold18
-        $0.backgroundColor = .red
+        $0.font = Resource.Font.bold16
     }
     
     let lessonLocationPrice = UILabel().then {
         $0.font = Resource.Font.regular14
-        $0.backgroundColor = .orange
     }
     
     private let starImage = UIImageView().then {
-        $0.image = UIImage(systemName: "star.fill")!
+        $0.image = Resource.SystemImage.star
         $0.tintColor = Resource.Color.yellow
     }
     
     let starLate = UILabel().then {
-        $0.font = Resource.Font.regular14
-        $0.backgroundColor = .yellow
+        $0.font = Resource.Font.regular12
     }
     
     override func setHierarchyLayout() {

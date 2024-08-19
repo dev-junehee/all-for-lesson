@@ -43,7 +43,7 @@ final class HomeLessonTableViewCell: BaseTableViewCell {
         }
         
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).offset(8)
+            $0.top.equalTo(titleLabel.snp.bottom)
             $0.horizontalEdges.bottom.equalTo(contentView)
         }
     }
