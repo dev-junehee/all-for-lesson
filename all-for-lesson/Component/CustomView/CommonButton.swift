@@ -18,7 +18,7 @@ final class CommonButton: UIButton {
         config.attributedTitle = title
         
         config.baseBackgroundColor = color
-        config.baseForegroundColor = fontColor ? Resource.Color.white : Resource.Color.fontBlack
+        config.baseForegroundColor = fontColor ? Resource.Color.whiteSmoke : Resource.Color.fontBlack
         
         self.configuration = config
         self.isEnabled = isEnabled
