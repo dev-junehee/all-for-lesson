@@ -57,7 +57,6 @@ final class HomeView: BaseView {
     
     lazy var popularCollectionView = UICollectionView(frame: .zero, collectionViewLayout: lessonLayout()).then {
         $0.register(HomeLessonCollectionViewCell.self, forCellWithReuseIdentifier: HomeLessonCollectionViewCell.id)
-        // $0.backgroundColor = .gray
     }
     
     let interestingLabel = UILabel().then {
@@ -67,7 +66,6 @@ final class HomeView: BaseView {
     
     lazy var interestingCollectionView = UICollectionView(frame: .zero, collectionViewLayout: lessonLayout()).then {
         $0.register(HomeLessonCollectionViewCell.self, forCellWithReuseIdentifier: HomeLessonCollectionViewCell.id)
-        // $0.backgroundColor = .gray
     }
     
     private func menuLayout() -> UICollectionViewLayout {

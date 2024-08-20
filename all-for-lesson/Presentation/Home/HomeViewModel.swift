@@ -16,15 +16,14 @@ final class HomeViewModel: InputOutput {
     struct Input {
         let viewDidLoadTrigger: Observable<[Any]>
         let menuButtonTap: ControlEvent<IndexPath>
+        let popularLessonTap: ControlEvent<Post>
+        let interestingLessonTap: ControlEvent<Post>
     }
     
     struct Output {
         let menuItems: Observable<[(String, UIImage)]>
         let popularLessonList: BehaviorSubject<[Post]>
         let interestingLessonList: BehaviorSubject<[Post]>
-        // let menuImage: BehaviorSubject<[UIImage]>
-        // let popularLessonList: PublishSubject<[String]>
-        // let interestingLessonList: PublishSubject<[String]>
     }
     
     func transform(input: Input) -> Output {
@@ -42,6 +41,21 @@ final class HomeViewModel: InputOutput {
                 print(indexPath)
             }
             .disposed(by: disposeBag)
+        
+        /// 인기 레슨 탭
+        input.popularLessonTap
+            .bind { indexPath in
+                print("인기레슨", indexPath)
+            }
+            .disposed(by: disposeBag)
+        
+        /// 흥미 레슨 탭
+        input.interestingLessonTap
+            .bind { postData in
+                print("흥미레슨", postData)
+            }
+            .disposed(by: disposeBag)
+        
         
         return Output(menuItems: menuItems,
                       popularLessonList: popularLessonList,
