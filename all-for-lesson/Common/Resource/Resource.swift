@@ -36,6 +36,8 @@ enum Resource {
         static let bold18 = UIFont(name: "Pretendard-Bold", size: 18)
         static let bold16 = UIFont(name: "Pretendard-Bold", size: 16)
         static let bold14 = UIFont(name: "Pretendard-Bold", size: 14)
+        static let bold12 = UIFont(name: "Pretendard-Bold", size: 12)
+        static let medium12 = UIFont(name: "Pretendard-Medium", size: 12)
         static let regular14 = UIFont(name: "Pretendard-Regular", size: 14)
         static let regular12 = UIFont(name: "Pretendard-Regular", size: 12)
     }
@@ -57,9 +59,10 @@ enum Resource {
         /// 홈 메뉴 버튼
         static let homeMenus: [UIImage] = [
             .folder, .violin, .flute, .brass,
-            .piano, .microphone, .theme, .composition]
+            .piano, .microphone, .clef, .percussion
+        ]
         /// 마이페이지 버튼
-        static let mypageButtons = [list, bookmarkFill, friends]
+        static let mypageButtons: [UIImage]  = [.board, .bookmark, .friends]
     }
     
 }

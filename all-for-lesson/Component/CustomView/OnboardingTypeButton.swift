@@ -33,6 +33,8 @@ final class OnboardingTypeButton: UIButton {
         config.image = image
         config.imagePlacement = .leading
         config.imagePadding = 20
+        config.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
+        
         
         self.configuration = config
     }

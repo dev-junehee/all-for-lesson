@@ -75,11 +75,8 @@
 		C49447B12C720972005AADF7 /* NavigationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447B02C720972005AADF7 /* NavigationManager.swift */; };
 		C49447B32C720F77005AADF7 /* LoginViewCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447B22C720F77005AADF7 /* LoginViewCase.swift */; };
 		C49447B52C722BD0005AADF7 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447B42C722BD0005AADF7 /* HomeView.swift */; };
-		C49447B82C723778005AADF7 /* HomeLessonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447B72C723778005AADF7 /* HomeLessonTableViewCell.swift */; };
-		C49447BA2C72378E005AADF7 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447B92C72378E005AADF7 /* BaseTableViewCell.swift */; };
 		C49447BC2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447BB2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift */; };
 		C49447BE2C723A7E005AADF7 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447BD2C723A7E005AADF7 /* BaseCollectionViewCell.swift */; };
-		C49447C02C7248B8005AADF7 /* HomeMenuTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447BF2C7248B8005AADF7 /* HomeMenuTableViewCell.swift */; };
 		C49447C32C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447C22C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift */; };
 		C49447CF2C732A19005AADF7 /* LessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447CE2C732A19005AADF7 /* LessonView.swift */; };
 		C49447D12C732EC0005AADF7 /* LessonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447D02C732EC0005AADF7 /* LessonCollectionViewCell.swift */; };
@@ -93,6 +90,9 @@
 		C49447E22C7443E7005AADF7 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447E12C7443E7005AADF7 /* HomeViewModel.swift */; };
 		C49447E42C7448C5005AADF7 /* LessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447E32C7448C5005AADF7 /* LessonViewModel.swift */; };
 		C49447E72C74AA9A005AADF7 /* PostDummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447E62C74AA9A005AADF7 /* PostDummy.swift */; };
+		C49447E92C74DBE3005AADF7 /* LessonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447E82C74DBE3005AADF7 /* LessonDetailView.swift */; };
+		C49447EC2C74DBF8005AADF7 /* LessonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447EB2C74DBF8005AADF7 /* LessonDetailViewModel.swift */; };
+		C49447EE2C74DBFE005AADF7 /* LessonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447ED2C74DBFE005AADF7 /* LessonDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -160,11 +160,8 @@
 		C49447B02C720972005AADF7 /* NavigationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationManager.swift; sourceTree = "<group>"; };
 		C49447B22C720F77005AADF7 /* LoginViewCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewCase.swift; sourceTree = "<group>"; };
 		C49447B42C722BD0005AADF7 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		C49447B72C723778005AADF7 /* HomeLessonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLessonTableViewCell.swift; sourceTree = "<group>"; };
-		C49447B92C72378E005AADF7 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		C49447BB2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeLessonCollectionViewCell.swift; sourceTree = "<group>"; };
 		C49447BD2C723A7E005AADF7 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
-		C49447BF2C7248B8005AADF7 /* HomeMenuTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuTableViewCell.swift; sourceTree = "<group>"; };
 		C49447C22C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCollectionViewCell.swift; sourceTree = "<group>"; };
 		C49447CE2C732A19005AADF7 /* LessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonView.swift; sourceTree = "<group>"; };
 		C49447D02C732EC0005AADF7 /* LessonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -178,6 +175,9 @@
 		C49447E12C7443E7005AADF7 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		C49447E32C7448C5005AADF7 /* LessonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewModel.swift; sourceTree = "<group>"; };
 		C49447E62C74AA9A005AADF7 /* PostDummy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDummy.swift; sourceTree = "<group>"; };
+		C49447E82C74DBE3005AADF7 /* LessonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailView.swift; sourceTree = "<group>"; };
+		C49447EB2C74DBF8005AADF7 /* LessonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailViewModel.swift; sourceTree = "<group>"; };
+		C49447ED2C74DBFE005AADF7 /* LessonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -291,7 +291,6 @@
 			children = (
 				C48062DD2C6F12D0003FF7EE /* BaseView.swift */,
 				C48062D02C6F10C5003FF7EE /* BaseViewController.swift */,
-				C49447B92C72378E005AADF7 /* BaseTableViewCell.swift */,
 				C49447BD2C723A7E005AADF7 /* BaseCollectionViewCell.swift */,
 			);
 			path = Base;
@@ -472,6 +471,7 @@
 		C49447A12C70F2E9005AADF7 /* Lesson */ = {
 			isa = PBXGroup;
 			children = (
+				C49447EA2C74DBEB005AADF7 /* Detail */,
 				C49447CE2C732A19005AADF7 /* LessonView.swift */,
 				C49447A22C70F2FE005AADF7 /* LessonViewController.swift */,
 				C49447E32C7448C5005AADF7 /* LessonViewModel.swift */,
@@ -524,9 +524,7 @@
 		C49447B62C7235A9005AADF7 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				C49447B72C723778005AADF7 /* HomeLessonTableViewCell.swift */,
 				C49447BB2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift */,
-				C49447BF2C7248B8005AADF7 /* HomeMenuTableViewCell.swift */,
 				C49447C22C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift */,
 				C49447D02C732EC0005AADF7 /* LessonCollectionViewCell.swift */,
 			);
@@ -539,6 +537,16 @@
 				C49447E62C74AA9A005AADF7 /* PostDummy.swift */,
 			);
 			path = DummyData;
+			sourceTree = "<group>";
+		};
+		C49447EA2C74DBEB005AADF7 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				C49447E82C74DBE3005AADF7 /* LessonDetailView.swift */,
+				C49447ED2C74DBFE005AADF7 /* LessonDetailViewController.swift */,
+				C49447EB2C74DBF8005AADF7 /* LessonDetailViewModel.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -651,26 +659,24 @@
 				C49447D72C7367FB005AADF7 /* UserTypeButton.swift in Sources */,
 				C49447B32C720F77005AADF7 /* LoginViewCase.swift in Sources */,
 				C49447BE2C723A7E005AADF7 /* BaseCollectionViewCell.swift in Sources */,
+				C49447E92C74DBE3005AADF7 /* LessonDetailView.swift in Sources */,
 				C480630F2C6F2B23003FF7EE /* LoginViewController.swift in Sources */,
 				C48062D92C6F11AD003FF7EE /* Reusable.swift in Sources */,
 				C48063112C6F2B7E003FF7EE /* CommonButton.swift in Sources */,
 				C48062C12C6DD521003FF7EE /* API.swift in Sources */,
 				C49447D12C732EC0005AADF7 /* LessonCollectionViewCell.swift in Sources */,
 				C49447D52C7366EB005AADF7 /* MyPageView.swift in Sources */,
-				C49447B82C723778005AADF7 /* HomeLessonTableViewCell.swift in Sources */,
 				C49447922C70BB02005AADF7 /* HomeViewController.swift in Sources */,
 				C48062D72C6F10FE003FF7EE /* UIView+.swift in Sources */,
 				C494479B2C70E846005AADF7 /* UIViewController+.swift in Sources */,
 				C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */,
 				C48063402C6F8E11003FF7EE /* TeacherJoinViewController.swift in Sources */,
-				C49447C02C7248B8005AADF7 /* HomeMenuTableViewCell.swift in Sources */,
 				C480632D2C6F657C003FF7EE /* NetworkManager.swift in Sources */,
 				C49447C32C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift in Sources */,
 				C49447BC2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift in Sources */,
 				C49447DC2C737632005AADF7 /* MyPageMenu.swift in Sources */,
 				C48063212C6F5597003FF7EE /* JoinLabel.swift in Sources */,
 				C48062DE2C6F12D0003FF7EE /* BaseView.swift in Sources */,
-				C49447BA2C72378E005AADF7 /* BaseTableViewCell.swift in Sources */,
 				C48062E42C6F13C0003FF7EE /* Constant.swift in Sources */,
 				C480630A2C6F2976003FF7EE /* InputOutput.swift in Sources */,
 				C48063392C6F7954003FF7EE /* EmailResponse.swift in Sources */,
@@ -678,6 +684,7 @@
 				C48062E72C6F13CB003FF7EE /* Resource.swift in Sources */,
 				C48063322C6F6AE7003FF7EE /* TargetType.swift in Sources */,
 				C48062E92C6F14F4003FF7EE /* UIColor+.swift in Sources */,
+				C49447EC2C74DBF8005AADF7 /* LessonDetailViewModel.swift in Sources */,
 				C49447902C70B5EF005AADF7 /* UserDefaultsManager.swift in Sources */,
 				C49447B12C720972005AADF7 /* NavigationManager.swift in Sources */,
 				C49447DE2C738085005AADF7 /* WithDrawResponse.swift in Sources */,
@@ -695,6 +702,7 @@
 				C49447A62C70F3B3005AADF7 /* SearchViewController.swift in Sources */,
 				C48063442C6F9078003FF7EE /* LoginView.swift in Sources */,
 				C49447A02C70EDC9005AADF7 /* CustomTabBarController.swift in Sources */,
+				C49447EE2C74DBFE005AADF7 /* LessonDetailViewController.swift in Sources */,
 				C49447D32C7334A0005AADF7 /* PostRequest.swift in Sources */,
 				C494478E2C70B4EF005AADF7 /* JoinResponse.swift in Sources */,
 				C48063032C6F23DD003FF7EE /* CommonLabel.swift in Sources */,

@@ -19,7 +19,7 @@ final class LessonView: BaseView {
         var config = UIButton.Configuration.plain()
         config.baseForegroundColor = Resource.Color.fontBlack
         
-        config.image = .trableClef
+        config.image = .brass
         config.imagePlacement = .leading
         config.imagePadding = 10
         
@@ -43,7 +43,7 @@ final class LessonView: BaseView {
         let layout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
         layout.itemSize = CGSize(width: width - 20, height: width / 3.5)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
         layout.scrollDirection = .vertical
         return layout
     }

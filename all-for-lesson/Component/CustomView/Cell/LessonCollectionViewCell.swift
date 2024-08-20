@@ -31,12 +31,10 @@ final class LessonCollectionViewCell: BaseCollectionViewCell {
     
     let starLate = UILabel().then {
         $0.font = Resource.Font.regular12
-        // $0.backgroundColor = .orange
     }
     
     let lessonPrice = UILabel().then {
         $0.font = Resource.Font.regular14
-        // $0.backgroundColor = .yellow
     }
     
     let bookmarkButton = UIButton().then {
@@ -45,7 +43,7 @@ final class LessonCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func setHierarchyLayout() {
-        [lessonImage, lessonTitle, starImage, starLate, lessonPrice, bookmarkButton].forEach { self.addSubview($0) }
+        [lessonImage, lessonTitle, starImage, starLate, lessonPrice, bookmarkButton].forEach { contentView.addSubview($0) }
         
         lessonImage.snp.makeConstraints {
             $0.top.leading.equalTo(contentView)
@@ -74,20 +72,20 @@ final class LessonCollectionViewCell: BaseCollectionViewCell {
         }
         
         lessonPrice.snp.makeConstraints {
-            $0.top.equalTo(starImage.snp.bottom).offset(4)
+            $0.top.equalTo(starImage.snp.bottom).offset(8)
             $0.leading.equalTo(lessonImage.snp.trailing).offset(8)
             $0.width.equalTo(100)
             $0.height.equalTo(16)
         }
         
         bookmarkButton.snp.makeConstraints {
-            $0.trailing.bottom.equalTo(contentView).inset(32)
-            $0.size.equalTo(40)
+            $0.trailing.bottom.equalTo(contentView).inset(8)
+            $0.size.equalTo(50)
         }
     }
     
     func updateCell() {
-        lessonTitle.text = "비전공자를 예고 출신처럼!\n이론부터 실기까지 음대 입시 총집합 Set"
+        lessonTitle.text = "비전공자를 예고 출신처럼! 이론부터 실기까지 음대 입시 총집합 Set"
         starLate.text = "4.8 (후기 211개)"
         lessonPrice.text = "128,000원"
     }

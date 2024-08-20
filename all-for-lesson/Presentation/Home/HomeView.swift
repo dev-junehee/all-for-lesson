@@ -25,7 +25,7 @@ final class HomeView: BaseView {
         config.attributedTitle = title
 
         /// 버튼 이미지
-        config.image = .noteIcon
+        config.image = .logo
         config.imagePlacement = .leading
         config.imagePadding = 10
         
@@ -56,6 +56,7 @@ final class HomeView: BaseView {
     }
     
     lazy var popularCollectionView = UICollectionView(frame: .zero, collectionViewLayout: lessonLayout()).then {
+        $0.showsHorizontalScrollIndicator = false
         $0.register(HomeLessonCollectionViewCell.self, forCellWithReuseIdentifier: HomeLessonCollectionViewCell.id)
     }
     
@@ -65,6 +66,7 @@ final class HomeView: BaseView {
     }
     
     lazy var interestingCollectionView = UICollectionView(frame: .zero, collectionViewLayout: lessonLayout()).then {
+        $0.showsHorizontalScrollIndicator = false
         $0.register(HomeLessonCollectionViewCell.self, forCellWithReuseIdentifier: HomeLessonCollectionViewCell.id)
     }
     

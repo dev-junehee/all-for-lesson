@@ -19,12 +19,12 @@ final class OnboardingView: BaseView {
     
     let studentButton = OnboardingTypeButton(title: Constant.Onboarding.student,
                                             subTitle: Constant.Onboarding.studentDescription,
-                                             image: .student,
+                                             image: .teacher,
                                             color: Resource.Color.yellow)
     
     let teacherButton = OnboardingTypeButton(title: Constant.Onboarding.teacher,
                                                      subTitle: Constant.Onboarding.teacherDescription,
-                                             image: .teacherDesk,
+                                             image: .teacher,
                                                      color: Resource.Color.skyblue)
     
     private let haveAccountLabel = CommonLabel().then {

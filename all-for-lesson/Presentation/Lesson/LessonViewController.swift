@@ -33,9 +33,7 @@ final class LessonViewController: BaseViewController {
         
         output.lessonList
             .bind(to: lessonView.collectionView.rx.items(cellIdentifier: LessonCollectionViewCell.id, cellType: LessonCollectionViewCell.self)) { item, element, cell in
-                cell.lessonTitle.text = element.content
-                cell.lessonPrice.text = "129,000원"
-                cell.starLate.text = "5.0"
+                cell.updateCell()
             }
             .disposed(by: disposeBag)
         

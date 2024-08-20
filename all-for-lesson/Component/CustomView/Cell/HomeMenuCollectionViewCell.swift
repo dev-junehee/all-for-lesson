@@ -14,7 +14,7 @@ final class HomeMenuCollectionViewCell: BaseCollectionViewCell {
     let menuButton = UIButton()
     
     let menuLabel = UILabel().then {
-        $0.font = Resource.Font.regular12
+        $0.font = Resource.Font.medium12
         $0.textAlignment = .center
     }
     
