@@ -24,42 +24,23 @@ final class LessonViewController: BaseViewController {
         bind()
     }
     
-    override func setViewController() {
-        navigationItem.title = "레슨찾기"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationItem.largeTitleDisplayMode = .automatic
-        
-        /// 컬렉션뷰
-        // lessonView.collectionView.delegate = self
-        // lessonView.collectionView.dataSource = self
-        lessonView.collectionView.register(LessonCollectionViewCell.self, forCellWithReuseIdentifier: LessonCollectionViewCell.id)
-    }
-    
     private func bind() {
-        let input = LessonViewModel.Input(viewDidLoadTrigger: self.rx.methodInvoked(#selector(self.viewWillAppear(_:))),
-                                          searchText: lessonView.searchBar.rx.text)
+        let viewDidLoadTrigger = self.rx.methodInvoked(#selector(self.viewWillAppear(_:)))
+        
+        let input = LessonViewModel.Input(viewDidLoadTrigger: viewDidLoadTrigger,
+                                          lessonTap: lessonView.collectionView.rx.modelSelected(Post.self))
         let output = viewModel.transform(input: input)
         
-        // output.filteredLessonList
-        //     .bind(to: lessonView.collectionView.rx.items(cellIdentifier: LessonCollectionViewCell.id, cellType: LessonCollectionViewCell.self))
+        output.lessonList
+            .bind(to: lessonView.collectionView.rx.items(cellIdentifier: LessonCollectionViewCell.id, cellType: LessonCollectionViewCell.self)) { item, element, cell in
+                cell.lessonTitle.text = element.content
+                cell.lessonPrice.text = "129,000원"
+                cell.starLate.text = "5.0"
+            }
+            .disposed(by: disposeBag)
         
         
         
     }
     
 }
-
-// extension LessonViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-//     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//         return 10
-//     }
-//     
-//     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: LessonCollectionViewCell.id, for: indexPath) as? LessonCollectionViewCell else { return LessonCollectionViewCell() }
-//         
-//         cell.updateCell()
-//         
-//         return cell
-//     }
-//     
-// }

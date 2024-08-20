@@ -10,10 +10,23 @@ import SnapKit
 import Then
 
 final class LessonView: BaseView {
+ 
+    lazy var lessonTitleView = UIView().then {
+        $0.addSubview(lessonTitleButton)
+    }
     
-    let searchBar = UISearchBar().then {
-        $0.placeholder = "원하는 레슨을 검색해 보세요!"
-        $0.searchBarStyle = .minimal
+    let lessonTitleButton = UIButton().then {
+        var config = UIButton.Configuration.plain()
+        config.baseForegroundColor = Resource.Color.fontBlack
+        
+        config.image = .trableClef
+        config.imagePlacement = .leading
+        config.imagePadding = 10
+        
+        var title = AttributedString("레슨찾기")
+        title.font = Resource.Font.viewTitle
+        config.attributedTitle = title
+        $0.configuration = config
     }
     
     let lessonCount = UILabel().then {
@@ -22,6 +35,7 @@ final class LessonView: BaseView {
     }
     
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout()).then {
+        $0.register(LessonCollectionViewCell.self, forCellWithReuseIdentifier: LessonCollectionViewCell.id)
         $0.keyboardDismissMode = .onDrag
     }
     
@@ -35,18 +49,24 @@ final class LessonView: BaseView {
     }
     
     override func setHierarchyLayout() {
-        [searchBar, lessonCount, collectionView].forEach { self.addSubview($0) }
+        [lessonTitleView, lessonCount, collectionView].forEach { self.addSubview($0) }
         
         let safeArea = self.safeAreaLayoutGuide
         
-        searchBar.snp.makeConstraints {
-            $0.top.equalTo(safeArea)
-            $0.horizontalEdges.equalTo(safeArea).inset(8)
-            $0.height.equalTo(44)
+        lessonTitleView.snp.makeConstraints {
+            $0.top.equalTo(self).offset(60)
+            $0.horizontalEdges.equalTo(safeArea)
+            $0.height.equalTo(50)
+        }
+        
+        lessonTitleButton.snp.makeConstraints {
+            $0.top.equalTo(lessonTitleView)
+            $0.width.equalTo(160)
+            $0.height.equalTo(40)
         }
         
         lessonCount.snp.makeConstraints {
-            $0.top.equalTo(searchBar.snp.bottom).offset(8)
+            $0.top.equalTo(lessonTitleView.snp.bottom).offset(8)
             $0.horizontalEdges.equalTo(safeArea).inset(16)
             $0.height.equalTo(20)
         }

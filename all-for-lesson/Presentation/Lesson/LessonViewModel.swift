@@ -15,29 +15,25 @@ final class LessonViewModel: InputOutput {
     
     struct Input {
         let viewDidLoadTrigger: Observable<[Any]>
-        let searchText: ControlProperty<String?>
+        let lessonTap: ControlEvent<Post>
     }
     
     struct Output {
-        // let filteredLessonList: BehaviorSubject<[Post]>
+        let lessonList: BehaviorSubject<[Post]>
     }
     
     func transform(input: Input) -> Output {
-        // let lessonList = BehaviorSubject(value: [])
-        // let filteredLessonList = BehaviorSubject(value: [])
+        let lessonList = BehaviorSubject(value: postDummy)
         
-   
-        
-        input.searchText
-            .orEmpty
-            .bind(with: self) { owner, searchText in
-                // SearchText가 포함된 검색어만 필터링 -> filteredLessonList
-                // filteredLessonList.onNext([])
+        /// 레슨 검색 결과 탭
+        input.lessonTap
+            .bind { postData in
+                print(postData)
             }
             .disposed(by: disposeBag)
-            
         
-        return Output()
+        
+        return Output(lessonList: lessonList)
     }
     
 }
