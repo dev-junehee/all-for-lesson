@@ -11,7 +11,7 @@ import Then
 
 final class LessonView: BaseView {
     
-    private let searchBar = UISearchBar().then {
+    let searchBar = UISearchBar().then {
         $0.placeholder = "원하는 레슨을 검색해 보세요!"
         $0.searchBarStyle = .minimal
     }

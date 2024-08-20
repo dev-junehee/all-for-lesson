@@ -11,13 +11,7 @@ import Then
 
 final class HomeMenuCollectionViewCell: BaseCollectionViewCell {
     
-    let menuButton = UIButton().then {
-        var config = UIButton.Configuration.filled()
-        config.baseBackgroundColor = Resource.Color.paleGray
-        config.cornerStyle = .small
-        config.image = .noteIcon
-        $0.configuration = config
-    }
+    let menuButton = UIButton()
     
     let menuLabel = UILabel().then {
         $0.font = Resource.Font.regular12
@@ -39,8 +33,14 @@ final class HomeMenuCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
-    func updateCell() {
-        menuLabel.text = "전체보기"
+    func updateCell(title: String, image: UIImage) {
+        var config = UIButton.Configuration.filled()
+        config.baseBackgroundColor = Resource.Color.paleGray
+        config.cornerStyle = .small
+        config.image = image
+        config.imagePlacement = .top
+        menuButton.configuration = config
+        menuLabel.text = title
     }
     
     

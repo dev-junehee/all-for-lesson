@@ -54,6 +54,11 @@ enum Resource {
         static let list = UIImage(systemName: "list.bullet.clipboard.fill")!
         static let friends = UIImage(systemName: "person.2.fill")!
         
+        /// 홈 메뉴 버튼
+        static let homeMenus: [UIImage] = [
+            .folder, .violin, .flute, .brass,
+            .piano, .microphone, .theme, .composition]
+        /// 마이페이지 버튼
         static let mypageButtons = [list, bookmarkFill, friends]
     }
     

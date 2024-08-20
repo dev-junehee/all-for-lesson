@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import SnapKit
+import RxCocoa
+import RxSwift
 
 final class MyPageViewController: BaseViewController {
     
@@ -24,6 +25,7 @@ final class MyPageViewController: BaseViewController {
     private var dataSource: UICollectionViewDiffableDataSource<MyPageSection, MyPageMenu>!
         
     private let mypageView = MyPageView()
+    private let viewModel = MyPageViewModel()
     
     override func loadView() {
         view = mypageView
@@ -43,6 +45,13 @@ final class MyPageViewController: BaseViewController {
         navigationItem.rightBarButtonItem = barButton
         
         mypageView.tableView.delegate = self
+    }
+    
+    private func bind() {
+        let input = MyPageViewModel.Input()
+        let output = viewModel.transform(input: input)
+        
+        
     }
     
     /// 설정 바버튼 클릭 (임시)
@@ -92,11 +101,12 @@ extension MyPageViewController: UICollectionViewDelegate {
         case 1: // 로그아웃
             UserDefaultsManager.deleteAllUserDefaults()
             NavigationManager.shared.changeRootViewControllerToLogin()
-        case 2:
+            
+        case 2: // 회원탈퇴
+            
             return
         default:
             return
         }
-        
     }
 }

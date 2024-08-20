@@ -19,7 +19,11 @@ enum Constant {
         static let login = "로그인"
     }
     
-    
+    enum Home {
+        static let menu = ["전체보기", "현악기", "목관악기", "금관악기", "피아노", "성악", "클래식작곡", "기타"]
+        static let popular = "실시간 인기 레슨"
+        static let interesting = "이걸 배워? 흥미돋는 레슨!"
+    }
     
     
 }
