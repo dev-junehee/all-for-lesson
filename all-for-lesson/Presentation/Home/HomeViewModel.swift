@@ -22,8 +22,9 @@ final class HomeViewModel: InputOutput {
     
     struct Output {
         let menuItems: Observable<[(String, UIImage)]>
-        let popularLessonList: BehaviorSubject<[Post]>
-        let interestingLessonList: BehaviorSubject<[Post]>
+        let popularLessonList: BehaviorSubject<[Post]>       /// 컬렉션뷰 바인딩용
+        let interestingLessonList: BehaviorSubject<[Post]>   /// 컬렉션뷰 바인딩용
+        let lessonData: PublishSubject<Post>
     }
     
     func transform(input: Input) -> Output {
@@ -34,6 +35,7 @@ final class HomeViewModel: InputOutput {
                         }
         let popularLessonList = BehaviorSubject(value: postDummy)
         let interestingLessonList = BehaviorSubject(value: postDummy)
+        let lessonData = PublishSubject<Post>()
         
         /// 메뉴 버튼 탭 이벤트
         input.menuButtonTap
@@ -44,22 +46,23 @@ final class HomeViewModel: InputOutput {
         
         /// 인기 레슨 탭
         input.popularLessonTap
-            .bind { indexPath in
-                print("인기레슨", indexPath)
+            .bind { data in
+                lessonData.onNext(data)
             }
             .disposed(by: disposeBag)
         
         /// 흥미 레슨 탭
         input.interestingLessonTap
-            .bind { postData in
-                print("흥미레슨", postData)
+            .bind { data in
+                lessonData.onNext(data)
             }
             .disposed(by: disposeBag)
         
         
         return Output(menuItems: menuItems,
                       popularLessonList: popularLessonList,
-                      interestingLessonList: interestingLessonList)
+                      interestingLessonList: interestingLessonList,
+                      lessonData: lessonData)
     }
     
 }

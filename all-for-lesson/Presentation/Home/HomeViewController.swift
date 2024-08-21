@@ -33,12 +33,13 @@ final class HomeViewController: BaseViewController {
     }
     
     private func bind() {
-        let viewDidLoadTrigger = self.rx.methodInvoked(#selector(self.viewWillAppear(_:)))
+        let viewDidLoadTrigger = self.rx.methodInvoked(#selector(viewDidLoad))
         
-        let input = HomeViewModel.Input(viewDidLoadTrigger: viewDidLoadTrigger,
-                                        menuButtonTap: homeView.menuCollectionView.rx.itemSelected,
-                                        popularLessonTap: homeView.popularCollectionView.rx.modelSelected(Post.self),
-                                        interestingLessonTap: homeView.interestingCollectionView.rx.modelSelected(Post.self))
+        let input = HomeViewModel.Input(
+            viewDidLoadTrigger: viewDidLoadTrigger,
+            menuButtonTap: homeView.menuCollectionView.rx.itemSelected,
+            popularLessonTap: homeView.popularCollectionView.rx.modelSelected(Post.self),
+            interestingLessonTap: homeView.interestingCollectionView.rx.modelSelected(Post.self))
         let output = viewModel.transform(input: input)
         
         let menu = (id: HomeMenuCollectionViewCell.id,
@@ -55,6 +56,7 @@ final class HomeViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        /// 홈 화면 인기 레슨 컬렉션뷰
         output.popularLessonList
             .bind(to: homeView.popularCollectionView.rx.items(cellIdentifier: popular.id, cellType: popular.cellType)) { item, element, cell in
                 cell.lessonTitle.text = element.content
@@ -63,11 +65,18 @@ final class HomeViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        /// 홈 화면 흥미 레슨 컬렉션뷰
         output.interestingLessonList
             .bind(to: homeView.interestingCollectionView.rx.items(cellIdentifier: interesting.id, cellType: interesting.cellType)) { item, element, cell in
                 cell.lessonTitle.text = element.content
                 cell.lessonLocationPrice.text = "(서울) 129,000원"
                 cell.starLate.text = "4.9"
+            }
+            .disposed(by: disposeBag)
+        
+        output.lessonData
+            .bind(with: self) { owner, lessonData in
+                owner.navigationController?.pushViewController(LessonDetailViewController(), animated: true)
             }
             .disposed(by: disposeBag)
     }

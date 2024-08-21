@@ -29,10 +29,7 @@ final class MyPageViewController: BaseViewController {
     
     override func setViewController() {
         navigationItem.title = "마이페이지"
-        
-        let barButton = UIBarButtonItem(image: Resource.SystemImage.gear, style: .plain, target: self, action: #selector(settingButtonClicked))
-        barButton.tintColor = Resource.Color.darkGray
-        navigationItem.rightBarButtonItem = barButton
+        setImgBarButton(image: Resource.SystemImage.gear, target: self, action: #selector(settingButtonClicked), type: .right)
     }
     
     private func bind() {

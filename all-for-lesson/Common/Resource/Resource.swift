@@ -38,6 +38,7 @@ enum Resource {
         static let bold14 = UIFont(name: "Pretendard-Bold", size: 14)
         static let bold12 = UIFont(name: "Pretendard-Bold", size: 12)
         static let medium12 = UIFont(name: "Pretendard-Medium", size: 12)
+        static let regular16 = UIFont(name: "Pretendard-Regular", size: 16)
         static let regular14 = UIFont(name: "Pretendard-Regular", size: 14)
         static let regular12 = UIFont(name: "Pretendard-Regular", size: 12)
     }
