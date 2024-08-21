@@ -77,7 +77,7 @@ final class TeacherJoinViewModel: InputOutput {
         
         let nickValidation = input.nickText
             .orEmpty
-            .map { $0.count >= 3 }
+            .map { $0.count >= 2 }
         
         let validation = Observable
             .combineLatest(passwordValidation, nickValidation) { isPasswordValid, isNickValid in
