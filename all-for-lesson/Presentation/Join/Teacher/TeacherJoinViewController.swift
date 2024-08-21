@@ -64,9 +64,9 @@ final class TeacherJoinViewController: BaseViewController {
         
         /// 회원가입 성공 - 화면 전환
         output.joinSucceed
-            .bind(with: self) { owner, result in
+            .bind(with: self) { _, result in
                 if result {
-                    owner.navigationController?.pushViewController(HomeViewController(), animated: true)
+                    NavigationManager.shared.changeRootViewControllerToLogin()
                 }
             }
             .disposed(by: disposeBag)

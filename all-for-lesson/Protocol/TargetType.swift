@@ -12,6 +12,7 @@ protocol TargetType {
     var base: String { get }
     var endPoint: URL { get }
     var method: HTTPMethod { get }
+    var headers: HTTPHeaders { get }
     var params: Parameters { get }
 }
 

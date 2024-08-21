@@ -55,7 +55,7 @@ final class LoginViewController: BaseViewController {
         output.loginSucceed
             .bind(with: self) { owner, result in
                 if result {
-                    NavigationManager.shared.changeRootViewController()
+                    NavigationManager.shared.changeRootViewControllerToHome()
                 }
             }
             .disposed(by: disposeBag)
@@ -63,7 +63,7 @@ final class LoginViewController: BaseViewController {
         /// 회원가입 버튼 탭 - 온보딩 화면으로 전환
         output.joinButtonTap
             .bind(with: self) { owner, _ in
-                owner.changeRootViewControllerToOnboarding()
+                NavigationManager.shared.changeRootViewControllerToOnboarding()
             }
             .disposed(by: disposeBag)
     }

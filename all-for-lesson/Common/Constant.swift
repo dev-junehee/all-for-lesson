@@ -25,5 +25,11 @@ enum Constant {
         static let interesting = "이걸 배워? 흥미돋는 레슨!"
     }
     
+    enum MyPage {
+        enum Menu {
+            static let student = ["로그아웃", "회원탈퇴"]
+            static let teacher = ["레슨 개설하기", "로그아웃", "회원탈퇴"]
+        }
+    }
     
 }

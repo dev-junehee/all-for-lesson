@@ -14,54 +14,26 @@ final class NetworkManager {
     static let shared = NetworkManager()
     private init() { }
     
-    // Single 객체로 Alamofire 통신
-    func checkEmail(_ email: String) -> Single<Result<EmailResponse, Error>> {
-        return Single.create { observer -> Disposable in
-            
-            let URL = API.URL.base + API.URL.email
-            
-            let body: Parameters = [
-                "email": email
-            ]
-            
-            let headers: HTTPHeaders = [
-                API.Header.contentType: API.Header.json,
-                API.Header.sesacKey: API.KEY.key
-            ]
-            
-            AF.request(URL,
-                       method: .post,
-                       parameters: body,
-                       encoding: JSONEncoding.default,
-                       headers: headers)
-                .validate(statusCode: 200...299)
-                .responseDecodable(of: EmailResponse.self) { response in
-                    switch response.result {
-                    case .success(let value):
-                        observer(.success(.success(value)))
-                    case .failure(let error):
-                        observer(.success(.failure(error)))
-                    }
-                }
-            return Disposables.create()
-        }.debug("checkEmail")
-    }
-    
-    
-    func callRequest<T: Decodable>(api: Router, of type: T.Type) -> Single<Result<T, Error>> {
+    func callUserRequest<T: Decodable>(api: UserRouter, of type: T.Type) -> Single<Result<T, Error>> {
+        let encoding: ParameterEncoding = api.method == .get ? URLEncoding.default : JSONEncoding.default
         return Single.create { observer -> Disposable in
             AF.request(api.endPoint,
                        method: api.method,
                        parameters: api.params,
-                       encoding: JSONEncoding.default,
+                       encoding: encoding,
                        headers: api.headers)
-                .validate(statusCode: 200..<300)
+                // .validate(statusCode: 200..<300)
                 .responseDecodable(of: T.self) { response in
-                    switch response.result {
-                    case .success(let value):
-                        observer(.success(.success(value)))
-                    case .failure(let error):
-                        observer(.success(.failure(error)))
+                    if response.response?.statusCode == 419 {
+                        print("액세스 토큰 갱신 필요")
+                        self.refreshToken()
+                    } else {
+                        switch response.result {
+                        case .success(let value):
+                            observer(.success(.success(value)))
+                        case .failure(let error):
+                            observer(.success(.failure(error)))
+                        }
                     }
                 }
             return Disposables.create()
@@ -70,14 +42,15 @@ final class NetworkManager {
     
     /// 액세스 토큰 갱신
     func refreshToken() {
-        let api = Router.accessToken(accessToken: UserDefaultsManager.accessToken, 
-                                     refreshToken:  UserDefaultsManager.refreshToken)
+        print("토큰 갱신 시작")
+        let api = Router.accessToken
        
         AF.request(api.endPoint,
                    encoding: JSONEncoding.default,
                    headers: api.headers)
             .responseDecodable(of: RefreshTokenResponse.self) { response in
                 if response.response?.statusCode == 418 {
+                    print("418 리프레시 토큰 갱신 필요 - 재로그인")
                     // RootViewController를 로그인 화면으로 변경
                     NavigationManager.shared.changeRootViewControllerToLogin()
                     // 필요시 UserDefaults 제거
@@ -92,6 +65,7 @@ final class NetworkManager {
                     }
                 }
             }
+        
     }
     
 }

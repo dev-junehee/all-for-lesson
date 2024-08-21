@@ -49,7 +49,7 @@ final class TeacherJoinViewModel: InputOutput {
             .withLatestFrom(input.emailText.orEmpty)
             .distinctUntilChanged()
             .flatMap { emailText in
-                return NetworkManager.shared.callRequest(api: .email(email: emailText), of: EmailResponse.self)
+                return NetworkManager.shared.callUserRequest(api: .email(email: emailText), of: EmailResponse.self)
             }
             .bind(with: self, onNext: { owner, result in
                 switch result {
@@ -97,7 +97,7 @@ final class TeacherJoinViewModel: InputOutput {
             .withLatestFrom(studentData)
             .flatMap { (email, password, nick) in
                 print(email, password, nick)
-                return NetworkManager.shared.callRequest(api: .join(email: email, password: password, nick: nick, phoneNum: "0"), of: JoinResponse.self)
+                return NetworkManager.shared.callUserRequest(api: .join(email: email, password: password, nick: nick, phoneNum: "1"), of: JoinResponse.self)
             }
             .bind(with: self) { owner, result in
                 switch result {

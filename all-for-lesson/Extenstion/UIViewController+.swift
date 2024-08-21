@@ -31,21 +31,6 @@ extension UIViewController {
         navigationItem.leftBarButtonItem = barButton
     }
     
-    /// RootViewController - Onboarding으로 변경
-    func changeRootViewControllerToOnboarding() {
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let sceneDeleagate = windowScene?.delegate as? SceneDelegate
-        
-        let onboardingVC = UINavigationController(rootViewController: OnboardingViewController())
-        sceneDeleagate?.window?.rootViewController = onboardingVC
-        sceneDeleagate?.window?.makeKeyAndVisible()
-    }
-    
-    /// RootViewController - Onboarding으로 변경
-    
-    
-    
-    
     /// 뒤로가기
     @objc func popViewController() {
         navigationController?.popViewController(animated: true)

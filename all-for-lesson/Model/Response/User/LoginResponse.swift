@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 로그인
 struct LoginResponse: Decodable {
     let user_id: String
     let email: String

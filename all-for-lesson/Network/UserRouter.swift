@@ -1,25 +1,24 @@
 //
-//  Router.swift
+//  UserRouter.swift
 //  all-for-lesson
 //
-//  Created by junehee on 8/16/24.
+//  Created by junehee on 8/21/24.
 //
 
 import Foundation
 import Alamofire
 
-enum Router {
+enum UserRouter {
     case join(email: String, password: String, nick: String, phoneNum: String)
     case email(email: String)
     case login(email: String, password: String)
     case profile
     case accessToken
     case withdraw
-    case postFiles
     
 }
 
-extension Router: TargetType {
+extension UserRouter: TargetType {
     
     var base: String {
         return API.URL.base
@@ -42,9 +41,6 @@ extension Router: TargetType {
         case .withdraw:
             return URL(string: base + API.URL.withdraw)!
             
-        case .postFiles:
-            return URL(string: base + API.URL.postFiles)!
-        
         case .profile:
             return URL(string: base + API.URL.profile)!
         }
@@ -52,7 +48,7 @@ extension Router: TargetType {
     
     var method: HTTPMethod  {
         switch self {
-        case .join, .email, .login, .postFiles:
+        case .join, .email, .login:
             return .post
             
         case .accessToken, .withdraw, .profile:
@@ -80,13 +76,6 @@ extension Router: TargetType {
                 API.Header.auth: UserDefaultsManager.accessToken,
                 API.Header.sesacKey: API.KEY.key
             ]
-            
-        case .postFiles:
-            return [
-                API.Header.auth: UserDefaultsManager.accessToken,
-                API.Header.contentType: API.Header.multipart,
-                API.Header.sesacKey: API.KEY.key
-            ]
         }
     }
     
@@ -108,10 +97,6 @@ extension Router: TargetType {
             return [
                 "email": email,
                 "password": password
-            ]
-        case .postFiles:
-            return [
-                "files": Data()
             ]
         case .profile, .accessToken, .withdraw:
             return [:]

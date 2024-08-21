@@ -11,11 +11,7 @@ import Then
 
 final class MyPageView: BaseView {
     
-    var viewType: JoinCase = .student {
-        didSet {
-            studentTeacherButtonToggle()
-        }
-    }
+    var viewType: JoinCase = .student
     
     let profileImage = UIImageView().then {
         $0.clipsToBounds = true
@@ -31,13 +27,11 @@ final class MyPageView: BaseView {
     
     private let nameLabel = UILabel().then {
         $0.font = Resource.Font.bold16
-        $0.text = "최유진 선생님"
     }
     
     private let emailLabel = UILabel().then {
-        $0.font = Resource.Font.regular12
+        $0.font = Resource.Font.regular14
         $0.textColor = Resource.Color.darkGray
-        $0.text = "abcdefghijk@test.com"
     }
     
     private let studentButton = UserTypeButton(type: .student)
@@ -56,13 +50,8 @@ final class MyPageView: BaseView {
     private let bookmarkButton = MyPageMenuButton("북마크한 레슨", image: Resource.SystemImage.mypageButtons[1])
     private let friendButton = MyPageMenuButton("친구 관리", image: Resource.SystemImage.mypageButtons[2])
     
-    lazy var tableView = UICollectionView(frame: .zero, collectionViewLayout: layout())
-        
-    private func layout() -> UICollectionViewLayout {
-        var config = UICollectionLayoutListConfiguration(appearance: .plain)
-        config.showsSeparators = true
-        let layout = UICollectionViewCompositionalLayout.list(using: config)
-        return layout
+    let tableView = UITableView().then {
+        $0.register(UITableViewCell.self, forCellReuseIdentifier: "MenuCell")
     }
     
     override func setHierarchyLayout() {
@@ -79,7 +68,7 @@ final class MyPageView: BaseView {
             $0.centerY.equalTo(profileImage)
             $0.leading.equalTo(profileImage.snp.trailing).offset(16)
             $0.trailing.equalTo(studentButton.snp.leading)
-            $0.height.equalTo(30)
+            $0.height.equalTo(36)
         }
         
         nameLabel.snp.makeConstraints {
@@ -96,11 +85,13 @@ final class MyPageView: BaseView {
             $0.centerY.equalTo(profileImage)
             $0.trailing.equalTo(safeArea).inset(32)
         }
+        studentButton.isHidden = true
         
         teacherButton.snp.makeConstraints {
             $0.centerY.equalTo(profileImage)
             $0.trailing.equalTo(safeArea).inset(32)
         }
+        teacherButton.isHidden = true
         
         buttonStack.snp.makeConstraints {
             $0.top.equalTo(profileImage.snp.bottom).offset(32)
@@ -114,9 +105,20 @@ final class MyPageView: BaseView {
         }
     }
     
-    func studentTeacherButtonToggle() {
-        studentButton.isHidden = !teacherButton.isHidden
-        teacherButton.isHidden = !studentButton.isHidden
+    func updateProfile(_ data: MyProfileResponse) {
+        nameLabel.text = data.nick
+        emailLabel.text = data.email
+        studentTeacherButtonToggle(userType: data.phoneNum)
+    }
+    
+    func studentTeacherButtonToggle(userType: String) {
+        if userType == "0" {
+            studentButton.isHidden = false
+            teacherButton.isHidden = true
+        } else {
+            studentButton.isHidden = true
+            teacherButton.isHidden = false
+        }
     }
     
 }
