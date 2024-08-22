@@ -34,7 +34,7 @@ final class MyPageViewModel: InputOutput {
         /// 마이페이지 로딩 > 자기 정보 조회 > 수강생/선생님 여부에 따라 화면 로딩
         input.viewDidLoadTrigger
             .flatMap { _ in
-                NetworkManager.shared.callUserRequest(api: .profile, of: MyProfileResponse.self)
+                NetworkManager.shared.apiCall(api: .profile, of: MyProfileResponse.self)
             }
             .bind(with: self) { owner, result in
                 switch result {

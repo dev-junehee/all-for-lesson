@@ -57,7 +57,8 @@ final class MyPageViewController: BaseViewController {
         /// 레슨 개설하기 탭 - 화면 전환
         output.openLesson
             .bind(with: self) { owner, _ in
-                owner.present(LessonOpenViewController(), animated: true)
+                let lessonOpenVC = UINavigationController(rootViewController: LessonOpenViewController())
+                owner.present(lessonOpenVC, animated: true)
             }
             .disposed(by: disposeBag)
         

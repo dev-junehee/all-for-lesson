@@ -49,7 +49,7 @@ final class TeacherJoinViewModel: InputOutput {
             .withLatestFrom(input.emailText.orEmpty)
             .distinctUntilChanged()
             .flatMap { emailText in
-                return NetworkManager.shared.callUserRequest(api: .email(email: emailText), of: EmailResponse.self)
+                return NetworkManager.shared.apiCall(api: .email(body: EmailBody(email: emailText)), of: EmailResponse.self)
             }
             .bind(with: self, onNext: { owner, result in
                 switch result {
@@ -59,10 +59,13 @@ final class TeacherJoinViewModel: InputOutput {
                     if let errorCode = error.asAFError?.responseCode {
                         switch errorCode {
                         case 400:
+                            print(errorCode)
                             emailDuplication.onNext((400, "이메일을 입력해 주세요"))
                         case 409:
+                            print(errorCode)
                             emailDuplication.onNext((409, "이미 사용 중인 이메일이에요"))
                         default:
+                            print(errorCode)
                             emailDuplication.onNext((999, "알 수 없는 오류에요"))
                         }
                     }
@@ -96,8 +99,8 @@ final class TeacherJoinViewModel: InputOutput {
             .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .withLatestFrom(studentData)
             .flatMap { (email, password, nick) in
-                print(email, password, nick)
-                return NetworkManager.shared.callUserRequest(api: .join(email: email, password: password, nick: nick, phoneNum: "1"), of: JoinResponse.self)
+                let body = JoinBody(email: email, password: password, nick: nick, phoneNum: "1")
+                return NetworkManager.shared.apiCall(api: .join(body: body), of: JoinResponse.self)
             }
             .bind(with: self) { owner, result in
                 switch result {

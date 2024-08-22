@@ -28,8 +28,12 @@ final class HomeViewController: BaseViewController {
         // print(UserDefaultsManager.userType)
         print(UserDefaultsManager.accessToken)
         print(UserDefaultsManager.refreshToken)
-        
         bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tabBarController?.tabBar.isHidden = false
     }
     
     private func bind() {

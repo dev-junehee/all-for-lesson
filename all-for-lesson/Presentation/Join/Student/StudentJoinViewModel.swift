@@ -49,7 +49,8 @@ final class StudentJoinViewModel: InputOutput {
             .withLatestFrom(input.emailText.orEmpty)
             .distinctUntilChanged()
             .flatMap { emailText in
-                return NetworkManager.shared.callUserRequest(api: .email(email: emailText), of: EmailResponse.self)
+                let body = EmailBody(email: emailText)
+                return NetworkManager.shared.apiCall(api: .email(body: body), of: EmailResponse.self)
             }
             .bind(with: self, onNext: { owner, result in
                 switch result {
@@ -96,8 +97,8 @@ final class StudentJoinViewModel: InputOutput {
             .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .withLatestFrom(studentData)
             .flatMap { (email, password, nick) in
-                print(email, password, nick)
-                return NetworkManager.shared.callUserRequest(api: .join(email: email, password: password, nick: nick, phoneNum: "0"), of: JoinResponse.self)
+                let body = JoinBody(email: email, password: password, nick: nick, phoneNum: "0")
+                return NetworkManager.shared.apiCall(api: .join(body: body), of: JoinResponse.self)
             }
             .bind(with: self) { owner, result in
                 switch result {

@@ -1,5 +1,5 @@
 //
-//  PostRequest.swift
+//  PostResponse.swift
 //  all-for-lesson
 //
 //  Created by junehee on 8/19/24.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PostRequest: Decodable {
+struct PostResponse: Decodable {
     let data: [Post]
 }
 

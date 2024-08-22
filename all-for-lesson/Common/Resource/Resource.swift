@@ -56,6 +56,7 @@ enum Resource {
         static let gear = UIImage(systemName: "gearshape")!
         static let list = UIImage(systemName: "list.bullet.clipboard.fill")!
         static let friends = UIImage(systemName: "person.2.fill")!
+        static let plus = UIImage(systemName: "plus.circle")!
         
         /// 홈 메뉴 버튼
         static let homeMenus: [UIImage] = [

@@ -33,6 +33,7 @@ final class OnboardingViewController: BaseViewController {
         
         output.studentTap
             .bind(with: self) { owner, _ in
+                // let vc = StudentJoinViewController()
                 owner.navigationController?.pushViewController(StudentJoinViewController(), animated: true)
             }
             .disposed(by: disposeBag)
