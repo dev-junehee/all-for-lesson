@@ -14,14 +14,13 @@
 		C40391312C7606E300D50850 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40391302C7606E300D50850 /* UIButton+.swift */; };
 		C40391372C76363000D50850 /* LessonOpenViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40391362C76363000D50850 /* LessonOpenViewModel.swift */; };
 		C40391592C76EA0000D50850 /* PostRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40391582C76EA0000D50850 /* PostRouter.swift */; };
-		C403915E2C76EE9A00D50850 /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403915D2C76EE9A00D50850 /* PostRequest.swift */; };
-		C40391602C76EFE300D50850 /* PostQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403915F2C76EFE300D50850 /* PostQuery.swift */; };
+		C403915E2C76EE9A00D50850 /* PostBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403915D2C76EE9A00D50850 /* PostBody.swift */; };
 		C40391622C77808100D50850 /* JoinBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40391612C77808100D50850 /* JoinBody.swift */; };
 		C40391652C77812200D50850 /* LoginBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40391642C77812200D50850 /* LoginBody.swift */; };
 		C40391672C77818E00D50850 /* EmailBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40391662C77818E00D50850 /* EmailBody.swift */; };
 		C403916A2C7784C700D50850 /* PostFilesBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40391692C7784C700D50850 /* PostFilesBody.swift */; };
 		C403916C2C77886900D50850 /* NetworkErrorCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403916B2C77886900D50850 /* NetworkErrorCase.swift */; };
-		C403916E2C7791A100D50850 /* RouterCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403916D2C7791A100D50850 /* RouterCase.swift */; };
+		C403916E2C7791A100D50850 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403916D2C7791A100D50850 /* APIRouter.swift */; };
 		C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */; };
 		C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */; };
 		C48062B42C6DD4BF003FF7EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48062B32C6DD4BF003FF7EE /* Assets.xcassets */; };
@@ -116,14 +115,13 @@
 		C40391302C7606E300D50850 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		C40391362C76363000D50850 /* LessonOpenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonOpenViewModel.swift; sourceTree = "<group>"; };
 		C40391582C76EA0000D50850 /* PostRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRouter.swift; sourceTree = "<group>"; };
-		C403915D2C76EE9A00D50850 /* PostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequest.swift; sourceTree = "<group>"; };
-		C403915F2C76EFE300D50850 /* PostQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostQuery.swift; sourceTree = "<group>"; };
+		C403915D2C76EE9A00D50850 /* PostBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBody.swift; sourceTree = "<group>"; };
 		C40391612C77808100D50850 /* JoinBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinBody.swift; sourceTree = "<group>"; };
 		C40391642C77812200D50850 /* LoginBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginBody.swift; sourceTree = "<group>"; };
 		C40391662C77818E00D50850 /* EmailBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailBody.swift; sourceTree = "<group>"; };
 		C40391692C7784C700D50850 /* PostFilesBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFilesBody.swift; sourceTree = "<group>"; };
 		C403916B2C77886900D50850 /* NetworkErrorCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorCase.swift; sourceTree = "<group>"; };
-		C403916D2C7791A100D50850 /* RouterCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterCase.swift; sourceTree = "<group>"; };
+		C403916D2C7791A100D50850 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		C48062A72C6DD4BE003FF7EE /* all-for-lesson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "all-for-lesson.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -249,6 +247,7 @@
 		C40391572C76E9A900D50850 /* Router */ = {
 			isa = PBXGroup;
 			children = (
+				C403916D2C7791A100D50850 /* APIRouter.swift */,
 				C40391292C75D4C200D50850 /* UserRouter.swift */,
 				C40391582C76EA0000D50850 /* PostRouter.swift */,
 			);
@@ -276,7 +275,7 @@
 		C40391682C7784AD00D50850 /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				C403915D2C76EE9A00D50850 /* PostRequest.swift */,
+				C403915D2C76EE9A00D50850 /* PostBody.swift */,
 				C40391692C7784C700D50850 /* PostFilesBody.swift */,
 			);
 			path = Post;
@@ -462,7 +461,6 @@
 				C494479C2C70E8BE005AADF7 /* BarButtonCase.swift */,
 				C49447B22C720F77005AADF7 /* LoginViewCase.swift */,
 				C403916B2C77886900D50850 /* NetworkErrorCase.swift */,
-				C403916D2C7791A100D50850 /* RouterCase.swift */,
 			);
 			path = Case;
 			sourceTree = "<group>";
@@ -541,7 +539,6 @@
 			children = (
 				C40391632C77811200D50850 /* User */,
 				C40391682C7784AD00D50850 /* Post */,
-				C403915F2C76EFE300D50850 /* PostQuery.swift */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -753,7 +750,7 @@
 				C49447E92C74DBE3005AADF7 /* LessonDetailView.swift in Sources */,
 				C480630F2C6F2B23003FF7EE /* LoginViewController.swift in Sources */,
 				C48062D92C6F11AD003FF7EE /* Reusable.swift in Sources */,
-				C403916E2C7791A100D50850 /* RouterCase.swift in Sources */,
+				C403916E2C7791A100D50850 /* APIRouter.swift in Sources */,
 				C48063112C6F2B7E003FF7EE /* CommonButton.swift in Sources */,
 				C48062C12C6DD521003FF7EE /* API.swift in Sources */,
 				C49447D12C732EC0005AADF7 /* LessonCollectionViewCell.swift in Sources */,
@@ -788,7 +785,6 @@
 				C480630C2C6F29BA003FF7EE /* OnboardingViewModel.swift in Sources */,
 				C49447942C70CE62005AADF7 /* LoginViewModel.swift in Sources */,
 				C49447CF2C732A19005AADF7 /* LessonView.swift in Sources */,
-				C40391602C76EFE300D50850 /* PostQuery.swift in Sources */,
 				C48063292C6F5B35003FF7EE /* ValidationManager.swift in Sources */,
 				C48063242C6F55ED003FF7EE /* JoinCase.swift in Sources */,
 				C480631E2C6F3013003FF7EE /* JoinTextField.swift in Sources */,
@@ -802,7 +798,7 @@
 				C403912A2C75D4C200D50850 /* UserRouter.swift in Sources */,
 				C49447EE2C74DBFE005AADF7 /* LessonDetailViewController.swift in Sources */,
 				C49447D32C7334A0005AADF7 /* PostResponse.swift in Sources */,
-				C403915E2C76EE9A00D50850 /* PostRequest.swift in Sources */,
+				C403915E2C76EE9A00D50850 /* PostBody.swift in Sources */,
 				C494478E2C70B4EF005AADF7 /* JoinResponse.swift in Sources */,
 				C48063032C6F23DD003FF7EE /* CommonLabel.swift in Sources */,
 				C48063012C6F1FCF003FF7EE /* OnboardingTypeButton.swift in Sources */,

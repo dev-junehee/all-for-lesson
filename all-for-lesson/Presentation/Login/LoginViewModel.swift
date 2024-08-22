@@ -57,8 +57,7 @@ final class LoginViewModel: InputOutput {
             .withLatestFrom(accountData)
             .flatMap { (email, password) in
                 let body = LoginBody(email: email, password: password)
-                print(body)
-                return NetworkManager.shared.apiCall(api: .login(body: body), of: LoginResponse.self)
+                return NetworkManager.shared.apiCall(api: .user(.login(body: body)), of: LoginResponse.self)
             }
             .bind(with: self) { owner, result in
                 switch result {

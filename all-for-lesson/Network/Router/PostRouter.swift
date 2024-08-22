@@ -15,7 +15,7 @@ import Alamofire
  */
 
 enum PostRouter {
-    case posts(body: PostRequest)
+    case posts(body: PostBody)
     case postFiles(body: PostFilesBody)
     case getPosts
 }

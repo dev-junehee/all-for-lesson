@@ -39,3 +39,40 @@ enum NetworkErrorCase: Int, Error, CaseIterable {
     case ServerError = 500
     case UnknownError
 }
+
+extension NetworkErrorCase {
+    
+    var errorMessage: String {
+        switch self {
+        case .BadRequest:
+            "올바른 요청이 아니예요."
+        case .InvalidAccountOrToken:
+            "유효하지 않은 사용자(token)에요."
+        case .NoBlankNickname:
+            "공백이 포함된 닉네임은 사용할 수 없어요."
+        case .Forbidden:
+            "접근 권한 없음"
+        case .AlreadyUse:
+            "이미 사용 중이에요."
+        case .ContentNotFound:
+            "콘텐츠를 찾을 수 없어요."
+        case .ExpiredRefreshToken:
+            "리프레시 토큰이 만료되었어요."
+        case .ExpiredAccessToken:
+            "액세스 토큰이 만료되었어요."
+        case .NoSesacKey:
+            "SesacKey를 확인해 주세요."
+        case .ServerOverCall:
+            "서버 과호출입니다."
+        case .InvalidURL:
+            "올바르지 않은 URL로 접근하고 있어요."
+        case .InvalidAccessControl:
+            "본인 외 콘텐츠에 접근하고 있어요."
+        case .ServerError:
+            "서버 오류가 발생했어요."
+        case .UnknownError:
+            "알 수 없는 오류가 발생했어요."
+        }
+    }
+    
+}
