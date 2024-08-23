@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 import SnapKit
 import Then
 
@@ -22,7 +23,7 @@ import Then
 
 final class LessonOpenView: BaseView {
 
-    // MARK: 제목
+    /// 제목
     private let titleLabel = UILabel().then {
         $0.text = "레슨 제목"
         $0.textColor = Resource.Color.fontBlack
@@ -30,6 +31,7 @@ final class LessonOpenView: BaseView {
     }
     
     let titleField = UITextField().then {
+        $0.font = Resource.Font.regular14
         $0.textColor = Resource.Color.fontBlack
         $0.layer.borderColor = Resource.Color.lightGray.cgColor
         $0.layer.borderWidth = 1
@@ -37,7 +39,7 @@ final class LessonOpenView: BaseView {
         $0.clipsToBounds = true
     }
     
-    // MARK: 가격
+    /// 가격
     private let priceLabel = UILabel().then {
         $0.text = "레슨 가격"
         $0.textColor = Resource.Color.fontBlack
@@ -50,9 +52,10 @@ final class LessonOpenView: BaseView {
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 6
         $0.clipsToBounds = true
+        $0.keyboardType = .numberPad
     }
     
-    // MARK: 과목
+    /// 과목
     private let majorLabel = UILabel().then {
         $0.text = "레슨 과목"
         $0.textColor = Resource.Color.fontBlack
@@ -61,6 +64,7 @@ final class LessonOpenView: BaseView {
     
     lazy var majorField = UITextField().then {
         $0.placeholder = "선택"
+        $0.font = Resource.Font.regular14
         $0.textColor = Resource.Color.fontBlack
         $0.textAlignment = .center
         $0.layer.borderColor = Resource.Color.lightGray.cgColor
@@ -73,7 +77,7 @@ final class LessonOpenView: BaseView {
     
     let majorPicker = UIPickerView()
     
-    // MARK: 위치
+    /// 위치
     private let locationLabel = UILabel().then {
         $0.text = "레슨 위치"
         $0.textColor = Resource.Color.fontBlack
@@ -82,6 +86,7 @@ final class LessonOpenView: BaseView {
     
     lazy var locationField = UITextField().then {
         $0.placeholder = "선택"
+        $0.font = Resource.Font.regular14
         $0.textColor = Resource.Color.fontBlack
         $0.textAlignment = .center
         $0.layer.borderColor = Resource.Color.lightGray.cgColor
@@ -89,11 +94,12 @@ final class LessonOpenView: BaseView {
         $0.layer.cornerRadius = 6
         $0.clipsToBounds = true
         $0.inputView = locationPicker
+        setToolBar(to: $0)
     }
     
     let locationPicker = UIPickerView()
     
-    // MARK: 타입
+    /// 타입
     private let typeLabel = UILabel().then {
         $0.text = "레슨 타입"
         $0.textColor = Resource.Color.fontBlack
@@ -102,18 +108,21 @@ final class LessonOpenView: BaseView {
     
     lazy var typeField = UITextField().then {
         $0.placeholder = "선택"
+        $0.font = Resource.Font.regular14
         $0.textColor = Resource.Color.fontBlack
         $0.textAlignment = .center
         $0.layer.borderColor = Resource.Color.lightGray.cgColor
         $0.layer.borderWidth = 1
         $0.layer.cornerRadius = 6
         $0.clipsToBounds = true
+        $0.tintColor = .clear
         $0.inputView = typePicker
+        setToolBar(to: $0)
     }
     
     let typePicker = UIPickerView()
     
-    // MARK: 소개
+    /// 소개
     private let contentLabel = UILabel().then {
         $0.text = "레슨 소개"
         $0.textColor = Resource.Color.fontBlack
@@ -121,6 +130,7 @@ final class LessonOpenView: BaseView {
     }
     
     let contentField = UITextField().then {
+        $0.font = Resource.Font.regular14
         $0.textColor = Resource.Color.fontBlack
         $0.layer.borderColor = Resource.Color.lightGray.cgColor
         $0.layer.borderWidth = 1
@@ -128,20 +138,69 @@ final class LessonOpenView: BaseView {
         $0.clipsToBounds = true
     }
     
-    // MARK: 파일
-    private let fileLabel = UILabel().then {
+    /// 사진
+    let fileLabel = UILabel().then {
         $0.text = "파일 업로드"
         $0.textColor = Resource.Color.fontBlack
         $0.font = Resource.Font.bold16
     }
-
+    
+    let photoButton = UIButton().then {
+        var config = UIButton.Configuration.filled()
+        var title = AttributedString("사진 선택")
+        title.font = Resource.Font.regular14
+        config.attributedTitle = title
+        config.cornerStyle = .small
+        config.baseBackgroundColor = Resource.Color.lightGray
+        config.baseForegroundColor = Resource.Color.fontBlack
+        $0.configuration = config
+    }
+    
+    lazy var photoStack = UIStackView().then {
+        $0.addArrangedSubview(firstPhoto)
+        $0.addArrangedSubview(secondPhoto)
+        $0.addArrangedSubview(thirdPhoto)
+        $0.axis = .horizontal
+        $0.distribution = .fillEqually
+        $0.spacing = 10
+    }
+    
+    let firstPhoto = UIImageView().then {
+        $0.contentMode = .scaleAspectFill
+        $0.clipsToBounds = true
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = Resource.Color.lightGray.cgColor
+    }
+    
+    let secondPhoto = UIImageView().then {
+        $0.contentMode = .scaleAspectFill
+        $0.clipsToBounds = true
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = Resource.Color.lightGray.cgColor
+    }
+    
+    let thirdPhoto = UIImageView().then {
+        $0.contentMode = .scaleAspectFill
+        $0.clipsToBounds = true
+        $0.layer.borderWidth = 1
+        $0.layer.borderColor = Resource.Color.lightGray.cgColor
+    }
+    
+    private let photoConfig = {
+        var config = PHPickerConfiguration()
+        config.selectionLimit = 3
+        config.filter = .any(of: [.images])
+        return config
+    }()
+    
+    lazy var photoPicker = PHPickerViewController(configuration: photoConfig)
     
     override func setHierarchyLayout() {
         [
             titleLabel, titleField, priceLabel, priceField,
             majorLabel, majorField, locationLabel, locationField,
             typeLabel, typeField, contentLabel, contentField,
-            fileLabel
+            fileLabel, photoButton, photoStack
             
         ].forEach { self.addSubview($0) }
         
@@ -188,8 +247,7 @@ final class LessonOpenView: BaseView {
         majorField.snp.makeConstraints {
             $0.centerY.equalTo(majorLabel)
             $0.leading.equalTo(titleLabel.snp.trailing)
-            // $0.trailing.equalTo(safeArea).inset(16)
-            $0.width.equalTo(70)
+            $0.width.equalTo(80)
             $0.height.equalTo(30)
         }
         
@@ -204,8 +262,7 @@ final class LessonOpenView: BaseView {
         locationField.snp.makeConstraints {
             $0.centerY.equalTo(locationLabel)
             $0.leading.equalTo(titleLabel.snp.trailing)
-            // $0.trailing.equalTo(safeArea).inset(16)
-            $0.width.equalTo(70)
+            $0.width.equalTo(80)
             $0.height.equalTo(30)
         }
         
@@ -220,8 +277,7 @@ final class LessonOpenView: BaseView {
         typeField.snp.makeConstraints {
             $0.centerY.equalTo(typeLabel)
             $0.leading.equalTo(titleLabel.snp.trailing)
-            // $0.trailing.equalTo(safeArea).inset(16)
-            $0.width.equalTo(70)
+            $0.width.equalTo(80)
             $0.height.equalTo(30)
         }
         
@@ -247,17 +303,44 @@ final class LessonOpenView: BaseView {
             $0.width.equalTo(80)
             $0.height.equalTo(20)
         }
+        
+        photoButton.snp.makeConstraints {
+            $0.top.equalTo(fileLabel)
+            $0.leading.equalTo(titleLabel.snp.trailing)
+            $0.width.equalTo(80)
+            $0.height.equalTo(20)
+        }
+        
+        photoStack.snp.makeConstraints {
+            $0.top.equalTo(photoButton.snp.bottom).offset(8)
+            $0.leading.equalTo(titleLabel.snp.trailing)
+            $0.trailing.equalTo(safeArea).inset(16)
+            $0.height.equalTo(90)
+        }
+        
+        firstPhoto.snp.makeConstraints {
+            $0.verticalEdges.equalTo(photoStack)
+        }
+        
+        secondPhoto.snp.makeConstraints {
+            $0.verticalEdges.equalTo(photoStack)
+        }
+        
+        thirdPhoto.snp.makeConstraints {
+            $0.verticalEdges.equalTo(photoStack)
+        }
+        
     }
     
     private func setToolBar(to pickerField: UITextField) {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        let cancel = UIBarButtonItem(title: "취소")
         let select = UIBarButtonItem(title: "선택")
         let blank = UIBarButtonItem(systemItem: .flexibleSpace)
-        toolBar.setItems([cancel, blank, select], animated: true)
+        toolBar.setItems([blank, select], animated: true)
         toolBar.isUserInteractionEnabled = true
         pickerField.inputAccessoryView = toolBar
     }
+    
     
 }
