@@ -16,6 +16,13 @@ final class LessonOpenViewController: BaseViewController {
     private let viewModel = LessonOpenViewModel()
     private let disposeBag = DisposeBag()
     
+    private let firstPhotoName = PublishSubject<String?>()
+    private let firstPhoroFile = PublishSubject<Data?>()
+    private let secondPhotoName = PublishSubject<String?>()
+    private let secondPhotoFile = PublishSubject<Data?>()
+    private let thirdPhotoName = PublishSubject<String?>()
+    private let thirdPhoroFile = PublishSubject<Data?>()
+    
     override func loadView() {
         view = openView
     }
@@ -45,6 +52,12 @@ final class LessonOpenViewController: BaseViewController {
             typeSelect: openView.typePicker.rx.modelSelected(String.self),
             contentText: openView.contentField.rx.text,
             photoButtonTap: openView.photoButton.rx.tap,
+            firstPhotoName: firstPhotoName,
+            firstPhoroFile: firstPhoroFile,
+            secondPhotoName: secondPhotoName,
+            secondPhotoFile: secondPhotoFile,
+            thirdPhotoName: thirdPhotoName,
+            thirdPhoroFile: thirdPhoroFile,
             postButtonTap: postButton.rx.tap
         )
         let output = viewModel.transform(input: input)
@@ -101,10 +114,20 @@ extension LessonOpenViewController: PHPickerViewControllerDelegate {
         print(#function, "111", Thread.isMainThread)
         
         if let firstProvider = results.first?.itemProvider, firstProvider.canLoadObject(ofClass: UIImage.self) {
-            firstProvider.loadObject(ofClass: UIImage.self) { image, error in
+            
+            /// 이미지 파일명
+            firstProvider.loadFileRepresentation(forTypeIdentifier: UTType.image.identifier) { [weak self] url, error in
+                if let url = url {
+                    let fileName = url.lastPathComponent
+                    self?.firstPhotoName.onNext(fileName)
+                }
+            }
+            /// 선택한 이미지
+            firstProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
                 print(#function, "222", Thread.isMainThread)
                 DispatchQueue.main.async {
-                    self.openView.firstPhoto.image = image as? UIImage
+                    self?.openView.firstPhoto.image = image as? UIImage
+                    self?.firstPhoroFile.onNext(self?.openView.firstPhoto.image?.pngData())
                 }
             }
         }
@@ -112,19 +135,37 @@ extension LessonOpenViewController: PHPickerViewControllerDelegate {
         if results.count > 1 {
             let secondProvider = results[1].itemProvider
             if secondProvider.canLoadObject(ofClass: UIImage.self) {
-                secondProvider.loadObject(ofClass: UIImage.self) { image, error in
+                /// 이미지 파일명
+                secondProvider.loadFileRepresentation(forTypeIdentifier: UTType.image.identifier) { [weak self] url, error in
+                    if let url = url {
+                        let fileName = url.lastPathComponent
+                        self?.secondPhotoName.onNext(fileName)
+                    }
+                }
+                /// 선택한 이미지
+                secondProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
                     print(#function, "333", Thread.isMainThread)
                     DispatchQueue.main.async {
-                        self.openView.secondPhoto.image = image as? UIImage
+                        self?.openView.secondPhoto.image = image as? UIImage
+                        self?.secondPhotoFile.onNext(self?.openView.secondPhoto.image?.pngData())
                     }
                 }
             }
             
             if let thirdProvider = results.last?.itemProvider, thirdProvider.canLoadObject(ofClass: UIImage.self) {
-                thirdProvider.loadObject(ofClass: UIImage.self) { image, error in
+                /// 이미지 파일명
+                thirdProvider.loadFileRepresentation(forTypeIdentifier: UTType.image.identifier) { [weak self] url, error in
+                    if let url = url {
+                        let fileName = url.lastPathComponent
+                        self?.thirdPhotoName.onNext(fileName)
+                    }
+                }
+                /// 선택한 이미지
+                thirdProvider.loadObject(ofClass: UIImage.self) { [weak self] image, error in
                     print(#function, "444", Thread.isMainThread)
                     DispatchQueue.main.async {
-                        self.openView.thirdPhoto.image = image as? UIImage
+                        self?.openView.thirdPhoto.image = image as? UIImage
+                        self?.thirdPhoroFile.onNext(self?.openView.thirdPhoto.image?.pngData())
                     }
                 }
             }

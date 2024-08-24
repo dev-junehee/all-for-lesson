@@ -21,6 +21,8 @@
 		C403916A2C7784C700D50850 /* PostFilesBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40391692C7784C700D50850 /* PostFilesBody.swift */; };
 		C403916C2C77886900D50850 /* NetworkErrorCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403916B2C77886900D50850 /* NetworkErrorCase.swift */; };
 		C403916E2C7791A100D50850 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403916D2C7791A100D50850 /* APIRouter.swift */; };
+		C40391732C78CBDC00D50850 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C40391722C78CBDC00D50850 /* RealmSwift */; };
+		C403917A2C7A010A00D50850 /* PostFilesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40391792C7A010A00D50850 /* PostFilesResponse.swift */; };
 		C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */; };
 		C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */; };
 		C48062B42C6DD4BF003FF7EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48062B32C6DD4BF003FF7EE /* Assets.xcassets */; };
@@ -122,6 +124,7 @@
 		C40391692C7784C700D50850 /* PostFilesBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFilesBody.swift; sourceTree = "<group>"; };
 		C403916B2C77886900D50850 /* NetworkErrorCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorCase.swift; sourceTree = "<group>"; };
 		C403916D2C7791A100D50850 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
+		C40391792C7A010A00D50850 /* PostFilesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFilesResponse.swift; sourceTree = "<group>"; };
 		C48062A72C6DD4BE003FF7EE /* all-for-lesson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "all-for-lesson.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -211,6 +214,7 @@
 			files = (
 				C48063062C6F286E003FF7EE /* RxCocoa in Frameworks */,
 				C48062DC2C6F1282003FF7EE /* SnapKit in Frameworks */,
+				C40391732C78CBDC00D50850 /* RealmSwift in Frameworks */,
 				C48063082C6F286E003FF7EE /* RxSwift in Frameworks */,
 				C48063352C6F6B79003FF7EE /* Alamofire in Frameworks */,
 				C48062E12C6F1376003FF7EE /* Then in Frameworks */,
@@ -258,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				C49447D22C7334A0005AADF7 /* PostResponse.swift */,
+				C40391792C7A010A00D50850 /* PostFilesResponse.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -301,9 +306,9 @@
 		C48062A92C6DD4BE003FF7EE /* all-for-lesson */ = {
 			isa = PBXGroup;
 			children = (
+				C48062C22C6DD5AA003FF7EE /* Application */,
 				C48063362C6F7934003FF7EE /* Model */,
 				C480632E2C6F6681003FF7EE /* Network */,
-				C48062C22C6DD5AA003FF7EE /* Application */,
 				C48062E22C6F13AC003FF7EE /* Common */,
 				C48062CE2C6F107A003FF7EE /* Component */,
 				C48062D52C6F10EB003FF7EE /* Extenstion */,
@@ -656,6 +661,7 @@
 				C48063072C6F286E003FF7EE /* RxSwift */,
 				C48063192C6F2CDF003FF7EE /* TextFieldEffects */,
 				C48063342C6F6B79003FF7EE /* Alamofire */,
+				C40391722C78CBDC00D50850 /* RealmSwift */,
 			);
 			productName = "all-for-lesson";
 			productReference = C48062A72C6DD4BE003FF7EE /* all-for-lesson.app */;
@@ -691,6 +697,7 @@
 				C48063042C6F286E003FF7EE /* XCRemoteSwiftPackageReference "RxSwift" */,
 				C48063182C6F2CDF003FF7EE /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 				C48063332C6F6B79003FF7EE /* XCRemoteSwiftPackageReference "Alamofire" */,
+				C40391712C78CBDC00D50850 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = C48062A82C6DD4BE003FF7EE /* Products */;
 			projectDirPath = "";
@@ -735,6 +742,7 @@
 				C40391282C75BE9B00D50850 /* MyProfileResponse.swift in Sources */,
 				C49447962C70D6C4005AADF7 /* LoginResponse.swift in Sources */,
 				C49447B52C722BD0005AADF7 /* HomeView.swift in Sources */,
+				C403917A2C7A010A00D50850 /* PostFilesResponse.swift in Sources */,
 				C480632B2C6F5BA4003FF7EE /* StudentJoinViewModel.swift in Sources */,
 				C40391592C76EA0000D50850 /* PostRouter.swift in Sources */,
 				C48062CB2C6F0FFC003FF7EE /* OnboardingView.swift in Sources */,
@@ -1034,6 +1042,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C40391712C78CBDC00D50850 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		C48062DA2C6F1282003FF7EE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1077,6 +1093,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C40391722C78CBDC00D50850 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C40391712C78CBDC00D50850 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		C48062DB2C6F1282003FF7EE /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C48062DA2C6F1282003FF7EE /* XCRemoteSwiftPackageReference "SnapKit" */;

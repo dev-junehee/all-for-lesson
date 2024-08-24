@@ -61,40 +61,80 @@ final class NetworkManager {
             }
         }.debug("API 네트워크 통신 >>>")
     }
-
-    func refreshToken(completion: @escaping (Bool) -> Void) {
-        print("토큰 갱신 시작")
-        do {
-            let request = try UserRouter.accessToken.asURLRequest()
-            
-            AF.request(request)
-                .validate(statusCode: 200..<300)
-                .responseDecodable(of: RefreshTokenResponse.self) { response in
-                    if let statusCode = response.response?.statusCode {
-                        if statusCode == 418 {
-                            print("리프레시 토큰 갱신 필요. 로그인 화면으로 전환.") /// RootViewController 로그인 화면으로 변경 + UserDefaults 제거
-                            NavigationManager.shared.changeRootViewControllerToLogin()
-                            UserDefaultsManager.deleteAllUserDefaults()
+    
+    func uploadFiles(files: [Data?], fileNames: [String?]) -> Single<Result<PostFilesResponse, NetworkErrorCase>> {
+        let URL = API.URL.Base.dev + API.URL.posts + API.URL.files
+        let headers: HTTPHeaders = [
+            API.Header.auth: UserDefaultsManager.accessToken,
+            API.Header.contentType: API.Header.multipart,
+            API.Header.sesacKey: API.KEY.key
+        ]
+        
+        return Single<Result<PostFilesResponse, NetworkErrorCase>>.create { observer -> Disposable in
+            AF.upload(multipartFormData: { multipartFormData in
+                for (i, file) in files.enumerated() {
+                    if let fileData = file, let fileName = fileNames[i] {
+                        multipartFormData.append(fileData, withName: "files", fileName: fileName, mimeType: "image/png")
+                    }
+                }
+            }, to: URL, method: .post, headers: headers)
+            .validate(statusCode: 200...299)
+            .responseDecodable(of: PostFilesResponse.self) { response in
+                if let statusCode = response.response?.statusCode {
+                    switch response.result {
+                    case .success(let value):
+                        observer(.success(.success(value)))
+                    case .failure:
+                        if let networkError = NetworkErrorCase(rawValue: statusCode) {
+                            observer(.success(.failure(networkError)))
                         } else {
-                            switch response.result {
-                            case .success(let value):
-                                UserDefaultsManager.accessToken = value.accessToken /// 성공했을 때 AccessToken 교체
-                                completion(true)
-                            case .failure(_):
-                                print("리프레시 토큰 갱신 오류")
-                                if let networkError = NetworkErrorCase(rawValue: statusCode) {
-                                    print(networkError)
-                                } else {
-                                    print(NetworkErrorCase.UnknownError)
-                                }
-                                completion(false)
-                            }
+                            observer(.success(.failure(NetworkErrorCase.UnknownError)))
                         }
                     }
                 }
-        } catch {
-            print("Refresh URLRequestConvertible Failed")
-        }
+            }
+            return Disposables.create()
+        }.debug("Post Files 네트워크 통신 >>>")
     }
-    
-}
+        
+       
+        
+        
+        
+        func refreshToken(completion: @escaping (Bool) -> Void) {
+            print("토큰 갱신 시작")
+            do {
+                let request = try UserRouter.accessToken.asURLRequest()
+                
+                AF.request(request)
+                    .validate(statusCode: 200..<300)
+                    .responseDecodable(of: RefreshTokenResponse.self) { response in
+                        if let statusCode = response.response?.statusCode {
+                            if statusCode == 418 {
+                                print("리프레시 토큰 갱신 필요. 로그인 화면으로 전환.") /// RootViewController 로그인 화면으로 변경 + UserDefaults 제거
+                                NavigationManager.shared.changeRootViewControllerToLogin()
+                                UserDefaultsManager.deleteAllUserDefaults()
+                            } else {
+                                switch response.result {
+                                case .success(let value):
+                                    UserDefaultsManager.accessToken = value.accessToken /// 성공했을 때 AccessToken 교체
+                                    completion(true)
+                                case .failure(_):
+                                    print("리프레시 토큰 갱신 오류")
+                                    if let networkError = NetworkErrorCase(rawValue: statusCode) {
+                                        print(networkError)
+                                    } else {
+                                        print(NetworkErrorCase.UnknownError)
+                                    }
+                                    completion(false)
+                                }
+                            }
+                        }
+                    }
+            } catch {
+                print("Refresh URLRequestConvertible Failed")
+            }
+        }
+        
+    }
+

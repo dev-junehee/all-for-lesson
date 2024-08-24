@@ -14,9 +14,9 @@ import Then
 /// price (레슨 가격)
 /// content (레슨 소개)
 /// content 1 (레슨 과목-전공)
-/// content 2 (레슨 타입-전공/취미 선택)
-/// content 3 (레슨 위치-서울, 경기, 인천... 선택)
-/// content 4
+/// content 2 (레슨 위치-서울, 경기...)
+/// content 3 (레슨 타입 - 취미, 입시)
+/// content 4 (인기/흥미)
 /// content 5
 /// product_id
 /// files
