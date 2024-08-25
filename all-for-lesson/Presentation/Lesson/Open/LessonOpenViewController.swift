@@ -16,12 +16,12 @@ final class LessonOpenViewController: BaseViewController {
     private let viewModel = LessonOpenViewModel()
     private let disposeBag = DisposeBag()
     
-    private let firstPhotoName = PublishSubject<String?>()
-    private let firstPhoroFile = PublishSubject<Data?>()
-    private let secondPhotoName = PublishSubject<String?>()
-    private let secondPhotoFile = PublishSubject<Data?>()
-    private let thirdPhotoName = PublishSubject<String?>()
-    private let thirdPhoroFile = PublishSubject<Data?>()
+    private let firstPhotoName = BehaviorSubject<String?>(value: nil)
+    private let firstPhoroFile = BehaviorSubject<Data?>(value: nil)
+    private let secondPhotoName = BehaviorSubject<String?>(value: nil)
+    private let secondPhotoFile = BehaviorSubject<Data?>(value: nil)
+    private let thirdPhotoName = BehaviorSubject<String?>(value: nil)
+    private let thirdPhoroFile = BehaviorSubject<Data?>(value: nil)
     
     override func loadView() {
         view = openView
@@ -105,6 +105,14 @@ final class LessonOpenViewController: BaseViewController {
                 owner.present(owner.openView.photoPicker, animated: true)
             }
             .disposed(by: disposeBag)
+        
+        /// 레슨 개설 완료
+        output.postDone
+            .bind(with: self) { owner, _ in
+                print("끝났으니까 창 닫기")
+                owner.dismiss(animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
 }
@@ -127,7 +135,7 @@ extension LessonOpenViewController: PHPickerViewControllerDelegate {
                 print(#function, "222", Thread.isMainThread)
                 DispatchQueue.main.async {
                     self?.openView.firstPhoto.image = image as? UIImage
-                    self?.firstPhoroFile.onNext(self?.openView.firstPhoto.image?.pngData())
+                    self?.firstPhoroFile.onNext(self?.openView.firstPhoto.image?.jpegData(compressionQuality: 0.5))
                 }
             }
         }
@@ -147,7 +155,7 @@ extension LessonOpenViewController: PHPickerViewControllerDelegate {
                     print(#function, "333", Thread.isMainThread)
                     DispatchQueue.main.async {
                         self?.openView.secondPhoto.image = image as? UIImage
-                        self?.secondPhotoFile.onNext(self?.openView.secondPhoto.image?.pngData())
+                        self?.secondPhotoFile.onNext(self?.openView.secondPhoto.image?.jpegData(compressionQuality: 0.5))
                     }
                 }
             }
@@ -165,7 +173,7 @@ extension LessonOpenViewController: PHPickerViewControllerDelegate {
                     print(#function, "444", Thread.isMainThread)
                     DispatchQueue.main.async {
                         self?.openView.thirdPhoto.image = image as? UIImage
-                        self?.thirdPhoroFile.onNext(self?.openView.thirdPhoto.image?.pngData())
+                        self?.thirdPhoroFile.onNext(self?.openView.thirdPhoto.image?.jpegData(compressionQuality: 0.5))
                     }
                 }
             }

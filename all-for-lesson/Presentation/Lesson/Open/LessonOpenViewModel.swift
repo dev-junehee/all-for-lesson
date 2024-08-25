@@ -25,12 +25,12 @@ final class LessonOpenViewModel: InputOutput {
         let contentText: ControlProperty<String?>   /// 레슨 소개
         
         let photoButtonTap: ControlEvent<Void>       /// 사진 버튼 탭
-        let firstPhotoName: PublishSubject<String?>  /// 첫 번째 사진 파일명
-        let firstPhoroFile: PublishSubject<Data?>    /// 첫 번째 사진 png 이미지
-        let secondPhotoName: PublishSubject<String?> /// 두 번째 사진 파일명
-        let secondPhotoFile: PublishSubject<Data?>   /// 두 번째 사진 png 이미지
-        let thirdPhotoName: PublishSubject<String?>  /// 세 번째 사진 파일명
-        let thirdPhoroFile: PublishSubject<Data?>    /// 세 번째 사진 png 이미지
+        let firstPhotoName: BehaviorSubject<String?>  /// 첫 번째 사진 파일명
+        let firstPhoroFile: BehaviorSubject<Data?>    /// 첫 번째 사진 png 이미지
+        let secondPhotoName: BehaviorSubject<String?> /// 두 번째 사진 파일명
+        let secondPhotoFile: BehaviorSubject<Data?>   /// 두 번째 사진 png 이미지
+        let thirdPhotoName: BehaviorSubject<String?>  /// 세 번째 사진 파일명
+        let thirdPhoroFile: BehaviorSubject<Data?>    /// 세 번째 사진 png 이미지
         
         let postButtonTap: ControlEvent<Void>        /// 레슨 개설 버튼 탭
     }
@@ -43,6 +43,7 @@ final class LessonOpenViewModel: InputOutput {
         let typeList: PublishSubject<[String]>
         let selectedType: PublishSubject<String?>
         let photoButtonTap: ControlEvent<Void>
+        let postDone: PublishSubject<Void>
     }
     
     func transform(input: Input) -> Output {
@@ -52,10 +53,19 @@ final class LessonOpenViewModel: InputOutput {
         let selectedLocation = PublishSubject<String?>()
         let typeList = PublishSubject<[String]>()
         let selectedType = PublishSubject<String?>()
+        // 
+        // let firstPhotoName = BehaviorSubject<String?>(value: )
+        // let firstPhoroFile = BehaviorSubject<Data?>(value: nil)
+        // let secondPhotoName = BehaviorSubject<String?>(value: "")
+        // let secondPhotoFile = BehaviorSubject<Data?>(value: nil)
+        // let thirdPhotoName = BehaviorSubject<String?>(value: "")
+        // let thirdPhoroFile = BehaviorSubject<Data?>(value: nil)
         
-        var postBody: [String: String] = [
+        let postDone = PublishSubject<Void>()
+        
+        var postBody: [String: Any] = [
             "title": "",
-            "price": "",
+            "price": 0,
             "content": "",
             "major": "",
             "location": "",
@@ -76,10 +86,10 @@ final class LessonOpenViewModel: InputOutput {
         /// 레슨 가격
         input.priceText.orEmpty
             .map { priceText in
-                return "\(priceText)"
+                return Int(priceText)
             }
-            .bind { priceText in
-                postBody["price"] = priceText
+            .bind { priceInt in
+                postBody["price"] = priceInt
             }
             .disposed(by: disposeBag)
         
@@ -87,9 +97,6 @@ final class LessonOpenViewModel: InputOutput {
         input.majorFieldTap
             .bind { _ in
                 majorList.onNext(Constant.Lesson.major)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    selectedMajor.onNext(Constant.Lesson.major.first)
-                }
             }
             .disposed(by: disposeBag)
         
@@ -113,7 +120,6 @@ final class LessonOpenViewModel: InputOutput {
         input.locationFieldTap
             .bind { _ in
                 locationList.onNext(Constant.Lesson.location)
-                selectedLocation.onNext(Constant.Lesson.location.first)
             }
             .disposed(by: disposeBag)
         
@@ -136,9 +142,7 @@ final class LessonOpenViewModel: InputOutput {
         /// 레슨 타입 필드 탭 - 레슨 타입 픽커 열림
         input.typeFieldTap
             .bind { _ in
-                typeList.onNext(Constant.Lesson.type)
-                selectedType.onNext(Constant.Lesson.type.first)
-            }
+                typeList.onNext(Constant.Lesson.type)            }
             .disposed(by: disposeBag)
         
         /// 레슨 타입 선택
@@ -153,7 +157,17 @@ final class LessonOpenViewModel: InputOutput {
                 return selected.first
             }
             .bind { selected in
-                postBody["location"] = selected
+                postBody["type"] = selected
+            }
+            .disposed(by: disposeBag)
+        
+        /// 레슨 소개
+        input.contentText.orEmpty
+            .map { contentText in
+                return "\(contentText)"
+            }
+            .bind { contentText in
+                postBody["content"] = contentText
             }
             .disposed(by: disposeBag)
         
@@ -172,6 +186,8 @@ final class LessonOpenViewModel: InputOutput {
         
         let photoInfo = Observable.zip(photoData, photoName)
         
+        let files = PublishSubject<[String]>()
+        
         /// 레슨 개설 버튼 탭 - 파일 업로드 & 게시물 업로드
         input.postButtonTap
             .withLatestFrom(photoInfo)
@@ -180,27 +196,34 @@ final class LessonOpenViewModel: InputOutput {
                 let fileNames = info.1
                 return NetworkManager.shared.uploadFiles(files: datas, fileNames: fileNames)
             }
-            .flatMap { result -> Single<Result<PostResponse, NetworkErrorCase>> in
+            .bind { result in
                 switch result {
                 case .success(let value):
-                    let body = PostBody(
-                        title: postBody["title"] ?? "",
-                        price: Int(from: postBody["price"] ?? "0") ?? 0,
-                        content: postBody["content"] ?? "",
-                        content1: postBody["major"] ?? "",
-                        content2: postBody["location"] ?? "",
-                        content3: postBody["type"] ?? "",
-                        content4: "",
-                        content5: "",
-                        product_id: ProductId.defaultId,
-                        files: value.files)
-                    return NetworkManager.shared.apiCall(api: .post(.posts(body: body)), of: PostResponse.self)
+                    files.onNext(value.files)
+                    print(value.files)
                 case .failure(let error):
-                    print(error, error.errorMessage)
-                    return error
+                    print(error)
                 }
             }
-            .bind(with: self) { owner, result in
+            .disposed(by: disposeBag)
+        
+        files
+            .flatMap { files in
+                let body = PostBody(
+                    title: postBody["title"] as? String ?? "Untitled",
+                    price: postBody["price"] as? Int ?? 0,
+                    content: postBody["content"] as? String ?? "",
+                    content1: postBody["major"] as? String ?? "",
+                    content2: postBody["location"] as? String ?? "",
+                    content3: postBody["type"] as? String ?? "",
+                    content4: "",
+                    content5: "",
+                    product_id: ProductId.defaultId,
+                    files: files)
+                return NetworkManager.shared.apiCall(api: .post(.posts(body: body)), of: PostResponse.self)
+            }
+            .bind { result in
+                postDone.on(.completed)
                 switch result {
                 case .success(let value):
                     print(value)
@@ -210,9 +233,6 @@ final class LessonOpenViewModel: InputOutput {
             }
             .disposed(by: disposeBag)
         
-            
-        
-      
         
         return Output(majorList: majorList,
                       selectedMajor: selectedMajor,
@@ -220,7 +240,8 @@ final class LessonOpenViewModel: InputOutput {
                       selectedLocation: selectedLocation,
                       typeList: typeList,
                       selectedType: selectedType, 
-                      photoButtonTap: input.photoButtonTap)
+                      photoButtonTap: input.photoButtonTap, 
+                      postDone: postDone)
     }
     
 }

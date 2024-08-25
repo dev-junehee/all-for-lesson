@@ -56,7 +56,7 @@ final class LessonOpenView: BaseView {
     }
     
     /// 과목
-    private let majorLabel = UILabel().then {
+    private let majorLabelFront = UILabel().then {
         $0.text = "레슨 과목"
         $0.textColor = Resource.Color.fontBlack
         $0.font = Resource.Font.bold16
@@ -75,10 +75,16 @@ final class LessonOpenView: BaseView {
         setToolBar(to: $0)
     }
     
+    private let majorLabelBack = UILabel().then {
+        $0.text = "을(를) 가르쳐요."
+        $0.textColor = Resource.Color.fontBlack
+        $0.font = Resource.Font.regular12
+    }
+    
     let majorPicker = UIPickerView()
     
     /// 위치
-    private let locationLabel = UILabel().then {
+    private let locationLabelFront = UILabel().then {
         $0.text = "레슨 위치"
         $0.textColor = Resource.Color.fontBlack
         $0.font = Resource.Font.bold16
@@ -97,10 +103,16 @@ final class LessonOpenView: BaseView {
         setToolBar(to: $0)
     }
     
+    private let locationLabelBack = UILabel().then {
+        $0.text = "에서 진행해요."
+        $0.textColor = Resource.Color.fontBlack
+        $0.font = Resource.Font.regular12
+    }
+    
     let locationPicker = UIPickerView()
     
     /// 타입
-    private let typeLabel = UILabel().then {
+    private let typeLabelFront = UILabel().then {
         $0.text = "레슨 타입"
         $0.textColor = Resource.Color.fontBlack
         $0.font = Resource.Font.bold16
@@ -120,6 +132,12 @@ final class LessonOpenView: BaseView {
         setToolBar(to: $0)
     }
     
+    private let typeLabelBack = UILabel().then {
+        $0.text = "대상이에요."
+        $0.textColor = Resource.Color.fontBlack
+        $0.font = Resource.Font.regular12
+    }
+    
     let typePicker = UIPickerView()
     
     /// 소개
@@ -129,7 +147,7 @@ final class LessonOpenView: BaseView {
         $0.font = Resource.Font.bold16
     }
     
-    let contentField = UITextField().then {
+    let contentField = UITextView().then {
         $0.font = Resource.Font.regular14
         $0.textColor = Resource.Color.fontBlack
         $0.layer.borderColor = Resource.Color.lightGray.cgColor
@@ -198,8 +216,10 @@ final class LessonOpenView: BaseView {
     override func setHierarchyLayout() {
         [
             titleLabel, titleField, priceLabel, priceField,
-            majorLabel, majorField, locationLabel, locationField,
-            typeLabel, typeField, contentLabel, contentField,
+            majorLabelFront, majorField, majorLabelBack,
+            locationLabelFront, locationField, locationLabelBack,
+            typeLabelFront, typeField, typeLabelBack,
+            contentLabel, contentField,
             fileLabel, photoButton, photoStack
             
         ].forEach { self.addSubview($0) }
@@ -237,7 +257,7 @@ final class LessonOpenView: BaseView {
         }
         
         /// 레슨 과목
-        majorLabel.snp.makeConstraints {
+        majorLabelFront.snp.makeConstraints {
             $0.top.equalTo(priceField.snp.bottom).offset(16)
             $0.leading.equalTo(safeArea).inset(16)
             $0.width.equalTo(80)
@@ -245,14 +265,21 @@ final class LessonOpenView: BaseView {
         }
         
         majorField.snp.makeConstraints {
-            $0.centerY.equalTo(majorLabel)
+            $0.centerY.equalTo(majorLabelFront)
             $0.leading.equalTo(titleLabel.snp.trailing)
             $0.width.equalTo(80)
             $0.height.equalTo(30)
         }
         
+        majorLabelBack.snp.makeConstraints {
+            $0.top.equalTo(priceField.snp.bottom).offset(16)
+            $0.leading.equalTo(majorField.snp.trailing).offset(8)
+            $0.trailing.equalTo(safeArea).inset(16)
+            $0.height.equalTo(20)
+        }
+        
         /// 레슨 위치
-        locationLabel.snp.makeConstraints {
+        locationLabelFront.snp.makeConstraints {
             $0.top.equalTo(majorField.snp.bottom).offset(16)
             $0.leading.equalTo(safeArea).inset(16)
             $0.width.equalTo(80)
@@ -260,14 +287,21 @@ final class LessonOpenView: BaseView {
         }
         
         locationField.snp.makeConstraints {
-            $0.centerY.equalTo(locationLabel)
+            $0.centerY.equalTo(locationLabelFront)
             $0.leading.equalTo(titleLabel.snp.trailing)
             $0.width.equalTo(80)
             $0.height.equalTo(30)
         }
         
+        locationLabelBack.snp.makeConstraints {
+            $0.top.equalTo(majorField.snp.bottom).offset(16)
+            $0.leading.equalTo(locationField.snp.trailing).offset(8)
+            $0.trailing.equalTo(safeArea).inset(16)
+            $0.height.equalTo(20)
+        }
+        
         /// 레슨 타입
-        typeLabel.snp.makeConstraints {
+        typeLabelFront.snp.makeConstraints {
             $0.top.equalTo(locationField.snp.bottom).offset(16)
             $0.leading.equalTo(safeArea).inset(16)
             $0.width.equalTo(80)
@@ -275,10 +309,17 @@ final class LessonOpenView: BaseView {
         }
         
         typeField.snp.makeConstraints {
-            $0.centerY.equalTo(typeLabel)
+            $0.centerY.equalTo(typeLabelFront)
             $0.leading.equalTo(titleLabel.snp.trailing)
             $0.width.equalTo(80)
             $0.height.equalTo(30)
+        }
+        
+        typeLabelBack.snp.makeConstraints {
+            $0.top.equalTo(locationField.snp.bottom).offset(16)
+            $0.leading.equalTo(typeField.snp.trailing).offset(8)
+            $0.trailing.equalTo(safeArea).inset(16)
+            $0.height.equalTo(20)
         }
         
         /// 레슨 소개
