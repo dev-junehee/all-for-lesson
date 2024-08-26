@@ -74,7 +74,7 @@ final class HomeLessonCollectionViewCell: BaseCollectionViewCell {
         /// 레슨 제목
         lessonTitle.text = post.title
         /// 레슨 위치+ 가격
-        lessonLocationPrice.text = "(\(post.content2 ?? "-")) \(post.price?.formatted() ?? "0")원"
+        lessonLocationPrice.text = "(\(post.content2 ?? "-")) \(post.price.formatted())원"
         /// 레슨 별점 + 후기
         starLate.text = "4.8 (후기 \(post.comments?.count ?? 0)개)"
     }

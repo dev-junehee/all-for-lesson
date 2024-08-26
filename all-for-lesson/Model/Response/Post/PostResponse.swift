@@ -8,14 +8,14 @@
 import Foundation
 
 struct PostResponse: Decodable {
-    let data: [Post]?
+    let data: [Post]
 }
 
 struct Post: Decodable, Hashable {
-    let post_id: String?
-    let product_id: String?
-    let title: String?
-    let price: Int?
+    let post_id: String
+    let product_id: String
+    let title: String
+    let price: Int
     let content: String?
     let content1: String?
     let content2: String?
@@ -23,7 +23,7 @@ struct Post: Decodable, Hashable {
     let content4: String?
     let content5: String?
     let createAt: String?
-    let creator: Creator?
+    let creator: Creator
     let files: [String]?
     let likes: [String]?
     let likes2: [String]?
