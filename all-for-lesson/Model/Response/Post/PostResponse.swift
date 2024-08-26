@@ -24,11 +24,11 @@ struct Post: Decodable, Hashable {
     let content5: String?
     let createAt: String?
     let creator: Creator
-    let files: [String]?
-    let likes: [String]?
-    let likes2: [String]?
-    let hashTags: [String]?
-    let comments: [Comment]?
+    let files: [String]
+    let likes: [String]
+    let likes2: [String]
+    let hashTags: [String]
+    let comments: [Comment]
 }
 
 struct Creator: Decodable, Hashable {

@@ -14,16 +14,34 @@ final class LessonDetailViewModel: InputOutput {
     private let disposeBag = DisposeBag()
     
     struct Input {
+        let postId: BehaviorSubject<String>
         let reservationButtonTap: ControlEvent<Void>
         let infoControlTap: ControlProperty<Int>
     }
     
     struct Output {
+        let detailInfo: PublishSubject<Post>
         let infoControlTap: BehaviorSubject<Int>
     }
     
     func transform(input: Input) -> Output {
+        let detailInfo = PublishSubject<Post>()
         let infoControlTap = BehaviorSubject(value: 0)
+        
+        input.postId
+            .flatMap { postId in
+                NetworkManager.shared.apiCall(api: .post(.getPostsDetail(id: postId)), of: Post.self)
+            }
+            .bind { result in
+                switch result {
+                case .success(let value):
+                    print(value)
+                    detailInfo.onNext(value)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            .disposed(by: disposeBag)
         
         input.reservationButtonTap
             .bind { _ in
@@ -40,7 +58,8 @@ final class LessonDetailViewModel: InputOutput {
         
         
         
-        return Output(infoControlTap: infoControlTap)
+        return Output(detailInfo: detailInfo,
+                      infoControlTap: infoControlTap)
     }
     
     

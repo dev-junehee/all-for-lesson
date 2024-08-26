@@ -62,7 +62,6 @@ final class HomeViewController: BaseViewController {
         output.popularLessonList
             .bind(to: homeView.popularCollectionView.rx.items(cellIdentifier: popular.id, cellType: popular.cellType)) { item, element, cell in
                 cell.updateCell(post: element)
-                cell.updateCellImage(post: element)
             }
             .disposed(by: disposeBag)
         
@@ -70,13 +69,14 @@ final class HomeViewController: BaseViewController {
         output.interestingLessonList
             .bind(to: homeView.interestingCollectionView.rx.items(cellIdentifier: interesting.id, cellType: interesting.cellType)) { item, element, cell in
                 cell.updateCell(post: element)
-                cell.updateCellImage(post: element)
             }
             .disposed(by: disposeBag)
         
         output.lessonData
             .bind(with: self) { owner, lessonData in
-                owner.navigationController?.pushViewController(LessonDetailViewController(), animated: true)
+                let lessonDetailVC = LessonDetailViewController()
+                lessonDetailVC.postId.onNext(lessonData.post_id)
+                owner.navigationController?.pushViewController(lessonDetailVC, animated: true)
             }
             .disposed(by: disposeBag)
     }

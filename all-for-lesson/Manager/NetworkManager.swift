@@ -30,7 +30,7 @@ final class NetworkManager {
                                     self.refreshToken { success in /// 토큰 갱신에 성공하면 네트워크 재호출, 실패하면 에러 처리
                                         print("토큰 갱신 결과", success)
                                         if success {
-                                            callRequest()
+                                            // callRequest()
                                         } else {
                                             if let networkError = NetworkErrorCase(rawValue: statusCode) {
                                                 observer(.success(.failure(networkError)))

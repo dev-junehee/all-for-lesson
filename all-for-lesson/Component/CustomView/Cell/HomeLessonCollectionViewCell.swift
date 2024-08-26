@@ -71,19 +71,13 @@ final class HomeLessonCollectionViewCell: BaseCollectionViewCell {
     }
     
     func updateCell(post: Post) {
-        /// 레슨 제목
-        lessonTitle.text = post.title
-        /// 레슨 위치+ 가격
-        lessonLocationPrice.text = "(\(post.content2 ?? "-")) \(post.price.formatted())원"
-        /// 레슨 별점 + 후기
-        starLate.text = "4.8 (후기 \(post.comments?.count ?? 0)개)"
-    }
-    
-    func updateCellImage(post: Post) {
-        guard let images = post.files else { return }
-        NetworkManager.shared.getImage(images[0]) { data in
+        guard let image = post.files.first else { return }
+        NetworkManager.shared.getImage(image) { data in
             self.lessonImage.image = UIImage(data: data)
         }
+        lessonTitle.text = post.title
+        lessonLocationPrice.text = "(\(post.content2 ?? "-")) \(post.price.formatted())원"
+        starLate.text = "4.8 (후기 \(post.comments.count)개)"
     }
     
 }

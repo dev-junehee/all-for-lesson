@@ -28,6 +28,7 @@ final class LessonDetailView: BaseView {
     
     private lazy var container = UIView().then {
         $0.addSubview(lessonTitle)
+        $0.addSubview(lessonPrice)
         $0.addSubview(starImage)
         $0.addSubview(starLate)
         $0.addSubview(messageButton)
@@ -39,7 +40,11 @@ final class LessonDetailView: BaseView {
     private let lessonTitle = UILabel().then {
         $0.font = Resource.Font.bold18
         $0.numberOfLines = 0
-        $0.text = "비전공자를 예고 출신처럼! 이론부터 실기까지 음대 입시 총집합 Set"
+    }
+    
+    private let lessonPrice = UILabel().then {
+        $0.font = Resource.Font.bold18
+        $0.textAlignment = .right
     }
     
     private let starImage = UIImageView().then {
@@ -49,7 +54,6 @@ final class LessonDetailView: BaseView {
     
     private let starLate = UILabel().then {
         $0.font = Resource.Font.regular14
-        $0.text = "4.8 (후기 211개)"
     }
     
     private let messageButton = CommonButton(title: "1:1 문의", color: Resource.Color.paleGray, fontColor: .black)
@@ -64,15 +68,40 @@ final class LessonDetailView: BaseView {
         $0.addSubview(lessonDetailInfoView)
         $0.addSubview(teacherDetailInfoView)
     }
-    private let lessonDetailInfoView = UIView().then {
-        $0.backgroundColor = .orange
+    
+    /// 레슨 상세 정보
+    private lazy var lessonDetailInfoView = UIView().then {
+        $0.addSubview(lessonContent)
         $0.isHidden = false
     }
     
-    private let teacherDetailInfoView = UIView().then {
-        $0.backgroundColor = .yellow
+    private let lessonContent = UITextView().then {
+        $0.font = Resource.Font.regular14
+        $0.isUserInteractionEnabled = false
+    }
+    
+    /// 선생님 정보
+    private lazy var teacherDetailInfoView = UIView().then {
+        $0.addSubview(teacherProfileImage)
+        $0.addSubview(teacherContent)
         $0.isHidden = true
     }
+    
+    private let teacherProfileImage = UIImageView().then {
+        $0.clipsToBounds = true
+        $0.layer.cornerRadius = 35
+        $0.backgroundColor = Resource.Color.lightGray
+    }
+    
+    private lazy var teacherContent = UIStackView().then {
+        $0.addArrangedSubview(teacherName)
+        $0.backgroundColor = .yellow
+    }
+    
+    private let teacherName = UILabel().then {
+        $0.font = Resource.Font.bold16
+    }
+
     
     override func setHierarchyLayout() {
         [backgroundImage, scrollView].forEach { self.addSubview($0) }
@@ -113,6 +142,13 @@ final class LessonDetailView: BaseView {
         starLate.snp.makeConstraints {
             $0.top.equalTo(lessonTitle.snp.bottom).offset(16)
             $0.leading.equalTo(starImage.snp.trailing).offset(4)
+            $0.width.equalTo(150)
+            $0.height.equalTo(20)
+        }
+        
+        lessonPrice.snp.makeConstraints {
+            $0.top.equalTo(lessonTitle.snp.bottom).offset(16)
+            $0.leading.equalTo(starLate.snp.trailing).offset(4)
             $0.trailing.equalTo(container).inset(16)
             $0.height.equalTo(20)
         }
@@ -140,21 +176,50 @@ final class LessonDetailView: BaseView {
         detailInfoBox.snp.makeConstraints {
             $0.top.equalTo(lessonInfoControl.snp.bottom).offset(16)
             $0.horizontalEdges.equalTo(container).inset(16)
-            $0.height.equalTo(1000)
+            $0.height.equalTo(1000)   /// 추후 수치 수정하기!
         }
         
         lessonDetailInfoView.snp.makeConstraints {
             $0.edges.equalTo(detailInfoBox)
         }
         
+        lessonContent.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        
         teacherDetailInfoView.snp.makeConstraints {
             $0.edges.equalTo(detailInfoBox)
         }
         
+        teacherProfileImage.snp.makeConstraints {
+            $0.top.leading.equalToSuperview()
+            $0.size.equalTo(70)
+        }
+        
+        teacherContent.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.leading.equalTo(teacherProfileImage.snp.trailing).offset(16)
+            $0.trailing.equalToSuperview()
+            $0.height.equalTo(70)
+        }
+        
     }
     
-    func updateLessonDetailInfo() {
+    func updateLessonDetailInfo(_ post: Post) {
+        guard let image = post.files.first else { return }
+        NetworkManager.shared.getImage(image) { data in
+            self.backgroundImage.image = UIImage(data: data)
+        }
+        lessonTitle.text = post.title
+        lessonPrice.text = "\(post.price.formatted())원"
+        starLate.text = "4.8 후기 \(post.comments.count)개"
+        lessonContent.text = post.content
         
+        updateTeacherDetailInfo(post.creator)
+    }
+    
+    func updateTeacherDetailInfo(_ teacher: Creator) {
+        teacherName.text = teacher.nick
     }
     
     func updateSegmentedControl(_ selectedIndex: Int) {

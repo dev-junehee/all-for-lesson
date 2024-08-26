@@ -19,6 +19,7 @@ enum PostRouter {
     case postFiles(body: PostFilesBody)
     case getPosts(query: PostQuery)
     case getImage(query: String)
+    case getPostsDetail(id: String)
 }
 
 extension PostRouter: TargetType {
@@ -33,6 +34,7 @@ extension PostRouter: TargetType {
         case .postFiles: API.URL.posts + API.URL.files
         case .getPosts: API.URL.posts
         case .getImage: ""
+        case .getPostsDetail(let id): API.URL.posts + id
         }
     }
     
@@ -40,7 +42,7 @@ extension PostRouter: TargetType {
         switch self {
         case .posts, .postFiles:
                 .post
-        case .getPosts, .getImage:
+        case .getPosts, .getImage, .getPostsDetail:
                 .get
         }
     }
@@ -59,7 +61,7 @@ extension PostRouter: TargetType {
                 API.Header.contentType: API.Header.multipart,
                 API.Header.sesacKey: API.KEY.key
             ]
-        case .getPosts, .getImage:
+        case .getPosts, .getImage, .getPostsDetail:
             return [
                 API.Header.auth: UserDefaultsManager.accessToken,
                 API.Header.sesacKey: API.KEY.key
@@ -89,7 +91,7 @@ extension PostRouter: TargetType {
                 return nil
             }
             
-        case .getPosts, .getImage:
+        case .getPosts, .getImage, .getPostsDetail:
             return nil
         }
     }
@@ -117,6 +119,20 @@ extension PostRouter: TargetType {
             let encoder = JSONEncoder()
             do {
                 let data = try encoder.encode(query)
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    return json.map { URLQueryItem(name: "", value: "\($0)") }
+                } else {
+                    return nil
+                }
+            } catch {
+                print("json encode error", error)
+                return nil
+            }
+            
+        case .getPostsDetail(let id):
+            let encoder = JSONEncoder()
+            do {
+                let data = try encoder.encode(id)
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     return json.map { URLQueryItem(name: "", value: "\($0)") }
                 } else {

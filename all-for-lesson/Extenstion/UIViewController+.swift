@@ -24,10 +24,10 @@ extension UIViewController {
     }
     
     /// 뒤로가기 BarButton 설정 함수
-    func setBackBarButton() {
+    func setBackBarButton(_ color: UIColor = Resource.Color.purple) {
         let backImage = Resource.SystemImage.leftArrow
         let barButton = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(popViewController))
-        barButton.tintColor = Resource.Color.purple
+        barButton.tintColor = color
         navigationItem.leftBarButtonItem = barButton
     }
     

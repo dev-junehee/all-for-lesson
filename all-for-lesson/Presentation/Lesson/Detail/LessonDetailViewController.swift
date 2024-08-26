@@ -15,6 +15,8 @@ final class LessonDetailViewController: BaseViewController {
     private let viewModel = LessonDetailViewModel()
     private let disposeBag = DisposeBag()
     
+    let postId = BehaviorSubject<String>(value: "")
+    
     override func loadView() {
         view = detailView
     }
@@ -25,15 +27,23 @@ final class LessonDetailViewController: BaseViewController {
     }
     
     override func setViewController() {
-        setBackBarButton()
+        setBackBarButton(Resource.Color.whiteSmoke)
         self.tabBarController?.tabBar.isHidden = true
     }
     
     private func bind() {
         let input = LessonDetailViewModel.Input(
-            reservationButtonTap: detailView.reservationButton.rx.tap, 
+            postId: postId,
+            reservationButtonTap: detailView.reservationButton.rx.tap,
             infoControlTap: detailView.lessonInfoControl.rx.selectedSegmentIndex)
         let output = viewModel.transform(input: input)
+        
+        /// 레슨 상세 데이터 바인딩
+        output.detailInfo
+            .bind(with: self) { owner, detailInfo in
+                owner.detailView.updateLessonDetailInfo(detailInfo)
+            }
+            .disposed(by: disposeBag)
         
         output.infoControlTap
             .bind(with: self) { owner, selectedIndex in
