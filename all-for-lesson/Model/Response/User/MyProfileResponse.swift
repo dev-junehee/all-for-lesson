@@ -13,7 +13,7 @@ struct MyProfileResponse: Decodable {
     let email: String
     let nick: String
     let phoneNum: String
-    let birthDay: String
+    let birthDay: String?
     let profileImage: String?
     let posts: [String]
 }

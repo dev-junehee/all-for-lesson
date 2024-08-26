@@ -28,12 +28,16 @@ final class LessonDetailViewController: BaseViewController {
     
     override func setViewController() {
         setBackBarButton(Resource.Color.whiteSmoke)
+        setImgBarButton(image: Resource.Image.bookmarkFill, color: Resource.Color.whiteSmoke, action: nil, type: .right)
         self.tabBarController?.tabBar.isHidden = true
     }
     
     private func bind() {
+        guard let bookmarkButton = navigationItem.rightBarButtonItem else { return }
+        
         let input = LessonDetailViewModel.Input(
             postId: postId,
+            bookmarkButtonTap: bookmarkButton.rx.tap,
             reservationButtonTap: detailView.reservationButton.rx.tap,
             infoControlTap: detailView.lessonInfoControl.rx.selectedSegmentIndex)
         let output = viewModel.transform(input: input)
@@ -50,6 +54,10 @@ final class LessonDetailViewController: BaseViewController {
                 owner.detailView.updateSegmentedControl(selectedIndex)
             }
             .disposed(by: disposeBag)
+    }
+    
+    @objc private func bookmarkButtonClicked() {
+        
     }
     
 }

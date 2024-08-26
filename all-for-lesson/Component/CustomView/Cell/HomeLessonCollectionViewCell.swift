@@ -28,7 +28,7 @@ final class HomeLessonCollectionViewCell: BaseCollectionViewCell {
     }
     
     private let starImage = UIImageView().then {
-        $0.image = Resource.SystemImage.star
+        $0.image = Resource.Image.star
         $0.tintColor = Resource.Color.yellow
     }
     

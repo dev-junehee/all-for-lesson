@@ -25,7 +25,7 @@ final class LessonCollectionViewCell: BaseCollectionViewCell {
     }
     
     private let starImage = UIImageView().then {
-        $0.image = Resource.SystemImage.star
+        $0.image = Resource.Image.star
         $0.tintColor = Resource.Color.yellow
     }
     
@@ -38,7 +38,7 @@ final class LessonCollectionViewCell: BaseCollectionViewCell {
     }
     
     let bookmarkButton = UIButton().then {
-        $0.setImage(Resource.SystemImage.bookmark, for: .normal)
+        $0.setImage(Resource.Image.bookmark, for: .normal)
         $0.tintColor = Resource.Color.darkGray
     }
     

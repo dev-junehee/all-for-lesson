@@ -28,7 +28,7 @@ enum UserRouter {
 extension UserRouter: TargetType {
     
     var base: String {
-        return API.URL.Base.dev
+        return API.URL.base
     }
     
     var path: String {

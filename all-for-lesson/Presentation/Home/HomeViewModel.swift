@@ -22,6 +22,7 @@ final class HomeViewModel: InputOutput {
     
     struct Output {
         let menuItems: Observable<[(String, UIImage)]>
+        let selectedMenu: PublishSubject<HomeMenuCase>
         let popularLessonList: BehaviorSubject<[Post]>       /// 컬렉션뷰 바인딩용
         let interestingLessonList: BehaviorSubject<[Post]>   /// 컬렉션뷰 바인딩용
         let lessonData: PublishSubject<Post>
@@ -29,10 +30,11 @@ final class HomeViewModel: InputOutput {
     
     func transform(input: Input) -> Output {
         let menuItems = Observable.zip(Observable.just(Constant.Home.menu),
-                                       Observable.just(Resource.SystemImage.homeMenus))
+                                       Observable.just(Resource.Image.homeMenus))
                         .map { (titles, images) -> [(String, UIImage)] in
                             return Array(zip(titles, images))
                         }
+        let selectedMenu = PublishSubject<HomeMenuCase>()
         let popularLessonList = BehaviorSubject<[Post]>(value: [])
         let interestingLessonList = BehaviorSubject<[Post]>(value: [])
         let lessonData = PublishSubject<Post>()
@@ -47,8 +49,8 @@ final class HomeViewModel: InputOutput {
                 switch result {
                 case .success(let response):
                     print("홈 화면 네트워크 연결 성공")
-                    popularLessonList.onNext(response.data ?? [])
-                    interestingLessonList.onNext(response.data ?? [])
+                    popularLessonList.onNext(response.data)
+                    interestingLessonList.onNext(response.data)
                 case .failure(let error):
                     print("홈 화면 네트워크 연결 실패")
                     print(error)
@@ -58,8 +60,12 @@ final class HomeViewModel: InputOutput {
         
         /// 메뉴 버튼 탭 이벤트
         input.menuButtonTap
-            .bind { indexPath in
-                print(indexPath)
+            .throttle(.seconds(2), scheduler: MainScheduler.instance)
+            .compactMap { indexPath in
+                return HomeMenuCase(rawValue: indexPath.row)
+            }
+            .bind { selected in
+                selectedMenu.onNext(selected)
             }
             .disposed(by: disposeBag)
         
@@ -78,7 +84,8 @@ final class HomeViewModel: InputOutput {
             .disposed(by: disposeBag)
         
         
-        return Output(menuItems: menuItems,
+        return Output(menuItems: menuItems, 
+                      selectedMenu: selectedMenu,
                       popularLessonList: popularLessonList,
                       interestingLessonList: interestingLessonList,
                       lessonData: lessonData)

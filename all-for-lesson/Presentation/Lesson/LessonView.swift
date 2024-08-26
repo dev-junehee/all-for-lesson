@@ -16,17 +16,18 @@ final class LessonView: BaseView {
     }
     
     let lessonTitleButton = UIButton().then {
-        var config = UIButton.Configuration.plain()
-        config.baseForegroundColor = Resource.Color.fontBlack
-        
-        config.image = .brass
-        config.imagePlacement = .leading
-        config.imagePadding = 10
-        
-        var title = AttributedString("레슨찾기")
-        title.font = Resource.Font.viewTitle
-        config.attributedTitle = title
-        $0.configuration = config
+        // var config = UIButton.Configuration.plain()
+        // config.baseForegroundColor = Resource.Color.fontBlack
+        //
+        // config.image = .brass
+        // config.imagePlacement = .leading
+        // config.imagePadding = 10
+        //
+        // var title = AttributedString("레슨찾기")
+        // title.font = Resource.Font.viewTitle
+        // config.attributedTitle = title
+        // $0.configuration = config
+        $0.contentHorizontalAlignment = .leading
     }
     
     let lessonCount = UILabel().then {
@@ -54,14 +55,15 @@ final class LessonView: BaseView {
         let safeArea = self.safeAreaLayoutGuide
         
         lessonTitleView.snp.makeConstraints {
-            $0.top.equalTo(self).offset(60)
+            $0.top.equalTo(safeArea)
             $0.horizontalEdges.equalTo(safeArea)
             $0.height.equalTo(50)
         }
         
         lessonTitleButton.snp.makeConstraints {
             $0.top.equalTo(lessonTitleView)
-            $0.width.equalTo(160)
+            // $0.width.equalTo(160)
+            $0.horizontalEdges.equalTo(safeArea)
             $0.height.equalTo(40)
         }
         

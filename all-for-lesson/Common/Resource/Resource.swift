@@ -43,7 +43,7 @@ enum Resource {
         static let regular12 = UIFont(name: "Pretendard-Regular", size: 12)
     }
     
-    enum SystemImage {
+    enum Image {
         static let leftArrow = UIImage(systemName: "arrow.left")!
         static let home = UIImage(systemName: "house")!
         static let piano = UIImage(systemName: "pianokeys")!
@@ -63,8 +63,9 @@ enum Resource {
             .folder, .violin, .flute, .brass,
             .piano, .microphone, .clef, .percussion
         ]
+        
         /// 마이페이지 버튼
-        static let mypageButtons: [UIImage]  = [.board, .bookmark, .friends]
+        static let mypageButton: [UIImage]  = [.board, .bookmark, .friends]
     }
     
 }

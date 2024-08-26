@@ -10,10 +10,10 @@ import UIKit
 extension UIViewController {
     
     /// Image BarButton 설정 함수
-    func setImgBarButton(image: UIImage, target: Any?, action: Selector?, type: BarButtonCase) {
-        let barButton = UIBarButtonItem(image: image, style: .plain, target: target, action: action)
+    func setImgBarButton(image: UIImage, color: UIColor? = Resource.Color.purple, action: Selector?, type: BarButtonCase) {
+        let barButton = UIBarButtonItem(image: image, style: .plain, target: self, action: action)
     
-        barButton.tintColor = Resource.Color.purple
+        barButton.tintColor = color
     
         switch type {
         case .left:
@@ -25,7 +25,7 @@ extension UIViewController {
     
     /// 뒤로가기 BarButton 설정 함수
     func setBackBarButton(_ color: UIColor = Resource.Color.purple) {
-        let backImage = Resource.SystemImage.leftArrow
+        let backImage = Resource.Image.leftArrow
         let barButton = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(popViewController))
         barButton.tintColor = color
         navigationItem.leftBarButtonItem = barButton

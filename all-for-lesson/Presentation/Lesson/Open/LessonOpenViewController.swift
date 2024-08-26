@@ -29,7 +29,7 @@ final class LessonOpenViewController: BaseViewController {
     
     override func setViewController() {
         navigationItem.title = "새로운 레슨 개설하기"
-        setImgBarButton(image: Resource.SystemImage.plus, target: self, action: nil, type: .right)
+        setImgBarButton(image: Resource.Image.plus, action: nil, type: .right)
         openView.photoPicker.delegate = self
     }
     

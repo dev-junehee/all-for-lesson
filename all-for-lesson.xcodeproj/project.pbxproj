@@ -110,6 +110,9 @@
 		C49447E92C74DBE3005AADF7 /* LessonDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447E82C74DBE3005AADF7 /* LessonDetailView.swift */; };
 		C49447EC2C74DBF8005AADF7 /* LessonDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447EB2C74DBF8005AADF7 /* LessonDetailViewModel.swift */; };
 		C49447EE2C74DBFE005AADF7 /* LessonDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447ED2C74DBFE005AADF7 /* LessonDetailViewController.swift */; };
+		C4DC8DF12C7C994B0007FE12 /* ReservationBookmarkBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8DF02C7C994B0007FE12 /* ReservationBookmarkBody.swift */; };
+		C4DC8DF32C7C9C340007FE12 /* ReservationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8DF22C7C9C340007FE12 /* ReservationResponse.swift */; };
+		C4DC8DF52C7CD0750007FE12 /* HomeMenuCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8DF42C7CD0750007FE12 /* HomeMenuCase.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -210,6 +213,9 @@
 		C49447E82C74DBE3005AADF7 /* LessonDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailView.swift; sourceTree = "<group>"; };
 		C49447EB2C74DBF8005AADF7 /* LessonDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailViewModel.swift; sourceTree = "<group>"; };
 		C49447ED2C74DBFE005AADF7 /* LessonDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailViewController.swift; sourceTree = "<group>"; };
+		C4DC8DF02C7C994B0007FE12 /* ReservationBookmarkBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationBookmarkBody.swift; sourceTree = "<group>"; };
+		C4DC8DF22C7C9C340007FE12 /* ReservationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationResponse.swift; sourceTree = "<group>"; };
+		C4DC8DF42C7CD0750007FE12 /* HomeMenuCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCase.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +275,7 @@
 			children = (
 				C49447D22C7334A0005AADF7 /* PostResponse.swift */,
 				C40391792C7A010A00D50850 /* PostFilesResponse.swift */,
+				C4DC8DF22C7C9C340007FE12 /* ReservationResponse.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -289,6 +296,7 @@
 				C403915D2C76EE9A00D50850 /* PostBody.swift */,
 				C40391692C7784C700D50850 /* PostFilesBody.swift */,
 				C403917B2C7B4F6E00D50850 /* PostQuery.swift */,
+				C4DC8DF02C7C994B0007FE12 /* ReservationBookmarkBody.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -473,6 +481,7 @@
 				C494479C2C70E8BE005AADF7 /* BarButtonCase.swift */,
 				C49447B22C720F77005AADF7 /* LoginViewCase.swift */,
 				C403916B2C77886900D50850 /* NetworkErrorCase.swift */,
+				C4DC8DF42C7CD0750007FE12 /* HomeMenuCase.swift */,
 			);
 			path = Case;
 			sourceTree = "<group>";
@@ -761,6 +770,7 @@
 				C49447AC2C70F593005AADF7 /* MyPageViewController.swift in Sources */,
 				C40391372C76363000D50850 /* LessonOpenViewModel.swift in Sources */,
 				C48062CD2C6F1029003FF7EE /* OnboardingViewController.swift in Sources */,
+				C4DC8DF12C7C994B0007FE12 /* ReservationBookmarkBody.swift in Sources */,
 				C49447D72C7367FB005AADF7 /* UserTypeButton.swift in Sources */,
 				C49447B32C720F77005AADF7 /* LoginViewCase.swift in Sources */,
 				C40391652C77812200D50850 /* LoginBody.swift in Sources */,
@@ -795,6 +805,7 @@
 				C48063322C6F6AE7003FF7EE /* TargetType.swift in Sources */,
 				C48062E92C6F14F4003FF7EE /* UIColor+.swift in Sources */,
 				C40391672C77818E00D50850 /* EmailBody.swift in Sources */,
+				C4DC8DF52C7CD0750007FE12 /* HomeMenuCase.swift in Sources */,
 				C40391622C77808100D50850 /* JoinBody.swift in Sources */,
 				C49447EC2C74DBF8005AADF7 /* LessonDetailViewModel.swift in Sources */,
 				C49447902C70B5EF005AADF7 /* UserDefaultsManager.swift in Sources */,
@@ -821,6 +832,7 @@
 				C403915E2C76EE9A00D50850 /* PostBody.swift in Sources */,
 				C494478E2C70B4EF005AADF7 /* JoinResponse.swift in Sources */,
 				C48063032C6F23DD003FF7EE /* CommonLabel.swift in Sources */,
+				C4DC8DF32C7C9C340007FE12 /* ReservationResponse.swift in Sources */,
 				C48063012C6F1FCF003FF7EE /* OnboardingTypeButton.swift in Sources */,
 				C48063152C6F2C3F003FF7EE /* StudentJoinViewController.swift in Sources */,
 				C49447AF2C7206B5005AADF7 /* RefreshTokenResponse.swift in Sources */,

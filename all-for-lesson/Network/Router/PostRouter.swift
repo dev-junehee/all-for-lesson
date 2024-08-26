@@ -12,6 +12,10 @@ import Alamofire
  `posts` 포스트 작성
  `postsFiles`파일 업로드
  `getPosts`포스트 조회
+ `getImage` 이미지 조회
+ `getPostsDetail` 포스트 상세 조회
+ `postReservation` 레슨 신청/취소
+ `postBookmark` 레슨 북마크/취소
  */
 
 enum PostRouter {
@@ -20,12 +24,14 @@ enum PostRouter {
     case getPosts(query: PostQuery)
     case getImage(query: String)
     case getPostsDetail(id: String)
+    case postReservation(id: String, body: ReservationBookmarkBody)
+    case postBookmark(id: String, body: ReservationBookmarkBody)
 }
 
 extension PostRouter: TargetType {
     
     var base: String {
-        API.URL.Base.dev
+        API.URL.base
     }
     
     var path: String {
@@ -35,12 +41,14 @@ extension PostRouter: TargetType {
         case .getPosts: API.URL.posts
         case .getImage: ""
         case .getPostsDetail(let id): API.URL.posts + id
+        case .postReservation(let id, _): API.URL.posts + id + API.URL.reservatioin
+        case .postBookmark(id: let id, body: let body): API.URL.posts + id + API.URL.bookmark
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .posts, .postFiles:
+        case .posts, .postFiles, .postReservation, .postBookmark:
                 .post
         case .getPosts, .getImage, .getPostsDetail:
                 .get
@@ -61,7 +69,7 @@ extension PostRouter: TargetType {
                 API.Header.contentType: API.Header.multipart,
                 API.Header.sesacKey: API.KEY.key
             ]
-        case .getPosts, .getImage, .getPostsDetail:
+        case .getPosts, .getImage, .getPostsDetail, .postReservation, .postBookmark:
             return [
                 API.Header.auth: UserDefaultsManager.accessToken,
                 API.Header.sesacKey: API.KEY.key
@@ -91,6 +99,16 @@ extension PostRouter: TargetType {
                 return nil
             }
             
+        case .postReservation(_, let body), .postBookmark(_, let body):
+            let encoder = JSONEncoder()
+            do {
+                let data = try encoder.encode(body)
+                return data
+            } catch {
+                print("json encode error", error)
+                return nil
+            }
+            
         case .getPosts, .getImage, .getPostsDetail:
             return nil
         }
@@ -98,7 +116,7 @@ extension PostRouter: TargetType {
     
     var query: [URLQueryItem]? {
         switch self {
-        case .posts, .postFiles:
+        case .posts, .postFiles, .postReservation, .postBookmark:
             return nil
         
         case .getPosts(let query):

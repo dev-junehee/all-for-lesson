@@ -58,6 +58,15 @@ final class HomeViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        /// 홈 화면 상단 메뉴 선택값
+        output.selectedMenu
+            .bind(with: self) { owner, selectedMenu in
+                let lessonVC = LessonViewController()
+                lessonVC.menuType.onNext(selectedMenu)
+                owner.navigationController?.pushViewController(lessonVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
         /// 홈 화면 인기 레슨 컬렉션뷰
         output.popularLessonList
             .bind(to: homeView.popularCollectionView.rx.items(cellIdentifier: popular.id, cellType: popular.cellType)) { item, element, cell in

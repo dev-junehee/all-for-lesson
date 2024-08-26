@@ -18,7 +18,7 @@ final class NetworkManager {
         return Single<Result<T, NetworkErrorCase>>.create { observer -> Disposable in
             do {
                 let request = try api.asURLRequest()
-        
+                print(request.url)
                 func callRequest() {
                     AF.request(request)
                         .validate(statusCode: 200..<300)
@@ -67,7 +67,7 @@ final class NetworkManager {
     }
     
     func uploadFiles(files: [Data?], fileNames: [String?]) -> Single<Result<PostFilesResponse, NetworkErrorCase>> {
-        let URL = API.URL.Base.dev + API.URL.posts + API.URL.files
+        let URL = API.URL.base + API.URL.posts + API.URL.files
         let headers: HTTPHeaders = [
             API.Header.auth: UserDefaultsManager.accessToken,
             API.Header.contentType: API.Header.multipart,
@@ -102,7 +102,7 @@ final class NetworkManager {
     }
     
     func getImage (_ file: String, completion: @escaping (Data) -> Void) {
-        let URL = API.URL.Base.dev + file
+        let URL = API.URL.base + file
         let headers: HTTPHeaders = [
             API.Header.auth: UserDefaultsManager.accessToken,
             API.Header.sesacKey: API.KEY.key

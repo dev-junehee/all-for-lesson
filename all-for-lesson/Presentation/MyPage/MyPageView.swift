@@ -46,9 +46,9 @@ final class MyPageView: BaseView {
         $0.spacing = 20
     }
     
-    private let reservationButton = MyPageMenuButton("수강 내역 확인", image: Resource.SystemImage.mypageButtons[0])
-    private let bookmarkButton = MyPageMenuButton("북마크한 레슨", image: Resource.SystemImage.mypageButtons[1])
-    private let friendButton = MyPageMenuButton("친구 관리", image: Resource.SystemImage.mypageButtons[2])
+    private let reservationButton = MyPageMenuButton("수강 내역 확인", image: Resource.Image.mypageButton[0])
+    private let bookmarkButton = MyPageMenuButton("북마크한 레슨", image: Resource.Image.mypageButton[1])
+    private let friendButton = MyPageMenuButton("친구 관리", image: Resource.Image.mypageButton[2])
     
     let tableView = UITableView().then {
         $0.register(UITableViewCell.self, forCellReuseIdentifier: "MenuCell")

@@ -29,7 +29,7 @@ final class MyPageViewController: BaseViewController {
     
     override func setViewController() {
         navigationItem.title = "마이페이지"
-        setImgBarButton(image: Resource.SystemImage.gear, target: self, action: #selector(settingButtonClicked), type: .right)
+        setImgBarButton(image: Resource.Image.gear, action: nil, type: .right)
     }
     
     private func bind() {
