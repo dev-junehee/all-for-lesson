@@ -17,7 +17,8 @@ import Alamofire
 enum PostRouter {
     case posts(body: PostBody)
     case postFiles(body: PostFilesBody)
-    case getPosts
+    case getPosts(query: PostQuery)
+    case getImage(query: String)
 }
 
 extension PostRouter: TargetType {
@@ -28,8 +29,10 @@ extension PostRouter: TargetType {
     
     var path: String {
         switch self {
-        case .posts, .getPosts: API.URL.posts
+        case .posts: API.URL.posts
         case .postFiles: API.URL.posts + API.URL.files
+        case .getPosts: API.URL.posts
+        case .getImage: ""
         }
     }
     
@@ -37,7 +40,7 @@ extension PostRouter: TargetType {
         switch self {
         case .posts, .postFiles:
                 .post
-        case .getPosts:
+        case .getPosts, .getImage:
                 .get
         }
     }
@@ -56,7 +59,7 @@ extension PostRouter: TargetType {
                 API.Header.contentType: API.Header.multipart,
                 API.Header.sesacKey: API.KEY.key
             ]
-        case .getPosts:
+        case .getPosts, .getImage:
             return [
                 API.Header.auth: UserDefaultsManager.accessToken,
                 API.Header.sesacKey: API.KEY.key
@@ -75,6 +78,7 @@ extension PostRouter: TargetType {
                 print("json encode error", error)
                 return nil
             }
+            
         case .postFiles(let body):
             let encoder = JSONEncoder()
             do {
@@ -84,8 +88,45 @@ extension PostRouter: TargetType {
                 print("json encode error", error)
                 return nil
             }
-        case .getPosts:
+            
+        case .getPosts, .getImage:
             return nil
         }
     }
+    
+    var query: [URLQueryItem]? {
+        switch self {
+        case .posts, .postFiles:
+            return nil
+        
+        case .getPosts(let query):
+            let encoder = JSONEncoder()
+            do {
+                let data = try encoder.encode(query)
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    return json.map { URLQueryItem(name: $0, value: "\($1)") }
+                } else {
+                    return nil
+                }
+            } catch {
+                print("json encode error", error)
+                return nil
+            }
+        
+        case .getImage(let query):
+            let encoder = JSONEncoder()
+            do {
+                let data = try encoder.encode(query)
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    return json.map { URLQueryItem(name: "", value: "\($0)") }
+                } else {
+                    return nil
+                }
+            } catch {
+                print("json encode error", error)
+                return nil
+            }
+        }
+    }
+    
 }

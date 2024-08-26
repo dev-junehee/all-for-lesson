@@ -14,7 +14,7 @@ final class HomeViewModel: InputOutput {
     private let disposeBag = DisposeBag()
     
     struct Input {
-        let viewDidLoadTrigger: Observable<[Any]>
+        let viewWillAppearTrigger: Observable<[Any]>
         let menuButtonTap: ControlEvent<IndexPath>
         let popularLessonTap: ControlEvent<Post>
         let interestingLessonTap: ControlEvent<Post>
@@ -33,9 +33,28 @@ final class HomeViewModel: InputOutput {
                         .map { (titles, images) -> [(String, UIImage)] in
                             return Array(zip(titles, images))
                         }
-        let popularLessonList = BehaviorSubject(value: postDummy)
-        let interestingLessonList = BehaviorSubject(value: postDummy)
+        let popularLessonList = BehaviorSubject<[Post]>(value: [])
+        let interestingLessonList = BehaviorSubject<[Post]>(value: [])
         let lessonData = PublishSubject<Post>()
+        
+        /// 화면이 나타날 때 마다 인기레슨/흥미레슨 불러오기
+        input.viewWillAppearTrigger
+            .flatMap { _ in
+                let query = PostQuery(next: "", limit: "", product_id: ProductId.defaultId)
+                return NetworkManager.shared.apiCall(api: .post(.getPosts(query: query)), of: PostResponse.self)
+            }
+            .bind { result in
+                switch result {
+                case .success(let response):
+                    print("홈 화면 네트워크 연결 성공")
+                    popularLessonList.onNext(response.data ?? [])
+                    interestingLessonList.onNext(response.data ?? [])
+                case .failure(let error):
+                    print("홈 화면 네트워크 연결 실패")
+                    print(error)
+                }
+            }
+            .disposed(by: disposeBag)
         
         /// 메뉴 버튼 탭 이벤트
         input.menuButtonTap

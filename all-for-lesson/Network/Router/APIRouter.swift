@@ -50,4 +50,11 @@ extension APIRouter: TargetType {
         }
     }
     
+    var query: [URLQueryItem]? {
+        switch self {
+        case .user(let userRouter): userRouter.query
+        case .post(let postRouter): postRouter.query
+        }
+    }
+    
 }

@@ -14,11 +14,12 @@ final class NetworkManager {
     static let shared = NetworkManager()
     private init() { }
     
-    func apiCall<T: Decodable>(api: APIRouter, of type: T.Type) -> Single<Result<T, (NetworkErrorCase)>> {
+    func apiCall<T: Decodable>(api: APIRouter, of type: T.Type) -> Single<Result<T, NetworkErrorCase>> {
         return Single<Result<T, NetworkErrorCase>>.create { observer -> Disposable in
             do {
                 let request = try api.asURLRequest()
-                func makeRequest() {
+        
+                func callRequest() {
                     AF.request(request)
                         .validate(statusCode: 200..<300)
                         .responseDecodable(of: T.self) { response in
@@ -27,8 +28,9 @@ final class NetworkManager {
                                 if statusCode == 419 {
                                     print("액세스 토큰 갱신 필요")
                                     self.refreshToken { success in /// 토큰 갱신에 성공하면 네트워크 재호출, 실패하면 에러 처리
+                                        print("토큰 갱신 결과", success)
                                         if success {
-                                            makeRequest()
+                                            callRequest()
                                         } else {
                                             if let networkError = NetworkErrorCase(rawValue: statusCode) {
                                                 observer(.success(.failure(networkError)))
@@ -42,10 +44,11 @@ final class NetworkManager {
                                     case .success(let value):
                                         print("value 확인 >>>", value)
                                         observer(.success(.success(value)))
-                                    case .failure(_):
+                                    case .failure(let error):
                                         if let networkError = NetworkErrorCase(rawValue: statusCode) {
                                             observer(.success(.failure(networkError)))
                                         } else {
+                                            print("Decoding Error: \(error.localizedDescription)")
                                             observer(.success(.failure(NetworkErrorCase.UnknownError)))
                                         }
                                     }
@@ -54,7 +57,7 @@ final class NetworkManager {
                         }
                 }
                 
-                makeRequest()
+                callRequest()
                 return Disposables.create()
             } catch {
                 print("API URLRequestConvertible Failed")
@@ -98,7 +101,20 @@ final class NetworkManager {
         }.debug("Post Files 네트워크 통신 >>>")
     }
     
-  
+    func getImage (_ file: String, completion: @escaping (Data) -> Void) {
+        let URL = API.URL.Base.dev + file
+        let headers: HTTPHeaders = [
+            API.Header.auth: UserDefaultsManager.accessToken,
+            API.Header.sesacKey: API.KEY.key
+        ]
+        
+        AF.request(URL, headers: headers)
+            .responseString { response in
+                if let imageData = response.data {
+                    completion(imageData)
+                }
+            }
+    }
     
     func refreshToken(completion: @escaping (Bool) -> Void) {
         print("토큰 갱신 시작")

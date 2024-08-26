@@ -114,4 +114,8 @@ extension UserRouter: TargetType {
         }
     }
     
+    var query: [URLQueryItem]? {
+        return nil
+    }
+    
 }

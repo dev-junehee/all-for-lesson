@@ -21,8 +21,11 @@
 		C403916A2C7784C700D50850 /* PostFilesBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40391692C7784C700D50850 /* PostFilesBody.swift */; };
 		C403916C2C77886900D50850 /* NetworkErrorCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403916B2C77886900D50850 /* NetworkErrorCase.swift */; };
 		C403916E2C7791A100D50850 /* APIRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403916D2C7791A100D50850 /* APIRouter.swift */; };
-		C40391732C78CBDC00D50850 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C40391722C78CBDC00D50850 /* RealmSwift */; };
 		C403917A2C7A010A00D50850 /* PostFilesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40391792C7A010A00D50850 /* PostFilesResponse.swift */; };
+		C403917C2C7B4F6E00D50850 /* PostQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C403917B2C7B4F6E00D50850 /* PostQuery.swift */; };
+		C403917F2C7B54B100D50850 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = C403917E2C7B54B100D50850 /* Toast */; };
+		C40391812C7B54FC00D50850 /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40391802C7B54FC00D50850 /* ToastManager.swift */; };
+		C40391842C7B81F100D50850 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C40391832C7B81F100D50850 /* Kingfisher */; };
 		C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */; };
 		C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */; };
 		C48062B42C6DD4BF003FF7EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48062B32C6DD4BF003FF7EE /* Assets.xcassets */; };
@@ -125,6 +128,8 @@
 		C403916B2C77886900D50850 /* NetworkErrorCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkErrorCase.swift; sourceTree = "<group>"; };
 		C403916D2C7791A100D50850 /* APIRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIRouter.swift; sourceTree = "<group>"; };
 		C40391792C7A010A00D50850 /* PostFilesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFilesResponse.swift; sourceTree = "<group>"; };
+		C403917B2C7B4F6E00D50850 /* PostQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostQuery.swift; sourceTree = "<group>"; };
+		C40391802C7B54FC00D50850 /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
 		C48062A72C6DD4BE003FF7EE /* all-for-lesson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "all-for-lesson.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -214,10 +219,11 @@
 			files = (
 				C48063062C6F286E003FF7EE /* RxCocoa in Frameworks */,
 				C48062DC2C6F1282003FF7EE /* SnapKit in Frameworks */,
-				C40391732C78CBDC00D50850 /* RealmSwift in Frameworks */,
 				C48063082C6F286E003FF7EE /* RxSwift in Frameworks */,
 				C48063352C6F6B79003FF7EE /* Alamofire in Frameworks */,
+				C40391842C7B81F100D50850 /* Kingfisher in Frameworks */,
 				C48062E12C6F1376003FF7EE /* Then in Frameworks */,
+				C403917F2C7B54B100D50850 /* Toast in Frameworks */,
 				C480631A2C6F2CDF003FF7EE /* TextFieldEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,6 +288,7 @@
 			children = (
 				C403915D2C76EE9A00D50850 /* PostBody.swift */,
 				C40391692C7784C700D50850 /* PostFilesBody.swift */,
+				C403917B2C7B4F6E00D50850 /* PostQuery.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -477,6 +484,7 @@
 				C480632C2C6F657C003FF7EE /* NetworkManager.swift */,
 				C494478F2C70B5EF005AADF7 /* UserDefaultsManager.swift */,
 				C49447B02C720972005AADF7 /* NavigationManager.swift */,
+				C40391802C7B54FC00D50850 /* ToastManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -661,7 +669,8 @@
 				C48063072C6F286E003FF7EE /* RxSwift */,
 				C48063192C6F2CDF003FF7EE /* TextFieldEffects */,
 				C48063342C6F6B79003FF7EE /* Alamofire */,
-				C40391722C78CBDC00D50850 /* RealmSwift */,
+				C403917E2C7B54B100D50850 /* Toast */,
+				C40391832C7B81F100D50850 /* Kingfisher */,
 			);
 			productName = "all-for-lesson";
 			productReference = C48062A72C6DD4BE003FF7EE /* all-for-lesson.app */;
@@ -697,7 +706,8 @@
 				C48063042C6F286E003FF7EE /* XCRemoteSwiftPackageReference "RxSwift" */,
 				C48063182C6F2CDF003FF7EE /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 				C48063332C6F6B79003FF7EE /* XCRemoteSwiftPackageReference "Alamofire" */,
-				C40391712C78CBDC00D50850 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				C403917D2C7B54B100D50850 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				C40391822C7B81F100D50850 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = C48062A82C6DD4BE003FF7EE /* Products */;
 			projectDirPath = "";
@@ -735,6 +745,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C40391812C7B54FC00D50850 /* ToastManager.swift in Sources */,
 				C49447E42C7448C5005AADF7 /* LessonViewModel.swift in Sources */,
 				C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */,
 				C49447E22C7443E7005AADF7 /* HomeViewModel.swift in Sources */,
@@ -755,6 +766,7 @@
 				C40391652C77812200D50850 /* LoginBody.swift in Sources */,
 				C403916C2C77886900D50850 /* NetworkErrorCase.swift in Sources */,
 				C49447BE2C723A7E005AADF7 /* BaseCollectionViewCell.swift in Sources */,
+				C403917C2C7B4F6E00D50850 /* PostQuery.swift in Sources */,
 				C49447E92C74DBE3005AADF7 /* LessonDetailView.swift in Sources */,
 				C480630F2C6F2B23003FF7EE /* LoginViewController.swift in Sources */,
 				C48062D92C6F11AD003FF7EE /* Reusable.swift in Sources */,
@@ -1042,12 +1054,20 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C40391712C78CBDC00D50850 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		C403917D2C7B54B100D50850 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/realm/realm-swift.git";
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.1;
+			};
+		};
+		C40391822C7B81F100D50850 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
 			};
 		};
 		C48062DA2C6F1282003FF7EE /* XCRemoteSwiftPackageReference "SnapKit" */ = {
@@ -1093,10 +1113,15 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C40391722C78CBDC00D50850 /* RealmSwift */ = {
+		C403917E2C7B54B100D50850 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C40391712C78CBDC00D50850 /* XCRemoteSwiftPackageReference "realm-swift" */;
-			productName = RealmSwift;
+			package = C403917D2C7B54B100D50850 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
+		C40391832C7B81F100D50850 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C40391822C7B81F100D50850 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		C48062DB2C6F1282003FF7EE /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

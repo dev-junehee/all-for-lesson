@@ -21,11 +21,9 @@ final class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         print(UserDefaultsManager.email)
         print(UserDefaultsManager.nick)
         print(UserDefaultsManager.userId)
-        // print(UserDefaultsManager.userType)
         print(UserDefaultsManager.accessToken)
         print(UserDefaultsManager.refreshToken)
         bind()
@@ -37,10 +35,10 @@ final class HomeViewController: BaseViewController {
     }
     
     private func bind() {
-        let viewDidLoadTrigger = self.rx.methodInvoked(#selector(viewDidLoad))
+        let viewWillAppearTrigger = self.rx.methodInvoked(#selector(viewWillAppear(_:)))
         
         let input = HomeViewModel.Input(
-            viewDidLoadTrigger: viewDidLoadTrigger,
+            viewWillAppearTrigger: viewWillAppearTrigger,
             menuButtonTap: homeView.menuCollectionView.rx.itemSelected,
             popularLessonTap: homeView.popularCollectionView.rx.modelSelected(Post.self),
             interestingLessonTap: homeView.interestingCollectionView.rx.modelSelected(Post.self))
@@ -63,18 +61,16 @@ final class HomeViewController: BaseViewController {
         /// 홈 화면 인기 레슨 컬렉션뷰
         output.popularLessonList
             .bind(to: homeView.popularCollectionView.rx.items(cellIdentifier: popular.id, cellType: popular.cellType)) { item, element, cell in
-                cell.lessonTitle.text = element.content
-                cell.lessonLocationPrice.text = "(서울) 129,000원"
-                cell.starLate.text = "4.9"
+                cell.updateCell(post: element)
+                cell.updateCellImage(post: element)
             }
             .disposed(by: disposeBag)
         
         /// 홈 화면 흥미 레슨 컬렉션뷰
         output.interestingLessonList
             .bind(to: homeView.interestingCollectionView.rx.items(cellIdentifier: interesting.id, cellType: interesting.cellType)) { item, element, cell in
-                cell.lessonTitle.text = element.content
-                cell.lessonLocationPrice.text = "(서울) 129,000원"
-                cell.starLate.text = "4.9"
+                cell.updateCell(post: element)
+                cell.updateCellImage(post: element)
             }
             .disposed(by: disposeBag)
         

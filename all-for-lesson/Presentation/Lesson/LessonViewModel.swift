@@ -32,7 +32,6 @@ final class LessonViewModel: InputOutput {
             }
             .disposed(by: disposeBag)
         
-        
         return Output(lessonList: lessonList)
     }
     
