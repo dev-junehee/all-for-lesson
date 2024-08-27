@@ -39,13 +39,26 @@ final class LessonDetailViewController: BaseViewController {
             postId: postId,
             bookmarkButtonTap: bookmarkButton.rx.tap,
             reservationButtonTap: detailView.reservationButton.rx.tap,
-            infoControlTap: detailView.lessonInfoControl.rx.selectedSegmentIndex)
+            infoControlTap: detailView.lessonInfoControl.rx.selectedSegmentIndex,
+            commentText: detailView.commentFieldView.commentField.rx.text,
+            commentButtonTap: detailView.commentFieldView.commentButton.rx.tap)
         let output = viewModel.transform(input: input)
         
         /// 레슨 상세 데이터 바인딩
         output.detailInfo
             .bind(with: self) { owner, detailInfo in
                 owner.detailView.updateLessonDetailInfo(detailInfo)
+            }
+            .disposed(by: disposeBag)
+        
+        /// 레슨 후기 데이터 바인딩
+        output.detailInfo
+            .map { post in
+                return post.comments
+            }
+            .bind(to: detailView.lessonCommentView.collectionView.rx.items(cellIdentifier: LessonCommentCollectionViewCell.id, cellType: LessonCommentCollectionViewCell.self)) { item, element, cell in
+                print(element)
+                cell.updateCell(comment: element)
             }
             .disposed(by: disposeBag)
         
@@ -77,9 +90,20 @@ final class LessonDetailViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        /// Segmented Control
         output.infoControlTap
             .bind(with: self) { owner, selectedIndex in
                 owner.detailView.updateSegmentedControl(selectedIndex)
+                owner.detailView.commentFieldView.isHidden = selectedIndex == 1 ? false : true
+            }
+            .disposed(by: disposeBag)
+        
+        /// 후기 댓글 결과
+        output.commentDone
+            .bind(with: self) { owner, success in
+                if success {
+                    owner.detailView.commentFieldView.commentField.text = ""
+                }
             }
             .disposed(by: disposeBag)
     }

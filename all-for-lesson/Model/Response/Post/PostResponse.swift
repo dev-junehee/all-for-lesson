@@ -28,18 +28,11 @@ struct Post: Decodable, Hashable {
     let likes: [String]
     let likes2: [String]
     let hashTags: [String]
-    let comments: [Comment]
+    let comments: [CommentResponse]
 }
 
 struct Creator: Decodable, Hashable {
     let user_id: String
     let nick: String
     let profileImage: String?
-}
-
-struct Comment: Decodable, Hashable {
-    let comment_id: String
-    let content: String
-    let createAt: String
-    let creator: Creator
 }

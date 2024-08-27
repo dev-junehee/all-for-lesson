@@ -16,17 +16,6 @@ final class LessonView: BaseView {
     }
     
     let lessonTitleButton = UIButton().then {
-        // var config = UIButton.Configuration.plain()
-        // config.baseForegroundColor = Resource.Color.fontBlack
-        //
-        // config.image = .brass
-        // config.imagePlacement = .leading
-        // config.imagePadding = 10
-        //
-        // var title = AttributedString("레슨찾기")
-        // title.font = Resource.Font.viewTitle
-        // config.attributedTitle = title
-        // $0.configuration = config
         $0.contentHorizontalAlignment = .leading
     }
     

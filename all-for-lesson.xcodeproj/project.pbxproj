@@ -115,6 +115,10 @@
 		C4DC8DF52C7CD0750007FE12 /* HomeMenuCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8DF42C7CD0750007FE12 /* HomeMenuCase.swift */; };
 		C4DC8E132C7DF1C10007FE12 /* LessonCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E122C7DF1C10007FE12 /* LessonCommentView.swift */; };
 		C4DC8E152C7DF1FA0007FE12 /* LessonDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E142C7DF1F90007FE12 /* LessonDetailInfoView.swift */; };
+		C4DC8E182C7E00370007FE12 /* LessonCommentFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E172C7E00370007FE12 /* LessonCommentFieldView.swift */; };
+		C4DC8E1A2C7E043B0007FE12 /* PostCommentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E192C7E043B0007FE12 /* PostCommentBody.swift */; };
+		C4DC8E1C2C7E07C50007FE12 /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E1B2C7E07C50007FE12 /* CommentResponse.swift */; };
+		C4DC8E1E2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E1D2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -220,6 +224,10 @@
 		C4DC8DF42C7CD0750007FE12 /* HomeMenuCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCase.swift; sourceTree = "<group>"; };
 		C4DC8E122C7DF1C10007FE12 /* LessonCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCommentView.swift; sourceTree = "<group>"; };
 		C4DC8E142C7DF1F90007FE12 /* LessonDetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailInfoView.swift; sourceTree = "<group>"; };
+		C4DC8E172C7E00370007FE12 /* LessonCommentFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCommentFieldView.swift; sourceTree = "<group>"; };
+		C4DC8E192C7E043B0007FE12 /* PostCommentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentBody.swift; sourceTree = "<group>"; };
+		C4DC8E1B2C7E07C50007FE12 /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
+		C4DC8E1D2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCommentCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,6 +288,7 @@
 				C49447D22C7334A0005AADF7 /* PostResponse.swift */,
 				C40391792C7A010A00D50850 /* PostFilesResponse.swift */,
 				C4DC8DF22C7C9C340007FE12 /* ReservationResponse.swift */,
+				C4DC8E1B2C7E07C50007FE12 /* CommentResponse.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -301,6 +310,7 @@
 				C40391692C7784C700D50850 /* PostFilesBody.swift */,
 				C403917B2C7B4F6E00D50850 /* PostQuery.swift */,
 				C4DC8DF02C7C994B0007FE12 /* ReservationBookmarkBody.swift */,
+				C4DC8E192C7E043B0007FE12 /* PostCommentBody.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -637,6 +647,7 @@
 				C49447BB2C723A6C005AADF7 /* HomeLessonCollectionViewCell.swift */,
 				C49447C22C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift */,
 				C49447D02C732EC0005AADF7 /* LessonCollectionViewCell.swift */,
+				C4DC8E1D2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -665,6 +676,7 @@
 			children = (
 				C4DC8E142C7DF1F90007FE12 /* LessonDetailInfoView.swift */,
 				C4DC8E122C7DF1C10007FE12 /* LessonCommentView.swift */,
+				C4DC8E172C7E00370007FE12 /* LessonCommentFieldView.swift */,
 			);
 			path = Control;
 			sourceTree = "<group>";
@@ -771,6 +783,7 @@
 				C40391812C7B54FC00D50850 /* ToastManager.swift in Sources */,
 				C49447E42C7448C5005AADF7 /* LessonViewModel.swift in Sources */,
 				C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */,
+				C4DC8E1C2C7E07C50007FE12 /* CommentResponse.swift in Sources */,
 				C49447E22C7443E7005AADF7 /* HomeViewModel.swift in Sources */,
 				C48062FE2C6F1D25003FF7EE /* UIImage+.swift in Sources */,
 				C40391282C75BE9B00D50850 /* MyProfileResponse.swift in Sources */,
@@ -801,6 +814,7 @@
 				C49447D12C732EC0005AADF7 /* LessonCollectionViewCell.swift in Sources */,
 				C49447D52C7366EB005AADF7 /* MyPageView.swift in Sources */,
 				C49447922C70BB02005AADF7 /* HomeViewController.swift in Sources */,
+				C4DC8E1E2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift in Sources */,
 				C48062D72C6F10FE003FF7EE /* UIView+.swift in Sources */,
 				C494479B2C70E846005AADF7 /* UIViewController+.swift in Sources */,
 				C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */,
@@ -833,6 +847,7 @@
 				C49447942C70CE62005AADF7 /* LoginViewModel.swift in Sources */,
 				C49447CF2C732A19005AADF7 /* LessonView.swift in Sources */,
 				C48063292C6F5B35003FF7EE /* ValidationManager.swift in Sources */,
+				C4DC8E182C7E00370007FE12 /* LessonCommentFieldView.swift in Sources */,
 				C48063242C6F55ED003FF7EE /* JoinCase.swift in Sources */,
 				C480631E2C6F3013003FF7EE /* JoinTextField.swift in Sources */,
 				C49447E72C74AA9A005AADF7 /* PostDummy.swift in Sources */,
@@ -840,6 +855,7 @@
 				C494479D2C70E8BE005AADF7 /* BarButtonCase.swift in Sources */,
 				C49447E02C7380E9005AADF7 /* MyPageViewModel.swift in Sources */,
 				C49447A62C70F3B3005AADF7 /* SearchViewController.swift in Sources */,
+				C4DC8E1A2C7E043B0007FE12 /* PostCommentBody.swift in Sources */,
 				C48063442C6F9078003FF7EE /* LoginView.swift in Sources */,
 				C49447A02C70EDC9005AADF7 /* CustomTabBarController.swift in Sources */,
 				C403912A2C75D4C200D50850 /* UserRouter.swift in Sources */,

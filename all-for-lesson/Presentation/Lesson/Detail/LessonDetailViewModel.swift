@@ -14,10 +14,12 @@ final class LessonDetailViewModel: InputOutput {
     private let disposeBag = DisposeBag()
     
     struct Input {
-        let postId: BehaviorSubject<String>
-        let bookmarkButtonTap: ControlEvent<Void>
-        let reservationButtonTap: ControlEvent<Void>
-        let infoControlTap: ControlProperty<Int>
+        let postId: BehaviorSubject<String>             /// 상세 화면 진입 시 전달되는 post id
+        let bookmarkButtonTap: ControlEvent<Void>       /// 북마크 버튼 탭
+        let reservationButtonTap: ControlEvent<Void>    /// 레슨 신청 버튼 탭
+        let infoControlTap: ControlProperty<Int>        /// 레슨상세정보-레슨후기 Segmented Control
+        let commentText: ControlProperty<String?>       /// 후기 댓글 텍스트
+        let commentButtonTap: ControlEvent<Void>        /// 후기 등록 버튼 탭
     }
     
     struct Output {
@@ -25,6 +27,7 @@ final class LessonDetailViewModel: InputOutput {
         let infoControlTap: BehaviorSubject<Int>
         let isBookmark: PublishSubject<Bool>
         let isReservation: PublishSubject<Bool>
+        let commentDone: PublishSubject<Bool>
     }
     
     func transform(input: Input) -> Output {
@@ -32,6 +35,7 @@ final class LessonDetailViewModel: InputOutput {
         let infoControlTap = BehaviorSubject(value: 0)
         let isBookmark = PublishSubject<Bool>()
         let isReservation = PublishSubject<Bool>()
+        let commentDone = PublishSubject<Bool>()
         
         /// 레슨 정보 상세 조회
         input.postId
@@ -107,6 +111,7 @@ final class LessonDetailViewModel: InputOutput {
             }
             .disposed(by: disposeBag)
     
+        /// 레슨 신청 버튼 눌렀을 때 상세 정보 업데이트 (레슨 신청/취소한 사람 리스트업용)
         isReservation
             .withLatestFrom(detailInfo)
             .flatMap { post in
@@ -130,10 +135,38 @@ final class LessonDetailViewModel: InputOutput {
             }
             .disposed(by: disposeBag)
         
+        
+        let commentData = Observable.combineLatest(detailInfo, input.commentText.orEmpty)
+            .map { (post, commentText) in
+                return (post.post_id, "\(commentText)")
+            }
+        
+        /// 레슨 후기 등록 버튼 탭
+        input.commentButtonTap
+            .withLatestFrom(commentData)
+            .flatMap { (postId, commentText) in
+                let body = PostCommentBody(content: commentText)
+                return NetworkManager.shared.apiCall(api: .post(.postComment(id: postId, body: body)), of: CommentResponse.self)
+            }
+            .bind { result in
+                switch result {
+                case .success(let value):
+                    print("후기 등록 성공")
+                    commentDone.onNext(true)
+                case .failure(let error):
+                    print("후기 등록 실패")
+                    commentDone.onNext(false)
+                }
+            }
+            .disposed(by: disposeBag)
+            
+            
+        
         return Output(detailInfo: detailInfo,
                       infoControlTap: infoControlTap, 
                       isBookmark: isBookmark, 
-                      isReservation: isReservation)
+                      isReservation: isReservation,
+                      commentDone: commentDone)
     }
     
 }

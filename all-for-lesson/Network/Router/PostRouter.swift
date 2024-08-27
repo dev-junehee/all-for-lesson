@@ -26,6 +26,7 @@ enum PostRouter {
     case getPostsDetail(id: String)
     case postReservation(id: String, body: ReservationBookmarkBody)
     case postBookmark(id: String, body: ReservationBookmarkBody)
+    case postComment(id: String, body: PostCommentBody)
 }
 
 extension PostRouter: TargetType {
@@ -43,12 +44,13 @@ extension PostRouter: TargetType {
         case .getPostsDetail(let id): API.URL.posts + id
         case .postReservation(let id, _): API.URL.posts + id + API.URL.reservatioin
         case .postBookmark(let id, _): API.URL.posts + id + API.URL.bookmark
+        case .postComment(let id, _): API.URL.posts + id + API.URL.comments
         }
     }
     
     var method: HTTPMethod {
         switch self {
-        case .posts, .postFiles, .postReservation, .postBookmark:
+        case .posts, .postFiles, .postReservation, .postBookmark, .postComment:
                 .post
         case .getPosts, .getImage, .getPostsDetail:
                 .get
@@ -57,7 +59,7 @@ extension PostRouter: TargetType {
     
     var header: [String: String] {
         switch self {
-        case .posts, .postReservation, .postBookmark:
+        case .posts, .postReservation, .postBookmark, .postComment:
             return [
                 API.Header.auth: UserDefaultsManager.accessToken,
                 API.Header.contentType: API.Header.json,
@@ -100,7 +102,16 @@ extension PostRouter: TargetType {
             }
             
         case .postReservation(_, let body), .postBookmark(_, let body):
-            print("Body", body)
+            let encoder = JSONEncoder()
+            do {
+                let data = try encoder.encode(body)
+                return data
+            } catch {
+                print("json encode error", error)
+                return nil
+            }
+            
+        case .postComment(_, let body):
             let encoder = JSONEncoder()
             do {
                 let data = try encoder.encode(body)
@@ -117,7 +128,7 @@ extension PostRouter: TargetType {
     
     var query: [URLQueryItem]? {
         switch self {
-        case .posts, .postFiles, .postReservation, .postBookmark:
+        case .posts, .postFiles, .postReservation, .postBookmark, .postComment:
             return nil
         
         case .getPosts(let query):

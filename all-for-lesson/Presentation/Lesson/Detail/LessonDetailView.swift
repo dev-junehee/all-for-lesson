@@ -82,8 +82,16 @@ final class LessonDetailView: BaseView {
         $0.backgroundColor = .yellow
     }
     
+    // 댓글창
+    let commentFieldView = LessonCommentFieldView().then {
+        $0.backgroundColor = Resource.Color.white
+        $0.layer.borderColor = Resource.Color.lightGray.cgColor
+        $0.layer.borderWidth = 0.5
+        $0.isHidden = true
+    }
+    
     override func setHierarchyLayout() {
-        [backgroundImage, scrollView].forEach { self.addSubview($0) }
+        [backgroundImage, scrollView, commentFieldView].forEach { self.addSubview($0) }
         
         let safeArea = self.safeAreaLayoutGuide
         
@@ -169,6 +177,12 @@ final class LessonDetailView: BaseView {
         }
         
         
+        commentFieldView.snp.makeConstraints {
+            $0.horizontalEdges.bottom.equalTo(self)
+            $0.height.equalTo(100)
+        }
+        
+        
     }
     
     func updateLessonDetailInfo(_ post: Post) {
@@ -181,7 +195,6 @@ final class LessonDetailView: BaseView {
         starLate.text = "4.8 후기 \(post.comments.count)개"
         
         lessonDetailInfoView.lessonContent.text = post.content
-        // lessonContent.text = post.content
         
         updateTeacherDetailInfo(post: post)
     }
