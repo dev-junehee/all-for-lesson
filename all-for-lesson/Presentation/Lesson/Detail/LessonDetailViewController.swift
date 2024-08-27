@@ -49,6 +49,34 @@ final class LessonDetailViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        /// 북마크 결과
+        output.isBookmark
+            .bind(with: self) { owner, isBookmark in
+                print("북마크 상태", isBookmark)
+                if isBookmark {
+                    owner.navigationItem.rightBarButtonItem?.tintColor = Resource.Color.purple
+                } else {
+                    owner.navigationItem.rightBarButtonItem?.tintColor = Resource.Color.white
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        /// 레슨 신청 결과
+        output.isReservation
+            .bind(with: self) { owner, isReservation in
+                let title = AttributedString(isReservation ? "레슨 신청 취소" : "레슨 신청하기")
+                let foregroundColor = isReservation ? Resource.Color.white : Resource.Color.fontBlack
+                let backgroundColor = isReservation ? Resource.Color.purple : Resource.Color.yellow
+                
+                var config = owner.detailView.reservationButton.configuration
+                config?.attributedTitle = title
+                config?.attributedTitle?.font = Resource.Font.bold16
+                config?.baseBackgroundColor = backgroundColor
+                config?.baseForegroundColor = foregroundColor
+                owner.detailView.reservationButton.configuration = config
+            }
+            .disposed(by: disposeBag)
+        
         output.infoControlTap
             .bind(with: self) { owner, selectedIndex in
                 owner.detailView.updateSegmentedControl(selectedIndex)

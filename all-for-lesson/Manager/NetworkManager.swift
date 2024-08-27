@@ -59,6 +59,7 @@ final class NetworkManager {
                 
                 callRequest()
                 return Disposables.create()
+                // return Single<Disposables>.never()
             } catch {
                 print("API URLRequestConvertible Failed")
                 return Disposables.create()
@@ -99,6 +100,27 @@ final class NetworkManager {
             }
             return Disposables.create()
         }.debug("Post Files 네트워크 통신 >>>")
+    }
+    
+    func postReservation(id: String, reservation: Bool) {
+        let URL = API.URL.posts + id + API.URL.bookmark
+        let headers: HTTPHeaders = [
+            API.Header.auth: UserDefaultsManager.accessToken,
+            API.Header.sesacKey: API.KEY.key
+        ]
+        let params: [String: Bool] = [
+            "like_status": reservation
+        ]
+        
+        AF.request(URL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
+            .responseDecodable(of: ReservationResponse.self) { result in
+                switch result.result {
+                case .success(let value):
+                    print(value)
+                case .failure(let error):
+                    print(error)
+                }
+            }
     }
     
     func getImage (_ file: String, completion: @escaping (Data) -> Void) {

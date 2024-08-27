@@ -42,7 +42,7 @@ extension PostRouter: TargetType {
         case .getImage: ""
         case .getPostsDetail(let id): API.URL.posts + id
         case .postReservation(let id, _): API.URL.posts + id + API.URL.reservatioin
-        case .postBookmark(id: let id, body: let body): API.URL.posts + id + API.URL.bookmark
+        case .postBookmark(let id, _): API.URL.posts + id + API.URL.bookmark
         }
     }
     
@@ -57,7 +57,7 @@ extension PostRouter: TargetType {
     
     var header: [String: String] {
         switch self {
-        case .posts:
+        case .posts, .postReservation, .postBookmark:
             return [
                 API.Header.auth: UserDefaultsManager.accessToken,
                 API.Header.contentType: API.Header.json,
@@ -69,7 +69,7 @@ extension PostRouter: TargetType {
                 API.Header.contentType: API.Header.multipart,
                 API.Header.sesacKey: API.KEY.key
             ]
-        case .getPosts, .getImage, .getPostsDetail, .postReservation, .postBookmark:
+        case .getPosts, .getImage, .getPostsDetail:
             return [
                 API.Header.auth: UserDefaultsManager.accessToken,
                 API.Header.sesacKey: API.KEY.key
@@ -100,6 +100,7 @@ extension PostRouter: TargetType {
             }
             
         case .postReservation(_, let body), .postBookmark(_, let body):
+            print("Body", body)
             let encoder = JSONEncoder()
             do {
                 let data = try encoder.encode(body)

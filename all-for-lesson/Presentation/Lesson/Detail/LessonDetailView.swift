@@ -57,7 +57,8 @@ final class LessonDetailView: BaseView {
     }
     
     private let messageButton = CommonButton(title: "1:1 문의", color: Resource.Color.paleGray, fontColor: .black)
-    let reservationButton = CommonButton(title: "레슨 신청하기", color: Resource.Color.yellow, fontColor: .black)
+    
+    lazy var reservationButton = CommonButton(title: "레슨 신청하기", color: Resource.Color.yellow, fontColor: .black)
     
     let lessonInfoControl = UISegmentedControl(items: ["레슨 상세 정보", "선생님 정보"]).then {
         $0.selectedSegmentIndex = 0

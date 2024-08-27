@@ -23,11 +23,15 @@ final class LessonDetailViewModel: InputOutput {
     struct Output {
         let detailInfo: PublishSubject<Post>
         let infoControlTap: BehaviorSubject<Int>
+        let isBookmark: PublishSubject<Bool>
+        let isReservation: PublishSubject<Bool>
     }
     
     func transform(input: Input) -> Output {
         let detailInfo = PublishSubject<Post>()
         let infoControlTap = BehaviorSubject(value: 0)
+        let isBookmark = PublishSubject<Bool>()
+        let isReservation = PublishSubject<Bool>()
         
         /// 레슨 정보 상세 조회
         input.postId
@@ -38,6 +42,9 @@ final class LessonDetailViewModel: InputOutput {
                 switch result {
                 case .success(let value):
                     detailInfo.onNext(value)
+                    let myID = UserDefaultsManager.userId
+                    isReservation.onNext(value.likes.contains(myID))
+                    isBookmark.onNext(value.likes2.contains(myID))
                 case .failure(let error):
                     print(error)
                 }
@@ -50,23 +57,35 @@ final class LessonDetailViewModel: InputOutput {
             .flatMap{ post in
                 let myID = UserDefaultsManager.userId
                 let isBookmark = post.likes2.contains(myID)
-                print("isBookmark >>>", isBookmark)
                 let body = ReservationBookmarkBody(like_status: !isBookmark)
-                print("body >>>", body)
-                return NetworkManager.shared.apiCall(api: .post(.postBookmark(id: post.post_id, body: body)), of: PostResponse.self)
+                return NetworkManager.shared.apiCall(api: .post(.postBookmark(id: post.post_id, body: body)), of: ReservationResponse.self)
             }
             .bind { result in
                 switch result {
                 case .success(let value):
-                    print("북마크 성공")
-                    print(value)
+                    isBookmark.onNext(value.like_status)
                 case .failure(let error):
-                    print("북마크 실패")
+                    print("북마크/취소 실패")
                     print(error)
                 }
             }
             .disposed(by: disposeBag)
-            
+        
+        /// 북마크 버튼 눌렀을 때 상세 정보 업데이트 (북마크 한 사람 리스트업용)
+        isBookmark
+            .withLatestFrom(detailInfo)
+            .flatMap { post in
+                return NetworkManager.shared.apiCall(api: .post(.getPostsDetail(id: post.post_id)), of: Post.self)
+            }
+            .bind { result in
+                switch result {
+                case .success(let value):
+                    detailInfo.onNext(value)
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            .disposed(by: disposeBag)
         
         /// 레슨 신청 버튼 탭
         input.reservationButtonTap
@@ -80,10 +99,24 @@ final class LessonDetailViewModel: InputOutput {
             .bind { result in
                 switch result {
                 case .success(let value):
-                    print("레슨 신청 성공")
-                    print(value)
+                    isReservation.onNext(value.like_status)
                 case .failure(let error):
-                    print("레슨 신청 실패")
+                    print("레슨 신청/취소 실패")
+                    print(error)
+                }
+            }
+            .disposed(by: disposeBag)
+    
+        isReservation
+            .withLatestFrom(detailInfo)
+            .flatMap { post in
+                return NetworkManager.shared.apiCall(api: .post(.getPostsDetail(id: post.post_id)), of: Post.self)
+            }
+            .bind { result in
+                switch result {
+                case .success(let value):
+                    detailInfo.onNext(value)
+                case .failure(let error):
                     print(error)
                 }
             }
@@ -97,12 +130,10 @@ final class LessonDetailViewModel: InputOutput {
             }
             .disposed(by: disposeBag)
         
-        
-        
         return Output(detailInfo: detailInfo,
-                      infoControlTap: infoControlTap)
+                      infoControlTap: infoControlTap, 
+                      isBookmark: isBookmark, 
+                      isReservation: isReservation)
     }
-    
-    
     
 }
