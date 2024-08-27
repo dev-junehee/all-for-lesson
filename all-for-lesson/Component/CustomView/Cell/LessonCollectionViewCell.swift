@@ -84,12 +84,14 @@ final class LessonCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
-    func updateCell() {
-        lessonTitle.text = "비전공자를 예고 출신처럼! 이론부터 실기까지 음대 입시 총집합 Set"
-        starLate.text = "4.8 (후기 211개)"
-        lessonPrice.text = "128,000원"
+    func updateCell(post: Post) {
+        guard let image = post.files.first else { return }
+        NetworkManager.shared.getImage(image) { data in
+            self.lessonImage.image = UIImage(data: data)
+        }
+        lessonTitle.text = post.title
+        starLate.text = "4.8 (후기 \(post.comments.count)개)"
+        lessonPrice.text = "\(post.price.formatted())"
     }
-    
-    
     
 }

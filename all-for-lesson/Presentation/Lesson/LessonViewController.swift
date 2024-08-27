@@ -64,9 +64,17 @@ final class LessonViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        /// 결과 카운팅 레이블 데이터 바인딩
+        output.lessonList
+            .bind(with: self) { owner, lessonList in
+                owner.lessonView.lessonCount.text = "총 \(lessonList.count.formatted())개 결과 "
+            }
+            .disposed(by: disposeBag)
+        
+        /// 레슨 셀 데이터 바인딩
         output.lessonList
             .bind(to: lessonView.collectionView.rx.items(cellIdentifier: LessonCollectionViewCell.id, cellType: LessonCollectionViewCell.self)) { item, element, cell in
-                cell.updateCell()
+                cell.updateCell(post: element)
             }
             .disposed(by: disposeBag)
         

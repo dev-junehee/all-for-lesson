@@ -16,12 +16,11 @@ final class CustomTabBarController: UITabBarController {
     
     func setDefaultTabBar() {
         let home = createTabBarItem(title: "홈", image: Resource.Image.home, viewController: HomeViewController())
-        let lesson = createTabBarItem(title: "레슨찾기", image: Resource.Image.piano, viewController: LessonViewController())
         let search = createTabBarItem(title: "검색", image: Resource.Image.search, viewController: SearchViewController())
         let community = createTabBarItem(title: "커뮤니티", image: Resource.Image.board, viewController: CommunityViewController())
         let mypage = createTabBarItem(title: "마이페이지", image: Resource.Image.person, viewController: MyPageViewController())
         
-        let viewControllers = [home, lesson, search, community, mypage]
+        let viewControllers = [home, search, community, mypage]
         self.setViewControllers(viewControllers, animated: true)
     }
     
