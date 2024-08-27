@@ -113,6 +113,8 @@
 		C4DC8DF12C7C994B0007FE12 /* ReservationBookmarkBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8DF02C7C994B0007FE12 /* ReservationBookmarkBody.swift */; };
 		C4DC8DF32C7C9C340007FE12 /* ReservationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8DF22C7C9C340007FE12 /* ReservationResponse.swift */; };
 		C4DC8DF52C7CD0750007FE12 /* HomeMenuCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8DF42C7CD0750007FE12 /* HomeMenuCase.swift */; };
+		C4DC8E132C7DF1C10007FE12 /* LessonCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E122C7DF1C10007FE12 /* LessonCommentView.swift */; };
+		C4DC8E152C7DF1FA0007FE12 /* LessonDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E142C7DF1F90007FE12 /* LessonDetailInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -216,6 +218,8 @@
 		C4DC8DF02C7C994B0007FE12 /* ReservationBookmarkBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationBookmarkBody.swift; sourceTree = "<group>"; };
 		C4DC8DF22C7C9C340007FE12 /* ReservationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReservationResponse.swift; sourceTree = "<group>"; };
 		C4DC8DF42C7CD0750007FE12 /* HomeMenuCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeMenuCase.swift; sourceTree = "<group>"; };
+		C4DC8E122C7DF1C10007FE12 /* LessonCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCommentView.swift; sourceTree = "<group>"; };
+		C4DC8E142C7DF1F90007FE12 /* LessonDetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonDetailInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -648,11 +652,21 @@
 		C49447EA2C74DBEB005AADF7 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
+				C4DC8E162C7DF22C0007FE12 /* Control */,
 				C49447E82C74DBE3005AADF7 /* LessonDetailView.swift */,
 				C49447ED2C74DBFE005AADF7 /* LessonDetailViewController.swift */,
 				C49447EB2C74DBF8005AADF7 /* LessonDetailViewModel.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		C4DC8E162C7DF22C0007FE12 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				C4DC8E142C7DF1F90007FE12 /* LessonDetailInfoView.swift */,
+				C4DC8E122C7DF1C10007FE12 /* LessonCommentView.swift */,
+			);
+			path = Control;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -761,6 +775,7 @@
 				C48062FE2C6F1D25003FF7EE /* UIImage+.swift in Sources */,
 				C40391282C75BE9B00D50850 /* MyProfileResponse.swift in Sources */,
 				C49447962C70D6C4005AADF7 /* LoginResponse.swift in Sources */,
+				C4DC8E132C7DF1C10007FE12 /* LessonCommentView.swift in Sources */,
 				C49447B52C722BD0005AADF7 /* HomeView.swift in Sources */,
 				C403917A2C7A010A00D50850 /* PostFilesResponse.swift in Sources */,
 				C480632B2C6F5BA4003FF7EE /* StudentJoinViewModel.swift in Sources */,
@@ -804,6 +819,7 @@
 				C48062E72C6F13CB003FF7EE /* Resource.swift in Sources */,
 				C48063322C6F6AE7003FF7EE /* TargetType.swift in Sources */,
 				C48062E92C6F14F4003FF7EE /* UIColor+.swift in Sources */,
+				C4DC8E152C7DF1FA0007FE12 /* LessonDetailInfoView.swift in Sources */,
 				C40391672C77818E00D50850 /* EmailBody.swift in Sources */,
 				C4DC8DF52C7CD0750007FE12 /* HomeMenuCase.swift in Sources */,
 				C40391622C77808100D50850 /* JoinBody.swift in Sources */,

@@ -60,49 +60,27 @@ final class LessonDetailView: BaseView {
     
     lazy var reservationButton = CommonButton(title: "레슨 신청하기", color: Resource.Color.yellow, fontColor: .black)
     
-    let lessonInfoControl = UISegmentedControl(items: ["레슨 상세 정보", "선생님 정보"]).then {
+    let lessonInfoControl = UISegmentedControl(items: ["레슨 상세 정보", "레슨 후기"]).then {
         $0.selectedSegmentIndex = 0
         $0.isUserInteractionEnabled = true
     }
     
+    /// 레슨 상세 정보 + 레슨 후기 컨트롤 컨테이너
     private lazy var detailInfoBox = UIView().then {
         $0.addSubview(lessonDetailInfoView)
-        $0.addSubview(teacherDetailInfoView)
+        $0.addSubview(lessonCommentView)
     }
     
     /// 레슨 상세 정보
-    private lazy var lessonDetailInfoView = UIView().then {
-        $0.addSubview(lessonContent)
+    private let lessonDetailInfoView = LessonDetailInfoView().then {
         $0.isHidden = false
     }
-    
-    private let lessonContent = UITextView().then {
-        $0.font = Resource.Font.regular14
-        $0.isUserInteractionEnabled = false
-    }
-    
-    /// 선생님 정보
-    private lazy var teacherDetailInfoView = UIView().then {
-        $0.addSubview(teacherProfileImage)
-        $0.addSubview(teacherContent)
+
+    /// 레슨 후기
+    let lessonCommentView = LessonCommentView().then {
         $0.isHidden = true
-    }
-    
-    private let teacherProfileImage = UIImageView().then {
-        $0.clipsToBounds = true
-        $0.layer.cornerRadius = 35
-        $0.backgroundColor = Resource.Color.lightGray
-    }
-    
-    private lazy var teacherContent = UIStackView().then {
-        $0.addArrangedSubview(teacherName)
         $0.backgroundColor = .yellow
     }
-    
-    private let teacherName = UILabel().then {
-        $0.font = Resource.Font.bold16
-    }
-
     
     override func setHierarchyLayout() {
         [backgroundImage, scrollView].forEach { self.addSubview($0) }
@@ -177,32 +155,19 @@ final class LessonDetailView: BaseView {
         detailInfoBox.snp.makeConstraints {
             $0.top.equalTo(lessonInfoControl.snp.bottom).offset(16)
             $0.horizontalEdges.equalTo(container).inset(16)
-            $0.height.equalTo(1000)   /// 추후 수치 수정하기!
+            $0.height.equalTo(500)   /// 추후 수치 수정하기!
         }
         
+        /// 레슨 상세 정보 컨테이너 (선생님+레슨상세)
         lessonDetailInfoView.snp.makeConstraints {
             $0.edges.equalTo(detailInfoBox)
         }
         
-        lessonContent.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-        
-        teacherDetailInfoView.snp.makeConstraints {
+        /// 레슨 후기
+        lessonCommentView.snp.makeConstraints {
             $0.edges.equalTo(detailInfoBox)
         }
         
-        teacherProfileImage.snp.makeConstraints {
-            $0.top.leading.equalToSuperview()
-            $0.size.equalTo(70)
-        }
-        
-        teacherContent.snp.makeConstraints {
-            $0.top.equalToSuperview()
-            $0.leading.equalTo(teacherProfileImage.snp.trailing).offset(16)
-            $0.trailing.equalToSuperview()
-            $0.height.equalTo(70)
-        }
         
     }
     
@@ -214,13 +179,18 @@ final class LessonDetailView: BaseView {
         lessonTitle.text = post.title
         lessonPrice.text = "\(post.price.formatted())원"
         starLate.text = "4.8 후기 \(post.comments.count)개"
-        lessonContent.text = post.content
         
-        updateTeacherDetailInfo(post.creator)
+        lessonDetailInfoView.lessonContent.text = post.content
+        // lessonContent.text = post.content
+        
+        updateTeacherDetailInfo(post: post)
     }
     
-    func updateTeacherDetailInfo(_ teacher: Creator) {
-        teacherName.text = teacher.nick
+    func updateTeacherDetailInfo(post: Post) {
+        let teacher = post.creator
+        lessonDetailInfoView.teacherName.text = "\(teacher.nick) 선생님"
+        lessonDetailInfoView.teacherMajor.text = "대표 전공 : \(post.content1 ?? "-")"
+        lessonDetailInfoView.teacherLocation.text = "레슨 위치 : \(post.content2 ?? "-")"
     }
     
     func updateSegmentedControl(_ selectedIndex: Int) {
@@ -231,10 +201,10 @@ final class LessonDetailView: BaseView {
     func detailInfoViewToggle(_ selectedIndex: Int) {
         if selectedIndex == 0 {
             lessonDetailInfoView.isHidden = false
-            teacherDetailInfoView.isHidden = true
+            lessonCommentView.isHidden = true
         } else {
             lessonDetailInfoView.isHidden = true
-            teacherDetailInfoView.isHidden = false
+            lessonCommentView.isHidden = false
         }
     }
     
