@@ -11,7 +11,9 @@ import Then
 
 final class HomeMenuCollectionViewCell: BaseCollectionViewCell {
     
-    let menuButton = UIButton()
+    let menuButton = UIButton().then {
+        $0.isUserInteractionEnabled = false
+    }
     
     let menuLabel = UILabel().then {
         $0.font = Resource.Font.medium12
