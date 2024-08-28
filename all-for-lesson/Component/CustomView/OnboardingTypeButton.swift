@@ -16,7 +16,6 @@ final class OnboardingTypeButton: UIButton {
         var config = UIButton.Configuration.filled()
         config.baseBackgroundColor = color
         config.baseForegroundColor = Resource.Color.fontBlack
-        config.cornerStyle = .capsule
         
         /// 버튼 타이틀
         var title = AttributedString(title)

@@ -152,6 +152,7 @@ final class NetworkManager {
                             NavigationManager.shared.changeRootViewControllerToLogin()
                             UserDefaultsManager.deleteAllUserDefaults()
                         } else {
+                            print("((( \(statusCode) )))")
                             switch response.result {
                             case .success(let value):
                                 UserDefaultsManager.accessToken = value.accessToken /// 성공했을 때 AccessToken 교체

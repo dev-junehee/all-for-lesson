@@ -35,7 +35,7 @@ final class LessonDetailViewModel: InputOutput {
         let infoControlTap = BehaviorSubject(value: 0)
         let isBookmark = PublishSubject<Bool>()
         let isReservation = PublishSubject<Bool>()
-        let commentDone = PublishSubject<Bool>()
+        let commentResult = PublishSubject<Bool>()
         
         /// 레슨 정보 상세 조회
         input.postId
@@ -77,9 +77,9 @@ final class LessonDetailViewModel: InputOutput {
         
         /// 북마크 버튼 눌렀을 때 상세 정보 업데이트 (북마크 한 사람 리스트업용)
         isBookmark
-            .withLatestFrom(detailInfo)
-            .flatMap { post in
-                return NetworkManager.shared.apiCall(api: .post(.getPostsDetail(id: post.post_id)), of: Post.self)
+            .withLatestFrom(input.postId)
+            .flatMap { postId in
+                return NetworkManager.shared.apiCall(api: .post(.getPostsDetail(id: postId)), of: Post.self)
             }
             .bind { result in
                 switch result {
@@ -113,9 +113,9 @@ final class LessonDetailViewModel: InputOutput {
     
         /// 레슨 신청 버튼 눌렀을 때 상세 정보 업데이트 (레슨 신청/취소한 사람 리스트업용)
         isReservation
-            .withLatestFrom(detailInfo)
-            .flatMap { post in
-                return NetworkManager.shared.apiCall(api: .post(.getPostsDetail(id: post.post_id)), of: Post.self)
+            .withLatestFrom(input.postId)
+            .flatMap { postId in
+                return NetworkManager.shared.apiCall(api: .post(.getPostsDetail(id: postId)), of: Post.self)
             }
             .bind { result in
                 switch result {
@@ -136,14 +136,14 @@ final class LessonDetailViewModel: InputOutput {
             .disposed(by: disposeBag)
         
         
-        let commentData = Observable.combineLatest(detailInfo, input.commentText.orEmpty)
-            .map { (post, commentText) in
-                return (post.post_id, "\(commentText)")
+        let dataForPostComment = Observable.combineLatest(input.postId, input.commentText.orEmpty)
+            .map { (podyId, commentText) in
+                return (podyId, "\(commentText)")
             }
         
         /// 레슨 후기 등록 버튼 탭
         input.commentButtonTap
-            .withLatestFrom(commentData)
+            .withLatestFrom(dataForPostComment)
             .flatMap { (postId, commentText) in
                 let body = PostCommentBody(content: commentText)
                 return NetworkManager.shared.apiCall(api: .post(.postComment(id: postId, body: body)), of: CommentResponse.self)
@@ -152,21 +152,44 @@ final class LessonDetailViewModel: InputOutput {
                 switch result {
                 case .success(let value):
                     print("후기 등록 성공")
-                    commentDone.onNext(true)
+                    commentResult.onNext(true)
                 case .failure(let error):
                     print("후기 등록 실패")
-                    commentDone.onNext(false)
+                    commentResult.onNext(false)
                 }
             }
             .disposed(by: disposeBag)
-            
-            
+        
+        // let dataForGetComment = Observable.combineLatest(input.postId, commentResult)
+        //     .map { (postId, result) in
+        //         return (postId, result)
+        //     }
+        
+        /// 레슨 후기 등록 성공 여부에 따라 댓글 데이터 업데이트
+        commentResult
+            .withLatestFrom(input.postId)
+            .flatMap { postId in
+                return NetworkManager.shared.apiCall(api: .post(.getPostsDetail(id: postId)), of: Post.self)
+            }
+            .bind { result in
+                switch result {
+                case .success(let value):
+                    detailInfo.onNext(value)
+                    let myID = UserDefaultsManager.userId
+                    isReservation.onNext(value.likes.contains(myID))
+                    isBookmark.onNext(value.likes2.contains(myID))
+                case .failure(let error):
+                    print(error)
+                }
+            }
+            .disposed(by: disposeBag)
+        
         
         return Output(detailInfo: detailInfo,
                       infoControlTap: infoControlTap, 
                       isBookmark: isBookmark, 
                       isReservation: isReservation,
-                      commentDone: commentDone)
+                      commentDone: commentResult)
     }
     
 }
