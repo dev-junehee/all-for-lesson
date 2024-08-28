@@ -81,10 +81,10 @@ final class HomeViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        output.lessonData
-            .bind(with: self) { owner, lessonData in
+        output.lessonID
+            .bind(with: self) { owner, lessonID in
                 let lessonDetailVC = LessonDetailViewController()
-                lessonDetailVC.postId.onNext(lessonData.post_id)
+                lessonDetailVC.postId.onNext(lessonID)
                 owner.navigationController?.pushViewController(lessonDetailVC, animated: true)
             }
             .disposed(by: disposeBag)

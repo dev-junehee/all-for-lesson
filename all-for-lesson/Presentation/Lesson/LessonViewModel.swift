@@ -21,11 +21,13 @@ final class LessonViewModel: InputOutput {
     struct Output {
         let lessonViewTitle: Observable<(Int, String)>
         let lessonList: PublishSubject<[Post]>
+        let lessonID: PublishSubject<String>
     }
     
     func transform(input: Input) -> Output {
         let lessonViewTitle = BehaviorSubject(value: (0, ""))
         let lessonList = PublishSubject<[Post]>()
+        let lessonID = PublishSubject<String>()
         
         /// 레슨 검색 대상 (menuType) - 타이틀 텍스트 수정
         input.menuType
@@ -88,15 +90,16 @@ final class LessonViewModel: InputOutput {
             }
             .disposed(by: disposeBag)
         
-        /// 레슨 검색 결과 탭
+        /// 레슨 검색 결과 탭 - postID 전달 - 상세화면 연결
         input.lessonTap
             .bind { postData in
-                print(postData)
+                lessonID.onNext(postData.post_id)
             }
             .disposed(by: disposeBag)
         
         return Output(lessonViewTitle: lessonViewTitle,
-                      lessonList: lessonList)
+                      lessonList: lessonList, 
+                      lessonID: lessonID)
     }
     
 

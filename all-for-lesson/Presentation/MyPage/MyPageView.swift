@@ -40,7 +40,7 @@ final class MyPageView: BaseView {
     private lazy var buttonStack = UIStackView().then {
         $0.addArrangedSubview(reservationButton)
         $0.addArrangedSubview(bookmarkButton)
-        $0.addArrangedSubview(friendButton)
+        $0.addArrangedSubview(commentButton)
         $0.axis = .horizontal
         $0.distribution = .fillEqually
         $0.spacing = 20
@@ -48,7 +48,7 @@ final class MyPageView: BaseView {
     
     private let reservationButton = MyPageMenuButton("수강 내역", image: Resource.Image.mypageButton[0])
     private let bookmarkButton = MyPageMenuButton("북마크한 레슨", image: Resource.Image.mypageButton[1])
-    private let friendButton = MyPageMenuButton("친구 관리", image: Resource.Image.mypageButton[2])
+    private let commentButton = MyPageMenuButton("작성한 후기", image: Resource.Image.mypageButton[2])
     
     let tableView = UITableView().then {
         $0.register(UITableViewCell.self, forCellReuseIdentifier: "MenuCell")

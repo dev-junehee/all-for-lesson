@@ -25,7 +25,7 @@ final class HomeViewModel: InputOutput {
         let selectedMenu: PublishSubject<HomeMenuCase>
         let popularLessonList: BehaviorSubject<[Post]>       /// 컬렉션뷰 바인딩용
         let interestingLessonList: BehaviorSubject<[Post]>   /// 컬렉션뷰 바인딩용
-        let lessonData: PublishSubject<Post>
+        let lessonID: PublishSubject<String>
     }
     
     func transform(input: Input) -> Output {
@@ -37,7 +37,7 @@ final class HomeViewModel: InputOutput {
         let selectedMenu = PublishSubject<HomeMenuCase>()
         let popularLessonList = BehaviorSubject<[Post]>(value: [])
         let interestingLessonList = BehaviorSubject<[Post]>(value: [])
-        let lessonData = PublishSubject<Post>()
+        let lessonID = PublishSubject<String>()
         
         /// 화면이 나타날 때 마다 인기레슨/흥미레슨 불러오기
         input.viewWillAppearTrigger
@@ -71,15 +71,15 @@ final class HomeViewModel: InputOutput {
         
         /// 인기 레슨 탭
         input.popularLessonTap
-            .bind { data in
-                lessonData.onNext(data)
+            .bind { post in
+                lessonID.onNext(post.post_id)
             }
             .disposed(by: disposeBag)
         
         /// 흥미 레슨 탭
         input.interestingLessonTap
-            .bind { data in
-                lessonData.onNext(data)
+            .bind { post in
+                lessonID.onNext(post.post_id)
             }
             .disposed(by: disposeBag)
         
@@ -88,7 +88,7 @@ final class HomeViewModel: InputOutput {
                       selectedMenu: selectedMenu,
                       popularLessonList: popularLessonList,
                       interestingLessonList: interestingLessonList,
-                      lessonData: lessonData)
+                      lessonID: lessonID)
     }
     
 }

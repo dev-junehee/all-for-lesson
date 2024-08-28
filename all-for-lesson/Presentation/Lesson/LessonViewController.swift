@@ -78,8 +78,14 @@ final class LessonViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        
-        
+        /// 레슨 셀 탭 - 상세 화면 연결
+        output.lessonID
+            .bind(with: self) { owner, lessonID in
+                let lessonDetailVC = LessonDetailViewController()
+                lessonDetailVC.postId.onNext(lessonID)
+                owner.navigationController?.pushViewController(lessonDetailVC, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
     
 }

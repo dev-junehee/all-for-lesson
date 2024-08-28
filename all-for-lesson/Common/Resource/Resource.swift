@@ -66,7 +66,7 @@ enum Resource {
         ]
         
         /// 마이페이지 버튼
-        static let mypageButton: [UIImage]  = [.board, .bookmark, .friends]
+        static let mypageButton: [UIImage]  = [.board, .bookmark, .postbox]
     }
     
 }
