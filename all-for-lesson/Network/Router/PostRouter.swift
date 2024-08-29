@@ -16,6 +16,8 @@ import Alamofire
  `getPostsDetail` 포스트 상세 조회
  `postReservation` 레슨 신청/취소
  `postBookmark` 레슨 북마크/취소
+ `getMyReservatioin` 내가 수강한 레슨 리스트
+ `getMyBookmark` 내가 북마크한 레슨 리스트
  */
 
 enum PostRouter {
@@ -27,6 +29,8 @@ enum PostRouter {
     case postReservation(id: String, body: ReservationBookmarkBody)
     case postBookmark(id: String, body: ReservationBookmarkBody)
     case postComment(id: String, body: PostCommentBody)
+    case getReservatioin
+    case getBookmark
 }
 
 extension PostRouter: TargetType {
@@ -45,6 +49,8 @@ extension PostRouter: TargetType {
         case .postReservation(let id, _): API.URL.posts + id + API.URL.reservatioin
         case .postBookmark(let id, _): API.URL.posts + id + API.URL.bookmark
         case .postComment(let id, _): API.URL.posts + id + API.URL.comments
+        case .getReservatioin: API.URL.posts + API.URL.getReservation
+        case .getBookmark: API.URL.posts + API.URL.getBookmark
         }
     }
     
@@ -52,14 +58,14 @@ extension PostRouter: TargetType {
         switch self {
         case .posts, .postFiles, .postReservation, .postBookmark, .postComment:
                 .post
-        case .getPosts, .getImage, .getPostsDetail:
+        case .getPosts, .getImage, .getPostsDetail, .getReservatioin, .getBookmark:
                 .get
         }
     }
     
     var header: [String: String] {
         switch self {
-        case .posts, .postReservation, .postBookmark, .postComment:
+        case .posts, .postReservation, .postBookmark, .postComment, .getReservatioin, .getBookmark:
             return [
                 API.Header.auth: UserDefaultsManager.accessToken,
                 API.Header.contentType: API.Header.json,
@@ -121,14 +127,14 @@ extension PostRouter: TargetType {
                 return nil
             }
             
-        case .getPosts, .getImage, .getPostsDetail:
+        case .getPosts, .getImage, .getPostsDetail, .getReservatioin, .getBookmark:
             return nil
         }
     }
     
     var query: [URLQueryItem]? {
         switch self {
-        case .posts, .postFiles, .postReservation, .postBookmark, .postComment:
+        case .posts, .postFiles, .postReservation, .postBookmark, .postComment, .getReservatioin, .getBookmark:
             return nil
         
         case .getPosts(let query):

@@ -29,7 +29,7 @@ final class LessonDetailViewController: BaseViewController {
     override func setViewController() {
         setBackBarButton(Resource.Color.whiteSmoke)
         setImgBarButton(image: Resource.Image.bookmarkFill, color: Resource.Color.whiteSmoke, action: nil, type: .right)
-        self.tabBarController?.tabBar.isHidden = true
+        toggleTabBar(isShow: false)
     }
     
     private func bind() {

@@ -27,6 +27,11 @@ final class MyPageViewController: BaseViewController {
         viewDidLoadTrigger.onNext(())
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        toggleTabBar()
+    }
+    
     override func setViewController() {
         navigationItem.title = "마이페이지"
         setImgBarButton(image: Resource.Image.gear, action: nil, type: .right)
@@ -35,14 +40,39 @@ final class MyPageViewController: BaseViewController {
     private func bind() {
         // let viewWillAppearTrigger = self.rx.methodInvoked(#selector(self.viewDidLoad))
         
-        let input = MyPageViewModel.Input(viewDidLoadTrigger: viewDidLoadTrigger,
-                                          menuTap: mypageView.tableView.rx.modelSelected(String.self))
+        let input = MyPageViewModel.Input(
+            viewDidLoadTrigger: viewDidLoadTrigger,
+            reservationButtonTap: mypageView.reservationButton.rx.tap,
+            bookmarkButtonTap: mypageView.bookmarkButton.rx.tap,
+            commentButtonTap: mypageView.commentButton.rx.tap,
+            menuTap: mypageView.tableView.rx.modelSelected(String.self))
         let output = viewModel.transform(input: input)
         
         
         output.profileResponse
             .bind(with: self) { owner, profileData in
                 owner.mypageView.updateProfile(profileData)
+            }
+            .disposed(by: disposeBag)
+        
+        /// 수강 내역 버튼 탭
+        output.reservationButtonTap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(MyReservationController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        /// 북마크한 레슨 버튼 탭
+        output.bookmarkButtonTap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(MyBookmarkViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        /// 작성한 후기 버튼 탭
+        output.commentButtonTap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(MyCommentViewController(), animated: true)
             }
             .disposed(by: disposeBag)
         

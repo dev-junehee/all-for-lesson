@@ -216,11 +216,11 @@ final class LessonOpenViewModel: InputOutput {
                     content1: postBody["major"] as? String ?? "",
                     content2: postBody["location"] as? String ?? "",
                     content3: postBody["type"] as? String ?? "",
-                    content4: "",
+                    content4: ProductId.popular,
                     content5: "",
                     product_id: ProductId.defaultId,
                     files: files)
-                return NetworkManager.shared.apiCall(api: .post(.posts(body: body)), of: PostResponse.self)
+                return NetworkManager.shared.apiCall(api: .post(.posts(body: body)), of: Post.self)
             }
             .bind { result in
                 postDone.on(.completed)

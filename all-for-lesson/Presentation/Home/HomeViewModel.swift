@@ -49,8 +49,10 @@ final class HomeViewModel: InputOutput {
                 switch result {
                 case .success(let response):
                     print("홈 화면 네트워크 연결 성공")
-                    popularLessonList.onNext(response.data)
-                    interestingLessonList.onNext(response.data)
+                    let popular = response.data.filter { $0.content4 == ProductId.popular }
+                    let interesting = response.data.filter { $0.content4 == ProductId.interesting }
+                    popularLessonList.onNext(popular)
+                    interestingLessonList.onNext(interesting)
                 case .failure(let error):
                     print("홈 화면 네트워크 연결 실패")
                     print(error)

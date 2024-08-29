@@ -15,11 +15,17 @@ final class MyPageViewModel: InputOutput {
     
     struct Input {
         let viewDidLoadTrigger: Observable<Void>
+        let reservationButtonTap: ControlEvent<Void>
+        let bookmarkButtonTap: ControlEvent<Void>
+        let commentButtonTap: ControlEvent<Void>
         let menuTap: ControlEvent<String>
     }
     
     struct Output {
         let profileResponse: PublishSubject<MyProfileResponse>
+        let reservationButtonTap: ControlEvent<Void>
+        let bookmarkButtonTap: ControlEvent<Void>
+        let commentButtonTap: ControlEvent<Void>
         let menuList: PublishSubject<[String]>
         let openLesson: Observable<Void>
         let userLogout: Observable<Void>
@@ -52,7 +58,9 @@ final class MyPageViewModel: InputOutput {
                 
             }
             .disposed(by: disposeBag)
+            
         
+        /// 메뉴 테이블뷰 탭
         input.menuTap
             .bind(with: self) { owner, title in
                 switch title {
@@ -71,7 +79,10 @@ final class MyPageViewModel: InputOutput {
             }
             .disposed(by: disposeBag)
     
-        return Output(profileResponse: profileResponse,
+        return Output(profileResponse: profileResponse, 
+                      reservationButtonTap: input.reservationButtonTap,
+                      bookmarkButtonTap: input.bookmarkButtonTap, 
+                      commentButtonTap: input.commentButtonTap,
                       menuList: menuList,
                       openLesson: openLesson,
                       userLogout: userLogout)

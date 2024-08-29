@@ -36,12 +36,8 @@ extension UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    func hideTabBar() {
-        self.tabBarController?.tabBar.isHidden = true
-    }
-    
-    func showTabBar() {
-        self.tabBarController?.tabBar.isHidden = false
+    func toggleTabBar(isShow: Bool = true) {
+        self.tabBarController?.tabBar.isHidden = isShow ? false : true
     }
     
 }
