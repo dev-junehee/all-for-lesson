@@ -19,6 +19,8 @@ final class LessonDetailInfoView: BaseView {
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 40
         $0.backgroundColor = Resource.Color.lightGray
+        $0.image = .person
+        $0.contentMode = .scaleAspectFit
     }
     
     let teacherName = UILabel().then {

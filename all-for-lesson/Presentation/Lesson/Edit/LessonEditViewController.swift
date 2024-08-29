@@ -1,5 +1,5 @@
 //
-//  MyLessonEditViewController.swift
+//  LessonEditViewController.swift
 //  all-for-lesson
 //
 //  Created by junehee on 8/29/24.
@@ -9,10 +9,10 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-final class MyLessonEditViewController: BaseViewController {
+final class LessonEditViewController: BaseViewController {
     
     private let myLessonEditView = LessonOpenView()
-    private let viewModel = MyLessonEditViewModel()
+    private let viewModel = LessonEditViewModel()
     // private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
@@ -26,11 +26,11 @@ final class MyLessonEditViewController: BaseViewController {
     
     override func setViewController() {
         navigationItem.title = "레슨 정보 수정"
-        setTextBarButton(title: "완료", action: nil, type: .right)
+        setTextBarButton(title: "수정", action: nil, type: .right)
     }
     
     private func bind() {
-        let input = MyLessonEditViewModel.Input()
+        let input = LessonEditViewModel.Input()
         let _ = viewModel.transform(input: input)
         
     }

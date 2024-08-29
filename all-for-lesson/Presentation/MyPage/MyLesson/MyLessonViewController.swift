@@ -45,7 +45,7 @@ final class MyLessonViewController: BaseViewController {
         
         output.lessonTap
             .bind(with: self) { owner, post in
-                let lessonEditVC = MyLessonEditViewController()
+                let lessonEditVC = LessonEditViewController()
                 lessonEditVC.updateLessonEditView(post: post)
                 owner.present(UINavigationController(rootViewController: lessonEditVC), animated: true)
             }

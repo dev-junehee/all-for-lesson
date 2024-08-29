@@ -130,9 +130,8 @@
 		C4DC8E4D2C80B8AA0007FE12 /* MyLessonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E4C2C80B8AA0007FE12 /* MyLessonView.swift */; };
 		C4DC8E4F2C80B8B10007FE12 /* MyLessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E4E2C80B8B10007FE12 /* MyLessonViewController.swift */; };
 		C4DC8E512C80B8B70007FE12 /* MyLessonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E502C80B8B70007FE12 /* MyLessonViewModel.swift */; };
-		C4DC8E542C80C1F10007FE12 /* MyLessonEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E532C80C1F10007FE12 /* MyLessonEditView.swift */; };
-		C4DC8E562C80C1FB0007FE12 /* MyLessonEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E552C80C1FB0007FE12 /* MyLessonEditViewController.swift */; };
-		C4DC8E582C80C2020007FE12 /* MyLessonEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E572C80C2020007FE12 /* MyLessonEditViewModel.swift */; };
+		C4DC8E562C80C1FB0007FE12 /* LessonEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E552C80C1FB0007FE12 /* LessonEditViewController.swift */; };
+		C4DC8E582C80C2020007FE12 /* LessonEditViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E572C80C2020007FE12 /* LessonEditViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -253,9 +252,8 @@
 		C4DC8E4C2C80B8AA0007FE12 /* MyLessonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLessonView.swift; sourceTree = "<group>"; };
 		C4DC8E4E2C80B8B10007FE12 /* MyLessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLessonViewController.swift; sourceTree = "<group>"; };
 		C4DC8E502C80B8B70007FE12 /* MyLessonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLessonViewModel.swift; sourceTree = "<group>"; };
-		C4DC8E532C80C1F10007FE12 /* MyLessonEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLessonEditView.swift; sourceTree = "<group>"; };
-		C4DC8E552C80C1FB0007FE12 /* MyLessonEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLessonEditViewController.swift; sourceTree = "<group>"; };
-		C4DC8E572C80C2020007FE12 /* MyLessonEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLessonEditViewModel.swift; sourceTree = "<group>"; };
+		C4DC8E552C80C1FB0007FE12 /* LessonEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonEditViewController.swift; sourceTree = "<group>"; };
+		C4DC8E572C80C2020007FE12 /* LessonEditViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonEditViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -649,8 +647,8 @@
 			children = (
 				C4DC8E362C8058D90007FE12 /* MyReservation */,
 				C4DC8E3D2C805B070007FE12 /* MyBookmark */,
-				C4DC8E442C805BF30007FE12 /* MyComment */,
 				C4DC8E4B2C80B89F0007FE12 /* MyLesson */,
+				C4DC8E442C805BF30007FE12 /* MyComment */,
 				C49447D42C7366EB005AADF7 /* MyPageView.swift */,
 				C49447AB2C70F593005AADF7 /* MyPageViewController.swift */,
 				C49447DF2C7380E9005AADF7 /* MyPageViewModel.swift */,
@@ -756,9 +754,8 @@
 		C4DC8E522C80C1DF0007FE12 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
-				C4DC8E532C80C1F10007FE12 /* MyLessonEditView.swift */,
-				C4DC8E552C80C1FB0007FE12 /* MyLessonEditViewController.swift */,
-				C4DC8E572C80C2020007FE12 /* MyLessonEditViewModel.swift */,
+				C4DC8E552C80C1FB0007FE12 /* LessonEditViewController.swift */,
+				C4DC8E572C80C2020007FE12 /* LessonEditViewModel.swift */,
 			);
 			path = Edit;
 			sourceTree = "<group>";
@@ -934,7 +931,7 @@
 				C49447942C70CE62005AADF7 /* LoginViewModel.swift in Sources */,
 				C49447CF2C732A19005AADF7 /* LessonView.swift in Sources */,
 				C48063292C6F5B35003FF7EE /* ValidationManager.swift in Sources */,
-				C4DC8E582C80C2020007FE12 /* MyLessonEditViewModel.swift in Sources */,
+				C4DC8E582C80C2020007FE12 /* LessonEditViewModel.swift in Sources */,
 				C4DC8E182C7E00370007FE12 /* LessonCommentFieldView.swift in Sources */,
 				C48063242C6F55ED003FF7EE /* JoinCase.swift in Sources */,
 				C480631E2C6F3013003FF7EE /* JoinTextField.swift in Sources */,
@@ -944,7 +941,7 @@
 				C494479D2C70E8BE005AADF7 /* BarButtonCase.swift in Sources */,
 				C49447E02C7380E9005AADF7 /* MyPageViewModel.swift in Sources */,
 				C49447A62C70F3B3005AADF7 /* SearchViewController.swift in Sources */,
-				C4DC8E562C80C1FB0007FE12 /* MyLessonEditViewController.swift in Sources */,
+				C4DC8E562C80C1FB0007FE12 /* LessonEditViewController.swift in Sources */,
 				C4DC8E4A2C805C0E0007FE12 /* MyCommentViewModel.swift in Sources */,
 				C4DC8E1A2C7E043B0007FE12 /* PostCommentBody.swift in Sources */,
 				C48063442C6F9078003FF7EE /* LoginView.swift in Sources */,
@@ -964,7 +961,6 @@
 				C48063152C6F2C3F003FF7EE /* StudentJoinViewController.swift in Sources */,
 				C49447AF2C7206B5005AADF7 /* RefreshTokenResponse.swift in Sources */,
 				C49447A92C70F4C7005AADF7 /* CommunityViewController.swift in Sources */,
-				C4DC8E542C80C1F10007FE12 /* MyLessonEditView.swift in Sources */,
 				C49447A32C70F2FE005AADF7 /* LessonViewController.swift in Sources */,
 				C48062D12C6F10C5003FF7EE /* BaseViewController.swift in Sources */,
 				C403916A2C7784C700D50850 /* PostFilesBody.swift in Sources */,

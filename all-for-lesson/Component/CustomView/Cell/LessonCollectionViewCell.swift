@@ -21,7 +21,6 @@ final class LessonCollectionViewCell: BaseCollectionViewCell {
     let lessonTitle = UILabel().then {
         $0.font = Resource.Font.bold14
         $0.numberOfLines = 0
-        // $0.backgroundColor = .red
     }
     
     private let starImage = UIImageView().then {
@@ -34,12 +33,14 @@ final class LessonCollectionViewCell: BaseCollectionViewCell {
     }
     
     let lessonPrice = UILabel().then {
-        $0.font = Resource.Font.regular14
+        $0.font = Resource.Font.medium14
     }
     
     let bookmarkButton = UIButton().then {
-        $0.setImage(Resource.Image.bookmark, for: .normal)
-        $0.tintColor = Resource.Color.darkGray
+        var config = UIButton.Configuration.plain()
+        config.image = Resource.Image.bookmark
+        $0.tintColor = Resource.Color.lightGray
+        $0.configuration = config
     }
     
     override func setHierarchyLayout() {
@@ -72,15 +73,15 @@ final class LessonCollectionViewCell: BaseCollectionViewCell {
         }
         
         lessonPrice.snp.makeConstraints {
-            $0.top.equalTo(starImage.snp.bottom).offset(8)
+            $0.bottom.equalTo(contentView).inset(24)
             $0.leading.equalTo(lessonImage.snp.trailing).offset(8)
             $0.width.equalTo(100)
             $0.height.equalTo(16)
         }
         
         bookmarkButton.snp.makeConstraints {
-            $0.trailing.bottom.equalTo(contentView).inset(8)
-            $0.size.equalTo(50)
+            $0.trailing.bottom.equalTo(contentView).inset(16)
+            $0.size.equalTo(30)
         }
     }
     
@@ -93,6 +94,14 @@ final class LessonCollectionViewCell: BaseCollectionViewCell {
         starLate.text = "4.8 (후기 \(post.comments.count)개)"
         lessonPrice.text = "\(post.price.formatted())원"
         
+        /// 내가 북마크한 경우 / 아닌 경우
+        if post.likes2.contains(UserDefaultsManager.userId) {
+            bookmarkButton.setImage(Resource.Image.bookmarkFill, for: .normal)
+            bookmarkButton.tintColor = Resource.Color.skyblue
+        } else {
+            bookmarkButton.setImage(Resource.Image.bookmark, for: .normal)
+            bookmarkButton.tintColor = Resource.Color.lightGray
+        }
         /// 선생님일 경우 북마크 제외
         bookmarkButton.isHidden = isTeacher
     }

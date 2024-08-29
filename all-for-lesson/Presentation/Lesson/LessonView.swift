@@ -19,11 +19,6 @@ final class LessonView: BaseView {
         $0.contentHorizontalAlignment = .leading
     }
     
-    let lessonCount = UILabel().then {
-        $0.font = Resource.Font.regular14
-        $0.text = "총 11,456개 결과"
-    }
-    
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout()).then {
         $0.register(LessonCollectionViewCell.self, forCellWithReuseIdentifier: LessonCollectionViewCell.id)
         $0.keyboardDismissMode = .onDrag
@@ -33,13 +28,13 @@ final class LessonView: BaseView {
         let layout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
         layout.itemSize = CGSize(width: width - 20, height: width / 3.5)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 0)
         layout.scrollDirection = .vertical
         return layout
     }
     
     override func setHierarchyLayout() {
-        [lessonTitleView, lessonCount, collectionView].forEach { self.addSubview($0) }
+        [lessonTitleView, collectionView].forEach { self.addSubview($0) }
         
         let safeArea = self.safeAreaLayoutGuide
         
@@ -51,19 +46,12 @@ final class LessonView: BaseView {
         
         lessonTitleButton.snp.makeConstraints {
             $0.top.equalTo(lessonTitleView)
-            // $0.width.equalTo(160)
             $0.horizontalEdges.equalTo(safeArea)
             $0.height.equalTo(40)
         }
         
-        lessonCount.snp.makeConstraints {
-            $0.top.equalTo(lessonTitleView.snp.bottom).offset(8)
-            $0.horizontalEdges.equalTo(safeArea).inset(16)
-            $0.height.equalTo(20)
-        }
-        
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(lessonCount.snp.bottom).offset(16)
+            $0.top.equalTo(lessonTitleButton.snp.bottom).offset(16)
             $0.horizontalEdges.bottom.equalTo(safeArea)
         }
     }

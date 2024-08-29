@@ -24,7 +24,6 @@ final class LessonViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("선택한 메뉴", menuType)
         bind()
     }
     
@@ -61,13 +60,6 @@ final class LessonViewController: BaseViewController {
                 title.font = Resource.Font.bold20
                 config.attributedTitle = title
                 owner.lessonView.lessonTitleButton.configuration = config
-            }
-            .disposed(by: disposeBag)
-        
-        /// 결과 카운팅 레이블 데이터 바인딩
-        output.lessonList
-            .bind(with: self) { owner, lessonList in
-                owner.lessonView.lessonCount.text = "총 \(lessonList.count.formatted())개 결과 "
             }
             .disposed(by: disposeBag)
         

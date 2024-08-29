@@ -17,6 +17,8 @@ final class MyPageView: BaseView {
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 35
         $0.backgroundColor = Resource.Color.lightGray
+        $0.image = .person
+        $0.contentMode = .scaleAspectFit
     }
     
     private lazy var profileNameEmailStack = UIStackView().then {

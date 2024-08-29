@@ -1,5 +1,5 @@
 //
-//  MyLessonEditViewModel.swift
+//  LessonEditViewModel.swift
 //  all-for-lesson
 //
 //  Created by junehee on 8/29/24.
@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class MyLessonEditViewModel: InputOutput {
+final class LessonEditViewModel: InputOutput {
     
     private let disposeBag = DisposeBag()
     

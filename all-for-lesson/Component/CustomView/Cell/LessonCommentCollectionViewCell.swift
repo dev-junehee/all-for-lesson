@@ -14,7 +14,9 @@ final class LessonCommentCollectionViewCell: BaseCollectionViewCell {
     private let profileImage = UIImageView().then {
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 30
-        $0.backgroundColor = Resource.Color.paleGray
+        $0.backgroundColor = Resource.Color.lightGray
+        $0.image = .person
+        $0.contentMode = .scaleAspectFit
     }
  
     private lazy var labelStack = UIStackView().then {
