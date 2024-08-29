@@ -23,6 +23,20 @@ extension UIViewController {
         }
     }
     
+    /// Text BarButton 설정 함수
+    func setTextBarButton(title: String, color: UIColor? = Resource.Color.purple, action: Selector?, type: BarButtonCase) {        
+        let barButton = UIBarButtonItem(title: title, style: .plain, target: self, action: action)
+    
+        barButton.tintColor = color
+    
+        switch type {
+        case .left:
+            navigationItem.leftBarButtonItem = barButton
+        case .right:
+            navigationItem.rightBarButtonItem = barButton
+        }
+    }
+    
     /// 뒤로가기 BarButton 설정 함수
     func setBackBarButton(_ color: UIColor = Resource.Color.purple) {
         let backImage = Resource.Image.leftArrow

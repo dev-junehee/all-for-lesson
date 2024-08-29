@@ -619,6 +619,7 @@
 			isa = PBXGroup;
 			children = (
 				C403912B2C75D81000D50850 /* Open */,
+				C4DC8E522C80C1DF0007FE12 /* Edit */,
 				C49447EA2C74DBEB005AADF7 /* Detail */,
 				C49447CE2C732A19005AADF7 /* LessonView.swift */,
 				C49447A22C70F2FE005AADF7 /* LessonViewController.swift */,
@@ -650,7 +651,6 @@
 				C4DC8E3D2C805B070007FE12 /* MyBookmark */,
 				C4DC8E442C805BF30007FE12 /* MyComment */,
 				C4DC8E4B2C80B89F0007FE12 /* MyLesson */,
-				C4DC8E522C80C1DF0007FE12 /* MyLessonEdit */,
 				C49447D42C7366EB005AADF7 /* MyPageView.swift */,
 				C49447AB2C70F593005AADF7 /* MyPageViewController.swift */,
 				C49447DF2C7380E9005AADF7 /* MyPageViewModel.swift */,
@@ -753,14 +753,14 @@
 			path = MyLesson;
 			sourceTree = "<group>";
 		};
-		C4DC8E522C80C1DF0007FE12 /* MyLessonEdit */ = {
+		C4DC8E522C80C1DF0007FE12 /* Edit */ = {
 			isa = PBXGroup;
 			children = (
 				C4DC8E532C80C1F10007FE12 /* MyLessonEditView.swift */,
 				C4DC8E552C80C1FB0007FE12 /* MyLessonEditViewController.swift */,
 				C4DC8E572C80C2020007FE12 /* MyLessonEditViewModel.swift */,
 			);
-			path = MyLessonEdit;
+			path = Edit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -5,7 +5,7 @@
 //  Created by junehee on 8/29/24.
 //
 
-import Foundation
+import UIKit
 import RxCocoa
 import RxSwift
 
@@ -33,7 +33,8 @@ final class MyLessonViewController: BaseViewController {
         let viewWillAppearTrigger = self.rx.methodInvoked(#selector(self.viewWillAppear(_:)))
         
         let input = MyLessonViewModel.Input(
-            viewWillAppearTrigger: viewWillAppearTrigger)
+            viewWillAppearTrigger: viewWillAppearTrigger,
+            lessonTap: myLessonView.collectionView.rx.modelSelected(Post.self))
         let output = viewModel.transform(input: input)
         
         output.myLessonList
@@ -42,6 +43,13 @@ final class MyLessonViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        output.lessonTap
+            .bind(with: self) { owner, post in
+                let lessonEditVC = MyLessonEditViewController()
+                lessonEditVC.updateLessonEditView(post: post)
+                owner.present(UINavigationController(rootViewController: lessonEditVC), animated: true)
+            }
+            .disposed(by: disposeBag)
         
     }
     

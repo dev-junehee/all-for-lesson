@@ -15,15 +15,19 @@ final class MyLessonViewModel: InputOutput {
     
     struct Input {
         let viewWillAppearTrigger: Observable<[Any]>
+        let lessonTap: ControlEvent<Post>
     }
     
     struct Output {
         let myLessonList: PublishSubject<[Post]>
+        let lessonTap: PublishSubject<Post>
     }
     
     func transform(input: Input) -> Output {
         let myLessonList = PublishSubject<[Post]>()
+        let lessonTap = PublishSubject<Post>()
         
+        /// 화면 로드 시 내가 개설한 레슨 불러오기
         input.viewWillAppearTrigger
             .flatMap { _ in
                 let myID = UserDefaultsManager.userId
@@ -41,7 +45,15 @@ final class MyLessonViewModel: InputOutput {
             }
             .disposed(by: disposeBag)
         
-        return Output(myLessonList: myLessonList)
+        /// 레슨 탭 - 레슨 수정하기 화면 연결
+        input.lessonTap
+            .bind { post in
+                lessonTap.onNext(post)
+            }
+            .disposed(by: disposeBag)
+        
+        return Output(myLessonList: myLessonList, 
+                      lessonTap: lessonTap)
     }
     
 }

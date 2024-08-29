@@ -383,5 +383,4 @@ final class LessonOpenView: BaseView {
         pickerField.inputAccessoryView = toolBar
     }
     
-    
 }
