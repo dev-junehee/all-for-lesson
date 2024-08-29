@@ -15,9 +15,10 @@ final class MyPageViewModel: InputOutput {
     
     struct Input {
         let viewDidLoadTrigger: Observable<Void>
-        let reservationButtonTap: ControlEvent<Void>
-        let bookmarkButtonTap: ControlEvent<Void>
-        let commentButtonTap: ControlEvent<Void>
+        let reservationButtonTap: ControlEvent<Void>    /// 수강생 - 수강 내역 버튼
+        let bookmarkButtonTap: ControlEvent<Void>       /// 수강생 - 북마크 내역 버튼
+        let lessonButtonTap: ControlEvent<Void>         /// 선생님 - 나의 레슨 관리 버튼
+        let commentButtonTap: ControlEvent<Void>        /// 선생님 - 레슨 수강 후기 버튼
         let menuTap: ControlEvent<String>
     }
     
@@ -25,6 +26,7 @@ final class MyPageViewModel: InputOutput {
         let profileResponse: PublishSubject<MyProfileResponse>
         let reservationButtonTap: ControlEvent<Void>
         let bookmarkButtonTap: ControlEvent<Void>
+        let lessonButtonTap: ControlEvent<Void>
         let commentButtonTap: ControlEvent<Void>
         let menuList: PublishSubject<[String]>
         let openLesson: Observable<Void>
@@ -81,7 +83,8 @@ final class MyPageViewModel: InputOutput {
     
         return Output(profileResponse: profileResponse, 
                       reservationButtonTap: input.reservationButtonTap,
-                      bookmarkButtonTap: input.bookmarkButtonTap, 
+                      bookmarkButtonTap: input.bookmarkButtonTap,
+                      lessonButtonTap: input.lessonButtonTap,
                       commentButtonTap: input.commentButtonTap,
                       menuList: menuList,
                       openLesson: openLesson,

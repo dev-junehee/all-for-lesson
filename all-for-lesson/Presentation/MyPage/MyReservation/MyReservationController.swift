@@ -11,7 +11,7 @@ import RxSwift
 
 final class MyReservationController: BaseViewController {
     
-    private let myReservationView = MyReservationView()
+    private let myReservationView = MyReservationBookmarkView()
     private let viewModel = MyReservationViewModel()
     private let disposeBag = DisposeBag()
     

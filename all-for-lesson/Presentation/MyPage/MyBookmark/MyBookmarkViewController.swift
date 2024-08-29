@@ -11,7 +11,7 @@ import RxSwift
 
 final class MyBookmarkViewController: BaseViewController {
     
-    private let myBookmarkView = MyReservationView()
+    private let myBookmarkView = MyReservationBookmarkView()
     private let viewModel = MyBookmarkViewModel()
     private let disposeBag = DisposeBag()
     

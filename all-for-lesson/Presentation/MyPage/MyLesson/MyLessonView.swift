@@ -1,5 +1,5 @@
 //
-//  MyReservationView.swift
+//  MyLessonView.swift
 //  all-for-lesson
 //
 //  Created by junehee on 8/29/24.
@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import Then
 
-final class MyReservationView: BaseView {
+final class MyLessonView: BaseView {
     
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout()).then {
         $0.register(LessonCollectionViewCell.self, forCellWithReuseIdentifier: LessonCollectionViewCell.id)
@@ -32,6 +32,5 @@ final class MyReservationView: BaseView {
             $0.edges.equalTo(self.safeAreaLayoutGuide)
         }
     }
-    
     
 }

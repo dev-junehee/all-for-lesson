@@ -84,14 +84,17 @@ final class LessonCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
-    func updateCell(post: Post) {
+    func updateCell(post: Post, isTeacher: Bool = false) {
         guard let image = post.files.first else { return }
         NetworkManager.shared.getImage(image) { data in
             self.lessonImage.image = UIImage(data: data)
         }
         lessonTitle.text = post.title
         starLate.text = "4.8 (후기 \(post.comments.count)개)"
-        lessonPrice.text = "\(post.price.formatted())"
+        lessonPrice.text = "\(post.price.formatted())원"
+        
+        /// 선생님일 경우 북마크 제외
+        bookmarkButton.isHidden = isTeacher
     }
     
 }

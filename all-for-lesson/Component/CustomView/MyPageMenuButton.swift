@@ -23,11 +23,12 @@ final class MyPageMenuButton: UIButton {
         var title = AttributedString(titleText)
         title.font = Resource.Font.bold14
         config.attributedTitle = title
+        config.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: -10, bottom: 0, trailing: 0)
         
         /// 버튼 이미지
         config.image = image
-        config.imagePlacement = .top
-        config.imagePadding = 10
+        config.imagePlacement = .leading
+        config.imagePadding = 6
         
         self.configuration = config
     }

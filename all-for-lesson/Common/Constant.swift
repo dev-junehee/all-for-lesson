@@ -27,8 +27,8 @@ enum Constant {
     
     enum MyPage {
         enum Menu {
-            static let student = ["로그아웃", "회원탈퇴"]
-            static let teacher = ["레슨 개설하기", "로그아웃", "회원탈퇴"]
+            static let student = ["로그아웃", "오픈소스 라이선스", "고객센터", "회원탈퇴"]
+            static let teacher = ["레슨 개설하기", "로그아웃", "오픈소스 라이선스", "고객센터", "회원탈퇴"]
         }
     }
     

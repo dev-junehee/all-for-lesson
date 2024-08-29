@@ -38,12 +38,11 @@ final class MyPageViewController: BaseViewController {
     }
     
     private func bind() {
-        // let viewWillAppearTrigger = self.rx.methodInvoked(#selector(self.viewDidLoad))
-        
         let input = MyPageViewModel.Input(
             viewDidLoadTrigger: viewDidLoadTrigger,
             reservationButtonTap: mypageView.reservationButton.rx.tap,
             bookmarkButtonTap: mypageView.bookmarkButton.rx.tap,
+            lessonButtonTap: mypageView.lessonButton.rx.tap,
             commentButtonTap: mypageView.commentButton.rx.tap,
             menuTap: mypageView.tableView.rx.modelSelected(String.self))
         let output = viewModel.transform(input: input)
@@ -55,24 +54,31 @@ final class MyPageViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        /// 수강 내역 버튼 탭
+        /// 수강 내역 버튼 탭 (수강생)
         output.reservationButtonTap
             .bind(with: self) { owner, _ in
                 owner.navigationController?.pushViewController(MyReservationController(), animated: true)
             }
             .disposed(by: disposeBag)
         
-        /// 북마크한 레슨 버튼 탭
+        /// 북마크한 레슨 버튼 탭 (수강생)
         output.bookmarkButtonTap
             .bind(with: self) { owner, _ in
                 owner.navigationController?.pushViewController(MyBookmarkViewController(), animated: true)
             }
             .disposed(by: disposeBag)
         
-        /// 작성한 후기 버튼 탭
+        /// 레슨 관리 버튼 탭 (선생님)
+        output.lessonButtonTap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(MyLessonViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        /// 레슨 후기 버튼 탭 (선생님)
         output.commentButtonTap
             .bind(with: self) { owner, _ in
-                owner.navigationController?.pushViewController(MyCommentViewController(), animated: true)
+                // owner.navigationController?.pushViewController(MyBookmarkViewController(), animated: true)
             }
             .disposed(by: disposeBag)
         

@@ -31,6 +31,7 @@ enum PostRouter {
     case postComment(id: String, body: PostCommentBody)
     case getReservatioin
     case getBookmark
+    case getUserPosts(id: String, query: PostQuery)
 }
 
 extension PostRouter: TargetType {
@@ -51,6 +52,7 @@ extension PostRouter: TargetType {
         case .postComment(let id, _): API.URL.posts + id + API.URL.comments
         case .getReservatioin: API.URL.posts + API.URL.getReservation
         case .getBookmark: API.URL.posts + API.URL.getBookmark
+        case .getUserPosts(let id, _): API.URL.posts + API.URL.users + id
         }
     }
     
@@ -58,14 +60,14 @@ extension PostRouter: TargetType {
         switch self {
         case .posts, .postFiles, .postReservation, .postBookmark, .postComment:
                 .post
-        case .getPosts, .getImage, .getPostsDetail, .getReservatioin, .getBookmark:
+        case .getPosts, .getImage, .getPostsDetail, .getReservatioin, .getBookmark, .getUserPosts:
                 .get
         }
     }
     
     var header: [String: String] {
         switch self {
-        case .posts, .postReservation, .postBookmark, .postComment, .getReservatioin, .getBookmark:
+        case .posts, .postReservation, .postBookmark, .postComment, .getReservatioin, .getBookmark, .getUserPosts:
             return [
                 API.Header.auth: UserDefaultsManager.accessToken,
                 API.Header.contentType: API.Header.json,
@@ -127,7 +129,7 @@ extension PostRouter: TargetType {
                 return nil
             }
             
-        case .getPosts, .getImage, .getPostsDetail, .getReservatioin, .getBookmark:
+        case .getPosts, .getImage, .getPostsDetail, .getReservatioin, .getBookmark, .getUserPosts:
             return nil
         }
     }
@@ -137,7 +139,7 @@ extension PostRouter: TargetType {
         case .posts, .postFiles, .postReservation, .postBookmark, .postComment, .getReservatioin, .getBookmark:
             return nil
         
-        case .getPosts(let query):
+        case .getPosts(let query), .getUserPosts(_, let query):
             let encoder = JSONEncoder()
             do {
                 let data = try encoder.encode(query)
