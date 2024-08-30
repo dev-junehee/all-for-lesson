@@ -15,12 +15,14 @@ import Then
 final class LessonDetailInfoView: BaseView {
     
     /// 선생님 정보 (프로필 이미지 + 이름 + 전공 + 위치)
-    let teacherProfileImage = UIImageView().then {
+    let teacherProfileImage = UIButton().then {
+        var config = UIButton.Configuration.plain()
+        config.image = .person
         $0.clipsToBounds = true
         $0.layer.cornerRadius = 40
         $0.backgroundColor = Resource.Color.lightGray
-        $0.image = .person
         $0.contentMode = .scaleAspectFit
+        $0.configuration = config
     }
     
     let teacherName = UILabel().then {

@@ -47,7 +47,8 @@ final class LessonViewModel: InputOutput {
                 return menuCase
             }
             .flatMap { menuCase in
-                let query = PostQuery(next: "", limit: "", product_id: ProductId.defaultId)
+                /// 추후 레슨 데이터 추가하여 커서 기반 페이지네이션으로 수정하기
+                let query = PostQuery(next: "", limit: "99999999", product_id: ProductId.defaultId)
                 return NetworkManager.shared.apiCall(api: .post(.getPosts(query: query)), of: PostResponse.self).map { result in
                     return (menuCase, result)
                 }
@@ -59,7 +60,7 @@ final class LessonViewModel: InputOutput {
                     
                     switch menuCase {
                     case .all:
-                        lessonList.onNext(value.data)
+                        lessonList.onNext(value.data.shuffled())
                         return
                     case .string:
                         majorList = ["바이올린", "비올라", "첼로", "콘트라베이스"]

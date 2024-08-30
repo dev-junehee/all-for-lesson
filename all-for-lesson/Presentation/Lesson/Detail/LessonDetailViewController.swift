@@ -40,6 +40,7 @@ final class LessonDetailViewController: BaseViewController {
             bookmarkButtonTap: bookmarkButton.rx.tap,
             reservationButtonTap: detailView.reservationButton.rx.tap,
             infoControlTap: detailView.lessonInfoControl.rx.selectedSegmentIndex,
+            teacherProfileTap: detailView.lessonDetailInfoView.teacherProfileImage.rx.tap,
             commentText: detailView.commentFieldView.commentField.rx.text,
             commentButtonTap: detailView.commentFieldView.commentButton.rx.tap)
         let output = viewModel.transform(input: input)
@@ -95,6 +96,15 @@ final class LessonDetailViewController: BaseViewController {
             .bind(with: self) { owner, selectedIndex in
                 owner.detailView.updateSegmentedControl(selectedIndex)
                 owner.detailView.commentFieldView.isHidden = selectedIndex == 1 ? false : true
+            }
+            .disposed(by: disposeBag)
+        
+        /// 선생님 프로필 탭 - 유저 상세 화면 전환
+        output.userID
+            .bind(with: self) { owner, userID in
+                let userDetailVC = UserProfileViewController()
+                userDetailVC.userID.onNext(userID)
+                owner.navigationController?.pushViewController(userDetailVC, animated: true)
             }
             .disposed(by: disposeBag)
         

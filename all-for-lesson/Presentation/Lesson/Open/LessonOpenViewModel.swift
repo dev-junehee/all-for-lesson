@@ -216,7 +216,7 @@ final class LessonOpenViewModel: InputOutput {
                     content1: postBody["major"] as? String ?? "",
                     content2: postBody["location"] as? String ?? "",
                     content3: postBody["type"] as? String ?? "",
-                    content4: ProductId.popular,
+                    content4: "",
                     content5: "",
                     product_id: ProductId.defaultId,
                     files: files)

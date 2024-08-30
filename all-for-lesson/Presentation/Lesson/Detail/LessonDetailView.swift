@@ -72,7 +72,7 @@ final class LessonDetailView: BaseView {
     }
     
     /// 레슨 상세 정보
-    private let lessonDetailInfoView = LessonDetailInfoView().then {
+    let lessonDetailInfoView = LessonDetailInfoView().then {
         $0.isHidden = false
     }
 

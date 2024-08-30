@@ -42,7 +42,7 @@ final class HomeViewModel: InputOutput {
         /// 화면이 나타날 때 마다 인기레슨/흥미레슨 불러오기
         input.viewWillAppearTrigger
             .flatMap { _ in
-                let query = PostQuery(next: "", limit: "", product_id: ProductId.defaultId)
+                let query = PostQuery(next: "", limit: "999", product_id: ProductId.defaultId)
                 return NetworkManager.shared.apiCall(api: .post(.getPosts(query: query)), of: PostResponse.self)
             }
             .bind { result in

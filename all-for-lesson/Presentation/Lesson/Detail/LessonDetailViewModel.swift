@@ -18,6 +18,7 @@ final class LessonDetailViewModel: InputOutput {
         let bookmarkButtonTap: ControlEvent<Void>       /// 북마크 버튼 탭
         let reservationButtonTap: ControlEvent<Void>    /// 레슨 신청 버튼 탭
         let infoControlTap: ControlProperty<Int>        /// 레슨상세정보-레슨후기 Segmented Control
+        let teacherProfileTap: ControlEvent<Void>       /// 선생님 프로필 이미지 탭
         let commentText: ControlProperty<String?>       /// 후기 댓글 텍스트
         let commentButtonTap: ControlEvent<Void>        /// 후기 등록 버튼 탭
     }
@@ -25,6 +26,7 @@ final class LessonDetailViewModel: InputOutput {
     struct Output {
         let detailInfo: PublishSubject<Post>
         let infoControlTap: BehaviorSubject<Int>
+        let userID: PublishSubject<String>
         let isBookmark: PublishSubject<Bool>
         let isReservation: PublishSubject<Bool>
         let commentDone: PublishSubject<Bool>
@@ -33,6 +35,7 @@ final class LessonDetailViewModel: InputOutput {
     func transform(input: Input) -> Output {
         let detailInfo = PublishSubject<Post>()
         let infoControlTap = BehaviorSubject(value: 0)
+        let userID = PublishSubject<String>()
         let isBookmark = PublishSubject<Bool>()
         let isReservation = PublishSubject<Bool>()
         let commentResult = PublishSubject<Bool>()
@@ -135,6 +138,16 @@ final class LessonDetailViewModel: InputOutput {
             }
             .disposed(by: disposeBag)
         
+        /// 선생님 프로필 이미지 탭 (선생님 프로필 조회)
+        input.teacherProfileTap
+            .withLatestFrom(detailInfo)
+            .map { post in
+                return post.creator.user_id
+            }
+            .bind { id in
+                userID.onNext(id)
+            }
+            .disposed(by: disposeBag)
         
         let dataForPostComment = Observable.combineLatest(input.postId, input.commentText.orEmpty)
             .map { (podyId, commentText) in
@@ -187,7 +200,8 @@ final class LessonDetailViewModel: InputOutput {
         
         return Output(detailInfo: detailInfo,
                       infoControlTap: infoControlTap, 
-                      isBookmark: isBookmark, 
+                      userID: userID,
+                      isBookmark: isBookmark,
                       isReservation: isReservation,
                       commentDone: commentResult)
     }

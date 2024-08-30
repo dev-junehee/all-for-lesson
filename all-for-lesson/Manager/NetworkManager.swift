@@ -17,55 +17,60 @@ final class NetworkManager {
     func apiCall<T: Decodable>(api: APIRouter, of type: T.Type) -> Single<Result<T, NetworkErrorCase>> {
         return Single<Result<T, NetworkErrorCase>>.create { observer -> Disposable in
             do {
-                let request = try api.asURLRequest()
-                print(request.url)
-                func callRequest() {
+                var request = try api.asURLRequest()
+                
+                func callRequest(isRefresh: Bool = false) {
+                    /// 토큰 리프레시 후 다시 API Call 시도할 때 request도 갱신 해주기
+                    if isRefresh {
+                        do {
+                            request = try api.asURLRequest()
+                        } catch {
+                            print("API URLRequestConvertible Failed - Refresh", error)
+                        }
+                    }
+                    print("URL >>>", request.url)
                     AF.request(request)
                         .validate(statusCode: 200..<300)
                         .responseDecodable(of: T.self) { response in
-                            if let statusCode = response.response?.statusCode {
-                                print("상태코드 확인 >>>", statusCode)
-                                if statusCode == 419 {
-                                    print("액세스 토큰 갱신 필요")
-                                    self.refreshToken { success in /// 토큰 갱신에 성공하면 네트워크 재호출, 실패하면 에러 처리
-                                        print("토큰 갱신 결과", success)
-                                        if success {
-                                            // callRequest()
-                                        } else {
-                                            if let networkError = NetworkErrorCase(rawValue: statusCode) {
-                                                observer(.success(.failure(networkError)))
-                                            } else {
-                                                observer(.success(.failure(NetworkErrorCase.UnknownError)))
-                                            }
+                            guard let statusCode = response.response?.statusCode else { return }
+                            print("상태코드 확인 >>>", statusCode)
+                            if statusCode == 419 {
+                                print("액세스 토큰 갱신 필요")
+                                self.refreshToken { success in /// 토큰 갱신에 성공하면 네트워크 재호출, 실패하면 에러 처리
+                                    print("토큰 갱신 결과", success)
+                                    if success {
+                                        callRequest(isRefresh: true)
+                                        return
+                                    } else {
+                                        guard let networkError = NetworkErrorCase(rawValue: statusCode) else {
+                                            return observer(.success(.failure(NetworkErrorCase.UnknownError)))
                                         }
-                                    }
-                                } else {
-                                    switch response.result {
-                                    case .success(let value):
-                                        print("value 확인 >>>", value)
-                                        observer(.success(.success(value)))
-                                    case .failure(let error):
-                                        if let networkError = NetworkErrorCase(rawValue: statusCode) {
-                                            observer(.success(.failure(networkError)))
-                                        } else {
-                                            print("Decoding Error: \(error.localizedDescription)")
-                                            observer(.success(.failure(NetworkErrorCase.UnknownError)))
-                                        }
+                                        observer(.success(.failure(networkError)))
                                     }
                                 }
+                                return
+                            }
+                            switch response.result {
+                            case .success(let value):
+                                observer(.success(.success(value)))
+                            case .failure(let error):
+                                guard let networkError = NetworkErrorCase(rawValue: statusCode) else {
+                                    return observer(.success(.failure(NetworkErrorCase.UnknownError)))
+                                }
+                                observer(.success(.failure(networkError)))
                             }
                         }
                 }
                 
                 callRequest()
                 return Disposables.create()
-                // return Single<Disposables>.never()
             } catch {
-                print("API URLRequestConvertible Failed")
+                print("API URLRequestConvertible Failed", error)
                 return Disposables.create()
             }
         }.debug("API 네트워크 통신 >>>")
     }
+    
     
     func uploadFiles(files: [Data?], fileNames: [String?]) -> Single<Result<PostFilesResponse, NetworkErrorCase>> {
         let URL = API.URL.base + API.URL.posts + API.URL.files

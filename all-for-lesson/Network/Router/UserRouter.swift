@@ -17,12 +17,13 @@ import Alamofire
  */
 
 enum UserRouter {
-    case join(body: JoinBody)
-    case email(body: EmailBody)
-    case login(body: LoginBody)
-    case profile
-    case accessToken
-    case withdraw
+    case join(body: JoinBody)               /// 회원가입
+    case email(body: EmailBody)             /// 이메일 중복 확인
+    case login(body: LoginBody)             /// 로그인
+    case getMyProfile                       /// 내 프로필
+    case accessToken                        /// 토큰 갱신
+    case withdraw                           /// 회원 탈퇴
+    case getUserProfile(id: String)         /// 다른 사람 프로필=
 }
 
 extension UserRouter: TargetType {
@@ -34,16 +35,12 @@ extension UserRouter: TargetType {
     var path: String {
         switch self {
         case .join: API.URL.join
-            
         case .email: API.URL.email
-            
         case .login: API.URL.login
-            
         case .accessToken: API.URL.refresh
-            
         case .withdraw: API.URL.withdraw
-            
-        case .profile: API.URL.profile
+        case .getMyProfile: API.URL.myProfile
+        case .getUserProfile(let id): API.URL.users + id + API.URL.profile
         }
     }
     
@@ -52,7 +49,7 @@ extension UserRouter: TargetType {
         case .join, .email, .login:
             return .post
             
-        case .accessToken, .withdraw, .profile:
+        case .accessToken, .withdraw, .getMyProfile, .getUserProfile:
             return .get
         }
     }
@@ -72,9 +69,10 @@ extension UserRouter: TargetType {
                 API.Header.refresh: UserDefaultsManager.refreshToken
             ]
             
-        case .profile, .withdraw:
+        case .getMyProfile, .getUserProfile, .withdraw:
             return [
                 API.Header.auth: UserDefaultsManager.accessToken,
+                API.Header.contentType: API.Header.json,
                 API.Header.sesacKey: API.KEY.key
             ]
         }
@@ -109,7 +107,7 @@ extension UserRouter: TargetType {
                 print("json encode error", error)
                 return nil
             }
-        case .profile, .accessToken, .withdraw:
+        case .getMyProfile, .getUserProfile, .accessToken, .withdraw:
             return nil
         }
     }
