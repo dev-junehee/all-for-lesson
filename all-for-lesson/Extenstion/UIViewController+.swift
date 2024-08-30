@@ -10,10 +10,24 @@ import UIKit
 extension UIViewController {
     
     /// Image BarButton 설정 함수
-    func setImgBarButton(image: UIImage, target: Any?, action: Selector?, type: BarButtonCase) {
-        let barButton = UIBarButtonItem(image: image, style: .plain, target: target, action: action)
+    func setImgBarButton(image: UIImage, color: UIColor? = Resource.Color.purple, action: Selector?, type: BarButtonCase) {
+        let barButton = UIBarButtonItem(image: image, style: .plain, target: self, action: action)
     
-        barButton.tintColor = Resource.Color.purple
+        barButton.tintColor = color
+    
+        switch type {
+        case .left:
+            navigationItem.leftBarButtonItem = barButton
+        case .right:
+            navigationItem.rightBarButtonItem = barButton
+        }
+    }
+    
+    /// Text BarButton 설정 함수
+    func setTextBarButton(title: String, color: UIColor? = Resource.Color.purple, action: Selector?, type: BarButtonCase) {        
+        let barButton = UIBarButtonItem(title: title, style: .plain, target: self, action: action)
+    
+        barButton.tintColor = color
     
         switch type {
         case .left:
@@ -24,39 +38,20 @@ extension UIViewController {
     }
     
     /// 뒤로가기 BarButton 설정 함수
-    func setBackBarButton() {
-        let backImage = Resource.SystemImage.leftArrow
+    func setBackBarButton(_ color: UIColor = Resource.Color.purple) {
+        let backImage = Resource.Image.leftArrow
         let barButton = UIBarButtonItem(image: backImage, style: .plain, target: self, action: #selector(popViewController))
-        barButton.tintColor = Resource.Color.purple
+        barButton.tintColor = color
         navigationItem.leftBarButtonItem = barButton
     }
-    
-    /// RootViewController - Onboarding으로 변경
-    func changeRootViewControllerToOnboarding() {
-        let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
-        let sceneDeleagate = windowScene?.delegate as? SceneDelegate
-        
-        let onboardingVC = UINavigationController(rootViewController: OnboardingViewController())
-        sceneDeleagate?.window?.rootViewController = onboardingVC
-        sceneDeleagate?.window?.makeKeyAndVisible()
-    }
-    
-    /// RootViewController - Onboarding으로 변경
-    
-    
-    
     
     /// 뒤로가기
     @objc func popViewController() {
         navigationController?.popViewController(animated: true)
     }
     
-    func hideTabBar() {
-        self.tabBarController?.tabBar.isHidden = true
-    }
-    
-    func showTabBar() {
-        self.tabBarController?.tabBar.isHidden = false
+    func toggleTabBar(isShow: Bool = true) {
+        self.tabBarController?.tabBar.isHidden = isShow ? false : true
     }
     
 }

@@ -17,10 +17,14 @@ final class UserTypeButton: UIButton {
         var foregroundColor: UIColor
         var titleText: String
         
+        var config = UIButton.Configuration.filled()
+        
         switch type {
         case .student, .common:
             backgroundColor = Resource.Color.ivory
-            foregroundColor = Resource.Color.lightGray
+            foregroundColor = Resource.Color.darkGray
+            config.background.strokeColor = Resource.Color.lightGray
+            config.background.strokeWidth = 1
             titleText = "수강생"
         case .teacher:
             backgroundColor = Resource.Color.purple
@@ -29,14 +33,15 @@ final class UserTypeButton: UIButton {
         }
         
         /// configuration 지정 - 배경색, 폰트색
-        var config = UIButton.Configuration.filled()
+        // var config = UIButton.Configuration.filled()
         config.baseBackgroundColor = backgroundColor
         config.baseForegroundColor = foregroundColor
+        config.macIdiomStyle = .bordered
         config.cornerStyle = .capsule
         
         /// 버튼 타이틀
         var title = AttributedString(titleText)
-        title.font = Resource.Font.bold14
+        title.font = Resource.Font.regular14
         config.attributedTitle = title
         
         self.configuration = config

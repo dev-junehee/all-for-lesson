@@ -34,7 +34,7 @@ final class NavigationManager {
     }
     
     /// 앱 기본 화면으로 전환 (탭)
-    func changeRootViewController() {
+    func changeRootViewControllerToHome() {
         let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene
         let sceneDeleagate = windowScene?.delegate as? SceneDelegate
         

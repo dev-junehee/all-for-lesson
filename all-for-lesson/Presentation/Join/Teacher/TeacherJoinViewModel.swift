@@ -49,23 +49,15 @@ final class TeacherJoinViewModel: InputOutput {
             .withLatestFrom(input.emailText.orEmpty)
             .distinctUntilChanged()
             .flatMap { emailText in
-                return NetworkManager.shared.callRequest(api: .email(email: emailText), of: EmailResponse.self)
+                let body = EmailBody(email: emailText)
+                return NetworkManager.shared.apiCall(api: .user(.email(body: body)), of: EmailResponse.self)
             }
             .bind(with: self, onNext: { owner, result in
                 switch result {
                 case .success(let response):
                     emailDuplication.onNext((200, response.message))
                 case .failure(let error):
-                    if let errorCode = error.asAFError?.responseCode {
-                        switch errorCode {
-                        case 400:
-                            emailDuplication.onNext((400, "이메일을 입력해 주세요"))
-                        case 409:
-                            emailDuplication.onNext((409, "이미 사용 중인 이메일이에요"))
-                        default:
-                            emailDuplication.onNext((999, "알 수 없는 오류에요"))
-                        }
-                    }
+                    emailDuplication.onNext((error.rawValue, error.errorMessage))
                 }
             })
             .disposed(by: disposeBag)
@@ -77,7 +69,7 @@ final class TeacherJoinViewModel: InputOutput {
         
         let nickValidation = input.nickText
             .orEmpty
-            .map { $0.count >= 3 }
+            .map { $0.count >= 2 }
         
         let validation = Observable
             .combineLatest(passwordValidation, nickValidation) { isPasswordValid, isNickValid in
@@ -96,8 +88,8 @@ final class TeacherJoinViewModel: InputOutput {
             .throttle(.seconds(2), scheduler: MainScheduler.instance)
             .withLatestFrom(studentData)
             .flatMap { (email, password, nick) in
-                print(email, password, nick)
-                return NetworkManager.shared.callRequest(api: .join(email: email, password: password, nick: nick, phoneNum: "0"), of: JoinResponse.self)
+                let body = JoinBody(email: email, password: password, nick: nick, phoneNum: "1")
+                return NetworkManager.shared.apiCall(api: .user(.join(body: body)), of: JoinResponse.self)
             }
             .bind(with: self) { owner, result in
                 switch result {

@@ -10,22 +10,12 @@ import RxCocoa
 import RxSwift
 
 final class MyPageViewController: BaseViewController {
-    
-    private enum MyPageSection: CaseIterable {
-        case all
-    }
-    
-    /// 임시 메뉴
-    let menuList: [MyPageMenu] = [
-        MyPageMenu(title: "레슨 개설하기"), 
-        MyPageMenu(title: "로그아웃"),
-        MyPageMenu(title: "회원탈퇴")
-    ]
-    
-    private var dataSource: UICollectionViewDiffableDataSource<MyPageSection, MyPageMenu>!
         
     private let mypageView = MyPageView()
     private let viewModel = MyPageViewModel()
+    private let disposeBag = DisposeBag()
+    
+    private var viewDidLoadTrigger = PublishSubject<Void>()
     
     override func loadView() {
         view = mypageView
@@ -33,24 +23,87 @@ final class MyPageViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureDataSource()
-        updateSnapShot()
+        bind()
+        viewDidLoadTrigger.onNext(())
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        toggleTabBar()
     }
     
     override func setViewController() {
         navigationItem.title = "마이페이지"
-        
-        let barButton = UIBarButtonItem(image: Resource.SystemImage.gear, style: .plain, target: self, action: #selector(settingButtonClicked))
-        barButton.tintColor = Resource.Color.darkGray
-        navigationItem.rightBarButtonItem = barButton
-        
-        mypageView.tableView.delegate = self
+        setImgBarButton(image: Resource.Image.gear, action: nil, type: .right)
     }
     
     private func bind() {
-        let input = MyPageViewModel.Input()
+        let input = MyPageViewModel.Input(
+            viewDidLoadTrigger: viewDidLoadTrigger,
+            reservationButtonTap: mypageView.reservationButton.rx.tap,
+            bookmarkButtonTap: mypageView.bookmarkButton.rx.tap,
+            lessonButtonTap: mypageView.lessonButton.rx.tap,
+            commentButtonTap: mypageView.commentButton.rx.tap,
+            menuTap: mypageView.tableView.rx.modelSelected(String.self))
         let output = viewModel.transform(input: input)
         
+        
+        output.profileResponse
+            .bind(with: self) { owner, profileData in
+                owner.mypageView.updateProfile(profileData)
+            }
+            .disposed(by: disposeBag)
+        
+        /// 수강 내역 버튼 탭 (수강생)
+        output.reservationButtonTap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(MyReservationController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        /// 북마크한 레슨 버튼 탭 (수강생)
+        output.bookmarkButtonTap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(MyBookmarkViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        /// 레슨 관리 버튼 탭 (선생님)
+        output.lessonButtonTap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(MyLessonViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        /// 레슨 후기 버튼 탭 (선생님)
+        output.commentButtonTap
+            .bind(with: self) { owner, _ in
+                owner.navigationController?.pushViewController(MyCommentViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        output.menuList
+            .bind(to: mypageView.tableView.rx.items(cellIdentifier: "MenuCell", cellType: UITableViewCell.self)) { row, element, cell in
+                cell.textLabel?.text = element
+                cell.accessoryType = .disclosureIndicator
+                cell.textLabel?.font = Resource.Font.regular14
+            }
+            .disposed(by: disposeBag)
+        
+        /// 레슨 개설하기 탭 - 화면 전환
+        output.openLesson
+            .bind(with: self) { owner, _ in
+                let lessonOpenVC = UINavigationController(rootViewController: LessonOpenViewController())
+                owner.present(lessonOpenVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        /// 로그아웃 탭 - UserDefaults 데이터 삭제 후 로그인 화면 전환
+        output.userLogout
+            .bind(with: self) { owner, _ in
+                NavigationManager.shared.changeRootViewControllerToLogin()
+            }
+            .disposed(by: disposeBag)
         
     }
     
@@ -59,54 +112,4 @@ final class MyPageViewController: BaseViewController {
         
     }
     
-}
-
-
-// MARK: 메뉴 테이블뷰 (모던 컬렉션뷰 활용)
-extension MyPageViewController {
-    private func configureDataSource() {
-       var registration: UICollectionView.CellRegistration<UICollectionViewListCell, MyPageMenu>!
-       registration = UICollectionView.CellRegistration { cell, indexPath, itemIdentifier in
-           var content = UIListContentConfiguration.valueCell()
-           content.text = itemIdentifier.title
-           content.textProperties.font = Resource.Font.regular14 ?? UIFont.systemFont(ofSize: 14, weight: .regular)
-           cell.indentationLevel = 1
-           cell.contentConfiguration = content
-       }
-       
-        dataSource = UICollectionViewDiffableDataSource(collectionView: mypageView.tableView, cellProvider: { collectionView, indexPath, itemIdentifier in
-           let cell = collectionView.dequeueConfiguredReusableCell(
-               using: registration,
-               for: indexPath,
-               item: itemIdentifier)
-           return cell
-       })
-   }
-   
-   private func updateSnapShot() {
-       var snapshot = NSDiffableDataSourceSnapshot<MyPageSection, MyPageMenu>()
-       snapshot.appendSections(MyPageSection.allCases)
-       snapshot.appendItems(menuList, toSection: .all)
-       dataSource.apply(snapshot)
-   }
-}
-
-extension MyPageViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let row = indexPath.row
-        
-        switch row {
-        case 0:
-            return
-        case 1: // 로그아웃
-            UserDefaultsManager.deleteAllUserDefaults()
-            NavigationManager.shared.changeRootViewControllerToLogin()
-            
-        case 2: // 회원탈퇴
-            
-            return
-        default:
-            return
-        }
-    }
 }

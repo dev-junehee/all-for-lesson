@@ -37,16 +37,19 @@ enum Resource {
         static let bold16 = UIFont(name: "Pretendard-Bold", size: 16)
         static let bold14 = UIFont(name: "Pretendard-Bold", size: 14)
         static let bold12 = UIFont(name: "Pretendard-Bold", size: 12)
+        static let medium14 = UIFont(name: "Pretendard-Medium", size: 14)
         static let medium12 = UIFont(name: "Pretendard-Medium", size: 12)
+        static let regular16 = UIFont(name: "Pretendard-Regular", size: 16)
         static let regular14 = UIFont(name: "Pretendard-Regular", size: 14)
         static let regular12 = UIFont(name: "Pretendard-Regular", size: 12)
     }
     
-    enum SystemImage {
+    enum Image {
         static let leftArrow = UIImage(systemName: "arrow.left")!
         static let home = UIImage(systemName: "house")!
         static let piano = UIImage(systemName: "pianokeys")!
         static let search = UIImage(systemName: "magnifyingglass")!
+        static let hashtag = UIImage(systemName: "number")!
         static let board = UIImage(systemName: "square.and.pencil")!
         static let person = UIImage(systemName: "person")!
         static let star = UIImage(systemName: "star.fill")!
@@ -55,14 +58,17 @@ enum Resource {
         static let gear = UIImage(systemName: "gearshape")!
         static let list = UIImage(systemName: "list.bullet.clipboard.fill")!
         static let friends = UIImage(systemName: "person.2.fill")!
+        static let plus = UIImage(systemName: "plus.circle")!
         
         /// 홈 메뉴 버튼
         static let homeMenus: [UIImage] = [
             .folder, .violin, .flute, .brass,
             .piano, .microphone, .clef, .percussion
         ]
+        
         /// 마이페이지 버튼
-        static let mypageButtons: [UIImage]  = [.board, .bookmark, .friends]
+        static let mypageStudentButton: [UIImage]  = [.board, .bookmark]
+        static let mypageTeacherButton: [UIImage]  = [.board, .postbox]
     }
     
 }

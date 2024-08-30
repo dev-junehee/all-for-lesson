@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 import SnapKit
 import Then
 
@@ -27,7 +28,7 @@ final class HomeLessonCollectionViewCell: BaseCollectionViewCell {
     }
     
     private let starImage = UIImageView().then {
-        $0.image = Resource.SystemImage.star
+        $0.image = Resource.Image.star
         $0.tintColor = Resource.Color.yellow
     }
     
@@ -69,10 +70,14 @@ final class HomeLessonCollectionViewCell: BaseCollectionViewCell {
         }
     }
     
-    func updateCell(title: String) {
-        lessonTitle.text = title
-        lessonLocationPrice.text = "(서울) 128,000원"
-        starLate.text = "4.8 (후기 211개)"
+    func updateCell(post: Post) {
+        guard let image = post.files.first else { return }
+        NetworkManager.shared.getImage(image) { data in
+            self.lessonImage.image = UIImage(data: data)
+        }
+        lessonTitle.text = post.title
+        lessonLocationPrice.text = "(\(post.content2 ?? "-")) \(post.price.formatted())원"
+        starLate.text = "4.8 (후기 \(post.comments.count)개)"
     }
     
 }

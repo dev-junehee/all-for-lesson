@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// 이메일 중복 확인
 struct EmailResponse: Decodable {
     let message: String
 }
