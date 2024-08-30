@@ -86,7 +86,7 @@
 		C494479D2C70E8BE005AADF7 /* BarButtonCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = C494479C2C70E8BE005AADF7 /* BarButtonCase.swift */; };
 		C49447A02C70EDC9005AADF7 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C494479F2C70EDC9005AADF7 /* CustomTabBarController.swift */; };
 		C49447A32C70F2FE005AADF7 /* LessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447A22C70F2FE005AADF7 /* LessonViewController.swift */; };
-		C49447A62C70F3B3005AADF7 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447A52C70F3B3005AADF7 /* SearchViewController.swift */; };
+		C49447A62C70F3B3005AADF7 /* HashTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447A52C70F3B3005AADF7 /* HashTagViewController.swift */; };
 		C49447A92C70F4C7005AADF7 /* CommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447A82C70F4C7005AADF7 /* CommunityViewController.swift */; };
 		C49447AC2C70F593005AADF7 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447AB2C70F593005AADF7 /* MyPageViewController.swift */; };
 		C49447AF2C7206B5005AADF7 /* RefreshTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C49447AE2C7206B5005AADF7 /* RefreshTokenResponse.swift */; };
@@ -136,6 +136,9 @@
 		C4DC8E5E2C81B61F0007FE12 /* UserProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E5D2C81B61F0007FE12 /* UserProfileView.swift */; };
 		C4DC8E602C81B6270007FE12 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E5F2C81B6270007FE12 /* UserProfileViewController.swift */; };
 		C4DC8E622C81BA0E0007FE12 /* UserProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E612C81BA0E0007FE12 /* UserProfileViewModel.swift */; };
+		C4DC8E642C81C1790007FE12 /* HashTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E632C81C1790007FE12 /* HashTagView.swift */; };
+		C4DC8E662C81C1970007FE12 /* HashTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E652C81C1970007FE12 /* HashTagViewModel.swift */; };
+		C4DC8E682C81CF8D0007FE12 /* HashTagQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E672C81CF8D0007FE12 /* HashTagQuery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -212,7 +215,7 @@
 		C494479C2C70E8BE005AADF7 /* BarButtonCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarButtonCase.swift; sourceTree = "<group>"; };
 		C494479F2C70EDC9005AADF7 /* CustomTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		C49447A22C70F2FE005AADF7 /* LessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonViewController.swift; sourceTree = "<group>"; };
-		C49447A52C70F3B3005AADF7 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		C49447A52C70F3B3005AADF7 /* HashTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagViewController.swift; sourceTree = "<group>"; };
 		C49447A82C70F4C7005AADF7 /* CommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewController.swift; sourceTree = "<group>"; };
 		C49447AB2C70F593005AADF7 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		C49447AE2C7206B5005AADF7 /* RefreshTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshTokenResponse.swift; sourceTree = "<group>"; };
@@ -262,6 +265,9 @@
 		C4DC8E5D2C81B61F0007FE12 /* UserProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileView.swift; sourceTree = "<group>"; };
 		C4DC8E5F2C81B6270007FE12 /* UserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
 		C4DC8E612C81BA0E0007FE12 /* UserProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileViewModel.swift; sourceTree = "<group>"; };
+		C4DC8E632C81C1790007FE12 /* HashTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagView.swift; sourceTree = "<group>"; };
+		C4DC8E652C81C1970007FE12 /* HashTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagViewModel.swift; sourceTree = "<group>"; };
+		C4DC8E672C81CF8D0007FE12 /* HashTagQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagQuery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +352,7 @@
 				C403917B2C7B4F6E00D50850 /* PostQuery.swift */,
 				C4DC8DF02C7C994B0007FE12 /* ReservationBookmarkBody.swift */,
 				C4DC8E192C7E043B0007FE12 /* PostCommentBody.swift */,
+				C4DC8E672C81CF8D0007FE12 /* HashTagQuery.swift */,
 			);
 			path = Post;
 			sourceTree = "<group>";
@@ -639,7 +646,9 @@
 		C49447A42C70F3A1005AADF7 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				C49447A52C70F3B3005AADF7 /* SearchViewController.swift */,
+				C4DC8E632C81C1790007FE12 /* HashTagView.swift */,
+				C49447A52C70F3B3005AADF7 /* HashTagViewController.swift */,
+				C4DC8E652C81C1970007FE12 /* HashTagViewModel.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -898,6 +907,7 @@
 				C4DC8E412C805B260007FE12 /* MyBookmarkViewController.swift in Sources */,
 				C49447AC2C70F593005AADF7 /* MyPageViewController.swift in Sources */,
 				C40391372C76363000D50850 /* LessonOpenViewModel.swift in Sources */,
+				C4DC8E682C81CF8D0007FE12 /* HashTagQuery.swift in Sources */,
 				C48062CD2C6F1029003FF7EE /* OnboardingViewController.swift in Sources */,
 				C4DC8DF12C7C994B0007FE12 /* ReservationBookmarkBody.swift in Sources */,
 				C49447D72C7367FB005AADF7 /* UserTypeButton.swift in Sources */,
@@ -919,6 +929,7 @@
 				C4DC8E512C80B8B70007FE12 /* MyLessonViewModel.swift in Sources */,
 				C49447D52C7366EB005AADF7 /* MyPageView.swift in Sources */,
 				C4DC8E602C81B6270007FE12 /* UserProfileViewController.swift in Sources */,
+				C4DC8E662C81C1970007FE12 /* HashTagViewModel.swift in Sources */,
 				C49447922C70BB02005AADF7 /* HomeViewController.swift in Sources */,
 				C4DC8E1E2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift in Sources */,
 				C48062D72C6F10FE003FF7EE /* UIView+.swift in Sources */,
@@ -964,7 +975,7 @@
 				C48063422C6F8EE2003FF7EE /* TeacherJoinViewModel.swift in Sources */,
 				C494479D2C70E8BE005AADF7 /* BarButtonCase.swift in Sources */,
 				C49447E02C7380E9005AADF7 /* MyPageViewModel.swift in Sources */,
-				C49447A62C70F3B3005AADF7 /* SearchViewController.swift in Sources */,
+				C49447A62C70F3B3005AADF7 /* HashTagViewController.swift in Sources */,
 				C4DC8E562C80C1FB0007FE12 /* LessonEditViewController.swift in Sources */,
 				C4DC8E4A2C805C0E0007FE12 /* MyCommentViewModel.swift in Sources */,
 				C4DC8E1A2C7E043B0007FE12 /* PostCommentBody.swift in Sources */,
@@ -984,6 +995,7 @@
 				C48063012C6F1FCF003FF7EE /* OnboardingTypeButton.swift in Sources */,
 				C48063152C6F2C3F003FF7EE /* StudentJoinViewController.swift in Sources */,
 				C49447AF2C7206B5005AADF7 /* RefreshTokenResponse.swift in Sources */,
+				C4DC8E642C81C1790007FE12 /* HashTagView.swift in Sources */,
 				C49447A92C70F4C7005AADF7 /* CommunityViewController.swift in Sources */,
 				C49447A32C70F2FE005AADF7 /* LessonViewController.swift in Sources */,
 				C48062D12C6F10C5003FF7EE /* BaseViewController.swift in Sources */,

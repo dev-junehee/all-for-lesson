@@ -18,6 +18,9 @@ import Alamofire
  `postBookmark` 레슨 북마크/취소
  `getMyReservatioin` 내가 수강한 레슨 리스트
  `getMyBookmark` 내가 북마크한 레슨 리스트
+ `getUserPosts` 유저별 작성한 포스트
+ `getHashTag` 해시태그 검색
+ 
  */
 
 enum PostRouter {
@@ -32,6 +35,7 @@ enum PostRouter {
     case getReservatioin
     case getBookmark
     case getUserPosts(id: String, query: PostQuery)
+    case getHashTag(query: HashTagQuery)
 }
 
 extension PostRouter: TargetType {
@@ -53,6 +57,7 @@ extension PostRouter: TargetType {
         case .getReservatioin: API.URL.posts + API.URL.getReservation
         case .getBookmark: API.URL.posts + API.URL.getBookmark
         case .getUserPosts(let id, _): API.URL.posts + API.URL.users + id
+        case .getHashTag: API.URL.posts + API.URL.hashtag
         }
     }
     
@@ -60,14 +65,14 @@ extension PostRouter: TargetType {
         switch self {
         case .posts, .postFiles, .postReservation, .postBookmark, .postComment:
                 .post
-        case .getPosts, .getImage, .getPostsDetail, .getReservatioin, .getBookmark, .getUserPosts:
+        case .getPosts, .getImage, .getPostsDetail, .getReservatioin, .getBookmark, .getUserPosts, .getHashTag:
                 .get
         }
     }
     
     var header: [String: String] {
         switch self {
-        case .posts, .postReservation, .postBookmark, .postComment, .getReservatioin, .getBookmark, .getUserPosts:
+        case .posts, .postReservation, .postBookmark, .postComment, .getReservatioin, .getBookmark, .getUserPosts, .getHashTag:
             return [
                 API.Header.auth: UserDefaultsManager.accessToken,
                 API.Header.contentType: API.Header.json,
@@ -129,7 +134,7 @@ extension PostRouter: TargetType {
                 return nil
             }
             
-        case .getPosts, .getImage, .getPostsDetail, .getReservatioin, .getBookmark, .getUserPosts:
+        case .getPosts, .getImage, .getPostsDetail, .getReservatioin, .getBookmark, .getUserPosts, .getHashTag:
             return nil
         }
     }
@@ -173,6 +178,20 @@ extension PostRouter: TargetType {
                 let data = try encoder.encode(id)
                 if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                     return json.map { URLQueryItem(name: "", value: "\($0)") }
+                } else {
+                    return nil
+                }
+            } catch {
+                print("json encode error", error)
+                return nil
+            }
+            
+        case .getHashTag(let query):
+            let encoder = JSONEncoder()
+            do {
+                let data = try encoder.encode(query)
+                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                    return json.map { URLQueryItem(name: $0, value: "\($1)") }
                 } else {
                     return nil
                 }
