@@ -18,7 +18,6 @@ final class HashTagView: BaseView {
         let nsString = titleString.string as NSString
         titleString.addAttribute(.font, value: Resource.Font.bold30 ?? .systemFont(ofSize: 30, weight: .bold), range: nsString.range(of: "#해시태그"))
         $0.attributedText = titleString
-        // $0.backgroundColor = .lightGray
     }
     
     private let searchBackgroundView = UIView().then {
@@ -29,7 +28,7 @@ final class HashTagView: BaseView {
     }
     
     let searchTextField = UITextField().then {
-        $0.placeholder = "#개인레슨"
+        $0.placeholder = "어떤 해시태그를 찾으시나요?"
         $0.font = Resource.Font.regular16
     }
     
@@ -39,13 +38,30 @@ final class HashTagView: BaseView {
         $0.configuration = config
     }
     
+    private let recommendHashtagLabel = UILabel().then {
+        $0.text = "추천 해시태그"
+        $0.font = Resource.Font.medium14
+    }
+    
+    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout()).then {
+        $0.register(HashTagCollectionViewCell.self, forCellWithReuseIdentifier: HashTagCollectionViewCell.id)
+    }
+ 
+    private func layout() -> UICollectionViewLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 8
+        layout.minimumInteritemSpacing = 4
+        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
+        return layout
+    }
+    
+    
     override func setHierarchyLayout() {
-        [titleLabel, searchBackgroundView, searchTextField, searchButton].forEach { self.addSubview($0) }
+        [titleLabel, searchBackgroundView, searchTextField, searchButton, recommendHashtagLabel, collectionView].forEach { self.addSubview($0) }
         
         let safeArea = self.safeAreaLayoutGuide
         
         titleLabel.snp.makeConstraints {
-            // $0.top.equalTo(self).offset(100)
             $0.top.equalTo(safeArea)
             $0.horizontalEdges.equalTo(safeArea).inset(16)
             $0.height.equalTo(80)
@@ -65,10 +81,21 @@ final class HashTagView: BaseView {
         }
         
         searchButton.snp.makeConstraints {
-            // $0.top.equalTo(titleLabel.snp.bottom).offset(20)
             $0.centerY.equalTo(searchBackgroundView)
             $0.trailing.equalTo(searchBackgroundView).inset(16)
             $0.size.equalTo(32)
+        }
+        
+        recommendHashtagLabel.snp.makeConstraints {
+            $0.top.equalTo(searchBackgroundView.snp.bottom).offset(32)
+            $0.horizontalEdges.equalTo(safeArea).inset(24)
+            $0.height.equalTo(20)
+        }
+        
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(recommendHashtagLabel.snp.bottom).offset(8)
+            $0.horizontalEdges.equalTo(safeArea).inset(16)
+            $0.bottom.equalTo(safeArea)
         }
     }
     

@@ -139,6 +139,7 @@
 		C4DC8E642C81C1790007FE12 /* HashTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E632C81C1790007FE12 /* HashTagView.swift */; };
 		C4DC8E662C81C1970007FE12 /* HashTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E652C81C1970007FE12 /* HashTagViewModel.swift */; };
 		C4DC8E682C81CF8D0007FE12 /* HashTagQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E672C81CF8D0007FE12 /* HashTagQuery.swift */; };
+		C4DC8E6A2C81F9C50007FE12 /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E692C81F9C50007FE12 /* HashTagCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -268,6 +269,7 @@
 		C4DC8E632C81C1790007FE12 /* HashTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagView.swift; sourceTree = "<group>"; };
 		C4DC8E652C81C1970007FE12 /* HashTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagViewModel.swift; sourceTree = "<group>"; };
 		C4DC8E672C81CF8D0007FE12 /* HashTagQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagQuery.swift; sourceTree = "<group>"; };
+		C4DC8E692C81F9C50007FE12 /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -698,6 +700,7 @@
 				C49447C22C7249AA005AADF7 /* HomeMenuCollectionViewCell.swift */,
 				C49447D02C732EC0005AADF7 /* LessonCollectionViewCell.swift */,
 				C4DC8E1D2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift */,
+				C4DC8E692C81F9C50007FE12 /* HashTagCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -892,6 +895,7 @@
 				C49447E42C7448C5005AADF7 /* LessonViewModel.swift in Sources */,
 				C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */,
 				C4DC8E1C2C7E07C50007FE12 /* CommentResponse.swift in Sources */,
+				C4DC8E6A2C81F9C50007FE12 /* HashTagCollectionViewCell.swift in Sources */,
 				C49447E22C7443E7005AADF7 /* HomeViewModel.swift in Sources */,
 				C48062FE2C6F1D25003FF7EE /* UIImage+.swift in Sources */,
 				C40391282C75BE9B00D50850 /* MyProfileResponse.swift in Sources */,

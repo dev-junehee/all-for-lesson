@@ -5,7 +5,7 @@
 //  Created by junehee on 8/18/24.
 //
 
-import Foundation
+import UIKit
 import RxCocoa
 import RxSwift
 
@@ -24,13 +24,32 @@ final class HashTagViewController: BaseViewController {
         bind()
     }
     
+    override func setViewController() {
+        hashtagView.collectionView.delegate = self
+    }
+    
     private func bind() {
+        let viewWillAppearTrigger = self.rx.methodInvoked(#selector(viewWillAppear(_:)))
+        
         let input = HashTagViewModel.Input(
-            searchText: hashtagView.searchTextField.rx.text, 
+            viewWillAppearTrigger: viewWillAppearTrigger,
+            searchText: hashtagView.searchTextField.rx.text,
             searchButtonTap: hashtagView.searchButton.rx.tap)
         let output = viewModel.transform(input: input)
         
-        
-        
+        /// 추천 해시태그 셀 데이터 바인딩
+        output.recommendHashtagList
+            .bind(to: hashtagView.collectionView.rx.items(cellIdentifier: HashTagCollectionViewCell.id, cellType: HashTagCollectionViewCell.self)) { item, element, cell in
+                cell.updateCell(title: element)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+}
+
+extension HashTagViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: .zero, height: 30) /// 추천 해시태그 셀 height 30으로 고정
     }
 }
+
