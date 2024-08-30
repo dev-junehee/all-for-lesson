@@ -78,7 +78,7 @@ final class MyPageViewController: BaseViewController {
         /// 레슨 후기 버튼 탭 (선생님)
         output.commentButtonTap
             .bind(with: self) { owner, _ in
-                // owner.navigationController?.pushViewController(MyBookmarkViewController(), animated: true)
+                owner.navigationController?.pushViewController(MyCommentViewController(), animated: true)
             }
             .disposed(by: disposeBag)
         

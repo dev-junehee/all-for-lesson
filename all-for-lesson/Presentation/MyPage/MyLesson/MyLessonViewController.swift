@@ -24,6 +24,11 @@ final class MyLessonViewController: BaseViewController {
         bind()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        toggleTabBar(isShow: false)
+    }
+    
     override func setViewController() {
         navigationItem.title = "나의 레슨 관리"
         setBackBarButton()
