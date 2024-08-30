@@ -23,17 +23,16 @@ final class LessonCommentCollectionViewCell: BaseCollectionViewCell {
         $0.addArrangedSubview(nickLabel)
         $0.addArrangedSubview(commentLabel)
         $0.axis = .vertical
+        $0.alignment = .top
     }
     
     private let nickLabel = UILabel().then {
         $0.font = Resource.Font.bold14
-        // $0.backgroundColor = .red
     }
     
-    private let commentLabel = UILabel().then {
+    private let commentLabel = UITextView().then {
         $0.font = Resource.Font.regular14
-        $0.numberOfLines = 0
-        // $0.backgroundColor = .orange
+        $0.contentInset = .init(top: -4, left: -6, bottom: 0, right: 0)
         $0.isUserInteractionEnabled = false
     }
     
@@ -48,7 +47,7 @@ final class LessonCommentCollectionViewCell: BaseCollectionViewCell {
         labelStack.snp.makeConstraints {
             $0.top.equalTo(profileImage)
             $0.leading.equalTo(profileImage.snp.trailing).offset(8)
-            $0.width.equalTo(250)
+            $0.trailing.equalTo(self).inset(16)
             $0.bottom.equalToSuperview()
         }
         

@@ -19,8 +19,8 @@ final class MyCommentView: BaseView {
     private func layout() -> UICollectionViewLayout {
         let layout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width
-        layout.itemSize = CGSize(width: width - 20, height: width / 3.5)
-        layout.sectionInset = UIEdgeInsets(top: 16, left: 16, bottom: 0, right: 16)
+        layout.itemSize = CGSize(width: width, height: width / 4)
+        layout.sectionInset = UIEdgeInsets(top: 16, left: 32, bottom: 0, right: 0)
         layout.scrollDirection = .vertical
         return layout
     }
@@ -29,7 +29,9 @@ final class MyCommentView: BaseView {
         self.addSubview(collectionView)
         
         collectionView.snp.makeConstraints {
-            $0.edges.equalTo(self.safeAreaLayoutGuide)
+            $0.verticalEdges.equalTo(self.safeAreaLayoutGuide)
+            $0.leading.equalTo(self.safeAreaLayoutGuide).offset(16)
+            $0.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(16)
         }
     }
 

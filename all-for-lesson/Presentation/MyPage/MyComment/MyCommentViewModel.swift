@@ -38,9 +38,6 @@ final class MyCommentViewModel: InputOutput {
                     for post in value.data {
                         comments.append(contentsOf: post.comments)
                     }
-                    // value.data.map {
-                    //     comments.append(contentsOf: $0.comments)
-                    // }
                     commentList.onNext(comments)
                 case .failure(let error):
                     print("레슨 수강 후기 불러오기 실패", error)
