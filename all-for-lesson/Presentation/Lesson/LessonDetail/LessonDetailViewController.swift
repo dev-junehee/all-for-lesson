@@ -5,13 +5,15 @@
 //  Created by junehee on 8/20/24.
 //
 
-import Foundation
+import UIKit
 import RxCocoa
 import RxSwift
 
 final class LessonDetailViewController: BaseViewController {
     
     private let detailView = LessonDetailView()
+    private let paymentsView = PaymentsView()
+    
     private let viewModel = LessonDetailViewModel()
     private let disposeBag = DisposeBag()
     
@@ -42,7 +44,8 @@ final class LessonDetailViewController: BaseViewController {
             infoControlTap: detailView.lessonInfoControl.rx.selectedSegmentIndex,
             teacherProfileTap: detailView.lessonDetailInfoView.teacherProfileImage.rx.tap,
             commentText: detailView.commentFieldView.commentField.rx.text,
-            commentButtonTap: detailView.commentFieldView.commentButton.rx.tap)
+            commentButtonTap: detailView.commentFieldView.commentButton.rx.tap,
+            webView: paymentsView.payWebView)
         let output = viewModel.transform(input: input)
         
         /// 레슨 상세 데이터 바인딩
@@ -72,6 +75,14 @@ final class LessonDetailViewController: BaseViewController {
                 } else {
                     owner.navigationItem.rightBarButtonItem?.tintColor = Resource.Color.white
                 }
+            }
+            .disposed(by: disposeBag)
+        
+        output.reservationButtonTap
+            .bind(with: self) { owner, post in
+                let paymentsVC = PaymentsViewController()
+                paymentsVC.postData.onNext(post)
+                owner.present(UINavigationController(rootViewController: paymentsVC), animated: true)
             }
             .disposed(by: disposeBag)
         

@@ -11,6 +11,7 @@ import Alamofire
 enum APIRouter {
     case user(UserRouter)
     case post(PostRouter)
+    case pay(PayRouter)
 }
 
 extension APIRouter: TargetType {
@@ -19,6 +20,7 @@ extension APIRouter: TargetType {
         switch self {
         case .user(let userRouter): userRouter.base
         case .post(let postRouter): postRouter.base
+        case .pay(let payRouter): payRouter.base
         }
     }
     
@@ -26,6 +28,7 @@ extension APIRouter: TargetType {
         switch self {
         case .user(let userRouter): userRouter.path
         case .post(let postRouter): postRouter.path
+        case .pay(let payRouter): payRouter.path
         }
     }
     
@@ -33,6 +36,7 @@ extension APIRouter: TargetType {
         switch self {
         case .user(let userRouter): userRouter.method
         case .post(let postRouter): postRouter.method
+        case .pay(let payRouter): payRouter.method
         }
     }
     
@@ -40,6 +44,7 @@ extension APIRouter: TargetType {
         switch self {
         case .user(let userRouter): userRouter.header
         case .post(let postRouter): postRouter.header
+        case .pay(let payRouter): payRouter.header
         }
     }
     
@@ -47,6 +52,7 @@ extension APIRouter: TargetType {
         switch self {
         case .user(let userRouter): userRouter.body
         case .post(let postRouter): postRouter.body
+        case .pay(let payRouter): payRouter.body
         }
     }
     
@@ -54,6 +60,7 @@ extension APIRouter: TargetType {
         switch self {
         case .user(let userRouter): userRouter.query
         case .post(let postRouter): postRouter.query
+        case .pay(let payRouter): payRouter.query
         }
     }
     

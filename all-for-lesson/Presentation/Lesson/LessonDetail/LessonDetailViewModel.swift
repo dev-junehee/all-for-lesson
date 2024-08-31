@@ -5,7 +5,8 @@
 //  Created by junehee on 8/20/24.
 //
 
-import Foundation
+import WebKit
+import iamport_ios
 import RxCocoa
 import RxSwift
 
@@ -21,10 +22,12 @@ final class LessonDetailViewModel: InputOutput {
         let teacherProfileTap: ControlEvent<Void>       /// 선생님 프로필 이미지 탭
         let commentText: ControlProperty<String?>       /// 후기 댓글 텍스트
         let commentButtonTap: ControlEvent<Void>        /// 후기 등록 버튼 탭
+        let webView: WKWebView
     }
     
     struct Output {
         let detailInfo: PublishSubject<Post>
+        let reservationButtonTap: PublishSubject<Post>
         let infoControlTap: BehaviorSubject<Int>
         let userID: PublishSubject<String>
         let isBookmark: PublishSubject<Bool>
@@ -34,6 +37,7 @@ final class LessonDetailViewModel: InputOutput {
     
     func transform(input: Input) -> Output {
         let detailInfo = PublishSubject<Post>()
+        let reservationButtonTap = PublishSubject<Post>()
         let infoControlTap = BehaviorSubject(value: 0)
         let userID = PublishSubject<String>()
         let isBookmark = PublishSubject<Bool>()
@@ -95,40 +99,79 @@ final class LessonDetailViewModel: InputOutput {
             .disposed(by: disposeBag)
         
         /// 레슨 신청 버튼 탭
-        input.reservationButtonTap
-            .withLatestFrom(detailInfo)
-            .flatMap { post in
-                let myID = UserDefaultsManager.userId
-                let isReservation = post.likes.contains(myID)
-                let body = ReservationBookmarkBody(like_status: !isReservation)
-                return NetworkManager.shared.apiCall(api: .post(.postReservation(id: post.post_id, body: body)), of: ReservationResponse.self)
-            }
-            .bind { result in
-                switch result {
-                case .success(let value):
-                    isReservation.onNext(value.like_status)
-                case .failure(let error):
-                    print("레슨 신청/취소 실패")
-                    print(error)
-                }
-            }
-            .disposed(by: disposeBag)
+        // input.reservationButtonTap
+        //     .withLatestFrom(detailInfo)
+        //     .flatMap { post in
+        //         let myID = UserDefaultsManager.userId
+        //         let isReservation = post.likes.contains(myID)
+        //         let body = ReservationBookmarkBody(like_status: !isReservation)
+        //         return NetworkManager.shared.apiCall(api: .post(.postReservation(id: post.post_id, body: body)), of: ReservationResponse.self)
+        //     }
+        //     .bind { result in
+        //         switch result {
+        //         case .success(let value):
+        //             isReservation.onNext(value.like_status)
+        //         case .failure(let error):
+        //             print("레슨 신청/취소 실패")
+        //             print(error)
+        //         }
+        //     }
+        //     .disposed(by: disposeBag)
     
         /// 레슨 신청 버튼 눌렀을 때 상세 정보 업데이트 (레슨 신청/취소한 사람 리스트업용)
-        isReservation
-            .withLatestFrom(input.postId)
-            .flatMap { postId in
-                return NetworkManager.shared.apiCall(api: .post(.getPostsDetail(id: postId)), of: Post.self)
-            }
-            .bind { result in
-                switch result {
-                case .success(let value):
-                    detailInfo.onNext(value)
-                case .failure(let error):
-                    print(error)
-                }
+        // isReservation
+        //     .withLatestFrom(input.postId)
+        //     .flatMap { postId in
+        //         return NetworkManager.shared.apiCall(api: .post(.getPostsDetail(id: postId)), of: Post.self)
+        //     }
+        //     .bind { result in
+        //         switch result {
+        //         case .success(let value):
+        //             detailInfo.onNext(value)
+        //         case .failure(let error):
+        //             print(error)
+        //         }
+        //     }
+        //     .disposed(by: disposeBag)
+        
+        /// 레슨 신청 버튼 탭 (포트원 실결제)
+        input.reservationButtonTap
+            .withLatestFrom(detailInfo)
+            .bind { post in
+                reservationButtonTap.onNext(post)
             }
             .disposed(by: disposeBag)
+            
+        
+        // input.reservationButtonTap
+        //     .throttle(.seconds(3), scheduler: MainScheduler.instance)
+        //     .withLatestFrom(detailInfo)
+        //     .map { post in
+        //         let payment = IamportPayment(
+        //             pg:  PG.html5_inicis.makePgRawName(pgId: "INIpayTest"),
+        //             merchant_uid: "ios_\(API.KEY.key)_\(Int(Date().timeIntervalSince1970))",
+        //             amount: "\(post.price)").then {
+        //                 $0.pay_method = PayMethod.card.rawValue
+        //                 $0.name = post.title
+        //                 $0.buyer_name = "김준희"   /// 주문자 이름 대신 프로젝트 내에서 본인 이름 사용
+        //                 $0.app_scheme = "allforlesson"
+        //             }
+        //         
+        //         Iamport.shared.paymentWebView(
+        //             webViewMode: input.webView,
+        //             userCode: API.KEY.userCode,
+        //             payment: payment) { iamportResponse in
+        //                 print("payment >>>", String(describing: iamportResponse))
+        //                 
+        //                 guard let response = iamportResponse else { return }
+        //                 
+        //             }
+        //         
+        //     }
+        //     .bind { _ in
+        //         print("포트원 결제 끝")
+        //     }
+        //     .disposed(by: disposeBag)
         
         /// 레슨 상세 정보 / 선생님 정보 컨트롤 탭
         input.infoControlTap
@@ -198,8 +241,9 @@ final class LessonDetailViewModel: InputOutput {
             .disposed(by: disposeBag)
         
         
-        return Output(detailInfo: detailInfo,
-                      infoControlTap: infoControlTap, 
+        return Output(detailInfo: detailInfo, 
+                      reservationButtonTap: reservationButtonTap,
+                      infoControlTap: infoControlTap,
                       userID: userID,
                       isBookmark: isBookmark,
                       isReservation: isReservation,
