@@ -14,11 +14,9 @@ import Tabman
 final class HashTagResultViewController: TabmanViewController {
    
     let resultLessonVC = HashTagResultLessonViewController()
+    let resultCommunityVC = HashTagResultCommunityViewController()
     
-    private lazy var subViewControllers = [
-        resultLessonVC,
-        HashTagResultCommunityViewController()
-    ]
+    private lazy var subViewControllers = [resultLessonVC, resultCommunityVC]
     
     private let viewModel = HashTagResultViewModel()
     

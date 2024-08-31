@@ -60,31 +60,10 @@ final class HashTagViewModel: InputOutput {
                 }
             }
             .disposed(by: disposeBag)
-        
-        /// 해시태그 검색어 입력 때마다 1초 뒤 검색
-        // input.searchText.orEmpty
-        //     .debounce(.seconds(2), scheduler: MainScheduler.instance)
-        //     .flatMap { searchText in
-        //         let query = HashTagQuery(
-        //             next: "",
-        //             limit: "",
-        //             product_id: ProductId.defaultId,
-        //             hashTag: searchText)
-        //         return NetworkManager.shared.apiCall(api: .post(.getHashTag(query: query)), of: PostResponse.self)
-        //     }
-        //     .bind { result in
-        //         switch result {
-        //         case .success(let value):
-        //             print("해시태그 검색 성공")
-        //             print(value)
-        //         case .failure(let error):
-        //             print("해시태그 검색 실패", error)
-        //         }
-        //     }
-        //     .disposed(by: disposeBag)
 
         /// 검색 버튼 클릭 시 필드에 있는 값으로 검색
         input.searchButtonTap
+            .throttle(.seconds(3), scheduler: MainScheduler.instance)
             .withLatestFrom(input.searchText.orEmpty)
             .flatMap { searchText in
                 let query = HashTagQuery(
@@ -108,26 +87,31 @@ final class HashTagViewModel: InputOutput {
         
         /// 해시태그 버튼 클릭 시 검색
         input.hashtagButtonTap
-            .flatMap { hashtag in
+            .bind { hashtag in
                 print("hashtag>>>", hashtag)
-                let query = HashTagQuery(
-                    next: "",
-                    limit: "99999",
-                    product_id: ProductId.defaultId,
-                    hashTag: hashtag)
-                return NetworkManager.shared.apiCall(api: .post(.getHashTag(query: query)), of: PostResponse.self)
-            }
-            .bind { result in
-                switch result {
-                case .success(let value):
-                    print("버튼 탭 - 해시태그 검색 성공")
-                    print(value)
-                    searchHashtagList.onNext(value.data)
-                case .failure(let error):
-                    print("버튼 탭 - 해시태그 검색 실패", error)
-                }
             }
             .disposed(by: disposeBag)
+        
+            // .flatMap { hashtag in
+            //     print("hashtag>>>", hashtag)
+            //     let query = HashTagQuery(
+            //         next: "",
+            //         limit: "99999",
+            //         product_id: ProductId.defaultId,
+            //         hashTag: hashtag)
+            //     return NetworkManager.shared.apiCall(api: .post(.getHashTag(query: query)), of: PostResponse.self)
+            // }
+            // .bind { result in
+            //     switch result {
+            //     case .success(let value):
+            //         print("버튼 탭 - 해시태그 검색 성공")
+            //         print(value)
+            //         searchHashtagList.onNext(value.data)
+            //     case .failure(let error):
+            //         print("버튼 탭 - 해시태그 검색 실패", error)
+            //     }
+            // }
+            // .disposed(by: disposeBag)
         
         return Output(recommendHashtagList: recommendHashtagList, 
                       searchHashtagList: searchHashtagList)

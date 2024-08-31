@@ -24,6 +24,12 @@ final class HashTagViewController: BaseViewController {
         bind()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        toggleTabBar(isShow: true)
+        hashtagView.searchTextField.text = ""
+    }
+    
     override func setViewController() {
         hashtagView.collectionView.delegate = self
     }

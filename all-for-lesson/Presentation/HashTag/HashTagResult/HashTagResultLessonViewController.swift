@@ -35,6 +35,11 @@ final class HashTagResultLessonViewController: BaseViewController {
         bind()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        toggleTabBar(isShow: false)
+    }
+    
     override func setViewController() {
         view.addSubview(collectionView)
         
@@ -42,7 +47,8 @@ final class HashTagResultLessonViewController: BaseViewController {
         
         collectionView.snp.makeConstraints {
             $0.top.equalTo(safeArea).offset(16)
-            $0.horizontalEdges.bottom.equalTo(safeArea)
+            $0.horizontalEdges.equalTo(safeArea)
+            $0.bottom.equalTo(view)
         }
     }
     
@@ -51,6 +57,14 @@ final class HashTagResultLessonViewController: BaseViewController {
         resultLessonData
             .bind(to: collectionView.rx.items(cellIdentifier: LessonCollectionViewCell.id, cellType: LessonCollectionViewCell.self)) { item, element, cell in
                 cell.updateCell(post: element)
+            }
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.modelSelected(Post.self)
+            .bind(with: self) { owner, post in
+                let lessonDetailVC = LessonDetailViewController()
+                lessonDetailVC.postId.onNext(post.post_id)
+                owner.navigationController?.pushViewController(lessonDetailVC, animated: true)
             }
             .disposed(by: disposeBag)
     }
