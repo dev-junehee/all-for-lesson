@@ -140,6 +140,11 @@
 		C4DC8E662C81C1970007FE12 /* HashTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E652C81C1970007FE12 /* HashTagViewModel.swift */; };
 		C4DC8E682C81CF8D0007FE12 /* HashTagQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E672C81CF8D0007FE12 /* HashTagQuery.swift */; };
 		C4DC8E6A2C81F9C50007FE12 /* HashTagCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E692C81F9C50007FE12 /* HashTagCollectionViewCell.swift */; };
+		C4DC8E712C821FEF0007FE12 /* HashTagResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E702C821FEF0007FE12 /* HashTagResultViewController.swift */; };
+		C4DC8E732C8220140007FE12 /* HashTagResultViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E722C8220140007FE12 /* HashTagResultViewModel.swift */; };
+		C4DC8E762C8221860007FE12 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = C4DC8E752C8221860007FE12 /* Tabman */; };
+		C4DC8E7A2C832D530007FE12 /* HashTagResultLessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E792C832D530007FE12 /* HashTagResultLessonViewController.swift */; };
+		C4DC8E7C2C832D6A0007FE12 /* HashTagResultCommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E7B2C832D6A0007FE12 /* HashTagResultCommunityViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -270,6 +275,10 @@
 		C4DC8E652C81C1970007FE12 /* HashTagViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagViewModel.swift; sourceTree = "<group>"; };
 		C4DC8E672C81CF8D0007FE12 /* HashTagQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagQuery.swift; sourceTree = "<group>"; };
 		C4DC8E692C81F9C50007FE12 /* HashTagCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagCollectionViewCell.swift; sourceTree = "<group>"; };
+		C4DC8E702C821FEF0007FE12 /* HashTagResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagResultViewController.swift; sourceTree = "<group>"; };
+		C4DC8E722C8220140007FE12 /* HashTagResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagResultViewModel.swift; sourceTree = "<group>"; };
+		C4DC8E792C832D530007FE12 /* HashTagResultLessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagResultLessonViewController.swift; sourceTree = "<group>"; };
+		C4DC8E7B2C832D6A0007FE12 /* HashTagResultCommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagResultCommunityViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -282,6 +291,7 @@
 				C48063082C6F286E003FF7EE /* RxSwift in Frameworks */,
 				C48063352C6F6B79003FF7EE /* Alamofire in Frameworks */,
 				C40391842C7B81F100D50850 /* Kingfisher in Frameworks */,
+				C4DC8E762C8221860007FE12 /* Tabman in Frameworks */,
 				C48062E12C6F1376003FF7EE /* Then in Frameworks */,
 				C403917F2C7B54B100D50850 /* Toast in Frameworks */,
 				C480631A2C6F2CDF003FF7EE /* TextFieldEffects in Frameworks */,
@@ -305,14 +315,14 @@
 			path = User;
 			sourceTree = "<group>";
 		};
-		C403912B2C75D81000D50850 /* Open */ = {
+		C403912B2C75D81000D50850 /* LessonOpen */ = {
 			isa = PBXGroup;
 			children = (
 				C403912C2C75D82300D50850 /* LessonOpenView.swift */,
 				C403912E2C75D82D00D50850 /* LessonOpenViewController.swift */,
 				C40391362C76363000D50850 /* LessonOpenViewModel.swift */,
 			);
-			path = Open;
+			path = LessonOpen;
 			sourceTree = "<group>";
 		};
 		C40391572C76E9A900D50850 /* Router */ = {
@@ -414,7 +424,7 @@
 				C494478C2C70B1DE005AADF7 /* Home */,
 				C49447A12C70F2E9005AADF7 /* Lesson */,
 				C4DC8E5C2C81B6100007FE12 /* UserDetail */,
-				C49447A42C70F3A1005AADF7 /* Search */,
+				C49447A42C70F3A1005AADF7 /* HashTag */,
 				C49447A72C70F4B5005AADF7 /* Community */,
 				C49447AA2C70F585005AADF7 /* MyPage */,
 			);
@@ -635,9 +645,9 @@
 		C49447A12C70F2E9005AADF7 /* Lesson */ = {
 			isa = PBXGroup;
 			children = (
-				C403912B2C75D81000D50850 /* Open */,
-				C4DC8E522C80C1DF0007FE12 /* Edit */,
-				C49447EA2C74DBEB005AADF7 /* Detail */,
+				C403912B2C75D81000D50850 /* LessonOpen */,
+				C4DC8E522C80C1DF0007FE12 /* LessonEdit */,
+				C49447EA2C74DBEB005AADF7 /* LessonDetail */,
 				C49447CE2C732A19005AADF7 /* LessonView.swift */,
 				C49447A22C70F2FE005AADF7 /* LessonViewController.swift */,
 				C49447E32C7448C5005AADF7 /* LessonViewModel.swift */,
@@ -645,14 +655,15 @@
 			path = Lesson;
 			sourceTree = "<group>";
 		};
-		C49447A42C70F3A1005AADF7 /* Search */ = {
+		C49447A42C70F3A1005AADF7 /* HashTag */ = {
 			isa = PBXGroup;
 			children = (
+				C4DC8E6D2C8213E30007FE12 /* HashTagResult */,
 				C4DC8E632C81C1790007FE12 /* HashTagView.swift */,
 				C49447A52C70F3B3005AADF7 /* HashTagViewController.swift */,
 				C4DC8E652C81C1970007FE12 /* HashTagViewModel.swift */,
 			);
-			path = Search;
+			path = HashTag;
 			sourceTree = "<group>";
 		};
 		C49447A72C70F4B5005AADF7 /* Community */ = {
@@ -713,7 +724,7 @@
 			path = DummyData;
 			sourceTree = "<group>";
 		};
-		C49447EA2C74DBEB005AADF7 /* Detail */ = {
+		C49447EA2C74DBEB005AADF7 /* LessonDetail */ = {
 			isa = PBXGroup;
 			children = (
 				C4DC8E162C7DF22C0007FE12 /* Control */,
@@ -721,7 +732,7 @@
 				C49447ED2C74DBFE005AADF7 /* LessonDetailViewController.swift */,
 				C49447EB2C74DBF8005AADF7 /* LessonDetailViewModel.swift */,
 			);
-			path = Detail;
+			path = LessonDetail;
 			sourceTree = "<group>";
 		};
 		C4DC8E162C7DF22C0007FE12 /* Control */ = {
@@ -773,13 +784,13 @@
 			path = MyLesson;
 			sourceTree = "<group>";
 		};
-		C4DC8E522C80C1DF0007FE12 /* Edit */ = {
+		C4DC8E522C80C1DF0007FE12 /* LessonEdit */ = {
 			isa = PBXGroup;
 			children = (
 				C4DC8E552C80C1FB0007FE12 /* LessonEditViewController.swift */,
 				C4DC8E572C80C2020007FE12 /* LessonEditViewModel.swift */,
 			);
-			path = Edit;
+			path = LessonEdit;
 			sourceTree = "<group>";
 		};
 		C4DC8E5C2C81B6100007FE12 /* UserDetail */ = {
@@ -790,6 +801,17 @@
 				C4DC8E612C81BA0E0007FE12 /* UserProfileViewModel.swift */,
 			);
 			path = UserDetail;
+			sourceTree = "<group>";
+		};
+		C4DC8E6D2C8213E30007FE12 /* HashTagResult */ = {
+			isa = PBXGroup;
+			children = (
+				C4DC8E792C832D530007FE12 /* HashTagResultLessonViewController.swift */,
+				C4DC8E7B2C832D6A0007FE12 /* HashTagResultCommunityViewController.swift */,
+				C4DC8E702C821FEF0007FE12 /* HashTagResultViewController.swift */,
+				C4DC8E722C8220140007FE12 /* HashTagResultViewModel.swift */,
+			);
+			path = HashTagResult;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -817,6 +839,7 @@
 				C48063342C6F6B79003FF7EE /* Alamofire */,
 				C403917E2C7B54B100D50850 /* Toast */,
 				C40391832C7B81F100D50850 /* Kingfisher */,
+				C4DC8E752C8221860007FE12 /* Tabman */,
 			);
 			productName = "all-for-lesson";
 			productReference = C48062A72C6DD4BE003FF7EE /* all-for-lesson.app */;
@@ -854,6 +877,7 @@
 				C48063332C6F6B79003FF7EE /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C403917D2C7B54B100D50850 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				C40391822C7B81F100D50850 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				C4DC8E742C8221860007FE12 /* XCRemoteSwiftPackageReference "Tabman" */,
 			);
 			productRefGroup = C48062A82C6DD4BE003FF7EE /* Products */;
 			projectDirPath = "";
@@ -893,10 +917,12 @@
 			files = (
 				C40391812C7B54FC00D50850 /* ToastManager.swift in Sources */,
 				C49447E42C7448C5005AADF7 /* LessonViewModel.swift in Sources */,
+				C4DC8E732C8220140007FE12 /* HashTagResultViewModel.swift in Sources */,
 				C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */,
 				C4DC8E1C2C7E07C50007FE12 /* CommentResponse.swift in Sources */,
 				C4DC8E6A2C81F9C50007FE12 /* HashTagCollectionViewCell.swift in Sources */,
 				C49447E22C7443E7005AADF7 /* HomeViewModel.swift in Sources */,
+				C4DC8E7C2C832D6A0007FE12 /* HashTagResultCommunityViewController.swift in Sources */,
 				C48062FE2C6F1D25003FF7EE /* UIImage+.swift in Sources */,
 				C40391282C75BE9B00D50850 /* MyProfileResponse.swift in Sources */,
 				C4DC8E3A2C8058FD0007FE12 /* MyReservationBookmarkView.swift in Sources */,
@@ -908,6 +934,7 @@
 				C40391592C76EA0000D50850 /* PostRouter.swift in Sources */,
 				C48062CB2C6F0FFC003FF7EE /* OnboardingView.swift in Sources */,
 				C48063172C6F2C4E003FF7EE /* StudentJoinView.swift in Sources */,
+				C4DC8E712C821FEF0007FE12 /* HashTagResultViewController.swift in Sources */,
 				C4DC8E412C805B260007FE12 /* MyBookmarkViewController.swift in Sources */,
 				C49447AC2C70F593005AADF7 /* MyPageViewController.swift in Sources */,
 				C40391372C76363000D50850 /* LessonOpenViewModel.swift in Sources */,
@@ -937,6 +964,7 @@
 				C49447922C70BB02005AADF7 /* HomeViewController.swift in Sources */,
 				C4DC8E1E2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift in Sources */,
 				C48062D72C6F10FE003FF7EE /* UIView+.swift in Sources */,
+				C4DC8E7A2C832D530007FE12 /* HashTagResultLessonViewController.swift in Sources */,
 				C494479B2C70E846005AADF7 /* UIViewController+.swift in Sources */,
 				C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */,
 				C4DC8E5E2C81B61F0007FE12 /* UserProfileView.swift in Sources */,
@@ -1286,6 +1314,14 @@
 				minimumVersion = 5.9.1;
 			};
 		};
+		C4DC8E742C8221860007FE12 /* XCRemoteSwiftPackageReference "Tabman" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/uias/Tabman.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.2.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1328,6 +1364,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C48063332C6F6B79003FF7EE /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		C4DC8E752C8221860007FE12 /* Tabman */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4DC8E742C8221860007FE12 /* XCRemoteSwiftPackageReference "Tabman" */;
+			productName = Tabman;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

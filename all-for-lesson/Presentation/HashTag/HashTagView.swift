@@ -23,13 +23,14 @@ final class HashTagView: BaseView {
     private let searchBackgroundView = UIView().then {
         $0.backgroundColor = Resource.Color.ivory
         $0.layer.borderColor = Resource.Color.lightGray.cgColor
-        $0.layer.borderWidth = 1
+        $0.layer.borderWidth = 1.5
         $0.layer.cornerRadius = 20
     }
     
     let searchTextField = UITextField().then {
         $0.placeholder = "어떤 해시태그를 찾으시나요?"
         $0.font = Resource.Font.regular16
+        $0.tintColor = Resource.Color.lightGray
     }
     
     let searchButton = UIButton().then {

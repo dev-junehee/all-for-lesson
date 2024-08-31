@@ -34,13 +34,23 @@ final class HashTagViewController: BaseViewController {
         let input = HashTagViewModel.Input(
             viewWillAppearTrigger: viewWillAppearTrigger,
             searchText: hashtagView.searchTextField.rx.text,
-            searchButtonTap: hashtagView.searchButton.rx.tap)
+            searchButtonTap: hashtagView.searchButton.rx.tap,
+            hashtagButtonTap: hashtagView.collectionView.rx.modelSelected(String.self))
         let output = viewModel.transform(input: input)
         
         /// 추천 해시태그 셀 데이터 바인딩
         output.recommendHashtagList
             .bind(to: hashtagView.collectionView.rx.items(cellIdentifier: HashTagCollectionViewCell.id, cellType: HashTagCollectionViewCell.self)) { item, element, cell in
                 cell.updateCell(title: element)
+            }
+            .disposed(by: disposeBag)
+        
+        /// 해시태그 검색 결과 + 화면전환
+        output.searchHashtagList
+            .bind(with: self) { owner, searchList in
+                let hashtagResultVC = HashTagResultViewController()
+                hashtagResultVC.resultLessonVC.resultLessonData.onNext(searchList)
+                owner.navigationController?.pushViewController(hashtagResultVC, animated: true)
             }
             .disposed(by: disposeBag)
     }
