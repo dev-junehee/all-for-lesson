@@ -12,16 +12,5 @@ import Then
 
 final class PaymentsView: BaseView {
     
-    let payWebView = WKWebView().then {
-        $0.backgroundColor = .clear
-    }
-    
-    override func setHierarchyLayout() {
-        self.addSubview(payWebView)
-        
-        payWebView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
-        }
-    }
-    
+   
 }

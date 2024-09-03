@@ -22,7 +22,7 @@ final class LessonDetailViewModel: InputOutput {
         let teacherProfileTap: ControlEvent<Void>       /// 선생님 프로필 이미지 탭
         let commentText: ControlProperty<String?>       /// 후기 댓글 텍스트
         let commentButtonTap: ControlEvent<Void>        /// 후기 등록 버튼 탭
-        let webView: WKWebView
+        // let postValidation: PublishSubject<PayValidationBody>
     }
     
     struct Output {
@@ -142,34 +142,18 @@ final class LessonDetailViewModel: InputOutput {
             }
             .disposed(by: disposeBag)
             
-        
-        // input.reservationButtonTap
-        //     .throttle(.seconds(3), scheduler: MainScheduler.instance)
-        //     .withLatestFrom(detailInfo)
-        //     .map { post in
-        //         let payment = IamportPayment(
-        //             pg:  PG.html5_inicis.makePgRawName(pgId: "INIpayTest"),
-        //             merchant_uid: "ios_\(API.KEY.key)_\(Int(Date().timeIntervalSince1970))",
-        //             amount: "\(post.price)").then {
-        //                 $0.pay_method = PayMethod.card.rawValue
-        //                 $0.name = post.title
-        //                 $0.buyer_name = "김준희"   /// 주문자 이름 대신 프로젝트 내에서 본인 이름 사용
-        //                 $0.app_scheme = "allforlesson"
-        //             }
-        //         
-        //         Iamport.shared.paymentWebView(
-        //             webViewMode: input.webView,
-        //             userCode: API.KEY.userCode,
-        //             payment: payment) { iamportResponse in
-        //                 print("payment >>>", String(describing: iamportResponse))
-        //                 
-        //                 guard let response = iamportResponse else { return }
-        //                 
-        //             }
-        //         
+        // input.postValidation
+        //     .flatMapLatest { body in
+        //         NetworkManager.shared.apiCall(api: .pay(.postValidation(body: body)), of: PayValidationResponse.self)
         //     }
-        //     .bind { _ in
-        //         print("포트원 결제 끝")
+        //     .bind { result in
+        //         switch result {
+        //         case .success(let value):
+        //             print("post Validation 성공")
+        //             print(value)
+        //         case .failure(let error):
+        //             print("post Validation 실패", error)
+        //         }
         //     }
         //     .disposed(by: disposeBag)
         
@@ -206,10 +190,10 @@ final class LessonDetailViewModel: InputOutput {
             }
             .bind { result in
                 switch result {
-                case .success(let value):
+                case .success(_):
                     print("후기 등록 성공")
                     commentResult.onNext(true)
-                case .failure(let error):
+                case .failure(_):
                     print("후기 등록 실패")
                     commentResult.onNext(false)
                 }

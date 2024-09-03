@@ -6,18 +6,27 @@
 //
 
 import UIKit
+import WebKit
+import iamport_ios
 import RxCocoa
 import RxSwift
+import SnapKit
 
 final class LessonDetailViewController: BaseViewController {
     
     private let detailView = LessonDetailView()
-    private let paymentsView = PaymentsView()
+    
+    // private lazy var webView = WKWebView().then {
+    //     $0.backgroundColor = UIColor.clear
+    //     $0.isHidden = true
+    // }
+    // 
     
     private let viewModel = LessonDetailViewModel()
     private let disposeBag = DisposeBag()
     
     let postId = BehaviorSubject<String>(value: "")
+    // let postValidation = PublishSubject<PayValidationBody>()
     
     override func loadView() {
         view = detailView
@@ -32,6 +41,11 @@ final class LessonDetailViewController: BaseViewController {
         setBackBarButton(Resource.Color.whiteSmoke)
         setImgBarButton(image: Resource.Image.bookmarkFill, color: Resource.Color.whiteSmoke, action: nil, type: .right)
         toggleTabBar(isShow: false)
+        
+        // view.addSubview(webView)
+        // webView.snp.makeConstraints {
+        //     $0.edges.equalToSuperview()
+        // }
     }
     
     private func bind() {
@@ -44,8 +58,7 @@ final class LessonDetailViewController: BaseViewController {
             infoControlTap: detailView.lessonInfoControl.rx.selectedSegmentIndex,
             teacherProfileTap: detailView.lessonDetailInfoView.teacherProfileImage.rx.tap,
             commentText: detailView.commentFieldView.commentField.rx.text,
-            commentButtonTap: detailView.commentFieldView.commentButton.rx.tap,
-            webView: paymentsView.payWebView)
+            commentButtonTap: detailView.commentFieldView.commentButton.rx.tap)
         let output = viewModel.transform(input: input)
         
         /// 레슨 상세 데이터 바인딩
@@ -81,8 +94,11 @@ final class LessonDetailViewController: BaseViewController {
         output.reservationButtonTap
             .bind(with: self) { owner, post in
                 let paymentsVC = PaymentsViewController()
-                paymentsVC.postData.onNext(post)
-                owner.present(UINavigationController(rootViewController: paymentsVC), animated: true)
+                paymentsVC.postData = post
+                // paymentsVC.payWebView.isHidden = false
+                // owner.present(paymentsVC, animated: true)
+                owner.navigationController?.pushViewController(paymentsVC, animated: true)
+                // owner.payments(post)
             }
             .disposed(by: disposeBag)
         
@@ -115,7 +131,7 @@ final class LessonDetailViewController: BaseViewController {
             .bind(with: self) { owner, userID in
                 let userDetailVC = UserProfileViewController()
                 userDetailVC.userID.onNext(userID)
-                owner.navigationController?.pushViewController(userDetailVC, animated: true)
+                // owner.navigationController?.pushViewController(userDetailVC, animated: true)
             }
             .disposed(by: disposeBag)
         
@@ -129,8 +145,48 @@ final class LessonDetailViewController: BaseViewController {
             .disposed(by: disposeBag)
     }
     
-    @objc private func bookmarkButtonClicked() {
-        
-    }
+    // private func payments(_ post: Post) {
+    //     print("🍏 이건 실행되나?")
+    //     
+    //     let payment = IamportPayment(
+    //         pg: PG.html5_inicis.makePgRawName(pgId: "INIpayTest"),
+    //         merchant_uid: "ios_\(API.KEY.key)_\(Int(Date().timeIntervalSince1970))",
+    //         amount: "\(post.price)").then {
+    //             $0.pay_method = PayMethod.card.rawValue
+    //             $0.name = post.title
+    //             $0.buyer_name = "김준희"   /// 주문자 이름 대신 프로젝트 내에서 본인 이름 사용
+    //             $0.app_scheme = "allforlesson"
+    //         }
+    //     
+    //     // webView.isHidden = true
+    //     
+    //     Iamport.shared.paymentWebView(
+    //         webViewMode: webView,
+    //         userCode: API.KEY.userCode,
+    //         payment: payment) { iamportResponse in
+    //             print("payment >>>", String(describing: iamportResponse))
+    //             
+    //             guard let imp_uid = iamportResponse?.imp_uid else { return }
+    //             let body = PayValidationBody(imp_uid: imp_uid, post_id: post.post_id)
+    //             
+    //             Observable.just(body)
+    //                 .flatMap { body in
+    //                     NetworkManager.shared.apiCall(api: .pay(.postValidation(body: body)), of: PayValidationResponse.self)
+    //                 }
+    //                 .bind { result in
+    //                     switch result {
+    //                     case .success(let value):
+    //                         print("검증 성공")
+    //                         print(value)
+    //                     case .failure(let error):
+    //                         print("검증 실패", error)
+    //                     }
+    //                 }
+    //                 .dispose()
+    //             
+    //             // self?.postValidation.onNext(body)
+    //             }
+    //             
+    // }
     
 }

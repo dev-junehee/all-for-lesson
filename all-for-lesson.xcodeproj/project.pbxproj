@@ -150,6 +150,7 @@
 		C4DC8E8C2C83742C0007FE12 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E8B2C83742C0007FE12 /* PaymentsView.swift */; };
 		C4DC8E8E2C8381320007FE12 /* PaymentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E8D2C8381320007FE12 /* PaymentsViewController.swift */; };
 		C4DC8E902C8383120007FE12 /* PaymentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E8F2C8383120007FE12 /* PaymentsViewModel.swift */; };
+		C4DC8ECF2C86CA0B0007FE12 /* PayValidationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8ECE2C86CA0B0007FE12 /* PayValidationResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -289,6 +290,7 @@
 		C4DC8E8B2C83742C0007FE12 /* PaymentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
 		C4DC8E8D2C8381320007FE12 /* PaymentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewController.swift; sourceTree = "<group>"; };
 		C4DC8E8F2C8383120007FE12 /* PaymentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewModel.swift; sourceTree = "<group>"; };
+		C4DC8ECE2C86CA0B0007FE12 /* PayValidationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayValidationResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,7 +344,6 @@
 				C40391292C75D4C200D50850 /* UserRouter.swift */,
 				C40391582C76EA0000D50850 /* PostRouter.swift */,
 				C4DC8E7D2C8361EB0007FE12 /* PayRouter.swift */,
-				C48062C02C6DD521003FF7EE /* API.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -584,6 +585,7 @@
 			isa = PBXGroup;
 			children = (
 				C40391572C76E9A900D50850 /* Router */,
+				C48062C02C6DD521003FF7EE /* API.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -603,6 +605,7 @@
 			children = (
 				C40391262C75BE4A00D50850 /* User */,
 				C403915A2C76EDB000D50850 /* Post */,
+				C4DC8ECD2C86C9F00007FE12 /* Pay */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -845,6 +848,14 @@
 			path = Payments;
 			sourceTree = "<group>";
 		};
+		C4DC8ECD2C86C9F00007FE12 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				C4DC8ECE2C86CA0B0007FE12 /* PayValidationResponse.swift */,
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1012,6 +1023,7 @@
 				C48062E42C6F13C0003FF7EE /* Constant.swift in Sources */,
 				C4DC8E8E2C8381320007FE12 /* PaymentsViewController.swift in Sources */,
 				C403912D2C75D82300D50850 /* LessonOpenView.swift in Sources */,
+				C4DC8ECF2C86CA0B0007FE12 /* PayValidationResponse.swift in Sources */,
 				C480630A2C6F2976003FF7EE /* InputOutput.swift in Sources */,
 				C48063392C6F7954003FF7EE /* EmailResponse.swift in Sources */,
 				C48063262C6F596F003FF7EE /* TeacherJoinView.swift in Sources */,
