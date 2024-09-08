@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class MyReservationController: BaseViewController {
+final class MyReservationViewController: BaseViewController {
     
     private let myReservationView = MyReservationBookmarkView()
     private let viewModel = MyReservationViewModel()
@@ -39,14 +39,15 @@ final class MyReservationController: BaseViewController {
         
         let input = MyReservationViewModel.Input(
             viewWillAppearTrigger: viewWillAppearTrigger,
-            reservationTap: myReservationView.collectionView.rx.modelSelected(Post.self)
+            reservationTap: myReservationView.collectionView.rx.modelSelected(String.self)
         )
         let output = viewModel.transform(input: input)
         
         /// 나의 수강 내역 리스트 데이터 바인딩
         output.reservationList
             .bind(to: myReservationView.collectionView.rx.items(cellIdentifier: LessonCollectionViewCell.id, cellType: LessonCollectionViewCell.self)) { item, element, cell in
-                cell.updateCell(post: element)
+                // cell.updateCell(post: element)
+                cell.updateCellWithPostID(element.post_id)
             }
             .disposed(by: disposeBag)
         

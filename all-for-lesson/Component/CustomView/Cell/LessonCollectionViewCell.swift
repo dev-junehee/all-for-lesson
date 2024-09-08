@@ -106,4 +106,15 @@ final class LessonCollectionViewCell: BaseCollectionViewCell {
         bookmarkButton.isHidden = isTeacher
     }
     
+    func updateCellWithPostID(_ id: String) {
+        NetworkManager.shared.getPostDetail(id) { [weak self] result in
+            switch result {
+            case .success(let post):
+                self?.updateCell(post: post)
+            case .failure(let error):
+                print(#function, error)
+            }
+        }
+    }
+    
 }

@@ -57,7 +57,7 @@ final class MyPageViewController: BaseViewController {
         /// 수강 내역 버튼 탭 (수강생)
         output.reservationButtonTap
             .bind(with: self) { owner, _ in
-                owner.navigationController?.pushViewController(MyReservationController(), animated: true)
+                owner.navigationController?.pushViewController(MyReservationViewController(), animated: true)
             }
             .disposed(by: disposeBag)
         

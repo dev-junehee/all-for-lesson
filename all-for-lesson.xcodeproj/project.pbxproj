@@ -27,6 +27,7 @@
 		C40391812C7B54FC00D50850 /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40391802C7B54FC00D50850 /* ToastManager.swift */; };
 		C40391842C7B81F100D50850 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C40391832C7B81F100D50850 /* Kingfisher */; };
 		C46D05EC2C8DAFF1001EF943 /* PaymentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D05EB2C8DAFF1001EF943 /* PaymentsViewModel.swift */; };
+		C46D05EE2C8DB7A8001EF943 /* MyPaymentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D05ED2C8DB7A8001EF943 /* MyPaymentsResponse.swift */; };
 		C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */; };
 		C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */; };
 		C48062B42C6DD4BF003FF7EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48062B32C6DD4BF003FF7EE /* Assets.xcassets */; };
@@ -119,7 +120,7 @@
 		C4DC8E1A2C7E043B0007FE12 /* PostCommentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E192C7E043B0007FE12 /* PostCommentBody.swift */; };
 		C4DC8E1C2C7E07C50007FE12 /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E1B2C7E07C50007FE12 /* CommentResponse.swift */; };
 		C4DC8E1E2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E1D2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift */; };
-		C4DC8E382C8058F50007FE12 /* MyReservationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E372C8058F50007FE12 /* MyReservationController.swift */; };
+		C4DC8E382C8058F50007FE12 /* MyReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E372C8058F50007FE12 /* MyReservationViewController.swift */; };
 		C4DC8E3A2C8058FD0007FE12 /* MyReservationBookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E392C8058FD0007FE12 /* MyReservationBookmarkView.swift */; };
 		C4DC8E3C2C8059040007FE12 /* MyReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E3B2C8059040007FE12 /* MyReservationViewModel.swift */; };
 		C4DC8E412C805B260007FE12 /* MyBookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E402C805B260007FE12 /* MyBookmarkViewController.swift */; };
@@ -171,6 +172,7 @@
 		C403917B2C7B4F6E00D50850 /* PostQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostQuery.swift; sourceTree = "<group>"; };
 		C40391802C7B54FC00D50850 /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
 		C46D05EB2C8DAFF1001EF943 /* PaymentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewModel.swift; sourceTree = "<group>"; };
+		C46D05ED2C8DB7A8001EF943 /* MyPaymentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPaymentsResponse.swift; sourceTree = "<group>"; };
 		C48062A72C6DD4BE003FF7EE /* all-for-lesson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "all-for-lesson.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -260,7 +262,7 @@
 		C4DC8E192C7E043B0007FE12 /* PostCommentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentBody.swift; sourceTree = "<group>"; };
 		C4DC8E1B2C7E07C50007FE12 /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
 		C4DC8E1D2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCommentCollectionViewCell.swift; sourceTree = "<group>"; };
-		C4DC8E372C8058F50007FE12 /* MyReservationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationController.swift; sourceTree = "<group>"; };
+		C4DC8E372C8058F50007FE12 /* MyReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationViewController.swift; sourceTree = "<group>"; };
 		C4DC8E392C8058FD0007FE12 /* MyReservationBookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationBookmarkView.swift; sourceTree = "<group>"; };
 		C4DC8E3B2C8059040007FE12 /* MyReservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationViewModel.swift; sourceTree = "<group>"; };
 		C4DC8E402C805B260007FE12 /* MyBookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookmarkViewController.swift; sourceTree = "<group>"; };
@@ -763,7 +765,7 @@
 			isa = PBXGroup;
 			children = (
 				C4DC8E392C8058FD0007FE12 /* MyReservationBookmarkView.swift */,
-				C4DC8E372C8058F50007FE12 /* MyReservationController.swift */,
+				C4DC8E372C8058F50007FE12 /* MyReservationViewController.swift */,
 				C4DC8E3B2C8059040007FE12 /* MyReservationViewModel.swift */,
 			);
 			path = MyReservation;
@@ -849,6 +851,7 @@
 			isa = PBXGroup;
 			children = (
 				C4DC8ECE2C86CA0B0007FE12 /* PayValidationResponse.swift */,
+				C46D05ED2C8DB7A8001EF943 /* MyPaymentsResponse.swift */,
 			);
 			path = Pay;
 			sourceTree = "<group>";
@@ -969,6 +972,7 @@
 				C49447962C70D6C4005AADF7 /* LoginResponse.swift in Sources */,
 				C4DC8E132C7DF1C10007FE12 /* LessonCommentView.swift in Sources */,
 				C49447B52C722BD0005AADF7 /* HomeView.swift in Sources */,
+				C46D05EE2C8DB7A8001EF943 /* MyPaymentsResponse.swift in Sources */,
 				C403917A2C7A010A00D50850 /* PostFilesResponse.swift in Sources */,
 				C480632B2C6F5BA4003FF7EE /* StudentJoinViewModel.swift in Sources */,
 				C40391592C76EA0000D50850 /* PostRouter.swift in Sources */,
@@ -1058,7 +1062,7 @@
 				C48063442C6F9078003FF7EE /* LoginView.swift in Sources */,
 				C49447A02C70EDC9005AADF7 /* CustomTabBarController.swift in Sources */,
 				C403912A2C75D4C200D50850 /* UserRouter.swift in Sources */,
-				C4DC8E382C8058F50007FE12 /* MyReservationController.swift in Sources */,
+				C4DC8E382C8058F50007FE12 /* MyReservationViewController.swift in Sources */,
 				C49447EE2C74DBFE005AADF7 /* LessonDetailViewController.swift in Sources */,
 				C49447D32C7334A0005AADF7 /* PostResponse.swift in Sources */,
 				C4DC8E4F2C80B8B10007FE12 /* MyLessonViewController.swift in Sources */,

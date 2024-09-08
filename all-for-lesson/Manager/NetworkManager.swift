@@ -128,7 +128,7 @@ final class NetworkManager {
     //         }
     // }
     
-    func getImage (_ file: String, completion: @escaping (Data) -> Void) {
+    func getImage(_ file: String, completion: @escaping (Data) -> Void) {
         let URL = API.URL.base + file
         let headers: HTTPHeaders = [
             API.Header.auth: UserDefaultsManager.accessToken,
@@ -142,6 +142,26 @@ final class NetworkManager {
                 }
             }
     }
+    
+    func getPostDetail(_ id: String, completion: @escaping (Result<Post, AFError>) -> Void) {
+        let router = PostRouter.getPostsDetail(id: id)
+        do {
+            let request = try router.asURLRequest()
+            AF.request(request)
+                .validate(statusCode: 200..<300)
+                .responseDecodable(of: Post.self) { response in
+                    switch response.result {
+                    case .success(let value):
+                        completion(.success(value))
+                    case .failure(let error):
+                        completion(.failure(error))
+                    }
+                }
+        } catch {
+            print("getPostDetail URLRequestConvertible Failed", error)
+        }
+    }
+    
     
     func refreshToken(completion: @escaping (Bool) -> Void) {
         print("토큰 갱신 시작")
