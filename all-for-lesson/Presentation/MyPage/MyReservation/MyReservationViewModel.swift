@@ -43,8 +43,6 @@ final class MyReservationViewModel: InputOutput {
         //     }
         //     .disposed(by: disposeBag)
         
-        let myPaymentsResponse = PublishSubject<MyPaymentsResponse>()
-        
         input.viewWillAppearTrigger
             .flatMapLatest { _ in
                 NetworkManager.shared.apiCall(api: .pay(.getMyPayments), of: MyPaymentsResponse.self)

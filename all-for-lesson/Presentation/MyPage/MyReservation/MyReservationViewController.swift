@@ -46,8 +46,8 @@ final class MyReservationViewController: BaseViewController {
         /// 나의 수강 내역 리스트 데이터 바인딩
         output.reservationList
             .bind(to: myReservationView.collectionView.rx.items(cellIdentifier: LessonCollectionViewCell.id, cellType: LessonCollectionViewCell.self)) { item, element, cell in
-                // cell.updateCell(post: element)
-                cell.updateCellWithPostID(element.post_id)
+                // cell.updateCell(post: element)   /// 내가 좋아요한 목록
+                cell.updateCellWithPostID(element.post_id)  /// 내가 결제한 목록
             }
             .disposed(by: disposeBag)
         
