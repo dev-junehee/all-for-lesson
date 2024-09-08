@@ -26,6 +26,7 @@
 		C403917F2C7B54B100D50850 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = C403917E2C7B54B100D50850 /* Toast */; };
 		C40391812C7B54FC00D50850 /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40391802C7B54FC00D50850 /* ToastManager.swift */; };
 		C40391842C7B81F100D50850 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C40391832C7B81F100D50850 /* Kingfisher */; };
+		C46D05EC2C8DAFF1001EF943 /* PaymentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D05EB2C8DAFF1001EF943 /* PaymentsViewModel.swift */; };
 		C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */; };
 		C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */; };
 		C48062B42C6DD4BF003FF7EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48062B32C6DD4BF003FF7EE /* Assets.xcassets */; };
@@ -147,9 +148,7 @@
 		C4DC8E7E2C8361EB0007FE12 /* PayRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E7D2C8361EB0007FE12 /* PayRouter.swift */; };
 		C4DC8E812C8363CD0007FE12 /* PayValidationBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E802C8363CD0007FE12 /* PayValidationBody.swift */; };
 		C4DC8E842C836B020007FE12 /* iamport-ios in Frameworks */ = {isa = PBXBuildFile; productRef = C4DC8E832C836B020007FE12 /* iamport-ios */; };
-		C4DC8E8C2C83742C0007FE12 /* PaymentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E8B2C83742C0007FE12 /* PaymentsView.swift */; };
 		C4DC8E8E2C8381320007FE12 /* PaymentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E8D2C8381320007FE12 /* PaymentsViewController.swift */; };
-		C4DC8E902C8383120007FE12 /* PaymentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E8F2C8383120007FE12 /* PaymentsViewModel.swift */; };
 		C4DC8ECF2C86CA0B0007FE12 /* PayValidationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8ECE2C86CA0B0007FE12 /* PayValidationResponse.swift */; };
 /* End PBXBuildFile section */
 
@@ -171,6 +170,7 @@
 		C40391792C7A010A00D50850 /* PostFilesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFilesResponse.swift; sourceTree = "<group>"; };
 		C403917B2C7B4F6E00D50850 /* PostQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostQuery.swift; sourceTree = "<group>"; };
 		C40391802C7B54FC00D50850 /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
+		C46D05EB2C8DAFF1001EF943 /* PaymentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewModel.swift; sourceTree = "<group>"; };
 		C48062A72C6DD4BE003FF7EE /* all-for-lesson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "all-for-lesson.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -287,9 +287,7 @@
 		C4DC8E7B2C832D6A0007FE12 /* HashTagResultCommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagResultCommunityViewController.swift; sourceTree = "<group>"; };
 		C4DC8E7D2C8361EB0007FE12 /* PayRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayRouter.swift; sourceTree = "<group>"; };
 		C4DC8E802C8363CD0007FE12 /* PayValidationBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayValidationBody.swift; sourceTree = "<group>"; };
-		C4DC8E8B2C83742C0007FE12 /* PaymentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsView.swift; sourceTree = "<group>"; };
 		C4DC8E8D2C8381320007FE12 /* PaymentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewController.swift; sourceTree = "<group>"; };
-		C4DC8E8F2C8383120007FE12 /* PaymentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewModel.swift; sourceTree = "<group>"; };
 		C4DC8ECE2C86CA0B0007FE12 /* PayValidationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayValidationResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -841,9 +839,8 @@
 		C4DC8E882C8373DC0007FE12 /* Payments */ = {
 			isa = PBXGroup;
 			children = (
-				C4DC8E8B2C83742C0007FE12 /* PaymentsView.swift */,
 				C4DC8E8D2C8381320007FE12 /* PaymentsViewController.swift */,
-				C4DC8E8F2C8383120007FE12 /* PaymentsViewModel.swift */,
+				C46D05EB2C8DAFF1001EF943 /* PaymentsViewModel.swift */,
 			);
 			path = Payments;
 			sourceTree = "<group>";
@@ -958,7 +955,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C40391812C7B54FC00D50850 /* ToastManager.swift in Sources */,
-				C4DC8E902C8383120007FE12 /* PaymentsViewModel.swift in Sources */,
+				C46D05EC2C8DAFF1001EF943 /* PaymentsViewModel.swift in Sources */,
 				C49447E42C7448C5005AADF7 /* LessonViewModel.swift in Sources */,
 				C4DC8E732C8220140007FE12 /* HashTagResultViewModel.swift in Sources */,
 				C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */,
@@ -1058,7 +1055,6 @@
 				C4DC8E562C80C1FB0007FE12 /* LessonEditViewController.swift in Sources */,
 				C4DC8E4A2C805C0E0007FE12 /* MyCommentViewModel.swift in Sources */,
 				C4DC8E1A2C7E043B0007FE12 /* PostCommentBody.swift in Sources */,
-				C4DC8E8C2C83742C0007FE12 /* PaymentsView.swift in Sources */,
 				C48063442C6F9078003FF7EE /* LoginView.swift in Sources */,
 				C49447A02C70EDC9005AADF7 /* CustomTabBarController.swift in Sources */,
 				C403912A2C75D4C200D50850 /* UserRouter.swift in Sources */,

@@ -13,10 +13,14 @@ import RxSwift
 import SnapKit
 
 final class PaymentsViewController: BaseViewController {
+
+    lazy var payWebView = WKWebView(frame: view.bounds)
+    
+    private let viewModel = PaymentsViewModel()
     
     var postData: Post?
     
-    lazy var payWebView = WKWebView(frame: view.bounds)
+    private let payBodyData = PublishSubject<PayValidationBody>()
     
     override func setViewController() {
         view.addSubview(payWebView)
@@ -26,6 +30,7 @@ final class PaymentsViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         payments()
+        bind()
     }
     
     private func payments() {
@@ -44,9 +49,22 @@ final class PaymentsViewController: BaseViewController {
         Iamport.shared.paymentWebView(
             webViewMode: payWebView,
             userCode: API.KEY.userCode,
-            payment: payment) { iamportResponse in
+            payment: payment) { [weak self] iamportResponse in
                 print("payment >>>", String(describing: iamportResponse))
+                
+                guard let imp_uid = iamportResponse?.imp_uid,
+                      let postID = self?.postData?.post_id else { return }
+                let body = PayValidationBody(imp_uid: imp_uid, post_id: postID)
+                self?.payBodyData.onNext(body)
             }
+    }
+    
+    private func bind() {
+        let input = PaymentsViewModel.Input(payBodyData: payBodyData)
+        let output = viewModel.transform(input: input)
+        
+        
+        
     }
     
 }

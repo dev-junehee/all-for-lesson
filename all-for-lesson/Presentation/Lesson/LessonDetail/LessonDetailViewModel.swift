@@ -98,7 +98,7 @@ final class LessonDetailViewModel: InputOutput {
             }
             .disposed(by: disposeBag)
         
-        /// 레슨 신청 버튼 탭
+        /// 레슨 신청 버튼 탭 (기존 좋아요1 기능)
         // input.reservationButtonTap
         //     .withLatestFrom(detailInfo)
         //     .flatMap { post in
@@ -141,21 +141,6 @@ final class LessonDetailViewModel: InputOutput {
                 reservationButtonTap.onNext(post)
             }
             .disposed(by: disposeBag)
-            
-        // input.postValidation
-        //     .flatMapLatest { body in
-        //         NetworkManager.shared.apiCall(api: .pay(.postValidation(body: body)), of: PayValidationResponse.self)
-        //     }
-        //     .bind { result in
-        //         switch result {
-        //         case .success(let value):
-        //             print("post Validation 성공")
-        //             print(value)
-        //         case .failure(let error):
-        //             print("post Validation 실패", error)
-        //         }
-        //     }
-        //     .disposed(by: disposeBag)
         
         /// 레슨 상세 정보 / 선생님 정보 컨트롤 탭
         input.infoControlTap
