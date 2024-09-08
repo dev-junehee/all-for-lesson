@@ -26,6 +26,8 @@
 		C403917F2C7B54B100D50850 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = C403917E2C7B54B100D50850 /* Toast */; };
 		C40391812C7B54FC00D50850 /* ToastManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40391802C7B54FC00D50850 /* ToastManager.swift */; };
 		C40391842C7B81F100D50850 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C40391832C7B81F100D50850 /* Kingfisher */; };
+		C46D05EC2C8DAFF1001EF943 /* PaymentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D05EB2C8DAFF1001EF943 /* PaymentsViewModel.swift */; };
+		C46D05EE2C8DB7A8001EF943 /* MyPaymentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D05ED2C8DB7A8001EF943 /* MyPaymentsResponse.swift */; };
 		C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */; };
 		C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */; };
 		C48062B42C6DD4BF003FF7EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48062B32C6DD4BF003FF7EE /* Assets.xcassets */; };
@@ -39,7 +41,6 @@
 		C48062D92C6F11AD003FF7EE /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062D82C6F11AD003FF7EE /* Reusable.swift */; };
 		C48062DC2C6F1282003FF7EE /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C48062DB2C6F1282003FF7EE /* SnapKit */; };
 		C48062DE2C6F12D0003FF7EE /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062DD2C6F12D0003FF7EE /* BaseView.swift */; };
-		C48062E12C6F1376003FF7EE /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = C48062E02C6F1376003FF7EE /* Then */; };
 		C48062E42C6F13C0003FF7EE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062E32C6F13C0003FF7EE /* Constant.swift */; };
 		C48062E72C6F13CB003FF7EE /* Resource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062E62C6F13CB003FF7EE /* Resource.swift */; };
 		C48062E92C6F14F4003FF7EE /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062E82C6F14F4003FF7EE /* UIColor+.swift */; };
@@ -119,7 +120,7 @@
 		C4DC8E1A2C7E043B0007FE12 /* PostCommentBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E192C7E043B0007FE12 /* PostCommentBody.swift */; };
 		C4DC8E1C2C7E07C50007FE12 /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E1B2C7E07C50007FE12 /* CommentResponse.swift */; };
 		C4DC8E1E2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E1D2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift */; };
-		C4DC8E382C8058F50007FE12 /* MyReservationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E372C8058F50007FE12 /* MyReservationController.swift */; };
+		C4DC8E382C8058F50007FE12 /* MyReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E372C8058F50007FE12 /* MyReservationViewController.swift */; };
 		C4DC8E3A2C8058FD0007FE12 /* MyReservationBookmarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E392C8058FD0007FE12 /* MyReservationBookmarkView.swift */; };
 		C4DC8E3C2C8059040007FE12 /* MyReservationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E3B2C8059040007FE12 /* MyReservationViewModel.swift */; };
 		C4DC8E412C805B260007FE12 /* MyBookmarkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E402C805B260007FE12 /* MyBookmarkViewController.swift */; };
@@ -145,6 +146,11 @@
 		C4DC8E762C8221860007FE12 /* Tabman in Frameworks */ = {isa = PBXBuildFile; productRef = C4DC8E752C8221860007FE12 /* Tabman */; };
 		C4DC8E7A2C832D530007FE12 /* HashTagResultLessonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E792C832D530007FE12 /* HashTagResultLessonViewController.swift */; };
 		C4DC8E7C2C832D6A0007FE12 /* HashTagResultCommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E7B2C832D6A0007FE12 /* HashTagResultCommunityViewController.swift */; };
+		C4DC8E7E2C8361EB0007FE12 /* PayRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E7D2C8361EB0007FE12 /* PayRouter.swift */; };
+		C4DC8E812C8363CD0007FE12 /* PayValidationBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E802C8363CD0007FE12 /* PayValidationBody.swift */; };
+		C4DC8E842C836B020007FE12 /* iamport-ios in Frameworks */ = {isa = PBXBuildFile; productRef = C4DC8E832C836B020007FE12 /* iamport-ios */; };
+		C4DC8E8E2C8381320007FE12 /* PaymentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8E8D2C8381320007FE12 /* PaymentsViewController.swift */; };
+		C4DC8ECF2C86CA0B0007FE12 /* PayValidationResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DC8ECE2C86CA0B0007FE12 /* PayValidationResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -165,6 +171,8 @@
 		C40391792C7A010A00D50850 /* PostFilesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFilesResponse.swift; sourceTree = "<group>"; };
 		C403917B2C7B4F6E00D50850 /* PostQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostQuery.swift; sourceTree = "<group>"; };
 		C40391802C7B54FC00D50850 /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
+		C46D05EB2C8DAFF1001EF943 /* PaymentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewModel.swift; sourceTree = "<group>"; };
+		C46D05ED2C8DB7A8001EF943 /* MyPaymentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPaymentsResponse.swift; sourceTree = "<group>"; };
 		C48062A72C6DD4BE003FF7EE /* all-for-lesson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "all-for-lesson.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -254,7 +262,7 @@
 		C4DC8E192C7E043B0007FE12 /* PostCommentBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCommentBody.swift; sourceTree = "<group>"; };
 		C4DC8E1B2C7E07C50007FE12 /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
 		C4DC8E1D2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessonCommentCollectionViewCell.swift; sourceTree = "<group>"; };
-		C4DC8E372C8058F50007FE12 /* MyReservationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationController.swift; sourceTree = "<group>"; };
+		C4DC8E372C8058F50007FE12 /* MyReservationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationViewController.swift; sourceTree = "<group>"; };
 		C4DC8E392C8058FD0007FE12 /* MyReservationBookmarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationBookmarkView.swift; sourceTree = "<group>"; };
 		C4DC8E3B2C8059040007FE12 /* MyReservationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReservationViewModel.swift; sourceTree = "<group>"; };
 		C4DC8E402C805B260007FE12 /* MyBookmarkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBookmarkViewController.swift; sourceTree = "<group>"; };
@@ -279,6 +287,10 @@
 		C4DC8E722C8220140007FE12 /* HashTagResultViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagResultViewModel.swift; sourceTree = "<group>"; };
 		C4DC8E792C832D530007FE12 /* HashTagResultLessonViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagResultLessonViewController.swift; sourceTree = "<group>"; };
 		C4DC8E7B2C832D6A0007FE12 /* HashTagResultCommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HashTagResultCommunityViewController.swift; sourceTree = "<group>"; };
+		C4DC8E7D2C8361EB0007FE12 /* PayRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayRouter.swift; sourceTree = "<group>"; };
+		C4DC8E802C8363CD0007FE12 /* PayValidationBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayValidationBody.swift; sourceTree = "<group>"; };
+		C4DC8E8D2C8381320007FE12 /* PaymentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewController.swift; sourceTree = "<group>"; };
+		C4DC8ECE2C86CA0B0007FE12 /* PayValidationResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayValidationResponse.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -286,13 +298,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4DC8E842C836B020007FE12 /* iamport-ios in Frameworks */,
 				C48063062C6F286E003FF7EE /* RxCocoa in Frameworks */,
 				C48062DC2C6F1282003FF7EE /* SnapKit in Frameworks */,
 				C48063082C6F286E003FF7EE /* RxSwift in Frameworks */,
 				C48063352C6F6B79003FF7EE /* Alamofire in Frameworks */,
 				C40391842C7B81F100D50850 /* Kingfisher in Frameworks */,
 				C4DC8E762C8221860007FE12 /* Tabman in Frameworks */,
-				C48062E12C6F1376003FF7EE /* Then in Frameworks */,
 				C403917F2C7B54B100D50850 /* Toast in Frameworks */,
 				C480631A2C6F2CDF003FF7EE /* TextFieldEffects in Frameworks */,
 			);
@@ -331,6 +343,7 @@
 				C403916D2C7791A100D50850 /* APIRouter.swift */,
 				C40391292C75D4C200D50850 /* UserRouter.swift */,
 				C40391582C76EA0000D50850 /* PostRouter.swift */,
+				C4DC8E7D2C8361EB0007FE12 /* PayRouter.swift */,
 			);
 			path = Router;
 			sourceTree = "<group>";
@@ -398,9 +411,6 @@
 				C48063272C6F5B1F003FF7EE /* Manager */,
 				C48062D22C6F10C9003FF7EE /* Protocol */,
 				C48062C72C6F0FC3003FF7EE /* Presentation */,
-				C48062B32C6DD4BF003FF7EE /* Assets.xcassets */,
-				C48062B52C6DD4BF003FF7EE /* LaunchScreen.storyboard */,
-				C48062B82C6DD4BF003FF7EE /* Info.plist */,
 			);
 			path = "all-for-lesson";
 			sourceTree = "<group>";
@@ -410,6 +420,9 @@
 			children = (
 				C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */,
 				C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */,
+				C48062B32C6DD4BF003FF7EE /* Assets.xcassets */,
+				C48062B52C6DD4BF003FF7EE /* LaunchScreen.storyboard */,
+				C48062B82C6DD4BF003FF7EE /* Info.plist */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -427,6 +440,7 @@
 				C49447A42C70F3A1005AADF7 /* HashTag */,
 				C49447A72C70F4B5005AADF7 /* Community */,
 				C49447AA2C70F585005AADF7 /* MyPage */,
+				C4DC8E882C8373DC0007FE12 /* Payments */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -591,6 +605,7 @@
 			children = (
 				C40391262C75BE4A00D50850 /* User */,
 				C403915A2C76EDB000D50850 /* Post */,
+				C4DC8ECD2C86C9F00007FE12 /* Pay */,
 			);
 			path = Response;
 			sourceTree = "<group>";
@@ -630,6 +645,7 @@
 			children = (
 				C40391632C77811200D50850 /* User */,
 				C40391682C7784AD00D50850 /* Post */,
+				C4DC8E7F2C8363B90007FE12 /* Pay */,
 			);
 			path = Request;
 			sourceTree = "<group>";
@@ -749,7 +765,7 @@
 			isa = PBXGroup;
 			children = (
 				C4DC8E392C8058FD0007FE12 /* MyReservationBookmarkView.swift */,
-				C4DC8E372C8058F50007FE12 /* MyReservationController.swift */,
+				C4DC8E372C8058F50007FE12 /* MyReservationViewController.swift */,
 				C4DC8E3B2C8059040007FE12 /* MyReservationViewModel.swift */,
 			);
 			path = MyReservation;
@@ -814,6 +830,32 @@
 			path = HashTagResult;
 			sourceTree = "<group>";
 		};
+		C4DC8E7F2C8363B90007FE12 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				C4DC8E802C8363CD0007FE12 /* PayValidationBody.swift */,
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
+		C4DC8E882C8373DC0007FE12 /* Payments */ = {
+			isa = PBXGroup;
+			children = (
+				C4DC8E8D2C8381320007FE12 /* PaymentsViewController.swift */,
+				C46D05EB2C8DAFF1001EF943 /* PaymentsViewModel.swift */,
+			);
+			path = Payments;
+			sourceTree = "<group>";
+		};
+		C4DC8ECD2C86C9F00007FE12 /* Pay */ = {
+			isa = PBXGroup;
+			children = (
+				C4DC8ECE2C86CA0B0007FE12 /* PayValidationResponse.swift */,
+				C46D05ED2C8DB7A8001EF943 /* MyPaymentsResponse.swift */,
+			);
+			path = Pay;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -832,7 +874,6 @@
 			name = "all-for-lesson";
 			packageProductDependencies = (
 				C48062DB2C6F1282003FF7EE /* SnapKit */,
-				C48062E02C6F1376003FF7EE /* Then */,
 				C48063052C6F286E003FF7EE /* RxCocoa */,
 				C48063072C6F286E003FF7EE /* RxSwift */,
 				C48063192C6F2CDF003FF7EE /* TextFieldEffects */,
@@ -840,6 +881,7 @@
 				C403917E2C7B54B100D50850 /* Toast */,
 				C40391832C7B81F100D50850 /* Kingfisher */,
 				C4DC8E752C8221860007FE12 /* Tabman */,
+				C4DC8E832C836B020007FE12 /* iamport-ios */,
 			);
 			productName = "all-for-lesson";
 			productReference = C48062A72C6DD4BE003FF7EE /* all-for-lesson.app */;
@@ -871,13 +913,13 @@
 			mainGroup = C480629E2C6DD4BE003FF7EE;
 			packageReferences = (
 				C48062DA2C6F1282003FF7EE /* XCRemoteSwiftPackageReference "SnapKit" */,
-				C48062DF2C6F1376003FF7EE /* XCRemoteSwiftPackageReference "Then" */,
 				C48063042C6F286E003FF7EE /* XCRemoteSwiftPackageReference "RxSwift" */,
 				C48063182C6F2CDF003FF7EE /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
 				C48063332C6F6B79003FF7EE /* XCRemoteSwiftPackageReference "Alamofire" */,
 				C403917D2C7B54B100D50850 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 				C40391822C7B81F100D50850 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				C4DC8E742C8221860007FE12 /* XCRemoteSwiftPackageReference "Tabman" */,
+				C4DC8E822C836B020007FE12 /* XCRemoteSwiftPackageReference "iamport-ios" */,
 			);
 			productRefGroup = C48062A82C6DD4BE003FF7EE /* Products */;
 			projectDirPath = "";
@@ -916,6 +958,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C40391812C7B54FC00D50850 /* ToastManager.swift in Sources */,
+				C46D05EC2C8DAFF1001EF943 /* PaymentsViewModel.swift in Sources */,
 				C49447E42C7448C5005AADF7 /* LessonViewModel.swift in Sources */,
 				C4DC8E732C8220140007FE12 /* HashTagResultViewModel.swift in Sources */,
 				C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */,
@@ -929,6 +972,7 @@
 				C49447962C70D6C4005AADF7 /* LoginResponse.swift in Sources */,
 				C4DC8E132C7DF1C10007FE12 /* LessonCommentView.swift in Sources */,
 				C49447B52C722BD0005AADF7 /* HomeView.swift in Sources */,
+				C46D05EE2C8DB7A8001EF943 /* MyPaymentsResponse.swift in Sources */,
 				C403917A2C7A010A00D50850 /* PostFilesResponse.swift in Sources */,
 				C480632B2C6F5BA4003FF7EE /* StudentJoinViewModel.swift in Sources */,
 				C40391592C76EA0000D50850 /* PostRouter.swift in Sources */,
@@ -940,6 +984,7 @@
 				C40391372C76363000D50850 /* LessonOpenViewModel.swift in Sources */,
 				C4DC8E682C81CF8D0007FE12 /* HashTagQuery.swift in Sources */,
 				C48062CD2C6F1029003FF7EE /* OnboardingViewController.swift in Sources */,
+				C4DC8E7E2C8361EB0007FE12 /* PayRouter.swift in Sources */,
 				C4DC8DF12C7C994B0007FE12 /* ReservationBookmarkBody.swift in Sources */,
 				C49447D72C7367FB005AADF7 /* UserTypeButton.swift in Sources */,
 				C49447B32C720F77005AADF7 /* LoginViewCase.swift in Sources */,
@@ -963,6 +1008,7 @@
 				C4DC8E662C81C1970007FE12 /* HashTagViewModel.swift in Sources */,
 				C49447922C70BB02005AADF7 /* HomeViewController.swift in Sources */,
 				C4DC8E1E2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift in Sources */,
+				C4DC8E812C8363CD0007FE12 /* PayValidationBody.swift in Sources */,
 				C48062D72C6F10FE003FF7EE /* UIView+.swift in Sources */,
 				C4DC8E7A2C832D530007FE12 /* HashTagResultLessonViewController.swift in Sources */,
 				C494479B2C70E846005AADF7 /* UIViewController+.swift in Sources */,
@@ -976,7 +1022,9 @@
 				C48063212C6F5597003FF7EE /* JoinLabel.swift in Sources */,
 				C48062DE2C6F12D0003FF7EE /* BaseView.swift in Sources */,
 				C48062E42C6F13C0003FF7EE /* Constant.swift in Sources */,
+				C4DC8E8E2C8381320007FE12 /* PaymentsViewController.swift in Sources */,
 				C403912D2C75D82300D50850 /* LessonOpenView.swift in Sources */,
+				C4DC8ECF2C86CA0B0007FE12 /* PayValidationResponse.swift in Sources */,
 				C480630A2C6F2976003FF7EE /* InputOutput.swift in Sources */,
 				C48063392C6F7954003FF7EE /* EmailResponse.swift in Sources */,
 				C48063262C6F596F003FF7EE /* TeacherJoinView.swift in Sources */,
@@ -1014,7 +1062,7 @@
 				C48063442C6F9078003FF7EE /* LoginView.swift in Sources */,
 				C49447A02C70EDC9005AADF7 /* CustomTabBarController.swift in Sources */,
 				C403912A2C75D4C200D50850 /* UserRouter.swift in Sources */,
-				C4DC8E382C8058F50007FE12 /* MyReservationController.swift in Sources */,
+				C4DC8E382C8058F50007FE12 /* MyReservationViewController.swift in Sources */,
 				C49447EE2C74DBFE005AADF7 /* LessonDetailViewController.swift in Sources */,
 				C49447D32C7334A0005AADF7 /* PostResponse.swift in Sources */,
 				C4DC8E4F2C80B8B10007FE12 /* MyLessonViewController.swift in Sources */,
@@ -1183,6 +1231,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1216,6 +1265,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1282,14 +1332,6 @@
 				minimumVersion = 5.7.1;
 			};
 		};
-		C48062DF2C6F1376003FF7EE /* XCRemoteSwiftPackageReference "Then" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/devxoul/Then.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 3.0.0;
-			};
-		};
 		C48063042C6F286E003FF7EE /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -1322,6 +1364,14 @@
 				minimumVersion = 3.2.0;
 			};
 		};
+		C4DC8E822C836B020007FE12 /* XCRemoteSwiftPackageReference "iamport-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/iamport/iamport-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1339,11 +1389,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C48062DA2C6F1282003FF7EE /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		C48062E02C6F1376003FF7EE /* Then */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C48062DF2C6F1376003FF7EE /* XCRemoteSwiftPackageReference "Then" */;
-			productName = Then;
 		};
 		C48063052C6F286E003FF7EE /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1369,6 +1414,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C4DC8E742C8221860007FE12 /* XCRemoteSwiftPackageReference "Tabman" */;
 			productName = Tabman;
+		};
+		C4DC8E832C836B020007FE12 /* iamport-ios */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C4DC8E822C836B020007FE12 /* XCRemoteSwiftPackageReference "iamport-ios" */;
+			productName = "iamport-ios";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

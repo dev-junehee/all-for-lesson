@@ -5,13 +5,17 @@
 //  Created by junehee on 8/20/24.
 //
 
-import Foundation
+import UIKit
+import WebKit
+import iamport_ios
 import RxCocoa
 import RxSwift
+import SnapKit
 
 final class LessonDetailViewController: BaseViewController {
     
     private let detailView = LessonDetailView()
+    
     private let viewModel = LessonDetailViewModel()
     private let disposeBag = DisposeBag()
     
@@ -75,6 +79,14 @@ final class LessonDetailViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        output.reservationButtonTap
+            .bind(with: self) { owner, post in
+                let paymentsVC = PaymentsViewController()
+                paymentsVC.postData = post
+                owner.navigationController?.pushViewController(paymentsVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
         /// 레슨 신청 결과
         output.isReservation
             .bind(with: self) { owner, isReservation in
@@ -104,7 +116,7 @@ final class LessonDetailViewController: BaseViewController {
             .bind(with: self) { owner, userID in
                 let userDetailVC = UserProfileViewController()
                 userDetailVC.userID.onNext(userID)
-                owner.navigationController?.pushViewController(userDetailVC, animated: true)
+                // owner.navigationController?.pushViewController(userDetailVC, animated: true)
             }
             .disposed(by: disposeBag)
         
@@ -116,10 +128,6 @@ final class LessonDetailViewController: BaseViewController {
                 }
             }
             .disposed(by: disposeBag)
-    }
-    
-    @objc private func bookmarkButtonClicked() {
-        
     }
     
 }

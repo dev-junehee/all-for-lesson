@@ -23,6 +23,8 @@ final class HashTagCollectionViewCell: BaseCollectionViewCell {
         title.font = Resource.Font.regular14
         config.attributedTitle = title
         
+        $0.isUserInteractionEnabled = false
+        
         $0.configuration = config
     }
     

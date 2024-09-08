@@ -53,7 +53,7 @@ extension NetworkErrorCase {
         case .Forbidden:
             "접근 권한 없음"
         case .AlreadyUse:
-            "이미 사용 중이에요."
+            "이미 사용 중이거나 검증 처리가 완료되었어요."
         case .ContentNotFound:
             "콘텐츠를 찾을 수 없어요."
         case .ExpiredRefreshToken:

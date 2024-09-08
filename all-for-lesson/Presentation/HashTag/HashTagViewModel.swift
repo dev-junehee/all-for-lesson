@@ -85,33 +85,27 @@ final class HashTagViewModel: InputOutput {
             }
             .disposed(by: disposeBag)
         
-        /// 해시태그 버튼 클릭 시 검색
+        /// 해시태그 버튼 클릭 시 해당 키워드로 검색
         input.hashtagButtonTap
-            .bind { hashtag in
-                print("hashtag>>>", hashtag)
+            .flatMap { hashtag in
+                let query = HashTagQuery(
+                    next: "",
+                    limit: "99999",
+                    product_id: ProductId.defaultId,
+                    hashTag: hashtag)
+                return NetworkManager.shared.apiCall(api: .post(.getHashTag(query: query)), of: PostResponse.self)
+            }
+            .bind { result in
+                switch result {
+                case .success(let value):
+                    print("추천 검색어 해시태그 성공")
+                    print(value)
+                    searchHashtagList.onNext(value.data)
+                case .failure(let error):
+                    print("추천 검색어 해시태그 실패", error)
+                }
             }
             .disposed(by: disposeBag)
-        
-            // .flatMap { hashtag in
-            //     print("hashtag>>>", hashtag)
-            //     let query = HashTagQuery(
-            //         next: "",
-            //         limit: "99999",
-            //         product_id: ProductId.defaultId,
-            //         hashTag: hashtag)
-            //     return NetworkManager.shared.apiCall(api: .post(.getHashTag(query: query)), of: PostResponse.self)
-            // }
-            // .bind { result in
-            //     switch result {
-            //     case .success(let value):
-            //         print("버튼 탭 - 해시태그 검색 성공")
-            //         print(value)
-            //         searchHashtagList.onNext(value.data)
-            //     case .failure(let error):
-            //         print("버튼 탭 - 해시태그 검색 실패", error)
-            //     }
-            // }
-            // .disposed(by: disposeBag)
         
         return Output(recommendHashtagList: recommendHashtagList, 
                       searchHashtagList: searchHashtagList)

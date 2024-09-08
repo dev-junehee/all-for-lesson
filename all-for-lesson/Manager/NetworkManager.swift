@@ -53,7 +53,7 @@ final class NetworkManager {
                             switch response.result {
                             case .success(let value):
                                 observer(.success(.success(value)))
-                            case .failure(let error):
+                            case .failure(_):
                                 guard let networkError = NetworkErrorCase(rawValue: statusCode) else {
                                     return observer(.success(.failure(NetworkErrorCase.UnknownError)))
                                 }
@@ -107,28 +107,28 @@ final class NetworkManager {
         }.debug("Post Files 네트워크 통신 >>>")
     }
     
-    func postReservation(id: String, reservation: Bool) {
-        let URL = API.URL.posts + id + API.URL.bookmark
-        let headers: HTTPHeaders = [
-            API.Header.auth: UserDefaultsManager.accessToken,
-            API.Header.sesacKey: API.KEY.key
-        ]
-        let params: [String: Bool] = [
-            "like_status": reservation
-        ]
-        
-        AF.request(URL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
-            .responseDecodable(of: ReservationResponse.self) { result in
-                switch result.result {
-                case .success(let value):
-                    print(value)
-                case .failure(let error):
-                    print(error)
-                }
-            }
-    }
+    // func postReservation(id: String, reservation: Bool) {
+    //     let URL = API.URL.posts + id + API.URL.bookmark
+    //     let headers: HTTPHeaders = [
+    //         API.Header.auth: UserDefaultsManager.accessToken,
+    //         API.Header.sesacKey: API.KEY.key
+    //     ]
+    //     let params: [String: Bool] = [
+    //         "like_status": reservation
+    //     ]
+    //     
+    //     AF.request(URL, method: .post, parameters: params, encoding: JSONEncoding.default, headers: headers)
+    //         .responseDecodable(of: ReservationResponse.self) { result in
+    //             switch result.result {
+    //             case .success(let value):
+    //                 print(value)
+    //             case .failure(let error):
+    //                 print(error)
+    //             }
+    //         }
+    // }
     
-    func getImage (_ file: String, completion: @escaping (Data) -> Void) {
+    func getImage(_ file: String, completion: @escaping (Data) -> Void) {
         let URL = API.URL.base + file
         let headers: HTTPHeaders = [
             API.Header.auth: UserDefaultsManager.accessToken,
@@ -142,6 +142,26 @@ final class NetworkManager {
                 }
             }
     }
+    
+    func getPostDetail(_ id: String, completion: @escaping (Result<Post, AFError>) -> Void) {
+        let router = PostRouter.getPostsDetail(id: id)
+        do {
+            let request = try router.asURLRequest()
+            AF.request(request)
+                .validate(statusCode: 200..<300)
+                .responseDecodable(of: Post.self) { response in
+                    switch response.result {
+                    case .success(let value):
+                        completion(.success(value))
+                    case .failure(let error):
+                        completion(.failure(error))
+                    }
+                }
+        } catch {
+            print("getPostDetail URLRequestConvertible Failed", error)
+        }
+    }
+    
     
     func refreshToken(completion: @escaping (Bool) -> Void) {
         print("토큰 갱신 시작")
