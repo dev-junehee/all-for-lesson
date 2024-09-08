@@ -15,7 +15,7 @@ final class MyReservationViewModel: InputOutput {
     
     struct Input {
         let viewWillAppearTrigger: Observable<[Any]>
-        let reservationTap: ControlEvent<String>
+        let reservationTap: ControlEvent<PayValidationResponse>
     }
     
     struct Output {
@@ -62,7 +62,7 @@ final class MyReservationViewModel: InputOutput {
 
         /// 레슨 내역 선택 시 상세 화면 연결
         input.reservationTap
-            // .map { $0.post_id }
+            .map { $0.post_id }
             .bind(to: postID)
             .disposed(by: disposeBag)
         

@@ -39,7 +39,7 @@ final class MyReservationViewController: BaseViewController {
         
         let input = MyReservationViewModel.Input(
             viewWillAppearTrigger: viewWillAppearTrigger,
-            reservationTap: myReservationView.collectionView.rx.modelSelected(String.self)
+            reservationTap: myReservationView.collectionView.rx.modelSelected(PayValidationResponse.self)
         )
         let output = viewModel.transform(input: input)
         
