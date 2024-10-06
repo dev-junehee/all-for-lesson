@@ -1,7 +1,7 @@
 # 🎶 올포레슨 (All For Lesson) - 클래식 음악 레슨 매칭 플랫폼
 
 <div align="center">
-  <img width="30%" src="https://github.com/user-attachments/assets/325b9fc9-fbf3-446b-94b4-70993b3af496" />
+  <img width=25%" src="https://github.com/user-attachments/assets/325b9fc9-fbf3-446b-94b4-70993b3af496" />
   <br />
   <img src="https://img.shields.io/badge/Swift-v5.1-F05138?logo=swift" />
   <img src="https://img.shields.io/badge/Xcode-v15.4-147EFB?logo=Xcode" />
