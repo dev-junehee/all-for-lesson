@@ -69,6 +69,9 @@ enum Resource {
             .piano, .microphone, .clef, .percussion
         ]
         
+        /// 커뮤니티 상단 버튼
+        static let community: UIImage = .community
+        
         /// 마이페이지 버튼
         static let mypageStudentButton: [UIImage]  = [.board, .bookmark]
         static let mypageTeacherButton: [UIImage]  = [.board, .postbox]

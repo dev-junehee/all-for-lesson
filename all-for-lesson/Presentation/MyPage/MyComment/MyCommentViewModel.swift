@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class MyCommentViewModel: InputOutput {
+final class MyCommentViewModel: ViewModelType {
     
     private let disposeBag = DisposeBag()
     

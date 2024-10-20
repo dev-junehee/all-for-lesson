@@ -7,7 +7,7 @@
 
 import Foundation
 
-final class HashTagResultViewModel: InputOutput {
+final class HashTagResultViewModel: ViewModelType {
     
     struct Input {
         

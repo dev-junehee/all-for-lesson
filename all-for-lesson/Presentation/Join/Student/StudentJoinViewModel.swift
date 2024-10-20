@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class StudentJoinViewModel: InputOutput {
+final class StudentJoinViewModel: ViewModelType {
     
     private let disposeBag = DisposeBag()
     
