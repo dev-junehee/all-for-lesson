@@ -13,25 +13,20 @@ final class CommunityCollectionViewCell: BaseCollectionViewCell {
 
     private let titleLabel = UILabel().then {
         $0.font = Resource.Font.bold16
-        // $0.backgroundColor = .red
     }
     
-    private let contentLabel = UITextView().then {
+    private let contentLabel = UILabel().then {
         $0.font = Resource.Font.regular14
-        // $0.backgroundColor = .orange
-        $0.isScrollEnabled = false
-        $0.isEditable = false
+        $0.numberOfLines = 0
     }
     
     private let commentImage = UIImageView().then {
         $0.image = .comment
-        // $0.backgroundColor = .blue
     }
     
     private let commentCountLabel = UILabel().then {
         $0.font = Resource.Font.bold16
         $0.textColor = Resource.Color.lightGray
-        // $0.backgroundColor = .brown
     }
     
     override func setHierarchyLayout() {

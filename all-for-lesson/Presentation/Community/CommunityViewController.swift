@@ -21,6 +21,10 @@ final class CommunityViewController: BaseViewController {
         view = communityView
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tabBarController?.tabBar.isHidden = false
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         bind()
@@ -30,9 +34,16 @@ final class CommunityViewController: BaseViewController {
     private func bind() {
         let input = CommunityViewModel.Input(
             viewDidLoadTrigger: viewDidLoadTrigger,
-            postButtonTap: communityView.createButton.rx.tap
+            postButtonTap: communityView.createButton.rx.tap,
+            communityCellTap: communityView.collectionView.rx.modelSelected(Post.self)
         )
         let output = viewModel.transform(input: input)
+        
+        output.profileData
+            .bind(with: self) { owner, profileData in
+                owner.communityView.updateCommunityProfile(profileData)
+            }
+            .disposed(by: disposeBag)
         
         output.communityList
             .bind(to: communityView.collectionView.rx.items(cellIdentifier: CommunityCollectionViewCell.id, cellType: CommunityCollectionViewCell.self)) { item, element, cell in
@@ -43,6 +54,14 @@ final class CommunityViewController: BaseViewController {
         output.postButtonTap
             .bind(with: self) { owner, _ in
                 owner.present(CommunityPostViewController(), animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        output.communityID
+            .bind(with: self) { owner, id in
+                let communityDetailVC = CommunityDetailViewController()
+                // hashtagResultVC.resultLessonVC.resultLessonData.onNext(searchList)
+                owner.navigationController?.pushViewController(communityDetailVC, animated: true)
             }
             .disposed(by: disposeBag)
     }

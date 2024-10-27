@@ -35,6 +35,7 @@
 		C4736B692CC51640003AC697 /* CommunityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4736B682CC51640003AC697 /* CommunityDetailView.swift */; };
 		C4736B6B2CC5165C003AC697 /* CommunityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4736B6A2CC5165C003AC697 /* CommunityDetailViewController.swift */; };
 		C4736B6D2CC5168F003AC697 /* CommunityPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4736B6C2CC5168F003AC697 /* CommunityPostViewController.swift */; };
+		C477A29C2CCD1C9C006B8DB6 /* CommunityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C477A29B2CCD1C9C006B8DB6 /* CommunityDetailViewModel.swift */; };
 		C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */; };
 		C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */; };
 		C48062B42C6DD4BF003FF7EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48062B32C6DD4BF003FF7EE /* Assets.xcassets */; };
@@ -187,6 +188,7 @@
 		C4736B682CC51640003AC697 /* CommunityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailView.swift; sourceTree = "<group>"; };
 		C4736B6A2CC5165C003AC697 /* CommunityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailViewController.swift; sourceTree = "<group>"; };
 		C4736B6C2CC5168F003AC697 /* CommunityPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityPostViewController.swift; sourceTree = "<group>"; };
+		C477A29B2CCD1C9C006B8DB6 /* CommunityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailViewModel.swift; sourceTree = "<group>"; };
 		C48062A72C6DD4BE003FF7EE /* all-for-lesson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "all-for-lesson.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -410,6 +412,7 @@
 			children = (
 				C4736B682CC51640003AC697 /* CommunityDetailView.swift */,
 				C4736B6A2CC5165C003AC697 /* CommunityDetailViewController.swift */,
+				C477A29B2CCD1C9C006B8DB6 /* CommunityDetailViewModel.swift */,
 			);
 			path = CommunityDetail;
 			sourceTree = "<group>";
@@ -1012,6 +1015,7 @@
 				C49447B52C722BD0005AADF7 /* HomeView.swift in Sources */,
 				C46D05EE2C8DB7A8001EF943 /* MyPaymentsResponse.swift in Sources */,
 				C403917A2C7A010A00D50850 /* PostFilesResponse.swift in Sources */,
+				C477A29C2CCD1C9C006B8DB6 /* CommunityDetailViewModel.swift in Sources */,
 				C480632B2C6F5BA4003FF7EE /* StudentJoinViewModel.swift in Sources */,
 				C40391592C76EA0000D50850 /* PostRouter.swift in Sources */,
 				C48062CB2C6F0FFC003FF7EE /* OnboardingView.swift in Sources */,

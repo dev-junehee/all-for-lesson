@@ -54,25 +54,23 @@ final class CommunityView: BaseView {
     private let nameLabel = UILabel().then {
         $0.font = Resource.Font.bold16
         $0.textColor = Resource.Color.whiteSmoke
-        $0.text = "초밥조아"
     }
     
     private let contentCountLabel = UILabel().then {
         $0.font = Resource.Font.regular12
         $0.textColor = Resource.Color.whiteSmoke
-        $0.text = "작성글 : 0개"
     }
     
     private let commentCountLabel = UILabel().then {
         $0.font = Resource.Font.regular12
         $0.textColor = Resource.Color.whiteSmoke
-        $0.text = "작성댓글 : 0개"
     }
     
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout()).then {
         $0.register(CommunityCollectionViewCell.self, forCellWithReuseIdentifier: CommunityCollectionViewCell.id)
         $0.backgroundColor = Resource.Color.lightGray
         $0.keyboardDismissMode = .onDrag
+        $0.showsVerticalScrollIndicator = false
     }
     
     private func layout() -> UICollectionViewLayout {
@@ -143,8 +141,10 @@ final class CommunityView: BaseView {
         }
     }
     
-    func updateCommunityProfile() {
-        
+    func updateCommunityProfile(_ profile: MyProfileResponse) {
+        nameLabel.text = profile.nick
+        contentCountLabel.text = "작성글: \(profile.posts.count.formatted())"
+        commentCountLabel.text = "작성댓글: \(profile.posts.count.formatted())"
     }
 
 }
