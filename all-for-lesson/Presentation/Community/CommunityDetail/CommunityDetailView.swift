@@ -22,10 +22,10 @@ final class CommunityDetailView: BaseView {
         $0.addSubview(nameLabel)
         $0.addSubview(createDateLabel)
         $0.addSubview(contentLabel)
-        $0.addSubview(separateLine)
         $0.addSubview(commentImage)
         $0.addSubview(commentLabel)
         $0.addSubview(commentCountLabel)
+        $0.addSubview(separateLine)
     }
     
     private let titleLabel = UILabel().then {
@@ -61,10 +61,6 @@ final class CommunityDetailView: BaseView {
         $0.text = "도저히 답이 없어서 질문드립니다... ㅠㅠ 현재 실기에 많은 시간을 꾸준히 투자하지만 실력이 오르지 않습니다... 실기 연습 시간을 늘려서라도 어캐든 90점 이상 받고 싶지만 가면갈수록 잘 되던 부분도 손이 굳고...오래걸리고...틀립니다... 혹시 실기 연습 어떻게 해야하는지... 실력을 올리고 싶은데... 어떤 강사분을 추천하는지 질문드립니다..."
     }
     
-    private let separateLine = UILabel().then {
-        $0.backgroundColor = Resource.Color.paleGray
-    }
-    
     private let commentImage = UIImageView().then {
         $0.image = .commentDark
     }
@@ -82,7 +78,13 @@ final class CommunityDetailView: BaseView {
         $0.font = Resource.Font.bold14
     }
     
-    override func setHierarchyLayout() {
+    private let separateLine = UILabel().then {
+        $0.backgroundColor = Resource.Color.paleGray
+    }
+    
+    // private let collectionView = UICollectionView()
+    
+    override func setHierarchyLayout() {    
         self.addSubview(scrollView)
         let safeArea = self.safeAreaLayoutGuide
         
@@ -123,14 +125,8 @@ final class CommunityDetailView: BaseView {
             $0.horizontalEdges.equalTo(container).inset(16)
         }
         
-        separateLine.snp.makeConstraints {
-            $0.top.equalTo(contentLabel.snp.bottom).offset(20)
-            $0.horizontalEdges.equalTo(container)
-            $0.height.equalTo(1)
-        }
-        
         commentImage.snp.makeConstraints {
-            $0.top.equalTo(separateLine.snp.bottom).offset(20)
+            $0.top.equalTo(contentLabel.snp.bottom).offset(20)
             $0.leading.equalTo(container).offset(16)
             $0.size.equalTo(24)
         }
@@ -149,6 +145,11 @@ final class CommunityDetailView: BaseView {
             $0.height.equalTo(20)
         }
         
+        separateLine.snp.makeConstraints {
+            $0.top.equalTo(commentImage.snp.bottom).offset(20)
+            $0.horizontalEdges.equalTo(container)
+            $0.height.equalTo(10)
+        }
     }
     
     func updateCommunityDetailView() {

@@ -21,12 +21,13 @@ final class CommunityCollectionViewCell: BaseCollectionViewCell {
     }
     
     private let commentImage = UIImageView().then {
-        $0.image = .comment
+        var color = Resource.Color.gray60
+        $0.image = .commentDark.withTintColor(color)
     }
     
     private let commentCountLabel = UILabel().then {
         $0.font = Resource.Font.bold16
-        $0.textColor = Resource.Color.lightGray
+        $0.textColor = Resource.Color.gray60
     }
     
     override func setHierarchyLayout() {

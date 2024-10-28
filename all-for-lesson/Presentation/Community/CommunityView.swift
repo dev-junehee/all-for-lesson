@@ -68,7 +68,7 @@ final class CommunityView: BaseView {
     
     lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout()).then {
         $0.register(CommunityCollectionViewCell.self, forCellWithReuseIdentifier: CommunityCollectionViewCell.id)
-        $0.backgroundColor = Resource.Color.lightGray
+        $0.backgroundColor = Resource.Color.paleGray
         $0.keyboardDismissMode = .onDrag
         $0.showsVerticalScrollIndicator = false
     }
