@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class MyReservationViewModel: InputOutput {
+final class MyReservationViewModel: ViewModelType {
     
     private let disposeBag = DisposeBag()
     

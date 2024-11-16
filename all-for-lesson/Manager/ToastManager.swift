@@ -13,7 +13,9 @@ final class ToastManager {
     static let shared = ToastManager()
     private init() { }
     
-    
+    func showToast() {
+        
+    }
     
 }
 

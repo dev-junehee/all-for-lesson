@@ -28,6 +28,14 @@
 		C40391842C7B81F100D50850 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = C40391832C7B81F100D50850 /* Kingfisher */; };
 		C46D05EC2C8DAFF1001EF943 /* PaymentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D05EB2C8DAFF1001EF943 /* PaymentsViewModel.swift */; };
 		C46D05EE2C8DB7A8001EF943 /* MyPaymentsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D05ED2C8DB7A8001EF943 /* MyPaymentsResponse.swift */; };
+		C4736B5F2CC3BFA0003AC697 /* CommunityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4736B5E2CC3BFA0003AC697 /* CommunityView.swift */; };
+		C4736B612CC3C5AA003AC697 /* CommunityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4736B602CC3C5AA003AC697 /* CommunityViewModel.swift */; };
+		C4736B632CC3CDF8003AC697 /* CommunityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4736B622CC3CDF8003AC697 /* CommunityCollectionViewCell.swift */; };
+		C4736B662CC51612003AC697 /* CommunityPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4736B652CC51612003AC697 /* CommunityPostView.swift */; };
+		C4736B692CC51640003AC697 /* CommunityDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4736B682CC51640003AC697 /* CommunityDetailView.swift */; };
+		C4736B6B2CC5165C003AC697 /* CommunityDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4736B6A2CC5165C003AC697 /* CommunityDetailViewController.swift */; };
+		C4736B6D2CC5168F003AC697 /* CommunityPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4736B6C2CC5168F003AC697 /* CommunityPostViewController.swift */; };
+		C477A29C2CCD1C9C006B8DB6 /* CommunityDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C477A29B2CCD1C9C006B8DB6 /* CommunityDetailViewModel.swift */; };
 		C48062AB2C6DD4BE003FF7EE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */; };
 		C48062AD2C6DD4BE003FF7EE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */; };
 		C48062B42C6DD4BF003FF7EE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C48062B32C6DD4BF003FF7EE /* Assets.xcassets */; };
@@ -58,7 +66,7 @@
 		C48063032C6F23DD003FF7EE /* CommonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063022C6F23DD003FF7EE /* CommonLabel.swift */; };
 		C48063062C6F286E003FF7EE /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = C48063052C6F286E003FF7EE /* RxCocoa */; };
 		C48063082C6F286E003FF7EE /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C48063072C6F286E003FF7EE /* RxSwift */; };
-		C480630A2C6F2976003FF7EE /* InputOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063092C6F2976003FF7EE /* InputOutput.swift */; };
+		C480630A2C6F2976003FF7EE /* ViewModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063092C6F2976003FF7EE /* ViewModelType.swift */; };
 		C480630C2C6F29BA003FF7EE /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480630B2C6F29BA003FF7EE /* OnboardingViewModel.swift */; };
 		C480630F2C6F2B23003FF7EE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C480630E2C6F2B23003FF7EE /* LoginViewController.swift */; };
 		C48063112C6F2B7E003FF7EE /* CommonButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C48063102C6F2B7E003FF7EE /* CommonButton.swift */; };
@@ -173,6 +181,14 @@
 		C40391802C7B54FC00D50850 /* ToastManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastManager.swift; sourceTree = "<group>"; };
 		C46D05EB2C8DAFF1001EF943 /* PaymentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentsViewModel.swift; sourceTree = "<group>"; };
 		C46D05ED2C8DB7A8001EF943 /* MyPaymentsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPaymentsResponse.swift; sourceTree = "<group>"; };
+		C4736B5E2CC3BFA0003AC697 /* CommunityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityView.swift; sourceTree = "<group>"; };
+		C4736B602CC3C5AA003AC697 /* CommunityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityViewModel.swift; sourceTree = "<group>"; };
+		C4736B622CC3CDF8003AC697 /* CommunityCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityCollectionViewCell.swift; sourceTree = "<group>"; };
+		C4736B652CC51612003AC697 /* CommunityPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityPostView.swift; sourceTree = "<group>"; };
+		C4736B682CC51640003AC697 /* CommunityDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailView.swift; sourceTree = "<group>"; };
+		C4736B6A2CC5165C003AC697 /* CommunityDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailViewController.swift; sourceTree = "<group>"; };
+		C4736B6C2CC5168F003AC697 /* CommunityPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityPostViewController.swift; sourceTree = "<group>"; };
+		C477A29B2CCD1C9C006B8DB6 /* CommunityDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommunityDetailViewModel.swift; sourceTree = "<group>"; };
 		C48062A72C6DD4BE003FF7EE /* all-for-lesson.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "all-for-lesson.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C48062AA2C6DD4BE003FF7EE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C48062AC2C6DD4BE003FF7EE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -202,7 +218,7 @@
 		C48062FD2C6F1D25003FF7EE /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		C48063002C6F1FCE003FF7EE /* OnboardingTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingTypeButton.swift; sourceTree = "<group>"; };
 		C48063022C6F23DD003FF7EE /* CommonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonLabel.swift; sourceTree = "<group>"; };
-		C48063092C6F2976003FF7EE /* InputOutput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOutput.swift; sourceTree = "<group>"; };
+		C48063092C6F2976003FF7EE /* ViewModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelType.swift; sourceTree = "<group>"; };
 		C480630B2C6F29BA003FF7EE /* OnboardingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		C480630E2C6F2B23003FF7EE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C48063102C6F2B7E003FF7EE /* CommonButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonButton.swift; sourceTree = "<group>"; };
@@ -382,6 +398,25 @@
 			path = Post;
 			sourceTree = "<group>";
 		};
+		C4736B642CC515F4003AC697 /* CommunityPost */ = {
+			isa = PBXGroup;
+			children = (
+				C4736B652CC51612003AC697 /* CommunityPostView.swift */,
+				C4736B6C2CC5168F003AC697 /* CommunityPostViewController.swift */,
+			);
+			path = CommunityPost;
+			sourceTree = "<group>";
+		};
+		C4736B672CC51632003AC697 /* CommunityDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C4736B682CC51640003AC697 /* CommunityDetailView.swift */,
+				C4736B6A2CC5165C003AC697 /* CommunityDetailViewController.swift */,
+				C477A29B2CCD1C9C006B8DB6 /* CommunityDetailViewModel.swift */,
+			);
+			path = CommunityDetail;
+			sourceTree = "<group>";
+		};
 		C480629E2C6DD4BE003FF7EE = {
 			isa = PBXGroup;
 			children = (
@@ -487,7 +522,7 @@
 			isa = PBXGroup;
 			children = (
 				C48062D82C6F11AD003FF7EE /* Reusable.swift */,
-				C48063092C6F2976003FF7EE /* InputOutput.swift */,
+				C48063092C6F2976003FF7EE /* ViewModelType.swift */,
 				C48063312C6F6AE7003FF7EE /* TargetType.swift */,
 			);
 			path = Protocol;
@@ -685,7 +720,11 @@
 		C49447A72C70F4B5005AADF7 /* Community */ = {
 			isa = PBXGroup;
 			children = (
+				C4736B642CC515F4003AC697 /* CommunityPost */,
+				C4736B672CC51632003AC697 /* CommunityDetail */,
+				C4736B5E2CC3BFA0003AC697 /* CommunityView.swift */,
 				C49447A82C70F4C7005AADF7 /* CommunityViewController.swift */,
+				C4736B602CC3C5AA003AC697 /* CommunityViewModel.swift */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -728,6 +767,7 @@
 				C49447D02C732EC0005AADF7 /* LessonCollectionViewCell.swift */,
 				C4DC8E1D2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift */,
 				C4DC8E692C81F9C50007FE12 /* HashTagCollectionViewCell.swift */,
+				C4736B622CC3CDF8003AC697 /* CommunityCollectionViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -957,6 +997,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4736B632CC3CDF8003AC697 /* CommunityCollectionViewCell.swift in Sources */,
 				C40391812C7B54FC00D50850 /* ToastManager.swift in Sources */,
 				C46D05EC2C8DAFF1001EF943 /* PaymentsViewModel.swift in Sources */,
 				C49447E42C7448C5005AADF7 /* LessonViewModel.swift in Sources */,
@@ -974,6 +1015,7 @@
 				C49447B52C722BD0005AADF7 /* HomeView.swift in Sources */,
 				C46D05EE2C8DB7A8001EF943 /* MyPaymentsResponse.swift in Sources */,
 				C403917A2C7A010A00D50850 /* PostFilesResponse.swift in Sources */,
+				C477A29C2CCD1C9C006B8DB6 /* CommunityDetailViewModel.swift in Sources */,
 				C480632B2C6F5BA4003FF7EE /* StudentJoinViewModel.swift in Sources */,
 				C40391592C76EA0000D50850 /* PostRouter.swift in Sources */,
 				C48062CB2C6F0FFC003FF7EE /* OnboardingView.swift in Sources */,
@@ -982,6 +1024,7 @@
 				C4DC8E412C805B260007FE12 /* MyBookmarkViewController.swift in Sources */,
 				C49447AC2C70F593005AADF7 /* MyPageViewController.swift in Sources */,
 				C40391372C76363000D50850 /* LessonOpenViewModel.swift in Sources */,
+				C4736B6D2CC5168F003AC697 /* CommunityPostViewController.swift in Sources */,
 				C4DC8E682C81CF8D0007FE12 /* HashTagQuery.swift in Sources */,
 				C48062CD2C6F1029003FF7EE /* OnboardingViewController.swift in Sources */,
 				C4DC8E7E2C8361EB0007FE12 /* PayRouter.swift in Sources */,
@@ -995,16 +1038,19 @@
 				C49447E92C74DBE3005AADF7 /* LessonDetailView.swift in Sources */,
 				C4DC8E432C805B470007FE12 /* MyBookmarkViewModel.swift in Sources */,
 				C480630F2C6F2B23003FF7EE /* LoginViewController.swift in Sources */,
+				C4736B692CC51640003AC697 /* CommunityDetailView.swift in Sources */,
 				C48062D92C6F11AD003FF7EE /* Reusable.swift in Sources */,
 				C4DC8E622C81BA0E0007FE12 /* UserProfileViewModel.swift in Sources */,
 				C403916E2C7791A100D50850 /* APIRouter.swift in Sources */,
 				C48063112C6F2B7E003FF7EE /* CommonButton.swift in Sources */,
 				C4DC8E462C805BFC0007FE12 /* MyCommentView.swift in Sources */,
+				C4736B612CC3C5AA003AC697 /* CommunityViewModel.swift in Sources */,
 				C48062C12C6DD521003FF7EE /* API.swift in Sources */,
 				C49447D12C732EC0005AADF7 /* LessonCollectionViewCell.swift in Sources */,
 				C4DC8E512C80B8B70007FE12 /* MyLessonViewModel.swift in Sources */,
 				C49447D52C7366EB005AADF7 /* MyPageView.swift in Sources */,
 				C4DC8E602C81B6270007FE12 /* UserProfileViewController.swift in Sources */,
+				C4736B662CC51612003AC697 /* CommunityPostView.swift in Sources */,
 				C4DC8E662C81C1970007FE12 /* HashTagViewModel.swift in Sources */,
 				C49447922C70BB02005AADF7 /* HomeViewController.swift in Sources */,
 				C4DC8E1E2C7E22A60007FE12 /* LessonCommentCollectionViewCell.swift in Sources */,
@@ -1025,7 +1071,7 @@
 				C4DC8E8E2C8381320007FE12 /* PaymentsViewController.swift in Sources */,
 				C403912D2C75D82300D50850 /* LessonOpenView.swift in Sources */,
 				C4DC8ECF2C86CA0B0007FE12 /* PayValidationResponse.swift in Sources */,
-				C480630A2C6F2976003FF7EE /* InputOutput.swift in Sources */,
+				C480630A2C6F2976003FF7EE /* ViewModelType.swift in Sources */,
 				C48063392C6F7954003FF7EE /* EmailResponse.swift in Sources */,
 				C48063262C6F596F003FF7EE /* TeacherJoinView.swift in Sources */,
 				C48062E72C6F13CB003FF7EE /* Resource.swift in Sources */,
@@ -1043,6 +1089,7 @@
 				C49447DA2C736BC3005AADF7 /* MyPageMenuButton.swift in Sources */,
 				C403912F2C75D82D00D50850 /* LessonOpenViewController.swift in Sources */,
 				C480630C2C6F29BA003FF7EE /* OnboardingViewModel.swift in Sources */,
+				C4736B5F2CC3BFA0003AC697 /* CommunityView.swift in Sources */,
 				C49447942C70CE62005AADF7 /* LoginViewModel.swift in Sources */,
 				C49447CF2C732A19005AADF7 /* LessonView.swift in Sources */,
 				C48063292C6F5B35003FF7EE /* ValidationManager.swift in Sources */,
@@ -1069,6 +1116,7 @@
 				C403915E2C76EE9A00D50850 /* PostBody.swift in Sources */,
 				C494478E2C70B4EF005AADF7 /* JoinResponse.swift in Sources */,
 				C4DC8E4D2C80B8AA0007FE12 /* MyLessonView.swift in Sources */,
+				C4736B6B2CC5165C003AC697 /* CommunityDetailViewController.swift in Sources */,
 				C4DC8E3C2C8059040007FE12 /* MyReservationViewModel.swift in Sources */,
 				C48063032C6F23DD003FF7EE /* CommonLabel.swift in Sources */,
 				C4DC8DF32C7C9C340007FE12 /* ReservationResponse.swift in Sources */,

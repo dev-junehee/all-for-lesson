@@ -20,6 +20,7 @@ enum Resource {
         static let whiteSmoke: UIColor = .init(0xfcfcfc)
         static let paleGray: UIColor = .init(0xf6f6f6)
         static let lightGray: UIColor = .init(0xd9d9d9)
+        static let gray60: UIColor = .init(0x999999)
         static let darkGray: UIColor = .init(0x636363)
         static let ivory: UIColor = .init(0xfffff5)
         static let yellow: UIColor = .init(0xffda8e)
@@ -68,6 +69,9 @@ enum Resource {
             .folder, .violin, .flute, .brass,
             .piano, .microphone, .clef, .percussion
         ]
+        
+        /// 커뮤니티 상단 버튼
+        static let community: UIImage = .community
         
         /// 마이페이지 버튼
         static let mypageStudentButton: [UIImage]  = [.board, .bookmark]

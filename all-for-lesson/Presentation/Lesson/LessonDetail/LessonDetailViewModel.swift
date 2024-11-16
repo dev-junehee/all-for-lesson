@@ -10,7 +10,7 @@ import iamport_ios
 import RxCocoa
 import RxSwift
 
-final class LessonDetailViewModel: InputOutput {
+final class LessonDetailViewModel: ViewModelType {
     
     private let disposeBag = DisposeBag()
     

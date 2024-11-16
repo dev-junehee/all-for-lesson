@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class PaymentsViewModel: InputOutput {
+final class PaymentsViewModel: ViewModelType {
     
     private let disposeBag = DisposeBag()
     

@@ -1,20 +1,17 @@
 //
-//  LessonEditViewModel.swift
+//  CommunityDetailViewModel.swift
 //  all-for-lesson
 //
-//  Created by junehee on 8/29/24.
+//  Created by junehee on 10/26/24.
 //
 
 import Foundation
 import RxCocoa
 import RxSwift
 
-final class LessonEditViewModel: ViewModelType {
-    
-    private let disposeBag = DisposeBag()
+final class CommunityDetailViewModel: ViewModelType {
     
     struct Input {
-        
         
     }
     

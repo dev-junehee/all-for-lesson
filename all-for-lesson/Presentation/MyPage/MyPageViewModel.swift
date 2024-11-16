@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class MyPageViewModel: InputOutput {
+final class MyPageViewModel: ViewModelType {
     
     private let disposeBag = DisposeBag()
     
