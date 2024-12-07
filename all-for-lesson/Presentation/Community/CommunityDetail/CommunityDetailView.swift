@@ -13,7 +13,6 @@ final class CommunityDetailView: BaseView {
     
     private lazy var scrollView = UIScrollView().then {
         $0.showsVerticalScrollIndicator = false
-        $0.addSubview(container)
     }
     
     private lazy var container = UIView().then {
@@ -26,10 +25,10 @@ final class CommunityDetailView: BaseView {
         $0.addSubview(commentLabel)
         $0.addSubview(commentCountLabel)
         $0.addSubview(separateLine)
+        $0.addSubview(collectionView)
     }
     
     private let titleLabel = UILabel().then {
-        $0.text = "(입시생) 실기 선생님은 어떻게 찾나요ㅠㅠ?"
         $0.numberOfLines = 0
         $0.font = Resource.Font.bold18
     }
@@ -45,20 +44,17 @@ final class CommunityDetailView: BaseView {
     private let nameLabel = UILabel().then {
         $0.font = Resource.Font.bold14
         $0.textColor = Resource.Color.fontBlack
-        $0.text = "초밥조아"
     }
     
     private let createDateLabel = UILabel().then {
         $0.font = Resource.Font.regular12
         $0.textColor = Resource.Color.darkGray
-        $0.text = "2024. 08. 15 게시됨"
     }
     
     private let contentLabel = UILabel().then {
         $0.font = Resource.Font.regular14
         $0.textColor = Resource.Color.fontBlack
         $0.numberOfLines = 0
-        $0.text = "도저히 답이 없어서 질문드립니다... ㅠㅠ 현재 실기에 많은 시간을 꾸준히 투자하지만 실력이 오르지 않습니다... 실기 연습 시간을 늘려서라도 어캐든 90점 이상 받고 싶지만 가면갈수록 잘 되던 부분도 손이 굳고...오래걸리고...틀립니다... 혹시 실기 연습 어떻게 해야하는지... 실력을 올리고 싶은데... 어떤 강사분을 추천하는지 질문드립니다..."
     }
     
     private let commentImage = UIImageView().then {
@@ -72,7 +68,6 @@ final class CommunityDetailView: BaseView {
     }
     
     private let commentCountLabel = UILabel().then {
-        $0.text = "123개"
         $0.textAlignment = .right
         $0.textColor = Resource.Color.darkGray
         $0.font = Resource.Font.bold14
@@ -82,10 +77,24 @@ final class CommunityDetailView: BaseView {
         $0.backgroundColor = Resource.Color.paleGray
     }
     
-    // private let collectionView = UICollectionView()
+    lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout()).then {
+        $0.register(CommunityCommentCollectionViewCell.self, forCellWithReuseIdentifier: CommunityCommentCollectionViewCell.id)
+        $0.keyboardDismissMode = .onDrag
+    }
     
-    override func setHierarchyLayout() {    
+    private func layout() -> UICollectionViewLayout {
+        let layout = UICollectionViewFlowLayout()
+        let width = UIScreen.main.bounds.width
+        layout.itemSize = CGSize(width: width, height: width / 5)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 32, bottom: 0, right: 0)
+        layout.scrollDirection = .vertical
+        return layout
+    }
+    
+    override func setHierarchyLayout() {
         self.addSubview(scrollView)
+        scrollView.addSubview(container)
+        
         let safeArea = self.safeAreaLayoutGuide
         
         scrollView.snp.makeConstraints {
@@ -93,8 +102,8 @@ final class CommunityDetailView: BaseView {
         }
         
         container.snp.makeConstraints {
-            $0.edges.width.equalToSuperview()
-            // $0.bottom.equalTo(interestingCollectionView.snp.bottom).offset(16)
+            $0.edges.equalToSuperview()
+            $0.width.equalTo(scrollView.snp.width)
         }
         
         titleLabel.snp.makeConstraints {
@@ -150,11 +159,27 @@ final class CommunityDetailView: BaseView {
             $0.horizontalEdges.equalTo(container)
             $0.height.equalTo(10)
         }
+        
+        collectionView.snp.makeConstraints {
+            $0.top.equalTo(separateLine.snp.bottom)
+            $0.horizontalEdges.equalTo(container)
+            $0.height.equalTo(300)
+            $0.bottom.equalTo(container.snp.bottom)
+        }
     }
     
-    func updateCommunityDetailView() {
+    func updateCommunityDetailView(post: Post) {
+        titleLabel.text = post.title
+        nameLabel.text = post.creator.nick
+        if let createAt = post.createAt {
+            createDateLabel.text = "\(createAt.getFormattedDateString()) 게시됨"
+        } else {
+            createDateLabel.text = "\(Date().getFormattedDateString()) 게시됨"
+        }
+        contentLabel.text = post.content
+        commentCountLabel.text = "\(post.comments.count)"
+        
         titleLabel.sizeToFit()
         contentLabel.sizeToFit()
     }
-    
 }

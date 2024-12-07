@@ -55,7 +55,8 @@ final class HashTagViewController: BaseViewController {
         output.searchHashtagList
             .bind(with: self) { owner, searchList in
                 let hashtagResultVC = HashTagResultViewController()
-                hashtagResultVC.resultLessonVC.resultLessonData.onNext(searchList)
+                hashtagResultVC.resultLessonVC.resultLessonData.onNext(searchList)  // 레슨
+                hashtagResultVC.resultCommunityVC.resultCommunityData.onNext(searchList) // 커뮤니티
                 owner.navigationController?.pushViewController(hashtagResultVC, animated: true)
             }
             .disposed(by: disposeBag)

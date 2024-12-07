@@ -56,6 +56,7 @@ final class CommunityViewModel: ViewModelType {
                 switch result {
                 case .success(let value):
                     communityList.onNext(value.data)
+                    dump(value.data)
                 case .failure(let error):
                     print("커뮤니티 게시글 불러오기 실패: ", error)
                 }
