@@ -60,7 +60,7 @@ final class CommunityViewController: BaseViewController {
         output.communityID
             .bind(with: self) { owner, id in
                 let communityDetailVC = CommunityDetailViewController()
-                // hashtagResultVC.resultLessonVC.resultLessonData.onNext(searchList)
+                communityDetailVC.postId.onNext(id)
                 owner.navigationController?.pushViewController(communityDetailVC, animated: true)
             }
             .disposed(by: disposeBag)

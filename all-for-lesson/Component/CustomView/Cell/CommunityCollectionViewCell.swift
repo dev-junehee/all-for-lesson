@@ -63,8 +63,7 @@ final class CommunityCollectionViewCell: BaseCollectionViewCell {
     func updateCell(post: Post) {
         titleLabel.text = post.title
         contentLabel.text = post.content
-        // commentCountLabel.text = post.comments.count.formatted()
-        commentCountLabel.text = Int.random(in: 0...50).formatted()
+        commentCountLabel.text = post.comments.count.formatted()
     }
     
 }
