@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class MyBookmarkViewModel: InputOutput {
+final class MyBookmarkViewModel: ViewModelType {
     
     private let disposeBag = DisposeBag()
     

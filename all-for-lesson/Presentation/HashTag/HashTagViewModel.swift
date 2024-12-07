@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class HashTagViewModel: InputOutput {
+final class HashTagViewModel: ViewModelType {
     
     private let disposeBag = DisposeBag()
     

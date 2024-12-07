@@ -9,7 +9,7 @@ import Foundation
 import RxCocoa
 import RxSwift
 
-final class OnboardingViewModel: InputOutput {
+final class OnboardingViewModel: ViewModelType {
     
     struct Input {
         let studentTap: ControlEvent<Void>
