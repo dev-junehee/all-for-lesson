@@ -20,7 +20,7 @@ final class HomeView: BaseView {
         var config = UIButton.Configuration.plain()
         config.baseForegroundColor = Resource.Color.fontBlack
         
-        var title = AttributedString("올포레슨")
+        var title = AttributedString(Constant.allforlesson)
         title.font = Resource.Font.viewTitle
         config.attributedTitle = title
 

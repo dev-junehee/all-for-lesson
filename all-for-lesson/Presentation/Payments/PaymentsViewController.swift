@@ -61,10 +61,7 @@ final class PaymentsViewController: BaseViewController {
     
     private func bind() {
         let input = PaymentsViewModel.Input(payBodyData: payBodyData)
-        let output = viewModel.transform(input: input)
-        
-        
-        
+        let _ = viewModel.transform(input: input)
     }
     
 }

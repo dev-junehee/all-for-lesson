@@ -25,7 +25,7 @@ final class MyCommentViewController: BaseViewController {
     }
     
     override func setViewController() {
-        navigationItem.title = "레슨 수강 후기"
+        navigationItem.title = Constant.MyPage.myLessonComment
         setBackBarButton()
         toggleTabBar(isShow: false)
     }

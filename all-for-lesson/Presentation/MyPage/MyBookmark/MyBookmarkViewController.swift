@@ -25,7 +25,7 @@ final class MyBookmarkViewController: BaseViewController {
     }
     
     override func setViewController() {
-        navigationItem.title = "내가 북마크한 레슨"
+        navigationItem.title = Constant.MyPage.myBookmark
         setBackBarButton()
         toggleTabBar(isShow: false)
     }

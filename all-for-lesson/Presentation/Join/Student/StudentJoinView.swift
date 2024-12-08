@@ -13,20 +13,23 @@ final class StudentJoinView: BaseView {
     
     private let typeLabel = JoinLabel(type: .student)
     
-    let emailField = JoinTextField(type: .student, placeholder: "이메일을 입력해 주세요")
+    let emailField = JoinTextField(type: .student, placeholder: Constant.Join.email)
+    
     let validationResultLabel = CommonLabel().then {
         $0.font = Resource.Font.regular14
     }
+    
     let duplicationButton = UIButton().then {
-        $0.setTitle("중복 확인", for: .normal)
+        $0.setTitle(Constant.Join.duplication, for: .normal)
         $0.titleLabel?.font = Resource.Font.bold14
         $0.backgroundColor = Resource.Color.lightGray
         $0.isEnabled = false
         $0.layer.cornerRadius = 12
     }
-    let passwordField = JoinTextField(type: .student, placeholder: "비밀번호를 입력해 주세요", isSecure: true)
-    let nickField = JoinTextField(type: .student, placeholder: "닉네임을 입력해 주세요")
-    let joinButton = CommonButton(title: "가입하기", color: Resource.Color.yellow, isEnabled: false)
+    
+    let passwordField = JoinTextField(type: .student, placeholder: Constant.Join.password, isSecure: true)
+    let nickField = JoinTextField(type: .student, placeholder: Constant.Join.nick)
+    let joinButton = CommonButton(title: Constant.Join.join, color: Resource.Color.yellow, isEnabled: false)
 
     override func setHierarchyLayout() {
         [typeLabel, emailField, validationResultLabel, duplicationButton, passwordField, nickField, joinButton].forEach { self.addSubview($0) }
@@ -77,7 +80,6 @@ final class StudentJoinView: BaseView {
             $0.horizontalEdges.equalTo(safeArea).inset(16)
             $0.height.equalTo(50)
         }
-        
     }
     
 }

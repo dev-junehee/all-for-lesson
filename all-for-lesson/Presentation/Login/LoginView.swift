@@ -12,33 +12,30 @@ import Then
 final class LoginView: BaseView {
     
     private let loginLabel = CommonLabel().then {
-        $0.text = "로그인"
+        $0.text = Constant.Login.login
         $0.font = Resource.Font.viewTitle
     }
     
-    let emailField = JoinTextField(type: .common, placeholder: "이메일을 입력해 주세요")
-    let passwordField = JoinTextField(type: .common, placeholder: "비밀번호를 입력해 주세요", isSecure: true)
-    let loginButton = CommonButton(title: "로그인", color: Resource.Color.purple, isEnabled: false)
+    let emailField = JoinTextField(type: .common, placeholder: Constant.Join.email)
+    let passwordField = JoinTextField(type: .common, placeholder: Constant.Join.password, isSecure: true)
+    let loginButton = CommonButton(title: Constant.Login.login, color: Resource.Color.purple, isEnabled: false)
     
     private let joinLabel = CommonLabel().then {
-        $0.text = "아직 계정이 없으신가요?"
+        $0.text = Constant.Login.noAccount
         $0.font = Resource.Font.regular14
     }
     
     let joinButton = UIButton().then {
         var config = UIButton.Configuration.plain()
         config.baseForegroundColor = Resource.Color.fontBlack
-        var title = AttributedString("회원가입")
+        var title = AttributedString(Constant.Join.signUp)
         title.font = Resource.Font.bold14
         config.attributedTitle = title
         $0.configuration = config
     }
     
-    
     override func setHierarchyLayout() {
-        [loginLabel, emailField, passwordField, loginButton, joinLabel, joinButton].forEach {
-            self.addSubview($0)
-        }
+        [loginLabel, emailField, passwordField, loginButton, joinLabel, joinButton].forEach { self.addSubview($0) }
         
         let safeArea = self.safeAreaLayoutGuide
         

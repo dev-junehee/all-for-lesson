@@ -28,7 +28,7 @@ final class LessonOpenViewController: BaseViewController {
     }
     
     override func setViewController() {
-        navigationItem.title = "새로운 레슨 개설하기"
+        navigationItem.title = Constant.Lesson.newLesson
         setImgBarButton(image: Resource.Image.plus, action: nil, type: .right)
         openView.photoPicker.delegate = self
     }
@@ -109,7 +109,6 @@ final class LessonOpenViewController: BaseViewController {
         /// 레슨 개설 완료
         output.postDone
             .bind(with: self) { owner, _ in
-                print("끝났으니까 창 닫기")
                 owner.dismiss(animated: true)
             }
             .disposed(by: disposeBag)

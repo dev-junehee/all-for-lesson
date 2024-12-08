@@ -30,7 +30,7 @@ final class MyReservationViewController: BaseViewController {
     }
     
     override func setViewController() {
-        navigationItem.title = "나의 수강 내역"
+        navigationItem.title = Constant.MyPage.myReservation
         setBackBarButton()
     }
     

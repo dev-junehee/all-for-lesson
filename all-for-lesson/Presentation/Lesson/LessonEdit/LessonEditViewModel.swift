@@ -15,7 +15,6 @@ final class LessonEditViewModel: ViewModelType {
     
     struct Input {
         
-        
     }
     
     struct Output {

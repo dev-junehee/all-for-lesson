@@ -28,6 +28,7 @@ final class LessonViewController: BaseViewController {
     }
     
     override func setViewController() {
+        super.setViewController()
         setBackBarButton()
     }
     

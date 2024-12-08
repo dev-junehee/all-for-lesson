@@ -15,7 +15,6 @@ final class LoginViewController: BaseViewController {
     
     private let loginView = LoginView()
     private let viewModel = LoginViewModel()
-    
     private let disposeBag = DisposeBag()
     
     override func loadView() {
@@ -34,7 +33,6 @@ final class LoginViewController: BaseViewController {
         case .no:
             setBackBarButton()
         }
-        
     }
     
     private func bind() {

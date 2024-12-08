@@ -55,12 +55,14 @@ final class MyPageView: BaseView {
     }
     
     /// 수강생 버튼
-    let reservationButton = MyPageMenuButton("수강 내역", image: Resource.Image.mypageStudentButton[0])
-    let bookmarkButton = MyPageMenuButton("북마크한 레슨", image: Resource.Image.mypageStudentButton[1])
+    let reservationButton = MyPageMenuButton(Constant.MyPage.reservation,
+                                             image: Resource.Image.mypageStudentButton[0])
+    let bookmarkButton = MyPageMenuButton(Constant.MyPage.bookmark,
+                                          image: Resource.Image.mypageStudentButton[1])
     
     /// 선생님 버튼
-    let lessonButton = MyPageMenuButton("나의 레슨 관리", image: Resource.Image.mypageTeacherButton[0])
-    let commentButton = MyPageMenuButton("레슨 수강 후기", image: Resource.Image.mypageTeacherButton[1])
+    let lessonButton = MyPageMenuButton(Constant.MyPage.myLesson, image: Resource.Image.mypageTeacherButton[0])
+    let commentButton = MyPageMenuButton(Constant.MyPage.myLessonComment, image: Resource.Image.mypageTeacherButton[1])
     
     let tableView = UITableView().then {
         $0.register(UITableViewCell.self, forCellReuseIdentifier: "MenuCell")
@@ -76,8 +78,8 @@ final class MyPageView: BaseView {
     
     override func setHierarchyLayout() {
         [
-            profileImage, profileNameEmailStack, studentButton, teacherButton, 
-            buttonStack, tableView, versionLabel
+            profileImage, profileNameEmailStack, studentButton, 
+            teacherButton, buttonStack, tableView, versionLabel
         ].forEach { self.addSubview($0) }
         
         let safeArea = self.safeAreaLayoutGuide

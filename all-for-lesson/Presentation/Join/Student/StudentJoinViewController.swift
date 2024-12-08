@@ -13,7 +13,6 @@ final class StudentJoinViewController: BaseViewController {
     
     private var joinView = StudentJoinView()
     private var viewModel = StudentJoinViewModel()
-    
     private let disposeBag = DisposeBag()
     
     override func loadView() {

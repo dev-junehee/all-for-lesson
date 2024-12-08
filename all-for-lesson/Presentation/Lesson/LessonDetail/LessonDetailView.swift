@@ -56,11 +56,15 @@ final class LessonDetailView: BaseView {
         $0.font = Resource.Font.regular14
     }
     
-    private let messageButton = CommonButton(title: "1:1 문의", color: Resource.Color.paleGray, fontColor: .black)
+    private let messageButton = CommonButton(title: Constant.Lesson.dm, 
+                                             color: Resource.Color.paleGray,
+                                             fontColor: .black)
     
-    lazy var reservationButton = CommonButton(title: "레슨 신청하기", color: Resource.Color.yellow, fontColor: .black)
+    lazy var reservationButton = CommonButton(title: Constant.Lesson.reservationLesson,
+                                              color: Resource.Color.yellow,
+                                              fontColor: .black)
     
-    let lessonInfoControl = UISegmentedControl(items: ["레슨 상세 정보", "레슨 후기"]).then {
+    let lessonInfoControl = UISegmentedControl(items: Constant.Lesson.detailView).then {
         $0.selectedSegmentIndex = 0
         $0.isUserInteractionEnabled = true
     }
@@ -176,13 +180,10 @@ final class LessonDetailView: BaseView {
             $0.edges.equalTo(detailInfoBox)
         }
         
-        
         commentFieldView.snp.makeConstraints {
             $0.horizontalEdges.bottom.equalTo(self)
             $0.height.equalTo(100)
         }
-        
-        
     }
     
     func updateLessonDetailInfo(_ post: Post) {

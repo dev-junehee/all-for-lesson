@@ -27,7 +27,7 @@ final class HashTagResultViewController: TabmanViewController {
     
     private func setViewController() {
         view.backgroundColor = Resource.Color.white
-        navigationItem.title = "검색 결과"
+        navigationItem.title = Constant.HashTag.result
         setBackBarButton()
         setTabMan()
     }
@@ -62,8 +62,8 @@ extension HashTagResultViewController: PageboyViewControllerDataSource, TMBarDat
     
     func barItem(for bar: any Tabman.TMBar, at index: Int) -> any Tabman.TMBarItemable {
         switch index {
-        case 0: TMBarItem(title: "레슨")
-        case 1: TMBarItem(title: "커뮤니티")
+        case 0: TMBarItem(title: Constant.Lesson.lesson)
+        case 1: TMBarItem(title: Constant.Community.community)
         default: TMBarItem(title: "\(index)")
         }
     }

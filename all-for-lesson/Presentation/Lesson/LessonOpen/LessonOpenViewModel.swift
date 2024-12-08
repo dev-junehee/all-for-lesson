@@ -53,13 +53,6 @@ final class LessonOpenViewModel: ViewModelType {
         let selectedLocation = PublishSubject<String?>()
         let typeList = PublishSubject<[String]>()
         let selectedType = PublishSubject<String?>()
-        // 
-        // let firstPhotoName = BehaviorSubject<String?>(value: )
-        // let firstPhoroFile = BehaviorSubject<Data?>(value: nil)
-        // let secondPhotoName = BehaviorSubject<String?>(value: "")
-        // let secondPhotoFile = BehaviorSubject<Data?>(value: nil)
-        // let thirdPhotoName = BehaviorSubject<String?>(value: "")
-        // let thirdPhoroFile = BehaviorSubject<Data?>(value: nil)
         
         let postDone = PublishSubject<Void>()
         

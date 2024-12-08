@@ -30,7 +30,7 @@ final class MyLessonViewController: BaseViewController {
     }
     
     override func setViewController() {
-        navigationItem.title = "나의 레슨 관리"
+        navigationItem.title = Constant.MyPage.myLesson
         setBackBarButton()
     }
     
