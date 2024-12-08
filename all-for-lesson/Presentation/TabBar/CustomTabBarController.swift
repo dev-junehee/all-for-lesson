@@ -15,24 +15,19 @@ final class CustomTabBarController: UITabBarController {
     }
     
     func setDefaultTabBar() {
-        let home = createTabBarItem(title: "홈", image: Resource.Image.home, viewController: HomeViewController())
-        let search = createTabBarItem(title: "해시태그", image: Resource.Image.hashtag, viewController: HashTagViewController())
-        let community = createTabBarItem(title: "커뮤니티", image: Resource.Image.board, viewController: CommunityViewController())
-        let mypage = createTabBarItem(title: "마이페이지", image: Resource.Image.person, viewController: MyPageViewController())
+        let home = createTabBarItem(title: Constant.Tab.home, image: Resource.Image.home, viewController: HomeViewController())
+        let hashtag = createTabBarItem(title: Constant.Tab.hashtag, image: Resource.Image.hashtag, viewController: HashTagViewController())
+        let community = createTabBarItem(title: Constant.Tab.community, image: Resource.Image.board, viewController: CommunityViewController())
+        let mypage = createTabBarItem(title: Constant.Tab.mypage, image: Resource.Image.person, viewController: MyPageViewController())
         
-        let viewControllers = [home, search, community, mypage]
+        let viewControllers = [home, hashtag, community, mypage]
         self.setViewControllers(viewControllers, animated: true)
     }
     
-    func setCustomTabBar(with viewControllers: [UIViewController]) {
-        self.setViewControllers(viewControllers, animated: true)
-    }
-    
-    func createTabBarItem(title: String, image: UIImage?, viewController: UIViewController) -> UINavigationController {
+    private func createTabBarItem(title: String, image: UIImage?, viewController: UIViewController) -> UINavigationController {
         let navigationController = UINavigationController(rootViewController: viewController)
         navigationController.tabBarItem.title = title
         navigationController.tabBarItem.image = image
-        
         return navigationController
     }
     

@@ -25,7 +25,7 @@ final class LessonOpenView: BaseView {
 
     /// 제목
     private let titleLabel = UILabel().then {
-        $0.text = "레슨 제목"
+        $0.text = Constant.Lesson.lessonTitle
         $0.textColor = Resource.Color.fontBlack
         $0.font = Resource.Font.bold16
     }
@@ -41,7 +41,7 @@ final class LessonOpenView: BaseView {
     
     /// 가격
     private let priceLabel = UILabel().then {
-        $0.text = "레슨 가격"
+        $0.text = Constant.Lesson.lessonPrice
         $0.textColor = Resource.Color.fontBlack
         $0.font = Resource.Font.bold16
     }
@@ -57,13 +57,13 @@ final class LessonOpenView: BaseView {
     
     /// 과목
     private let majorLabelFront = UILabel().then {
-        $0.text = "레슨 과목"
+        $0.text = Constant.Lesson.lessonMajor
         $0.textColor = Resource.Color.fontBlack
         $0.font = Resource.Font.bold16
     }
     
     lazy var majorField = UITextField().then {
-        $0.placeholder = "선택"
+        $0.placeholder = Constant.Lesson.selected
         $0.font = Resource.Font.regular14
         $0.textColor = Resource.Color.fontBlack
         $0.textAlignment = .center
@@ -85,13 +85,13 @@ final class LessonOpenView: BaseView {
     
     /// 위치
     private let locationLabelFront = UILabel().then {
-        $0.text = "레슨 위치"
+        $0.text = Constant.Lesson.lessonLocation
         $0.textColor = Resource.Color.fontBlack
         $0.font = Resource.Font.bold16
     }
     
     lazy var locationField = UITextField().then {
-        $0.placeholder = "선택"
+        $0.placeholder = Constant.Lesson.selected
         $0.font = Resource.Font.regular14
         $0.textColor = Resource.Color.fontBlack
         $0.textAlignment = .center
@@ -113,13 +113,13 @@ final class LessonOpenView: BaseView {
     
     /// 타입
     private let typeLabelFront = UILabel().then {
-        $0.text = "레슨 타입"
+        $0.text = Constant.Lesson.lessonType
         $0.textColor = Resource.Color.fontBlack
         $0.font = Resource.Font.bold16
     }
     
     lazy var typeField = UITextField().then {
-        $0.placeholder = "선택"
+        $0.placeholder = Constant.Lesson.selected
         $0.font = Resource.Font.regular14
         $0.textColor = Resource.Color.fontBlack
         $0.textAlignment = .center
@@ -142,7 +142,7 @@ final class LessonOpenView: BaseView {
     
     /// 소개
     private let contentLabel = UILabel().then {
-        $0.text = "레슨 소개"
+        $0.text = Constant.Lesson.lessonContent
         $0.textColor = Resource.Color.fontBlack
         $0.font = Resource.Font.bold16
     }
@@ -158,14 +158,14 @@ final class LessonOpenView: BaseView {
     
     /// 사진
     let fileLabel = UILabel().then {
-        $0.text = "파일 업로드"
+        $0.text = Constant.Lesson.fileUpload
         $0.textColor = Resource.Color.fontBlack
         $0.font = Resource.Font.bold16
     }
     
     let photoButton = UIButton().then {
         var config = UIButton.Configuration.filled()
-        var title = AttributedString("사진 선택")
+        var title = AttributedString(Constant.Lesson.photoSelected)
         title.font = Resource.Font.regular14
         config.attributedTitle = title
         config.cornerStyle = .small
@@ -376,7 +376,7 @@ final class LessonOpenView: BaseView {
     private func setToolBar(to pickerField: UITextField) {
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
-        let select = UIBarButtonItem(title: "선택")
+        let select = UIBarButtonItem(title: Constant.Lesson.selected)
         let blank = UIBarButtonItem(systemItem: .flexibleSpace)
         toolBar.setItems([blank, select], animated: true)
         toolBar.isUserInteractionEnabled = true

@@ -99,7 +99,6 @@ final class TeacherJoinViewModel: ViewModelType {
                     print("닉네임", response.nick)
                     print("userId", response.user_id)
                     
-                    // UserDefaultsManager.userType = "1"
                     UserDefaultsManager.userId = response.user_id
                     UserDefaultsManager.email = response.email
                     UserDefaultsManager.nick = response.nick

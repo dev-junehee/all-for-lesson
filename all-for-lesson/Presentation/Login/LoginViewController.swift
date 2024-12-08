@@ -15,7 +15,6 @@ final class LoginViewController: BaseViewController {
     
     private let loginView = LoginView()
     private let viewModel = LoginViewModel()
-    
     private let disposeBag = DisposeBag()
     
     override func loadView() {
@@ -34,7 +33,6 @@ final class LoginViewController: BaseViewController {
         case .no:
             setBackBarButton()
         }
-        
     }
     
     private func bind() {
@@ -55,7 +53,10 @@ final class LoginViewController: BaseViewController {
         output.loginSucceed
             .bind(with: self) { owner, result in
                 if result {
+                    ToastManager.shared.showToast(Constant.Toast.successLogin)
                     NavigationManager.shared.changeRootViewControllerToHome()
+                } else {
+                    ToastManager.shared.showToast(Constant.Toast.failLogin)
                 }
             }
             .disposed(by: disposeBag)

@@ -19,9 +19,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let refresh = UserDefaultsManager.refreshToken
         
         if refresh != "" {
-            let tabBarController = CustomTabBarController()
-            tabBarController.setDefaultTabBar()
-            window?.rootViewController = tabBarController
+            // let tabBarController = CustomTabBarController()
+            // tabBarController.setDefaultTabBar()
+            // window?.rootViewController = tabBarController
+            window?.rootViewController = LoginViewController()
         } else {
             window?.rootViewController = UINavigationController(rootViewController: OnboardingViewController())
         }

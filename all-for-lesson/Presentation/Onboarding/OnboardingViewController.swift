@@ -13,7 +13,6 @@ final class OnboardingViewController: BaseViewController {
     
     private let onboardingView = OnboardingView()
     private let viewModel = OnboardingViewModel()
-    
     private let disposeBag = DisposeBag()
     
     override func loadView() {

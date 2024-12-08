@@ -15,7 +15,7 @@ import Then
 final class LessonCommentFieldView: BaseView {
     
     let commentField = UITextField().then {
-        $0.placeholder = "레슨 후기를 작성해 주세요!"
+        $0.placeholder = Constant.Lesson.lessonComment
         $0.font = Resource.Font.regular14
         $0.tintColor = Resource.Color.yellow
     }
@@ -25,7 +25,7 @@ final class LessonCommentFieldView: BaseView {
         config.baseBackgroundColor = Resource.Color.yellow
         config.baseForegroundColor = Resource.Color.fontBlack
         
-        var title = AttributedString("등록")
+        var title = AttributedString(Constant.Lesson.submit)
         title.font = Resource.Font.bold14
         config.attributedTitle = title
         $0.configuration = config

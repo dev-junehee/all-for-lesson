@@ -21,7 +21,7 @@ final class CommunityView: BaseView {
         var config = UIButton.Configuration.plain()
         config.baseForegroundColor = Resource.Color.fontBlack
         
-        var title = AttributedString("커뮤니티")
+        var title = AttributedString(Constant.Community.community)
         title.font = Resource.Font.viewTitle
         config.attributedTitle = title
 

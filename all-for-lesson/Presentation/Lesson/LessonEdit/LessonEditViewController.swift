@@ -13,7 +13,6 @@ final class LessonEditViewController: BaseViewController {
     
     private let myLessonEditView = LessonOpenView()
     private let viewModel = LessonEditViewModel()
-    // private let disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +24,13 @@ final class LessonEditViewController: BaseViewController {
     }
     
     override func setViewController() {
-        navigationItem.title = "레슨 정보 수정"
-        setTextBarButton(title: "수정", action: nil, type: .right)
+        navigationItem.title = Constant.Lesson.editLesson
+        setTextBarButton(title: Constant.Lesson.edit, action: nil, type: .right)
     }
     
     private func bind() {
         let input = LessonEditViewModel.Input()
         let _ = viewModel.transform(input: input)
-        
     }
     
     func updateLessonEditView(post: Post) {
@@ -53,7 +51,6 @@ final class LessonEditViewController: BaseViewController {
         NetworkManager.shared.getImage(images[2]) { [weak self] data in
             self?.myLessonEditView.thirdPhoto.image = UIImage(data: data)
         }
-       
     }
     
 }

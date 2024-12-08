@@ -14,9 +14,11 @@ final class HashTagView: BaseView {
     private let titleLabel = UILabel().then {
         $0.numberOfLines = 0
         $0.font = Resource.Font.regular30
-        let titleString = NSMutableAttributedString(string: "#해시태그를\n검색해 보세요!")
+        let titleString = NSMutableAttributedString(string: Constant.HashTag.title)
         let nsString = titleString.string as NSString
-        titleString.addAttribute(.font, value: Resource.Font.bold30 ?? .systemFont(ofSize: 30, weight: .bold), range: nsString.range(of: "#해시태그"))
+        titleString.addAttribute(.font,
+                                 value: Resource.Font.bold30 ?? .systemFont(ofSize: 30, weight: .bold),
+                                 range: nsString.range(of: Constant.HashTag.hashtag))
         $0.attributedText = titleString
     }
     
@@ -28,7 +30,7 @@ final class HashTagView: BaseView {
     }
     
     let searchTextField = UITextField().then {
-        $0.placeholder = "어떤 해시태그를 찾으시나요?"
+        $0.placeholder = Constant.HashTag.search
         $0.font = Resource.Font.regular16
         $0.tintColor = Resource.Color.lightGray
     }
@@ -40,7 +42,7 @@ final class HashTagView: BaseView {
     }
     
     private let recommendHashtagLabel = UILabel().then {
-        $0.text = "추천 해시태그"
+        $0.text = Constant.HashTag.recommendHashtag
         $0.font = Resource.Font.medium14
     }
     
