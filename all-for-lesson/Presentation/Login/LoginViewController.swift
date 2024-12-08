@@ -53,7 +53,10 @@ final class LoginViewController: BaseViewController {
         output.loginSucceed
             .bind(with: self) { owner, result in
                 if result {
+                    ToastManager.shared.showToast(Constant.Toast.successLogin)
                     NavigationManager.shared.changeRootViewControllerToHome()
+                } else {
+                    ToastManager.shared.showToast(Constant.Toast.failLogin)
                 }
             }
             .disposed(by: disposeBag)

@@ -120,4 +120,8 @@ enum Constant {
         static let community = "커뮤니티"
     }
     
+    enum Toast {
+        static let successLogin = "로그인에 성공했어요!"
+        static let failLogin = "로그인에 실패했어요"
+    }
 }
