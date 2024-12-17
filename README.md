@@ -18,14 +18,14 @@
 
 - "가사가 없어서 지루해요", "제목이 어려워요", "어떻게 즐겨야 하는지 모르겠어요"
 - 위와 같은 다양한 이유들로 클래식 음악은 아는 사람만 아는 고급 예술 문화가 되었습니다.
-- 하지만 클래식은 단순 감상을 넘어 직접 연주해보고, 연관된 배경 지식을 채우는 것만으로도 쉽게 즐길 수 있습니다.
-- 올포레슨은 클래식을 처음 알아가고 싶은 비전공자와, 전공을 시작하려는 예비 전공자를 위해 다양한 클래식 음악 레슨과 강의를 매칭할 수 있도록 도와줍니다.
+- 하지만 클래식은 단순 감상을 넘어 직접 연주해보고, 연관된 배경 지식을 채우는 것만으로도 쉽게 즐길 수 있다고 생각합니다.
+- 올포레슨은 클래식을 처음 알아가고 싶은 비전공자와, 전공을 시작하려는 예비 전공자 모두를 위해 다양한 클래식 음악 레슨과 강의를 매칭할 수 있도록 도와주는 플랫폼입니다.
 
 <br />
 
 ## 프로젝트 소개 (Description)
 > **개발 기간** : 2024. 08. 15 ~ 2024. 09. 08 (약 3주)<br />
-> **개발 인원** : 1인 (기획/디자인/개발)<br />
+> **개발 인원** : 1명 (기획·디자인·개발)<br />
 > **최소 버전** : iOS 15.0+<br />
 > **지원 모드** : 세로 모드, 라이트 모드
 
@@ -44,12 +44,13 @@
 ## 사용 기술 및 개발 환경  (Tech Stack & Environment)
 - **Language & Tool** : Swift 5.1, Xcode 15.4
 - **iOS** : UIKit, WebKit, PhotosUI
-- **Library** : Codebase UI, Kingfisher, SnapKit, Tabman & Pageboy, TextFieldEffects, Then
+- **Library** : Kingfisher, SnapKit, Tabman & Pageboy, TextFieldEffects, Then, Toast
 - **Architecture** : MVVM
 - **Design Pattern** : Input-Output, Router, Singleton
 - **Network** : Alamofire
 - **Reactive** : RxSwift, RxCocoa
 - **Payments** : iamport-iOS
+- **Management** : Git, GitHub, Notion, Figma
 
 <br />
 
@@ -130,59 +131,93 @@ gitGraph
 </details>
 
 <br />
+        
+## 주요 기능 (Main Feature)
+### 레슨 관련 기능
+- 전체 및 악기군별 레슨 목록 및 레슨 상세 정보 조회
+- 레슨 북마크 기능, 레슨 후기 작성 기능
+- PG사 결제 모듈을 연동한 레슨 결제 기능
 
-## 주요 기능 (Features)              
-### 공통
-- 전체 및 카테고리별 레슨 조회
-- 레슨 상세 정보 조회, 댓글 작성
-- 레슨 결제, 레슨 북마크
-- 해시태그 검색
+### 회원 유형별 차별화된 기능
+- 선생님 : 레슨 개설/수정, 레슨 수강 후기 관리
+- 수강생 : 북마크/결제한 레슨 관리, 수강 후기 작성
 
-### 선생님
-- 새로운 레슨 개설
-- 내가 개설한 레슨 목록 확인
-- 레슨 정보 수정
-- 레슨 수강 후기 확인
+### 해시태그 검색
+- 해시태그가 포함된 레슨 및 커뮤니티 게시물 목록 조회
+- 사용자가 입력한 검색어에 대한 실시간 해시태그 추천 기능 제공
 
-### 수강생
-- 결제한 레슨 목록 확인
-- 북마크한 레슨 목록 확인
-
-### 인증
-- 로그인, 로그아웃
-- 회원가입, 회원탈퇴
+### 사용자 인증
+- 로그인/로그아웃
+- 회원가입/회원탈퇴
 - 토큰 갱신
 
 <br />
 
-## 주요 기술  구현 내용 (Implementation Details)
+## 주요 기술 구현 내용 (Implementation Details)
+### RxSwift와 Input-Output 패턴을 적용한 MVVM 아키텍쳐 설계
+- ViewController가 복잡해지는 것을 막고 UI와 비즈니스 로직을 분리하기 위해 MVVM 아키텍쳐 도입
+- associatedType으로 Input, Output 구성을 강제하고 transform 메서드 포함하는 ViewModelType 프로토콜 구현
+- ViewModel : ViewModelType 프로토콜을 채택하여 데이터 가공과 비즈니스 로직을 처리, 데이터 흐름을 Input과 Output으로 제어
+- ViewController : bind 메서드 실행 이후 Stream에 이어지는 UI 업데이트 및 화면 전환 담당
 
-### 공통 코드 정의
+<br />
+
+### Alamofire, TargetType, Router 패턴을 활용한 네트워크 관리
+- Alamofire의 URLRequestConvertible을 채택한 TargetType 프로토콜을 정의해 네트워크 요청에 필요한 속성 정의
+- API 특성에 따라 Router를 나누어 관리, TargetType 프로토콜을 채택해 필요한 엔드포인트 정의 및 URLRequest 생성
+- 네트워크 요청에 필요한 Query, Body를 구조체로 정의하여 Router case에 연관값으로 선언하여 사용
+- 네트워크 에러를 열거형으로 정의하고, 연산 프로퍼티를 활용해 각 케이스에 맞는 커스텀 에러 메세지 구성
+- Encodable/Decodable 프로토콜을 채택한 네트워크 요청/응답 데이터 모델 정의, 네이밍 컨벤션을 적용하여 관리
+
+<br />
+
+### Alamofire RequestInterceptor를 활용한 AccessToken 갱신
+- Alamofire의 RequestInterceptor를 채택한 NetworkInspector 구현
+- adapt 메서드를 통해 네트워크 통신 전 HTTP Header 내 액세스 토큰 추가 
+- HTTP 상태 코드가 419(액세스 토큰 만료)인 경우 retry 메서드를 통해 토큰을 갱신시키고 네트워크 재요청 처리
+
+<br />
+
+### PG사 결제 모듈을 연동한 레슨 결제 기능 구현 & 결제 유효성 검증
+- iamport-iOS 라이브러리 사용하여 PG사 결제 모듈 연동
+- 레슨 결제 버튼 클릭 시 PublishSubject로 해당 레슨 정보를 전달 받고, PG사 서버에 레슨 정보와 함께 결제 요청
+- PG사 서버에서 응답 받은 결제 결과를 바탕으로 서비스 서버에 결제 영수증 검증 요청
+- 서비스 서버에서 응답 받은 영수증 검증 결과를 바탕으로 최종 레슨 결제 성공/실패 처리
+
+<br />
+
+### PhotosUI를 활용한 사진첩  Multipart-form 활용한 이미지 업로드 처리
+- PHPickerViewControllerDelegate의 pick 메서드를 사용해 사진첩 내 이미지 접근
+- 조건문을 활용하여 사용자 가 선택한 이미지 개수에 따라 분기 처리 진행
+- 사용자가 선택한 이미지의 파일명(String)과 데이터(Data)를 BehaviorSubject로 전달하고 Observable.zip 활용해 데이터 가공
+- Alamofire.upload 메서드를 통해 multipart-form 형식으로 처리 후 Result Type으로 에러 핸들링
+
+<br />
+
+### 화면 전환에 필요한 메서드를 구성하는 NavigationManager 구현
+- Singleton 패턴으로 화면 전환 및 RootViewController 관리에 필요한 메서드를 구성하여 한 곳에서 관리
+- 화면 전환이 필요한 부분에서 NavigationManager.shared 인스턴스에 접근하여 원하는 메서드 호출
+- 사용자 앱 진입 시 SceneDelegate에서 UserDefaults에 저장된 RefreshToken 유무에 따라 첫 화면 핸들링
+    - 토큰이 있는 경우 로그인화면
+    - 토큰이 없는 경우 온보딩 화면
+
+<br />
+
+### Base 코드, 공통 컴포넌트, 리소스 관리
 - 여러 View에서 공통적으로 활용하는 Base 코드 정의, 필요한 메서드를 오버라이딩하여 사용
 - 여러 화면에서 반복적으로 사용되는 UI를 재사용과 커스텀이 가능하도록 컴포넌트화하여 활용
-- 열거형과 타입 프로퍼티를 통해 앱에서 사용하는 문자열/상수와 폰트/이미지 등의 리소스 코드를 한 곳에서 관리
+- 열거형과 타입 프로퍼티를 통해 앱에서 사용하는 문자열, 폰트, 이미지 등의 리소스 코드를 데이터로 인식하여 관리
 
-### PG사 결제 모듈을 연동한 레슨 결제 기능 구현
-- iamport-iOS 라이브러리 사용
-- 사용자가 레슨 결제 버튼 클릭 시 해당 레슨 정보를 PublishSubject로 전달 받고 WebKit을 통해 결제 화면 연결하여 PG사 서버로 결제 요청
-- PG사 서버에서 응답 받은 결제 결과를 기반으로 서버에 결제 영수증 검증 요청
-- 서버에서 응답 받은 영수증 검증 결과를 바탕으로 최종 레슨 결제 성공/실패 처리
-
-### 네트워크 통신과 에러 핸들링
-- Request를 보내고, Decodable Model을 리턴받는 네트워크 통신 로직의 반복을 줄이기 위해 Alamofire와 Router Pattern을 함께 적용하여 네트워크 통신 로직 추상화
-- Single Traits와 Result Type을 결합하여 네트워크 통신 실패 시에도 onError를 방출하지 않고 Stream이 유지되도록 처리
-- RequestInterceptor를 활용하여 액세스 토큰 갱신
-- Error Protocol을 채택한 NetworkErrorCase를 정의하여 네트워크 오류를 일관적으로 처리, 연산 프로퍼티를 활용한 커스텀 에러 메세지 출력
+<br />
 
 ### 성능 최적화와 메모리 누수 방지
 - final, private 키워드를 사용하여 서브클래싱과 오버라이딩을 방지,  파일 외부에서 접근하지 않는 프로퍼티에 대해 접근 제한 처리
 - Static Dispatch로 동작하도록 처리함으로써 컴파일 최적화
 - 클로저 내부에서 외부 데이터를 참조할 때 [weak self] 처리를 통해  강한 순환 참조 문제 해결
 
-<br />
+<br /><br />
 
 ## 트러블 슈팅  (Trouble Shooting)
-
 ### 1. 네트워크 통신 중 Token 갱신이 필요한 상황에 대한 핸들링
 - **원인** : 네트워크 통신 중 AccessToken이 만료될 경우, RefreshToken을 사용해 AccessToken을 갱신하는데, 이 과정에서 이전에 진행하던 네트워크 통신이 종료되어 사용자가 같은 액션을 2번 이상 진행해야 하는 문제
 - **고민** : 사용자가 알 수 없게 AccessToken을 갱신 과정을 숨기고, 기존 네트워크 통신까지 다시 진행하여 사용자 경험과 비즈니스 로직 두 가지를 모두 대한 고려한 기능 구현이 필요
@@ -201,6 +236,7 @@ gitGraph
 
 <img src="https://github.com/user-attachments/assets/c0c2d5f9-2119-42f4-8d71-a32526d72847" />
 
+<!--
 ```swift
 switch response.result {
 case .success(let value):
@@ -212,6 +248,7 @@ case .failure(_):
 	observer(.success(.failure(networkError)))
 }
 ```
+-->
 
 <br /><br />
 
@@ -261,11 +298,11 @@ private func bind() {
 
 <br />
 
-### 4. iamport-ios, Then 패키지 충돌 오류
-- **원인** : iamport-ios SDK Dependency에서 이미 가지고 있는 Then 라이브러리와 직접 설치한 Then 라이브러리의 버전이 달라 충돌 발생
-    - iamport-ios에서 의존하는 Then 라이브러리는 버전 2.7.0
+### 4. iamport-iOS, Then 패키지 충돌 오류
+- **원인** : iamport-iOS SDK Dependency에서 이미 가지고 있는 Then 라이브러리와 직접 설치한 Then 라이브러리의 버전이 달라 충돌 발생
+    - iamport-iOS에서 의존하는 Then 라이브러리는 버전 2.7.0
     - 직접 설치한 Then 라이브러리는 버전 3.0.0 이상이기 때문에 서로 충돌
-- **해결** : Then 라이브러리는 major 버전 2에서도 문제없이 동작하기 때문에, 직접 설치한 라이브러리를 삭제하고 iamport-ios에서 의존하고 있는 Then 라이브러리를 그대로 사용하여 해결
+- **해결** : Then 라이브러리는 major 버전 2에서도 문제없이 동작하기 때문에, 직접 설치한 라이브러리를 삭제하고 iamport-iOS에서 의존하고 있는 Then 라이브러리를 그대로 사용하여 해결
 - **성과** : SDK 개발 시 특정 라이브러리에 의존하게 되면 발생할 수 있는 문제와, 모듈 간의 의존성에 대해 고민하고 학습할 수 있게 됨 
 
 ```swift=
